@@ -1,0 +1,648 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Dosis");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@100;200;300;400;500&display=swap");
+body {
+  max-width: 100%;
+  grid-template-areas: "header" "main" "footer";
+}
+body header {
+  grid-area: header;
+}
+body header #main-nav {
+  display: grid;
+  grid-area: main-nav;
+  grid-template-areas: "list";
+}
+body header #main-nav ol {
+  display: grid;
+  grid-area: list;
+  grid-template-areas: "list-item";
+}
+body header #main-nav ol li {
+  display: grid;
+}
+body header #main-nav ol li a {
+  grid-area: list-item;
+}
+
+#gridcontainer {
+  grid-area: gridcontainer;
+  display: grid;
+  max-width: 100%;
+  padding: 1vw;
+  grid-template-areas: "left" "right";
+}
+#gridcontainer #left {
+  grid-area: left;
+}
+#gridcontainer #right {
+  grid-area: right;
+  grid-template-areas: "todocontainer";
+}
+#gridcontainer #right #todocontainer {
+  display: grid;
+  grid-template-areas: "header" "todos" "footer" "addbar";
+}
+
+@media screen and (min-width: 451px) {
+  #todocontainer {
+    max-width: 500px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .color3 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .normal-text, p.normal-text {
+    font-size: 3vh;
+  }
+
+  #gridcontainer {
+    gap: 2vw;
+    grid-template-areas: "left right";
+  }
+}
+@media screen and (min-width: 1200px) {
+  #todocontainer {
+    max-width: 50%;
+  }
+}
+.color3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 100%;
+  font-size: 4vh;
+  padding: 0.25vw;
+}
+
+.primary {
+  background: black;
+  color: #ffb88f;
+  margin: 0;
+}
+
+.p30 {
+  background: black;
+  color: #fff08f;
+  margin: 0;
+}
+
+.p60 {
+  background: black;
+  color: #d6ff8f;
+  margin: 0;
+}
+
+.p90 {
+  background: black;
+  color: #9eff8f;
+  margin: 0;
+}
+
+.p120 {
+  background: black;
+  color: #8fffb8;
+  margin: 0;
+}
+
+.p150 {
+  background: black;
+  color: #8ffff0;
+  margin: 0;
+}
+
+.p180 {
+  background: black;
+  color: #8fd6ff;
+  margin: 0;
+}
+
+.p-150 {
+  background: black;
+  color: #8f9eff;
+  margin: 0;
+}
+
+.p-120 {
+  background: black;
+  color: #b88fff;
+  margin: 0;
+}
+
+.p-90 {
+  background: black;
+  color: #f08fff;
+  margin: 0;
+}
+
+.p-60 {
+  background: black;
+  color: #ff8fd6;
+  margin: 0;
+}
+
+.p-30 {
+  background: black;
+  color: #ff8f9e;
+  margin: 0;
+}
+
+input[type=checkbox].markbtnX {
+  content: "✕";
+  color: #ff8f9e;
+  font-size: 6vh;
+}
+
+html, body {
+  color: #ffd8c2;
+  background: #7e5201;
+  padding: 1vw;
+  font-size: 18px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.centered {
+  text-align: center;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+h2#tab-bar {
+  overflow: hidden;
+  margin-left: 4vw;
+  bottom: 0;
+  max-width: 100%;
+  border-radius: 0;
+  height: 4vh;
+}
+h2#tab-bar a {
+  float: left;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #ff8fd6;
+  padding: 1vw 2vw;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #d6ff8f;
+  max-width: 90%;
+  font-family: "Dosis", sans-serif;
+  background: black;
+  border-radius: 10px;
+  margin: 2vh auto;
+}
+
+div,
+form,
+footer,
+ul,
+ol,
+p,
+header,
+section {
+  font-family: "Nunito", sans-serif;
+  padding: 3vw;
+  background: black;
+  margin: 2vw 0;
+  border-radius: 10px;
+}
+
+.exercise {
+  border: 2px solid #ffb88f;
+  border-radius: 10px;
+  margin: 2vw;
+}
+
+.morespc {
+  line-height: 1.5;
+}
+
+.centerimg {
+  display: block;
+  max-width: 100%;
+  margin: auto;
+}
+
+h1 {
+  font-size: 4vh;
+  color: #d6ff8f;
+}
+
+h2 {
+  font-size: 3vh;
+}
+
+h3 {
+  font-size: 3vh;
+  width: 90%;
+}
+
+h4 {
+  font-size: 3vh;
+  width: 85%;
+}
+
+h5 {
+  font-size: 2vh;
+  width: 80%;
+  font-weight: bold;
+}
+
+h6 {
+  font-size: 2vh;
+  width: 75%;
+  font-weight: bold;
+}
+
+.listdots {
+  list-style: square;
+}
+
+.normal-text {
+  color: #ffb88f;
+  font-family: "Nunito", sans-serif;
+  font-size: 2vh;
+  padding: 2vw;
+  margin: 0 2vw;
+  background: black;
+}
+
+.nav a {
+  font-size: 3vh;
+  font-weight: bold;
+}
+
+ol li {
+  color: #d6ff8f;
+}
+ol li a {
+  font-size: 3vh;
+  color: #8f9eff;
+}
+ol li a:hover {
+  color: #b88fff;
+}
+
+a {
+  color: #d6ff8f;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #9eff8f;
+}
+
+a:hover {
+  color: #8fd6ff;
+}
+
+.buttons {
+  text-align: center;
+  cursor: pointer;
+  background: black;
+  box-shadow: 0 0 10px #ffb88f;
+  padding: 2vw;
+  max-width: 50%;
+  margin: 0 auto;
+  height: 10vh;
+  border-radius: 10px;
+  color: #d6ff8f;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  font-size: 3vh;
+}
+.buttons a {
+  text-decoration: none;
+  color: #8f9eff;
+  font-size: 4vh;
+}
+
+.padit {
+  padding: 4vw;
+  max-width: 100%;
+  margin: 1vw auto;
+}
+
+#siteTitle2 {
+  font-size: 4vh;
+  color: #d6ff8f;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.inputs {
+  max-width: 90%;
+}
+
+.textarea,
+.inputs {
+  background: #ffb88f;
+  color: black;
+  border-radius: 10px;
+  border: 4px solid #ff7729;
+  margin: 2vw;
+}
+
+textarea {
+  width: 90%;
+  height: 25vh;
+}
+
+footer#autofooter {
+  font-family: "Dosis", sans-serif;
+  font-size: 3vh;
+  font-weight: bold;
+  color: #d6ff8f;
+  text-align: center;
+  margin-bottom: 6vh;
+}
+
+.source {
+  text-align: center;
+  color: #f08fff;
+}
+
+.sources {
+  text-align: left;
+  color: #8fffb8;
+  font-size: 3vh;
+  font-weight: bold;
+  margin: 2vh auto;
+}
+.sources a {
+  text-decoration: none;
+  color: #8fffb8;
+  font-size: 3vh;
+}
+
+.code {
+  background: #ffb88f;
+  color: black;
+  font-size: 3vh;
+  border-radius: 10px;
+  padding: 1.5vw;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  width: 90%;
+  margin: 2vw auto;
+  text-decoration: none;
+  list-style: none;
+}
+
+li {
+  padding-left: 4vw;
+}
+
+.col2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vw;
+}
+
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.italic {
+  font-style: italic;
+}
+
+h4.indent, p.indenth4 {
+  padding-left: 4vw;
+}
+
+h5.indent, p.indenth5, p ul li.indent {
+  padding-left: 8vw;
+}
+
+h1 {
+  font-size: 5vh;
+}
+
+#autoheader {
+  margin: 1vw;
+}
+
+#todo-error {
+  font-size: 4vh;
+  font-weight: bold;
+  color: #ff8f9e;
+}
+
+#root a {
+  color: #d6ff8f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#root a:visited {
+  color: #9eff8f;
+}
+
+.todo-buttons {
+  height: 6vh;
+  margin: 1vw;
+  padding: 1vw;
+  color: #8ffff0;
+  font-size: 2vh;
+  background: black;
+  border: 2px solid #8ffff0;
+  border-radius: 8px;
+}
+.todo-buttons :hover {
+  border: 2px solid #8ffff0;
+}
+
+.todo-bordered {
+  border: 2px solid #8ffff0;
+  border-radius: 10px;
+  padding: 1vh;
+}
+
+.todo-scratch {
+  text-decoration: line-through;
+}
+
+.nodots {
+  list-style-type: none;
+}
+
+.todo-text, p.todo-text {
+  text-align: left;
+  color: #8ffff0;
+  max-width: 100%;
+  font-family: "Nunito", sans-serif;
+  font-size: 2vh;
+  margin: 1vw auto;
+  padding: 1vw;
+}
+
+.markbtn {
+  border: 2px solid #8ffff0;
+  border-radius: 10px;
+  margin: 0.5vh;
+  padding: 0.5vh;
+  width: 6vh;
+  height: 6vh;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.foot-row {
+  display: grid;
+  grid-template-areas: "tasks allbtn actbtn donebtn";
+}
+
+.item-row {
+  display: grid;
+  grid-template-columns: 1fr 9fr 1fr;
+  max-width: 100%;
+}
+
+#todocontainer {
+  grid-area: todocontainer;
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+  grid-template-columns: 1fr;
+}
+#todocontainer #header {
+  grid-area: header;
+  color: #ff8f9e;
+  margin-bottom: 5vw;
+}
+#todocontainer #todos {
+  grid-area: todos;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 100%;
+  grid-template-areas: "listitem";
+}
+#todocontainer #todos li.listitem {
+  grid-area: listitem;
+  list-style-type: none;
+  max-width: 100%;
+  border: 2px solid #8ffff0;
+  margin: 1vw;
+  height: 8vh;
+  border-radius: 10px;
+  grid-template-areas: "markbtn itemtext delbtn";
+}
+#todocontainer #todos li.listitem .markbtn {
+  grid-area: markbtn;
+  width: 4vh;
+  height: 4vh;
+  padding: 1vw;
+  margin: auto;
+}
+#todocontainer #todos li.listitem #itemtext {
+  grid-area: itemtext;
+  height: 4vh;
+  margin: 2vh;
+}
+#todocontainer #todos li.listitem .delbtn {
+  grid-area: delbtn;
+  border: none;
+  max-width: 8vw;
+  height: 8vh;
+  color: #ff8f9e;
+  background: transparent;
+  padding: 1vh;
+  font-size: 5vh;
+}
+#todocontainer #footer {
+  height: 10vh;
+  grid-area: footer;
+  text-align: center;
+  margin: 0 1vw;
+}
+#todocontainer #footer p#tasks {
+  grid-area: tasks;
+  font-size: 2vh;
+  text-align: center;
+  margin: 0 auto;
+  padding: 1vh 0 0 0;
+  max-height: 6vh;
+  width: 95%;
+}
+#todocontainer #footer #allbtn {
+  grid-area: allbtn;
+  text-align: center;
+}
+#todocontainer #footer #actbtn {
+  grid-area: actbtn;
+  text-align: center;
+}
+#todocontainer #footer #donebtn {
+  grid-area: donebtn;
+  text-align: center;
+}
+#todocontainer #searchbar #srchbtn {
+  width: 10vh;
+  height: 10vh;
+  padding: 0.75vw;
+  margin: -2vw 1vw;
+  font-size: 2vh;
+}
+#todocontainer #addbar, #todocontainer #searchbar {
+  grid-area: addbar;
+  cursor: pointer;
+  height: 10vh;
+  /*position: absolute;
+  bottom: 0vh;*/
+  max-width: 100%;
+  padding: 0;
+  margin: 10vh 0 2vw 0;
+  display: grid;
+  grid-template-columns: 8fr 1fr;
+  grid-template-areas: "addinput addbtn";
+}
+#todocontainer #addbar #addinput, #todocontainer #addbar #searchinput, #todocontainer #searchbar #addinput, #todocontainer #searchbar #searchinput {
+  background: black;
+  color: #ff8fd6;
+  height: 10vh;
+  width: 90%;
+  margin: -2vw 1vw;
+  padding: 0;
+}
+#todocontainer #addbar #addbtn, #todocontainer #searchbar #addbtn {
+  background: black;
+  color: #8ffff0;
+  width: 10vh;
+  height: 10vh;
+  padding: 0.75vw;
+  margin: -2vw 1vw;
+  font-size: 7vh;
+}
+#todocontainer h3 {
+  background: black;
+  color: #d6ff8f;
+  padding: 1vh;
+  text-align: center;
+  font-weight: bolder;
+}
+
+/* Smartphone Portrait and Landscape *//*# sourceMappingURL=todo-app.css.map */

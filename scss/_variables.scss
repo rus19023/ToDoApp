@@ -1,0 +1,83 @@
+// Colors
+$primary: #ffb88f;
+$p30: adjust-hue($primary, 30deg);
+$p60: adjust-hue($primary, 60deg);
+$p90: adjust-hue($primary, 90deg);
+$p120: adjust-hue($primary, 120deg);
+$p150: adjust-hue($primary, 150deg);
+$p180: adjust-hue($primary, 180deg);
+$p-150: adjust-hue($primary, -150deg);
+$p-120: adjust-hue($primary, -120deg);
+$p-90: adjust-hue($primary, -90deg);
+$p-60: adjust-hue($primary, -60deg);
+$p-30: adjust-hue($primary, -30deg);
+
+$accent2: lighten($primary, 10%);
+$accent: $p60;
+$headings: $accent;
+$contrast: $p180;
+$primaryborder: darken($primary, 20%);
+$warning: darken($contrast, 50%);
+$nav: $p-60;
+$valid: $p-90;
+$background: $p-120;
+//$background: darken($primary, 0%);
+$background: #7e5201;
+
+$debug: rgb(190, 255, 60);
+
+$dkgrey: #3a3a3a;
+$mdgrey: #686868;
+$ltgrey: #bababa;
+$primaryshadow: rgba(234, 250, 93, 0.95);
+$mdgreyshadow: rgba(255, 227, 100, 0.75);
+$oldwarning: #bd0000;
+
+$formshadow: 0 0 10px $primary;
+$greyshadow: 0 0 20px $mdgrey;
+$radius: 10px;
+$border: 2px solid $primary;
+$borderb: 4px solid $primary;
+$borderwarn: 4px solid $warning;
+$bordervalid: 4px solid $valid;
+$buttonborder: 4px solid $contrast;
+$inputborder: 4px solid $primaryborder;
+$legendborder: 4px solid $mdgrey;
+
+// Fonts
+$fontprimary: 'Nunito', sans-serif;
+$fontsecond: 'Dosis', sans-serif;
+$fontinput: max(4vw);
+$font1: max(1vh);
+$font2: max(2vh);
+$font3: max(3vh);
+$font4: max(4vh);
+$font5: max(5vh);
+$font6: max(6vh);
+$font7: max(7vh);
+$fonth1: max(10vh);
+
+// Dimensions
+$cardwidth: max(28);
+$htmob: max(6vh);
+$htlg: max(7vw);
+$htdesc: max(18vh);
+$cht: max(60vh);
+$height: max(35vh);
+
+$headerfont: "Yanone Kaffeesatz", sans-serif;
+$textfont: "Nunito", sans-serif;
+$headingfont: "Dosis", sans-serif;
+
+// Font Awesome Icons
+$fa-font-path:         "../webfonts" !default;
+$fa-font-size-base:    16px !default;
+$fa-font-display:      block !default;
+$fa-css-prefix:        fa !default;
+$fa-version:           "5.15.4" !default;
+$fa-border-color:      $primary !default;
+$fa-inverse:           $contrast !default;
+$fa-li-width:          2em !default;
+$fa-fw-width:          20em;
+$fa-primary-opacity:   1 !default;
+$fa-secondary-opacity: .4 !default;

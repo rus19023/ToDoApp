@@ -1,0 +1,20 @@
+.color3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    font-size: $font4;
+    padding: .25vw;
+}
+
+.primary { background: black; color: $primary; margin: 0; }
+.p30 { background: black; color: $p30; margin: 0; }
+.p60 { background: black; color: $p60; margin: 0; }
+.p90 { background: black; color: $p90; margin: 0; }
+.p120 { background: black; color: $p120; margin: 0; }
+.p150 { background: black; color: $p150; margin: 0; }
+.p180 { background: black; color: $p180; margin: 0; }
+.p-150 { background: black; color: $p-150; margin: 0; }
+.p-120 { background: black; color: $p-120; margin: 0; }
+.p-90 { background: black; color: $p-90; margin: 0; }
+.p-60 { background: black; color: $p-60; margin: 0; }
+.p-30 { background: black; color: $p-30; margin: 0; }

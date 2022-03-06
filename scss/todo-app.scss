@@ -1,0 +1,515 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@100;200;300;400;500&display=swap");
+@import "variables";
+@import "grid";
+@import "large";
+@import "colors";
+@import "checkbox";
+
+html, body {
+    color: $accent2;
+    background: $background;
+    padding: 1vw;
+    font-size: 18px;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+  .centered {
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  h2#tab-bar {
+    overflow: hidden;
+    margin-left: 4vw;
+    bottom: 0;
+    max-width: 100%;
+    border-radius: 0;
+    height: 4vh;
+    a {
+      float: left;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      color: $nav;
+      padding: 1vw 2vw;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $accent;
+    max-width: 90%;
+    font-family: $fontsecond;
+    background: black;
+    border-radius: 10px;
+    margin: 2vh auto;
+  }
+  
+  div,
+  form,
+  footer,
+  ul,
+  ol,
+  p,
+  header,
+  section {
+    font-family: $fontprimary;
+    padding: 3vw;
+    background: black;
+    margin: 2vw 0;
+    border-radius: 10px;
+  }
+  
+  .exercise {
+    border: $border;
+    border-radius: 10px;
+    margin: 2vw;
+  }
+  
+  .morespc { line-height: 1.5; }
+  
+  .centerimg {
+    display: block;
+    max-width: 100%;
+    margin: auto;
+  }
+  
+  h1 {
+    font-size: $font4;
+    color: $accent;
+  }
+  
+  h2 {
+    font-size: $font3;
+  }
+  
+  h3 {
+    font-size: $font3;
+    width: 90%;
+  }
+  
+  h4 {
+    font-size: $font3;
+    width: 85%;
+  }
+  
+  h5 {
+    font-size: $font2;
+    width: 80%;
+    font-weight: bold;
+  }
+
+  h6 {
+    font-size: $font2;
+    width: 75%;
+    font-weight: bold;
+  }
+  
+  .listdots {
+    list-style: square;
+  }
+  
+  .normal-text {
+    color: $primary;
+    font-family: $fontprimary;
+    font-size: $font2;
+    padding: 2vw;
+    margin: 0 2vw;
+    background: black;
+  }
+  
+  .nav a {
+    font-size: $font3;
+    font-weight: bold;
+  }
+  
+  ol li {
+    color: $accent;
+    & a {
+      font-size: $font3;
+      color: $p-150;
+    }
+    & a:hover {
+      color: $p-120;
+    }
+  }
+  
+  a {
+    color: $accent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: $p90;
+  }
+  
+  a:hover {
+    color: $p180;
+  }
+  
+  .buttons {
+    text-align: center;
+    cursor: pointer;
+    background: black;
+    box-shadow: $formshadow;
+    padding: 2vw;
+    max-width: 50%;
+    margin: 0 auto;
+    height: 10vh;
+    border-radius: 10px;
+    color: $accent;
+    font-family: $fontsecond;
+    font-weight: bold;
+    font-size: $font3;
+    & a {
+      text-decoration: none;
+      color: $p-150;
+      font-size: 4vh;
+    }
+  }
+  
+  .padit {
+    padding: 4vw;
+    max-width: 100%;
+    margin: 1vw auto;
+  }
+  
+  #siteTitle2 {
+    font-size: $font4;
+    color: $accent;
+    font-family: $fontsecond;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  
+  .inputs {
+    max-width: 90%;
+  }
+  
+  .textarea,
+  .inputs {
+    background: $primary;
+    color: black;
+    border-radius: 10px;
+    border: $inputborder;
+    margin: 2vw;
+  }
+  
+  textarea {
+    width: 90%;
+    height: 25vh;
+  }
+  
+  footer#autofooter {
+    font-family: $fontsecond;
+    font-size: 3vh;
+    font-weight: bold;
+    color: $accent;
+    text-align: center;
+    margin-bottom: 6vh;
+  }
+  
+  .source {
+    text-align: center;
+    color: $p-90;
+  }
+  
+  .sources {
+    text-align: left;
+    color: $p120;
+    font-size: 3vh;
+    font-weight: bold;
+    margin: 2vh auto;
+    & a {
+      text-decoration: none;
+      color: $p120;
+      font-size: 3vh;
+    }
+  }
+  
+  .code {
+    background: $primary;
+    color: black;
+    font-size: $font3;
+    border-radius: 10px;
+    padding: 1.5vw;
+    font-family: $fontsecond;
+    font-weight: bold;
+    width: 90%;
+    margin: 2vw auto;
+    text-decoration: none;
+    list-style: none;
+  }
+  
+  li {
+    padding-left: 4vw;
+  }
+  
+  .col2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2vw;
+  }
+  
+  pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  .italic {
+    font-style: italic;
+  }
+  
+  h4.indent, p.indenth4 {
+    padding-left: 4vw;
+  }
+  
+  h5.indent, p.indenth5, p ul li.indent {
+    padding-left: 8vw;
+  }    
+  
+  h1 {
+    font-size: $font5;
+  }
+  
+  #autoheader {
+    margin: 1vw;
+  }
+
+$todoborder: 2px solid $p150;
+
+#todo-error {
+    font-size: $font4;
+    font-weight: bold;
+    color: $p-30;
+}
+
+#root a {
+  color: $accent;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#root a:visited {
+  color: $p90;
+}
+
+.todo-buttons {
+    height: 6vh;
+    margin: 1vw;
+    padding: 1vw;
+    color: $p150;
+    font-size: $font2;
+    background: black;
+    border: $todoborder;
+    border-radius: 8px;
+    & :hover {
+        border: 2px solid $p150;
+    }
+}
+
+.todo-bordered {
+    border: 2px solid $p150;
+    border-radius: 10px;
+    padding: 1vh;
+}
+
+.todo-scratch {
+    text-decoration: line-through;
+}
+
+.nodots {
+    list-style-type: none;
+}
+
+.todo-text, p.todo-text {
+    text-align: left;
+    color: $p150;
+    max-width: 100%;
+    font-family: $fontprimary;
+    font-size: $font2;
+    margin: 1vw auto;
+    padding: 1vw;
+}
+
+.markbtn {
+    border: $todoborder;
+    border-radius: 10px;
+    margin: .5vh;
+    padding: .5vh;
+    width: 6vh;
+    height: 6vh;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+.foot-row {
+    display: grid;
+    grid-template-areas:
+    "tasks allbtn actbtn donebtn";
+}
+
+.item-row {
+    display: grid;
+    grid-template-columns: 1fr 9fr 1fr;
+    max-width: 100%;
+}
+#todocontainer {
+    grid-area: todocontainer;
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    & #header {
+        grid-area: header;
+        color: $p-30;
+        margin-bottom: 5vw;
+    }
+    & #todos {
+        grid-area: todos;
+        padding: 0;
+        margin: 0 auto;
+        max-width: 100%;
+        grid-template-areas:
+        "listitem";
+        & li.listitem {
+            grid-area: listitem;
+            list-style-type: none;
+            max-width: 100%;
+            border: $todoborder;
+            margin: 1vw;
+            height: 8vh;
+            border-radius: 10px;
+            grid-template-areas:
+            "markbtn itemtext delbtn";
+            & .markbtn {
+                grid-area: markbtn;
+                width: 4vh;
+                height: 4vh;
+                padding: 1vw;
+                margin: auto;
+            }
+            & #itemtext {
+                grid-area: itemtext;
+                height: 4vh;
+                margin: 2vh;
+            }
+            & .delbtn {
+                grid-area: delbtn;
+                border: none;
+                max-width: 8vw;
+                height: 8vh;
+                color: $p-30;
+                background: transparent;
+                padding: 1vh;
+                font-size: $font5;
+            }
+        }
+    }
+    & #footer {
+        height: 10vh;
+        grid-area: footer;
+        text-align: center;
+        margin: 0 1vw;
+        & p#tasks {
+            grid-area: tasks;
+            font-size: $font2;
+            text-align: center;
+            margin: 0 auto;
+            padding: 1vh 0 0 0;
+            max-height: 6vh;
+            width: 95%;
+        }
+        & #allbtn {
+            grid-area: allbtn;
+            text-align: center;
+        }
+        & #actbtn {
+            grid-area: actbtn;
+            text-align: center;
+        }
+        & #donebtn {
+            grid-area: donebtn;
+            text-align: center;
+        }
+    }
+    & #searchbar #srchbtn {
+        width: 10vh;
+        height: 10vh;
+        padding: .75vw;
+        margin: -2vw 1vw;
+        font-size: $font2;
+
+    }
+    & #addbar, #searchbar {
+        grid-area: addbar;
+        cursor: pointer;
+        height: 10vh;
+        /*position: absolute;
+        bottom: 0vh;*/
+        max-width: 100%;
+        padding: 0;
+        margin: 10vh 0 2vw 0;
+        display: grid;
+        grid-template-columns: 8fr 1fr;
+        grid-template-areas:
+            "addinput addbtn";
+        & #addinput, #searchinput {
+            background: black;
+            color: $p-60;
+            height: 10vh;
+            width: 90%;
+            margin: -2vw 1vw;
+            padding: 0;
+        }
+        & #addbtn {
+            background: black;
+            color: $p150;
+            width: 10vh;
+            height: 10vh;
+            padding: .75vw;
+            margin: -2vw 1vw;
+            font-size: $font7;
+        }
+    }
+    & h3 {
+        background: black;
+        color: $accent;
+        padding: 1vh;
+        text-align: center;
+        font-weight: bolder;
+    }
+}
+
+// .mobileShow { display: inline; }
+
+// .mobileHide { display: none; }
+
+  /* Smartphone Portrait and Landscape */
+  @media only screen
+    and (min-device-width : 320px)
+    and (max-device-width : 999px) {
+    //   .mobileShow { display: none; }
+
+    //   .mobileHide { display: inline; }
+}

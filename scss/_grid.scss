@@ -1,0 +1,54 @@
+body {
+    max-width: 100%;
+    grid-template-areas:
+    "header"
+    "main"
+    "footer" ;
+    & header {
+        grid-area: header;
+        & #main-nav {
+        display: grid;
+        grid-area: main-nav;
+        grid-template-areas:
+        "list";
+        & ol {
+            display: grid;
+            grid-area: list;
+            grid-template-areas:
+            "list-item";
+            & li {
+            display: grid;
+            & a {
+                grid-area: list-item;
+          }
+        }
+      }
+    }
+  }
+}
+
+  #gridcontainer {
+    grid-area: gridcontainer;
+    display: grid;
+    max-width: 100%;
+    padding: 1vw;
+    grid-template-areas:
+      "left"
+      "right";
+    & #left {
+        grid-area: left;
+    }
+    & #right {
+        grid-area: right;
+        grid-template-areas:
+        "todocontainer";
+        & #todocontainer {
+            display: grid;
+            grid-template-areas:
+            "header"
+            "todos"
+            "footer"
+            "addbar";
+        }
+    }
+  }

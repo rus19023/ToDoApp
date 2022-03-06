@@ -1,0 +1,35 @@
+@media screen and (min-width: 451px) {
+
+    #todocontainer {
+        max-width: 500px;
+    }
+}
+
+@media screen and (min-width: 700px) {
+}
+
+@media screen and (min-width: 992px) {
+    .color3 {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .normal-text, p.normal-text  {
+        font-size: $font3;
+    }
+
+    #gridcontainer {
+      gap: 2vw;
+      grid-template-areas:
+      "left right";
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+    #todocontainer {
+        max-width: 50%;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+}
