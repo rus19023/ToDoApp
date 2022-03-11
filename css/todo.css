@@ -1,0 +1,154 @@
+.markbtn {
+  border: 2px solid white;
+  border-radius: 10px;
+  margin: 0.5vh;
+  padding: 0.5;
+  width: 6vh;
+  height: 6vh;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.foot-row {
+  display: grid;
+  grid-template-areas: "tasks allbtn actbtn donebtn";
+}
+
+.item-row {
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+}
+
+#todocontainer {
+  grid-area: todocontainer;
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+  grid-template-columns: 1fr;
+}
+#todocontainer #header {
+  grid-area: header;
+  color: #00b3b7;
+  margin-bottom: 5vw;
+}
+#todocontainer #todos {
+  grid-area: todos;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 100%;
+  grid-template-areas: "listitem";
+}
+#todocontainer #todos li.listitem {
+  grid-area: listitem;
+  list-style-type: none;
+  max-width: 100%;
+  border: 2px solid white;
+  margin: 0;
+  height: 8vh;
+  border-radius: 10px;
+  grid-template-areas: "markbtn itemtext delbtn";
+}
+#todocontainer #todos li.listitem .markbtn {
+  grid-area: markbtn;
+  width: 4vh;
+  height: 4vh;
+  padding: 1vw;
+  margin: auto;
+}
+#todocontainer #todos li.listitem #itemtext {
+  grid-area: itemtext;
+  height: 4vh;
+  margin: 2vh;
+}
+#todocontainer #todos li.listitem .delbtn {
+  grid-area: delbtn;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  max-width: 100%;
+  height: 4vh;
+  color: #00b3b7;
+  background: black;
+  padding: 1vh;
+  font-size: 5vh;
+}
+#todocontainer #footer {
+  height: 8vh;
+  grid-area: footer;
+  text-align: center;
+  margin: 0;
+}
+#todocontainer #footer p#tasks {
+  grid-area: tasks;
+  text-align: center;
+  margin: 0 auto;
+  padding: 1vh 0 0 0;
+  max-height: 4vh;
+  width: 95%;
+}
+#todocontainer #footer #allbtn {
+  grid-area: allbtn;
+  text-align: center;
+}
+#todocontainer #footer #actbtn {
+  grid-area: actbtn;
+  text-align: center;
+}
+#todocontainer #footer #donebtn {
+  grid-area: donebtn;
+  text-align: center;
+}
+#todocontainer #addbar {
+  grid-area: addbar;
+  cursor: pointer;
+  height: 8vh;
+  /*position: absolute;
+  bottom: 0vh;*/
+  max-width: 100%;
+  padding: 0;
+  margin: 10vh 0 2vw 0;
+  display: grid;
+  grid-template-columns: 8fr 1fr;
+  grid-template-areas: "addinput addbtn";
+}
+#todocontainer #addbar #addinput {
+  grid-area: addinput;
+  background: black;
+  color: #00b760;
+  height: 8vh;
+  width: 90%;
+  margin: 0;
+  padding: 0 0 0 1vw;
+}
+#todocontainer #addbar #addbtn {
+  grid-area: addbtn;
+  background: black;
+  color: #b70500;
+  width: 8vh;
+  height: 8vh;
+  padding: 0;
+  margin: 0;
+  font-size: 6vh;
+}
+#todocontainer h3 {
+  background: black;
+  color: #6000b7;
+  padding: 1vh;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.mobileShow {
+  display: none;
+}
+
+/* Smartphone Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .mobileShow {
+    display: inline;
+  }
+}/*# sourceMappingURL=todo.css.map */

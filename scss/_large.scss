@@ -6,9 +6,18 @@
 }
 
 @media screen and (min-width: 700px) {
+    
+    #addinput, #searchinput {
+        font-size: $font5;
+    }
 }
 
 @media screen and (min-width: 992px) {
+    
+    #addinput, #searchinput {
+        font-size: $font6;
+    }
+    
     .color3 {
         grid-template-columns: repeat(6, 1fr);
     }
@@ -18,16 +27,23 @@
     }
 
     #gridcontainer {
-      gap: 2vw;
-      grid-template-areas:
-      "left right";
-    }
+        max-width: 75%;
+        margin: 0 auto;
+        gap: 2vw;
+        grid-template-areas:
+        "left right";
+        }
 }
 
 
 @media screen and (min-width: 1200px) {
+    
+    #addinput, #searchinput {
+        font-size: $font7;
+    }
+
     #todocontainer {
-        max-width: 50%;
+        max-width: 60%;
     }
 }
 

@@ -1,61 +1,87 @@
 // Colors
-$primary: #ffb88f;
-$p30: adjust-hue($primary, 30deg);
-$p60: adjust-hue($primary, 60deg);
-$p90: adjust-hue($primary, 90deg);
-$p120: adjust-hue($primary, 120deg);
-$p150: adjust-hue($primary, 150deg);
-$p180: adjust-hue($primary, 180deg);
-$p-150: adjust-hue($primary, -150deg);
-$p-120: adjust-hue($primary, -120deg);
-$p-90: adjust-hue($primary, -90deg);
-$p-60: adjust-hue($primary, -60deg);
-$p-30: adjust-hue($primary, -30deg);
+$orange: #b76000;
+$yellow: #ffd700;
+$uyellow: #ffd700;
+$ublue: #0059b8;
+$yellowFromSet: adjust-hue($orange, 30deg);
+$chartreuse: adjust-hue($orange, 60deg);
+$limegreen: adjust-hue($orange, 90deg);
+$seafoam: adjust-hue($orange, 120deg);
+$skyblue: adjust-hue($orange, 150deg);
+$medblue: adjust-hue($orange, 180deg);
+$royalblue: adjust-hue($orange, -150deg);
+$purple: adjust-hue($orange, -120deg);
+$hotpink: adjust-hue($orange, -90deg);
+$dksalmon: adjust-hue($orange, -60deg);
+$redorange: adjust-hue($orange, -30deg);
 
-$accent2: lighten($primary, 10%);
-$accent: $p60;
-$headings: $accent;
-$contrast: $p180;
-$primaryborder: darken($primary, 20%);
-$warning: darken($contrast, 50%);
-$nav: $p-60;
-$valid: $p-90;
-$background: $p-120;
-//$background: darken($primary, 0%);
-$background: #7e5201;
+$todoborder: 2px solid white;
+$dotborder: 2px dotted white;
 
+$accent2: lighten($orange, 10%);
+$accent: $chartreuse;
+$headings: $yellow;
+$contrast: $medblue;
+$orangeborder: darken($orange, 20%);
+$warning: darken($redorange, 50%);
+$nav: $dksalmon;
+$valid: $limegreen;
+$background: $purple;
+// $background: darken($orange, 0%);
+// $background: #7e5201;
+
+
+$bgmoz: -moz-linear-gradient(180deg, rgb(0, 89, 184) 0%, rgba(255, 215, 0, 1) 67%);
+$bgweb: -webkit-linear-gradient(180deg, rgb(0, 89, 184) 0%, rgba(255, 215, 0, 1) 67%);
+$bgfilter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0059b8",endColorstr="#ffd700",GradientType=1);
+$lgradient: linear-gradient(180deg, lighten($orange, 20%), lighten($contrast, 10%));
+$hgradient: linear-gradient(180deg, rgb(0, 89, 184), rgba(255, 215, 0, 1));
+$vgradient: linear-gradient(90deg, rgb(0, 89, 184), rgba(255, 215, 0, 1));
+$newhgradient: linear-gradient(
+    180deg,
+    hsl(211, 100%, 36%) 0%,
+    hsl(69deg 9% 60%) 52%,
+    hsl(51, 100%, 50%) 100%
+  );
+  $newvgradient: linear-gradient(
+      90deg,
+      hsl(211, 100%, 36%) 0%,
+      hsl(69deg 9% 60%) 52%,
+      hsl(51, 100%, 50%) 100%
+    );
+$background: $newhgradient;
 $debug: rgb(190, 255, 60);
 
 $dkgrey: #3a3a3a;
 $mdgrey: #686868;
 $ltgrey: #bababa;
-$primaryshadow: rgba(234, 250, 93, 0.95);
+$orangeshadow: rgba(234, 250, 93, 0.95);
 $mdgreyshadow: rgba(255, 227, 100, 0.75);
 $oldwarning: #bd0000;
 
-$formshadow: 0 0 10px $primary;
+$formshadow: 0 0 10px $orange;
 $greyshadow: 0 0 20px $mdgrey;
 $radius: 10px;
-$border: 2px solid $primary;
-$borderb: 4px solid $primary;
+$border: 2px solid $orange;
+$borderb: 4px solid $orange;
 $borderwarn: 4px solid $warning;
 $bordervalid: 4px solid $valid;
 $buttonborder: 4px solid $contrast;
-$inputborder: 4px solid $primaryborder;
+$inputborder: 4px solid $orangeborder;
 $legendborder: 4px solid $mdgrey;
 
 // Fonts
-$fontprimary: 'Nunito', sans-serif;
-$fontsecond: 'Dosis', sans-serif;
+$fontfirst: 'Handlee', cursive;
+$fontsecond: 'Hubballi', sans-serif;
 $fontinput: max(4vw);
-$font1: max(1vh);
-$font2: max(2vh);
-$font3: max(3vh);
-$font4: max(4vh);
-$font5: max(5vh);
-$font6: max(6vh);
-$font7: max(7vh);
-$fonth1: max(10vh);
+$font1: max(1vw);
+$font2: max(2vw);
+$font3: max(3vw);
+$font4: max(4vw);
+$font5: max(5vw);
+$font6: max(6vw);
+$font7: max(7vw);
+$fonth1: max(10vw);
 
 // Dimensions
 $cardwidth: max(28);
@@ -75,9 +101,10 @@ $fa-font-size-base:    16px !default;
 $fa-font-display:      block !default;
 $fa-css-prefix:        fa !default;
 $fa-version:           "5.15.4" !default;
-$fa-border-color:      $primary !default;
+$fa-border-color:      $orange !default;
 $fa-inverse:           $contrast !default;
 $fa-li-width:          2em !default;
 $fa-fw-width:          20em;
-$fa-primary-opacity:   1 !default;
+$fa-orange-opacity:   1 !default;
 $fa-secondary-opacity: .4 !default;
+

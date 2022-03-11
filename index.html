@@ -8,46 +8,49 @@
         <!--
           <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
         -->
-        <title id="wdd330todoapptitle">WDD330 Challenge 1 | To Do App</title>
+        <title id="wdd330todoapptitle"> To Do App</title>
     </head>
 
-    <body class="">
+    <body>
         <!-- <h1>App only available on mobile devices with screens smaller than 1000px wide</h1> -->
-        <header id="autoheader330">
-            <h1 id="todoheading" class="padit">
+        <header id="autoheader330" class="title">
+            <h1 id="todoheading">
                 To Do App
             </h1>
-            <h6>
+            <h6 class=" title">
                 By Doris Rush-Lopez
             </h6>
+            <h6 class=" title">
+                In solidarity with the Ukraine, I have changed the app background to a blue and yellow gradient to model their national flag.
+            </h6>
         </header>
-        <main id="gridcontainer"  class="mobileShow">
+        <main id="gridcontainer">
             <section id="left">
-                <div id="todocontainer" class="todo-bordered">
-                    <h2 id="header" class="centered">To Do List</h2>
+                <div id="todocontainer">
+                    <h2 id="header1" class="centered padit">To Do List</h2>
                     <ul id="todos"></ul>
-                    <div id="footer" class="todo-bordered todo-text foot-row">
+                    <div id="listfooter" class="todo-bordered todo-text foot-row">
                         <p id="tasks">_ tasks done.</p>
-                        <button  class="todo-buttons" id="allbtn"> Show All</button>
-                        <button  class="todo-buttons" id="actbtn"> Show Pending</button>
-                        <button  class="todo-buttons" id="donebtn"> Show Done</button>
+                        <div id="btncontainer">
+                            <button  class="todo-buttons" id="allbtn"> All</button>
+                            <button  class="todo-buttons" id="actbtn"> Pending</button>
+                            <button  class="todo-buttons" id="donebtn"> Done</button>
+                        </div>
+                        <div id="srchbar" class="todo-text">
+                            <input id="srchinput" type="text" name="srchinput" placeholder="Search in tasks" value="" class="todo-bordered todo-buttons">
+                            <button id="srchbtn" class="todo-buttons todo-bordered">Search</button>
+                        </div>
                     </div>
-                    <div id="searchbar" class="todo-text">
-                        <input id="searchinput" type="text" name="searchinput" placeholder="Search tasks" value="" class="todo-bordered">
-                        <button id="srchbtn" class="todo-buttons todo-bordered">Search</button>
-                    </div>
-                    <div id="addbar" class="todo-text">
+                    <div id="addbar" class="">
                         <input id="addinput" type="text" name="addinput" placeholder="Add a To Do task" value="" class="todo-bordered">
-                        <button id="addbtn" class="todo-bordered">+</button>
+                        <button id="addbtn" class="todo-buttons">+</button>
                     </div>
                 </div>
                 <div id="error"></div>
             </section>
         </main>
-        <footer id="autofooter"></footer>
+        <footer id="autofooter" class="title"></footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="../../../js/main.js" ></script>
-        <script src="../../../js/menu.js"></script>
         <script src="./js/todosmain.js" type="module"></script>
     </body>
 </html>

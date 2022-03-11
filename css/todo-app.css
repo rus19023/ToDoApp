@@ -1,39 +1,11 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Dosis");
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@100;200;300;400;500&display=swap");
-body {
-  max-width: 100%;
-  grid-template-areas: "header" "main" "footer";
-}
-body header {
-  grid-area: header;
-}
-body header #main-nav {
-  display: grid;
-  grid-area: main-nav;
-  grid-template-areas: "list";
-}
-body header #main-nav ol {
-  display: grid;
-  grid-area: list;
-  grid-template-areas: "list-item";
-}
-body header #main-nav ol li {
-  display: grid;
-}
-body header #main-nav ol li a {
-  grid-area: list-item;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@100;200;300;400;500");
+@import url("https://fonts.googleapis.com/css2?family=Handlee&family=Hubballi");
 #gridcontainer {
   grid-area: gridcontainer;
   display: grid;
-  max-width: 100%;
-  padding: 1vw;
   grid-template-areas: "left" "right";
-}
-#gridcontainer #left {
-  grid-area: left;
 }
 #gridcontainer #right {
   grid-area: right;
@@ -44,121 +16,148 @@ body header #main-nav ol li a {
   grid-template-areas: "header" "todos" "footer" "addbar";
 }
 
+@media screen and (min-width: 768px) {
+  .navbar-collapse {
+    justify-content: center;
+  }
+
+  .color3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 @media screen and (min-width: 451px) {
   #todocontainer {
     max-width: 500px;
   }
 }
+@media screen and (min-width: 700px) {
+  #addinput, #searchinput {
+    font-size: 5vw;
+  }
+}
 @media screen and (min-width: 992px) {
+  #addinput, #searchinput {
+    font-size: 6vw;
+  }
+
   .color3 {
     grid-template-columns: repeat(6, 1fr);
   }
 
   .normal-text, p.normal-text {
-    font-size: 3vh;
+    font-size: 3vw;
   }
 
   #gridcontainer {
+    max-width: 75%;
+    margin: 0 auto;
     gap: 2vw;
     grid-template-areas: "left right";
   }
 }
 @media screen and (min-width: 1200px) {
+  #addinput, #searchinput {
+    font-size: 7vw;
+  }
+
   #todocontainer {
-    max-width: 50%;
+    max-width: 60%;
   }
 }
 .color3 {
   display: grid;
   grid-template-columns: 1fr;
   max-width: 100%;
-  font-size: 4vh;
+  font-size: 4vw;
   padding: 0.25vw;
 }
 
-.primary {
+.orange {
   background: black;
-  color: #ffb88f;
+  color: #b76000;
   margin: 0;
 }
 
-.p30 {
+.yellow {
   background: black;
-  color: #fff08f;
+  color: #ffd700;
   margin: 0;
 }
 
-.p60 {
+.chartreuse {
   background: black;
-  color: #d6ff8f;
+  color: #57b700;
   margin: 0;
 }
 
-.p90 {
+.limegreen {
   background: black;
-  color: #9eff8f;
+  color: #00b705;
   margin: 0;
 }
 
-.p120 {
+.seafoam {
   background: black;
-  color: #8fffb8;
+  color: #00b760;
   margin: 0;
 }
 
-.p150 {
+.skyblue {
   background: black;
-  color: #8ffff0;
+  color: #00b3b7;
   margin: 0;
 }
 
-.p180 {
+.medblue {
   background: black;
-  color: #8fd6ff;
+  color: #0057b7;
   margin: 0;
 }
 
-.p-150 {
+.royalblue {
   background: black;
-  color: #8f9eff;
+  color: #0500b7;
   margin: 0;
 }
 
-.p-120 {
+.purple {
   background: black;
-  color: #b88fff;
+  color: #6000b7;
   margin: 0;
 }
 
-.p-90 {
+.hotpink {
   background: black;
-  color: #f08fff;
+  color: #b700b3;
   margin: 0;
 }
 
-.p-60 {
+.dksalmon {
   background: black;
-  color: #ff8fd6;
+  color: #b70057;
   margin: 0;
 }
 
-.p-30 {
+.redorange {
   background: black;
-  color: #ff8f9e;
+  color: #b70500;
   margin: 0;
 }
 
 input[type=checkbox].markbtnX {
   content: "✕";
-  color: #ff8f9e;
-  font-size: 6vh;
+  color: #b70500;
+  font-size: 6vw;
 }
 
-html, body {
-  color: #ffd8c2;
-  background: #7e5201;
-  padding: 1vw;
-  font-size: 18px;
+body {
+  color: white;
+  font-size: 16px;
+  font-family: "Hubballi", sans-serif;
+  background: linear-gradient(180deg, #0059b8 0%, #9fa290 52%, #ffd900 100%);
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .bold {
@@ -171,21 +170,9 @@ html, body {
   margin: 0 auto;
 }
 
-h2#tab-bar {
-  overflow: hidden;
-  margin-left: 4vw;
-  bottom: 0;
-  max-width: 100%;
-  border-radius: 0;
-  height: 4vh;
-}
-h2#tab-bar a {
-  float: left;
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  color: #ff8fd6;
-  padding: 1vw 2vw;
+.showborder {
+  border: 2px solid white;
+  border-radius: 10px;
 }
 
 h1,
@@ -194,12 +181,49 @@ h3,
 h4,
 h5,
 h6 {
-  color: #d6ff8f;
-  max-width: 90%;
-  font-family: "Dosis", sans-serif;
-  background: black;
-  border-radius: 10px;
-  margin: 2vh auto;
+  color: #ffd700;
+  font-family: "Hubballi", sans-serif;
+}
+
+h1 {
+  font-size: 6vw;
+}
+
+h2 {
+  font-size: 3vw;
+}
+
+h3 {
+  font-size: 3vw;
+}
+
+h4 {
+  font-size: 3vw;
+}
+
+h5 {
+  font-size: 2vw;
+  font-weight: bold;
+  background: #0500b7;
+}
+
+h6 {
+  font-size: 3vw;
+  font-weight: bold;
+  font-family: "Hubballi", sans-serif;
+  background: #0500b7;
+}
+
+.padleft {
+  padding-left: 4vw;
+}
+
+.padleft8 {
+  padding-left: 8vw;
+}
+
+figcaption {
+  color: #ffd700;
 }
 
 div,
@@ -210,17 +234,8 @@ ol,
 p,
 header,
 section {
-  font-family: "Nunito", sans-serif;
-  padding: 3vw;
-  background: black;
-  margin: 2vw 0;
+  font-family: "Hubballi", sans-serif;
   border-radius: 10px;
-}
-
-.exercise {
-  border: 2px solid #ffb88f;
-  border-radius: 10px;
-  margin: 2vw;
 }
 
 .morespc {
@@ -233,110 +248,131 @@ section {
   margin: auto;
 }
 
-h1 {
-  font-size: 4vh;
-  color: #d6ff8f;
-}
-
-h2 {
-  font-size: 3vh;
-}
-
-h3 {
-  font-size: 3vh;
-  width: 90%;
-}
-
-h4 {
-  font-size: 3vh;
-  width: 85%;
-}
-
-h5 {
-  font-size: 2vh;
-  width: 80%;
-  font-weight: bold;
-}
-
-h6 {
-  font-size: 2vh;
-  width: 75%;
-  font-weight: bold;
-}
-
 .listdots {
   list-style: square;
 }
 
-.normal-text {
-  color: #ffb88f;
-  font-family: "Nunito", sans-serif;
-  font-size: 2vh;
-  padding: 2vw;
-  margin: 0 2vw;
-  background: black;
+.f1 {
+  font-family: "Handlee", cursive;
 }
 
-.nav a {
-  font-size: 3vh;
+.f2 {
+  font-family: "Hubballi", sans-serif;
+}
+
+.gridparts {
+  border: 5px solid white;
+  border-radius: 15px;
+  margin: 0 auto;
+  padding: 2vw;
+  max-width: 100%;
+}
+
+.orange {
+  color: #b76000;
+}
+
+.yellow {
+  color: #ffd700;
+}
+
+.chartreuse {
+  color: #57b700;
+}
+
+.limegreen {
+  color: #00b705;
+}
+
+.seafoam {
+  color: #00b760;
+}
+
+.skyblue {
+  color: #00b3b7;
+}
+
+.medblue {
+  background: #bbbbbb;
+  color: #0057b7;
+}
+
+.royalblue {
+  background: #bbbbbb;
+  color: #0500b7;
+}
+
+.purple {
+  background: #bbbbbb;
+  color: #6000b7;
+}
+
+.hotpink {
+  color: #b700b3;
+}
+
+.dksalmon {
+  color: #b70057;
+}
+
+.redorange {
+  color: #b70500;
+}
+
+.color3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  padding: 2vw;
+  border-radius: 10px;
+  margin: 4vw;
   font-weight: bold;
+}
+
+.title {
+  background: black;
+  color: #ffd700;
+  margin: 0 4.75vw;
+  padding: 2vw;
 }
 
 ol li {
-  color: #d6ff8f;
+  color: #0057b7;
+  background: #b76000;
 }
 ol li a {
-  font-size: 3vh;
-  color: #8f9eff;
+  font-size: 3vw;
+  color: #0500b7;
 }
 ol li a:hover {
-  color: #b88fff;
+  color: #b70057;
 }
 
 a {
-  color: #d6ff8f;
+  color: #0500b7;
   text-decoration: none;
+}
+a a:hover {
+  color: #b70057;
 }
 
 a:visited {
-  color: #9eff8f;
+  color: #00b705;
 }
 
 a:hover {
-  color: #8fd6ff;
-}
-
-.buttons {
-  text-align: center;
-  cursor: pointer;
-  background: black;
-  box-shadow: 0 0 10px #ffb88f;
-  padding: 2vw;
-  max-width: 50%;
-  margin: 0 auto;
-  height: 10vh;
-  border-radius: 10px;
-  color: #d6ff8f;
-  font-family: "Dosis", sans-serif;
-  font-weight: bold;
-  font-size: 3vh;
-}
-.buttons a {
-  text-decoration: none;
-  color: #8f9eff;
-  font-size: 4vh;
+  color: #6000b7;
 }
 
 .padit {
   padding: 4vw;
-  max-width: 100%;
   margin: 1vw auto;
 }
 
 #siteTitle2 {
-  font-size: 4vh;
-  color: #d6ff8f;
-  font-family: "Dosis", sans-serif;
+  font-size: 4vw;
+  color: #57b700;
+  font-family: "Hubballi", sans-serif;
   font-weight: bold;
   text-align: center;
   margin: 0 auto;
@@ -349,10 +385,10 @@ a:hover {
 
 .textarea,
 .inputs {
-  background: #ffb88f;
-  color: black;
+  background: #b76000;
+  color: #0057b7;
   border-radius: 10px;
-  border: 4px solid #ff7729;
+  border: 4px solid #512a00;
   margin: 2vw;
 }
 
@@ -362,48 +398,42 @@ textarea {
 }
 
 footer#autofooter {
-  font-family: "Dosis", sans-serif;
   font-size: 3vh;
   font-weight: bold;
-  color: #d6ff8f;
   text-align: center;
   margin-bottom: 6vh;
 }
 
 .source {
   text-align: center;
-  color: #f08fff;
+  color: #b700b3;
 }
 
 .sources {
   text-align: left;
-  color: #8fffb8;
+  color: #00b760;
   font-size: 3vh;
   font-weight: bold;
   margin: 2vh auto;
 }
 .sources a {
   text-decoration: none;
-  color: #8fffb8;
+  color: #00b760;
   font-size: 3vh;
 }
 
 .code {
-  background: #ffb88f;
+  background: #b76000;
   color: black;
-  font-size: 3vh;
+  font-size: 3vw;
   border-radius: 10px;
   padding: 1.5vw;
-  font-family: "Dosis", sans-serif;
+  font-family: "Hubballi", sans-serif;
   font-weight: bold;
   width: 90%;
   margin: 2vw auto;
   text-decoration: none;
   list-style: none;
-}
-
-li {
-  padding-left: 4vw;
 }
 
 .col2 {
@@ -425,56 +455,48 @@ pre {
   font-style: italic;
 }
 
-h4.indent, p.indenth4 {
-  padding-left: 4vw;
-}
-
-h5.indent, p.indenth5, p ul li.indent {
-  padding-left: 8vw;
-}
-
-h1 {
-  font-size: 5vh;
-}
-
-#autoheader {
-  margin: 1vw;
-}
-
 #todo-error {
-  font-size: 4vh;
+  font-size: 4vw;
   font-weight: bold;
-  color: #ff8f9e;
+  color: #b70500;
 }
 
 #root a {
-  color: #d6ff8f;
+  color: #57b700;
   text-decoration: none;
   font-weight: bold;
 }
 
 #root a:visited {
-  color: #9eff8f;
+  color: #00b705;
 }
 
 .todo-buttons {
-  height: 6vh;
-  margin: 1vw;
+  max-height: 8vw;
   padding: 1vw;
-  color: #8ffff0;
-  font-size: 2vh;
-  background: black;
-  border: 2px solid #8ffff0;
-  border-radius: 8px;
+  color: #ffd700;
+  font-size: 3vw;
+  background: #0057b7;
+  border: 2px solid white;
+  border-radius: 10px;
 }
-.todo-buttons :hover {
-  border: 2px solid #8ffff0;
+.todo-buttons a {
+  text-decoration: none;
+  color: #0500b7;
+  text-align: center;
+  font-size: 4vh;
+}
+.todo-buttons a :hover {
+  border: 2px solid #00b3b7;
 }
 
 .todo-bordered {
-  border: 2px solid #8ffff0;
+  border: 2px solid white;
   border-radius: 10px;
-  padding: 1vh;
+}
+
+.white {
+  color: white;
 }
 
 .todo-scratch {
@@ -487,16 +509,14 @@ h1 {
 
 .todo-text, p.todo-text {
   text-align: left;
-  color: #8ffff0;
-  max-width: 100%;
-  font-family: "Nunito", sans-serif;
-  font-size: 2vh;
+  font-weight: bold;
+  font-size: 3vw;
   margin: 1vw auto;
   padding: 1vw;
 }
 
 .markbtn {
-  border: 2px solid #8ffff0;
+  border: 2px solid white;
   border-radius: 10px;
   margin: 0.5vh;
   padding: 0.5vh;
@@ -511,138 +531,138 @@ h1 {
   margin: 0 auto;
 }
 
-.foot-row {
-  display: grid;
-  grid-template-areas: "tasks allbtn actbtn donebtn";
-}
-
 .item-row {
   display: grid;
   grid-template-columns: 1fr 9fr 1fr;
-  max-width: 100%;
+  margin: 0 auto;
 }
 
 #todocontainer {
+  display: grid;
   grid-area: todocontainer;
+  background: black;
   text-align: center;
   max-width: 90%;
-  margin: 0 auto;
+  margin: 1vw auto;
   grid-template-columns: 1fr;
+  grid-template-areas: "header1" "todos" "addbar" "listfooter";
 }
-#todocontainer #header {
-  grid-area: header;
-  color: #ff8f9e;
-  margin-bottom: 5vw;
+#todocontainer #header1 {
+  grid-area: header1;
+  margin-bottom: 0;
+  font-size: 3vw;
 }
-#todocontainer #todos {
+#todocontainer #todos, #todocontainer #dtodos {
   grid-area: todos;
-  padding: 0;
-  margin: 0 auto;
-  max-width: 100%;
+  padding: 1vw;
   grid-template-areas: "listitem";
 }
-#todocontainer #todos li.listitem {
+#todocontainer #todos li.listitem, #todocontainer #dtodos li.listitem {
   grid-area: listitem;
-  list-style-type: none;
-  max-width: 100%;
-  border: 2px solid #8ffff0;
-  margin: 1vw;
   height: 8vh;
-  border-radius: 10px;
+  width: 100%;
   grid-template-areas: "markbtn itemtext delbtn";
 }
-#todocontainer #todos li.listitem .markbtn {
+#todocontainer #todos li.listitem .markbtn, #todocontainer #dtodos li.listitem .markbtn {
   grid-area: markbtn;
   width: 4vh;
   height: 4vh;
   padding: 1vw;
   margin: auto;
 }
-#todocontainer #todos li.listitem #itemtext {
+#todocontainer #todos li.listitem #itemtext, #todocontainer #dtodos li.listitem #itemtext {
   grid-area: itemtext;
   height: 4vh;
   margin: 2vh;
 }
-#todocontainer #todos li.listitem .delbtn {
+#todocontainer #todos li.listitem .delbtn, #todocontainer #dtodos li.listitem .delbtn {
   grid-area: delbtn;
+  color: #b70057;
+  background: transparent;
   border: none;
   max-width: 8vw;
   height: 8vh;
-  color: #ff8f9e;
-  background: transparent;
   padding: 1vh;
-  font-size: 5vh;
+  font-size: 5vw;
+  font-weight: 500;
 }
-#todocontainer #footer {
-  height: 10vh;
-  grid-area: footer;
-  text-align: center;
-  margin: 0 1vw;
+#todocontainer #listfooter {
+  display: grid;
+  height: 18vh;
+  grid-area: listfooter;
+  text-align: left;
+  margin: 1vw;
+  grid-template-columns: 1fr 1fr;
+  justify-content: left;
+  color: #ffd700;
+  grid-template-areas: "tasks btns" "srchbar srchbar";
 }
-#todocontainer #footer p#tasks {
+#todocontainer #listfooter #btncontainer {
+  grid-area: btns;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+#todocontainer #listfooter p#tasks {
   grid-area: tasks;
-  font-size: 2vh;
+  font-size: 4vw;
   text-align: center;
-  margin: 0 auto;
-  padding: 1vh 0 0 0;
+  margin: 1vw auto;
   max-height: 6vh;
   width: 95%;
 }
-#todocontainer #footer #allbtn {
+#todocontainer #listfooter #allbtn {
   grid-area: allbtn;
-  text-align: center;
 }
-#todocontainer #footer #actbtn {
+#todocontainer #listfooter #actbtn {
   grid-area: actbtn;
-  text-align: center;
 }
-#todocontainer #footer #donebtn {
+#todocontainer #listfooter #donebtn {
   grid-area: donebtn;
-  text-align: center;
 }
-#todocontainer #searchbar #srchbtn {
-  width: 10vh;
-  height: 10vh;
-  padding: 0.75vw;
-  margin: -2vw 1vw;
-  font-size: 2vh;
+#todocontainer #listfooter #allbtn, #todocontainer #listfooter #actbtn, #todocontainer #listfooter #donebtn {
+  border: 2px dotted white;
+  padding: 1vw;
+  margin: 0 2vw;
 }
-#todocontainer #addbar, #todocontainer #searchbar {
+#todocontainer #srchbar {
+  grid-area: srchbar;
+  font-size: 3vw;
+  grid-template-areas: "srchinput srchbtn";
+}
+#todocontainer #addbar {
   grid-area: addbar;
-  cursor: pointer;
-  height: 10vh;
-  /*position: absolute;
-  bottom: 0vh;*/
-  max-width: 100%;
-  padding: 0;
-  margin: 10vh 0 2vw 0;
-  display: grid;
-  grid-template-columns: 8fr 1fr;
+  margin: 1vw;
   grid-template-areas: "addinput addbtn";
-}
-#todocontainer #addbar #addinput, #todocontainer #addbar #searchinput, #todocontainer #searchbar #addinput, #todocontainer #searchbar #searchinput {
-  background: black;
-  color: #ff8fd6;
-  height: 10vh;
-  width: 90%;
-  margin: -2vw 1vw;
+  cursor: pointer;
+  height: 8vw;
   padding: 0;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
 }
-#todocontainer #addbar #addbtn, #todocontainer #searchbar #addbtn {
-  background: black;
-  color: #8ffff0;
-  width: 10vh;
-  height: 10vh;
-  padding: 0.75vw;
-  margin: -2vw 1vw;
-  font-size: 7vh;
+#todocontainer #addbar #addinput {
+  font-size: 3vw;
+  background: #ffd700;
+}
+#todocontainer #addbar #addbtn {
+  width: 8vw;
+  height: 8vw;
+  margin-left: 1vw;
+  color: #0057b7;
+  background: #ffd700;
+  font-size: 5vw;
 }
 #todocontainer h3 {
-  background: black;
-  color: #d6ff8f;
   padding: 1vh;
   text-align: center;
   font-weight: bolder;
 }
 
-/* Smartphone Portrait and Landscape *//*# sourceMappingURL=todo-app.css.map */
+/* Smartphone Portrait and Landscape */
+@media screen and (min-width: 768px) {
+  .color3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}/*# sourceMappingURL=todo-app.css.map */

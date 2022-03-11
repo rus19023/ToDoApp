@@ -45,4 +45,41 @@ function createLMNT(LMNT, LMNTtype, LMNTid, LMNTtext, LMNTclass) {
     lmnt.setAttribute('class', LMNTclass);
     return lmnt;
 }
-export { qs, onTouch, createLMNT};
+
+// set footer
+function setFooter() {
+    if (isElement("autofooter")) {
+        writeById("autofooter", createLink("https://rus19023.github.io/myportfolio/", "&copy; 2019-2022 | Doris Rush-Lopez, BYU-Idaho Candidate for Bachelor of Science in Applied Technology"));
+    }
+}
+
+const createLink = (url, text) => {
+    return `<a href="${url}">${text}</a>`;
+};
+
+function writeById(output, input) {
+    qs(`#${output}`).innerHTML = input;
+}
+
+function writeByClass(output, input) {
+    qs(`.${output}`).innerHTML = input;
+}
+
+function isElement(element) {
+    // check if id exists
+    const myId = qs(`#${element}`);
+    if (typeof myId != "undefined" && myId != null) {
+        return myId.nodeType === 1;
+    }
+}
+
+function isClass(element) {
+    // check if class exists
+    const myClass = qs(`.${element}`);
+    if (typeof myClass != "undefined" && myClass != null) {
+        return myClass.nodeType === 1;
+    }
+}
+
+
+export { qs, onTouch, createLMNT, setFooter, isClass, isElement, writeByClass, writeById, createLink };

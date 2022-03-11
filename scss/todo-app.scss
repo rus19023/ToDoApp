@@ -1,189 +1,191 @@
 @import url("https://fonts.googleapis.com/css2?family=Dosis");
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@100;200;300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@100;200;300;400;500");
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Hubballi');
+
 @import "variables";
 @import "grid";
 @import "large";
 @import "colors";
 @import "checkbox";
 
-html, body {
-    color: $accent2;
+body {
+    color: white;
+    font-size: 16px;
+    font-family: $fontsecond;
     background: $background;
-    padding: 1vw;
-    font-size: 18px;
-  }
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
   
-  .bold {
+.bold {
     font-weight: bold;
-  }
+}
   
-  .centered {
+.centered {
     text-align: center;
     max-width: 100%;
     margin: 0 auto;
-  }
+}
 
-  h2#tab-bar {
-    overflow: hidden;
-    margin-left: 4vw;
-    bottom: 0;
-    max-width: 100%;
-    border-radius: 0;
-    height: 4vh;
-    a {
-      float: left;
-      display: block;
-      text-align: center;
-      text-decoration: none;
-      color: $nav;
-      padding: 1vw 2vw;
-    }
-  }
+.showborder {
+    border: $todoborder;
+    border-radius: $radius;
+}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: $accent;
-    max-width: 90%;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $yellow;
     font-family: $fontsecond;
-    background: black;
-    border-radius: 10px;
-    margin: 2vh auto;
-  }
+}
   
-  div,
-  form,
-  footer,
-  ul,
-  ol,
-  p,
-  header,
-  section {
-    font-family: $fontprimary;
-    padding: 3vw;
-    background: black;
-    margin: 2vw 0;
-    border-radius: 10px;
-  }
+h1 {
+    font-size: $font6;
+}
   
-  .exercise {
-    border: $border;
-    border-radius: 10px;
-    margin: 2vw;
-  }
+h2 {
+    font-size: $font3;
+}
   
-  .morespc { line-height: 1.5; }
+h3 {
+    font-size: $font3;
+}
   
-  .centerimg {
+h4 {
+    font-size: $font3;
+}
+  
+h5 {
+    font-size: $font2;
+    font-weight: bold;
+    background: $royalblue;
+}
+
+h6 {
+    font-size: $font3;
+    font-weight: bold;
+    font-family: $fontsecond;
+    background: $royalblue;
+}
+
+.padleft {
+    padding-left: 4vw;
+}
+
+.padleft8 {
+    padding-left: 8vw;
+}
+  
+figcaption { color: $yellow; }
+
+div,
+form,
+footer,
+ul,
+ol,
+p,
+header,
+section {
+    font-family: $fontsecond;
+    border-radius: $radius;
+}
+
+.morespc { line-height: 1.5; }
+  
+.centerimg {
     display: block;
     max-width: 100%;
     margin: auto;
-  }
-  
-  h1 {
-    font-size: $font4;
-    color: $accent;
-  }
-  
-  h2 {
-    font-size: $font3;
-  }
-  
-  h3 {
-    font-size: $font3;
-    width: 90%;
-  }
-  
-  h4 {
-    font-size: $font3;
-    width: 85%;
-  }
-  
-  h5 {
-    font-size: $font2;
-    width: 80%;
-    font-weight: bold;
-  }
+}
 
-  h6 {
-    font-size: $font2;
-    width: 75%;
-    font-weight: bold;
-  }
-  
-  .listdots {
+.listdots {
     list-style: square;
-  }
+}
+
+.f1 {
+    font-family: $fontfirst;
+}
   
-  .normal-text {
-    color: $primary;
-    font-family: $fontprimary;
-    font-size: $font2;
+.f2 {
+    font-family: $fontsecond;
+}
+  
+.gridparts {
+    border: 5px solid white;
+    border-radius: 15px;
+    margin: 0 auto;
     padding: 2vw;
-    margin: 0 2vw;
-    background: black;
-  }
+    max-width: 100%;
+}
   
-  .nav a {
-    font-size: $font3;
+.orange { color: $orange; }
+.yellow { color: $yellow; }
+.chartreuse { color: $chartreuse; }
+.limegreen { color: $limegreen; }
+.seafoam { color: $seafoam; }
+.skyblue { color: $skyblue; }
+.medblue { background: #bbbbbb; color: $medblue; }
+.royalblue { background: #bbbbbb; color: $royalblue; }
+.purple { background: #bbbbbb; color: $purple; }
+.hotpink { color: $hotpink; }
+.dksalmon { color: $dksalmon; }
+.redorange { color: $redorange; }
+
+.color3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4vw;
+    padding: 2vw;
+    border-radius: $radius;
+    margin: 4vw;
     font-weight: bold;
-  }
+}
+
+.title {
+  background: black;
+  color: $yellow;
+  margin: 0 4.75vw;
+  padding: 2vw;
+}
   
-  ol li {
-    color: $accent;
+ol li {
+    color: $contrast;
+    background: $orange;
     & a {
-      font-size: $font3;
-      color: $p-150;
+        font-size: $font3;
+        color: $royalblue;
     }
     & a:hover {
-      color: $p-120;
+        color: $dksalmon;
     }
-  }
+}
   
-  a {
-    color: $accent;
+a {
+    color: $royalblue;
     text-decoration: none;
-  }
-  
-  a:visited {
-    color: $p90;
-  }
-  
-  a:hover {
-    color: $p180;
-  }
-  
-  .buttons {
-    text-align: center;
-    cursor: pointer;
-    background: black;
-    box-shadow: $formshadow;
-    padding: 2vw;
-    max-width: 50%;
-    margin: 0 auto;
-    height: 10vh;
-    border-radius: 10px;
-    color: $accent;
-    font-family: $fontsecond;
-    font-weight: bold;
-    font-size: $font3;
-    & a {
-      text-decoration: none;
-      color: $p-150;
-      font-size: 4vh;
+    & a:hover {
+        color: $dksalmon;
     }
-  }
+}
   
-  .padit {
+a:visited {
+    color: $limegreen;
+}
+  
+a:hover {
+    color: $purple;
+}
+  
+.padit {
     padding: 4vw;
-    max-width: 100%;
     margin: 1vw auto;
-  }
+}
   
-  #siteTitle2 {
+#siteTitle2 {
     font-size: $font4;
     color: $accent;
     font-family: $fontsecond;
@@ -191,55 +193,53 @@ html, body {
     text-align: center;
     margin: 0 auto;
     max-width: 100%;
-  }
+}
   
-  .inputs {
+.inputs {
     max-width: 90%;
-  }
+}
   
-  .textarea,
-  .inputs {
-    background: $primary;
-    color: black;
+.textarea,
+.inputs {
+    background: $orange;
+    color: $contrast;
     border-radius: 10px;
     border: $inputborder;
     margin: 2vw;
-  }
+}
   
-  textarea {
+textarea {
     width: 90%;
     height: 25vh;
-  }
+}
   
-  footer#autofooter {
-    font-family: $fontsecond;
+footer#autofooter {
     font-size: 3vh;
     font-weight: bold;
-    color: $accent;
     text-align: center;
     margin-bottom: 6vh;
-  }
+}
   
-  .source {
+.source {
     text-align: center;
-    color: $p-90;
-  }
+    color: $hotpink;
+}
   
-  .sources {
+.sources {
     text-align: left;
-    color: $p120;
+    color: $seafoam;
     font-size: 3vh;
     font-weight: bold;
     margin: 2vh auto;
     & a {
-      text-decoration: none;
-      color: $p120;
-      font-size: 3vh;
+        text-decoration: none;
+        color: $seafoam;
+        font-size: 3vh;
     }
-  }
+}
   
-  .code {
-    background: $primary;
+.code {
+    background: $orange;
     color: black;
     font-size: $font3;
     border-radius: 10px;
@@ -250,83 +250,69 @@ html, body {
     margin: 2vw auto;
     text-decoration: none;
     list-style: none;
-  }
+}
   
-  li {
-    padding-left: 4vw;
-  }
-  
-  .col2 {
+.col2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2vw;
-  }
+}
   
-  pre {
+pre {
     overflow-x: auto;
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
-  }
+}
   
-  .italic {
+.italic {
     font-style: italic;
-  }
-  
-  h4.indent, p.indenth4 {
-    padding-left: 4vw;
-  }
-  
-  h5.indent, p.indenth5, p ul li.indent {
-    padding-left: 8vw;
-  }    
-  
-  h1 {
-    font-size: $font5;
-  }
-  
-  #autoheader {
-    margin: 1vw;
-  }
-
-$todoborder: 2px solid $p150;
+}
 
 #todo-error {
     font-size: $font4;
     font-weight: bold;
-    color: $p-30;
+    color: $redorange;
 }
 
 #root a {
-  color: $accent;
-  text-decoration: none;
-  font-weight: bold;
+    color: $accent;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 #root a:visited {
-  color: $p90;
+    color: $limegreen;
 }
 
 .todo-buttons {
-    height: 6vh;
-    margin: 1vw;
+    max-height: 8vw;
     padding: 1vw;
-    color: $p150;
-    font-size: $font2;
-    background: black;
+    color: $yellow;
+    font-size: $font3;
+    background: $contrast;
     border: $todoborder;
-    border-radius: 8px;
-    & :hover {
-        border: 2px solid $p150;
+    border-radius: $radius;
+    & a {
+      text-decoration: none;
+      color: $royalblue;
+      text-align: center;
+      font-size: 4vh;
+      & :hover {
+          border: 2px solid $skyblue;
+      }
     }
 }
 
 .todo-bordered {
-    border: 2px solid $p150;
+    border: $todoborder;
     border-radius: 10px;
-    padding: 1vh;
+}
+
+.white {
+    color: white;
 }
 
 .todo-scratch {
@@ -339,10 +325,8 @@ $todoborder: 2px solid $p150;
 
 .todo-text, p.todo-text {
     text-align: left;
-    color: $p150;
-    max-width: 100%;
-    font-family: $fontprimary;
-    font-size: $font2;
+    font-weight: bold;
+    font-size: $font3;
     margin: 1vw auto;
     padding: 1vw;
 }
@@ -363,43 +347,39 @@ $todoborder: 2px solid $p150;
     margin: 0 auto;
 }
 
-.foot-row {
-    display: grid;
-    grid-template-areas:
-    "tasks allbtn actbtn donebtn";
-}
-
 .item-row {
     display: grid;
     grid-template-columns: 1fr 9fr 1fr;
-    max-width: 100%;
+    margin: 0 auto;
 }
+
 #todocontainer {
+    display: grid;
     grid-area: todocontainer;
+    background: black;
     text-align: center;
     max-width: 90%;
-    margin: 0 auto;
+    margin: 1vw auto;
     grid-template-columns: 1fr;
-    & #header {
-        grid-area: header;
-        color: $p-30;
-        margin-bottom: 5vw;
+    grid-template-areas:
+    "header1"
+    "todos"
+    "addbar"
+    "listfooter";
+    & #header1 {
+        grid-area: header1;
+        margin-bottom: 0;
+        font-size: $font3;
     }
-    & #todos {
+    & #todos, #dtodos {
         grid-area: todos;
-        padding: 0;
-        margin: 0 auto;
-        max-width: 100%;
+        padding: 1vw;
         grid-template-areas:
         "listitem";
         & li.listitem {
             grid-area: listitem;
-            list-style-type: none;
-            max-width: 100%;
-            border: $todoborder;
-            margin: 1vw;
             height: 8vh;
-            border-radius: 10px;
+            width: 100%;
             grid-template-areas:
             "markbtn itemtext delbtn";
             & .markbtn {
@@ -416,85 +396,90 @@ $todoborder: 2px solid $p150;
             }
             & .delbtn {
                 grid-area: delbtn;
+                color: $dksalmon;
+                background: transparent;
                 border: none;
                 max-width: 8vw;
                 height: 8vh;
-                color: $p-30;
-                background: transparent;
                 padding: 1vh;
                 font-size: $font5;
+                font-weight: 500;
             }
         }
     }
-    & #footer {
-        height: 10vh;
-        grid-area: footer;
-        text-align: center;
-        margin: 0 1vw;
+    & #listfooter {
+        display: grid;
+        height: 18vh;
+        grid-area: listfooter;
+        text-align: left;
+        margin: 1vw;
+        grid-template-columns: 1fr 1fr;
+        justify-content: left;
+        color: $yellow;
+        grid-template-areas:
+        "tasks btns"
+        "srchbar srchbar";
+        & #btncontainer {
+            grid-area: btns;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 0;
+            padding: 0;
+        }
         & p#tasks {
             grid-area: tasks;
-            font-size: $font2;
+            font-size: $font4;
             text-align: center;
-            margin: 0 auto;
-            padding: 1vh 0 0 0;
+            margin: 1vw auto;
             max-height: 6vh;
             width: 95%;
         }
         & #allbtn {
             grid-area: allbtn;
-            text-align: center;
         }
         & #actbtn {
             grid-area: actbtn;
-            text-align: center;
         }
         & #donebtn {
             grid-area: donebtn;
-            text-align: center;
+        }
+        & #allbtn, #actbtn, #donebtn {
+            border: $dotborder;
+            padding: 1vw;
+            margin: 0 2vw;
         }
     }
-    & #searchbar #srchbtn {
-        width: 10vh;
-        height: 10vh;
-        padding: .75vw;
-        margin: -2vw 1vw;
-        font-size: $font2;
-
+    & #srchbar {
+        grid-area: srchbar;
+        font-size: $font3;
+        grid-template-areas:
+            "srchinput srchbtn";
     }
-    & #addbar, #searchbar {
+    & #addbar {
         grid-area: addbar;
-        cursor: pointer;
-        height: 10vh;
-        /*position: absolute;
-        bottom: 0vh;*/
-        max-width: 100%;
-        padding: 0;
-        margin: 10vh 0 2vw 0;
-        display: grid;
-        grid-template-columns: 8fr 1fr;
+        margin: 1vw;
         grid-template-areas:
             "addinput addbtn";
-        & #addinput, #searchinput {
-            background: black;
-            color: $p-60;
-            height: 10vh;
-            width: 90%;
-            margin: -2vw 1vw;
-            padding: 0;
+        cursor: pointer;
+        height: 8vw;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 9fr 1fr;
+        & #addinput {
+            font-size: $font3;
+            background: $yellow;
         }
         & #addbtn {
-            background: black;
-            color: $p150;
-            width: 10vh;
-            height: 10vh;
-            padding: .75vw;
-            margin: -2vw 1vw;
-            font-size: $font7;
+            width: 8vw;
+            height: 8vw;
+            margin-left: 1vw;
+            color: $medblue;
+            background: $yellow;
+            font-size: $font5;
         }
     }
     & h3 {
-        background: black;
-        color: $accent;
         padding: 1vh;
         text-align: center;
         font-weight: bolder;
@@ -505,11 +490,11 @@ $todoborder: 2px solid $p150;
 
 // .mobileHide { display: none; }
 
-  /* Smartphone Portrait and Landscape */
-  @media only screen
-    and (min-device-width : 320px)
-    and (max-device-width : 999px) {
-    //   .mobileShow { display: none; }
+/* Smartphone Portrait and Landscape */
 
-    //   .mobileHide { display: inline; }
+@media screen and (min-width: 768px) {
+
+    .color3 {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
