@@ -17,11 +17,11 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-  
+
 .bold {
     font-weight: bold;
 }
-  
+
 .centered {
     text-align: center;
     max-width: 100%;
@@ -42,23 +42,23 @@ h6 {
     color: $yellow;
     font-family: $fontsecond;
 }
-  
+
 h1 {
     font-size: $font6;
 }
-  
+
 h2 {
     font-size: $font3;
 }
-  
+
 h3 {
     font-size: $font3;
 }
-  
+
 h4 {
     font-size: $font3;
 }
-  
+
 h5 {
     font-size: $font2;
     font-weight: bold;
@@ -79,14 +79,13 @@ h6 {
 .padleft8 {
     padding-left: 8vw;
 }
-  
+
 figcaption { color: $yellow; }
 
 div,
 form,
 footer,
 ul,
-ol,
 p,
 header,
 section {
@@ -95,7 +94,7 @@ section {
 }
 
 .morespc { line-height: 1.5; }
-  
+
 .centerimg {
     display: block;
     max-width: 100%;
@@ -109,11 +108,11 @@ section {
 .f1 {
     font-family: $fontfirst;
 }
-  
+
 .f2 {
     font-family: $fontsecond;
 }
-  
+
 .gridparts {
     border: 5px solid white;
     border-radius: 15px;
@@ -121,7 +120,7 @@ section {
     padding: 2vw;
     max-width: 100%;
 }
-  
+
 .orange { color: $orange; }
 .yellow { color: $yellow; }
 .chartreuse { color: $chartreuse; }
@@ -151,19 +150,7 @@ section {
   margin: 0 4.75vw;
   padding: 2vw;
 }
-  
-ol li {
-    color: $contrast;
-    background: $orange;
-    & a {
-        font-size: $font3;
-        color: $royalblue;
-    }
-    & a:hover {
-        color: $dksalmon;
-    }
-}
-  
+
 a {
     color: $royalblue;
     text-decoration: none;
@@ -171,20 +158,20 @@ a {
         color: $dksalmon;
     }
 }
-  
+
 a:visited {
     color: $limegreen;
 }
-  
+
 a:hover {
     color: $purple;
 }
-  
+
 .padit {
     padding: 4vw;
     margin: 1vw auto;
 }
-  
+
 #siteTitle2 {
     font-size: $font4;
     color: $accent;
@@ -194,37 +181,23 @@ a:hover {
     margin: 0 auto;
     max-width: 100%;
 }
-  
+
 .inputs {
     max-width: 90%;
 }
-  
-.textarea,
-.inputs {
-    background: $orange;
-    color: $contrast;
-    border-radius: 10px;
-    border: $inputborder;
-    margin: 2vw;
-}
-  
-textarea {
-    width: 90%;
-    height: 25vh;
-}
-  
+
 footer#autofooter {
     font-size: 3vh;
     font-weight: bold;
     text-align: center;
     margin-bottom: 6vh;
 }
-  
+
 .source {
     text-align: center;
     color: $hotpink;
 }
-  
+
 .sources {
     text-align: left;
     color: $seafoam;
@@ -308,7 +281,11 @@ pre {
 
 .todo-bordered {
     border: $todoborder;
-    border-radius: 10px;
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
 }
 
 .white {
@@ -347,12 +324,6 @@ pre {
     margin: 0 auto;
 }
 
-.item-row {
-    display: grid;
-    grid-template-columns: 1fr 9fr 1fr;
-    margin: 0 auto;
-}
-
 #todocontainer {
     display: grid;
     grid-area: todocontainer;
@@ -378,8 +349,11 @@ pre {
         "listitem";
         & li.listitem {
             grid-area: listitem;
-            height: 8vh;
-            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 9fr 1fr;
+            margin: 0 2vw;
+            max-height: 25vw;
+            max-width: 100%;
             grid-template-areas:
             "markbtn itemtext delbtn";
             & .markbtn {
@@ -398,21 +372,21 @@ pre {
                 grid-area: delbtn;
                 color: $dksalmon;
                 background: transparent;
+                margin: auto;
                 border: none;
                 max-width: 8vw;
                 height: 8vh;
-                padding: 1vh;
-                font-size: $font5;
+                font-size: $font6;
                 font-weight: 500;
             }
         }
     }
     & #listfooter {
         display: grid;
-        height: 18vh;
+        max-height: 28vh;
         grid-area: listfooter;
         text-align: left;
-        margin: 1vw;
+        margin: 2vw;
         grid-template-columns: 1fr 1fr;
         justify-content: left;
         color: $yellow;
@@ -433,7 +407,7 @@ pre {
             text-align: center;
             margin: 1vw auto;
             max-height: 6vh;
-            width: 95%;
+            width: 100%;
         }
         & #allbtn {
             grid-area: allbtn;
@@ -455,10 +429,13 @@ pre {
         font-size: $font3;
         grid-template-areas:
             "srchinput srchbtn";
+        & #srchbtn {
+            margin-left: 2vw;
+        }
     }
     & #addbar {
         grid-area: addbar;
-        margin: 1vw;
+        margin: 2vw;
         grid-template-areas:
             "addinput addbtn";
         cursor: pointer;

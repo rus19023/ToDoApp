@@ -64,6 +64,11 @@
     max-width: 60%;
   }
 }
+@media screen and (min-width: 1500px) {
+  body {
+    font-size: 4vw;
+  }
+}
 .color3 {
   display: grid;
   grid-template-columns: 1fr;
@@ -230,7 +235,6 @@ div,
 form,
 footer,
 ul,
-ol,
 p,
 header,
 section {
@@ -336,18 +340,6 @@ section {
   padding: 2vw;
 }
 
-ol li {
-  color: #0057b7;
-  background: #b76000;
-}
-ol li a {
-  font-size: 3vw;
-  color: #0500b7;
-}
-ol li a:hover {
-  color: #b70057;
-}
-
 a {
   color: #0500b7;
   text-decoration: none;
@@ -381,20 +373,6 @@ a:hover {
 
 .inputs {
   max-width: 90%;
-}
-
-.textarea,
-.inputs {
-  background: #b76000;
-  color: #0057b7;
-  border-radius: 10px;
-  border: 4px solid #512a00;
-  margin: 2vw;
-}
-
-textarea {
-  width: 90%;
-  height: 25vh;
 }
 
 footer#autofooter {
@@ -493,6 +471,10 @@ pre {
 .todo-bordered {
   border: 2px solid white;
   border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .white {
@@ -531,12 +513,6 @@ pre {
   margin: 0 auto;
 }
 
-.item-row {
-  display: grid;
-  grid-template-columns: 1fr 9fr 1fr;
-  margin: 0 auto;
-}
-
 #todocontainer {
   display: grid;
   grid-area: todocontainer;
@@ -559,8 +535,11 @@ pre {
 }
 #todocontainer #todos li.listitem, #todocontainer #dtodos li.listitem {
   grid-area: listitem;
-  height: 8vh;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 9fr 1fr;
+  margin: 0 2vw;
+  max-height: 25vw;
+  max-width: 100%;
   grid-template-areas: "markbtn itemtext delbtn";
 }
 #todocontainer #todos li.listitem .markbtn, #todocontainer #dtodos li.listitem .markbtn {
@@ -579,19 +558,19 @@ pre {
   grid-area: delbtn;
   color: #b70057;
   background: transparent;
+  margin: auto;
   border: none;
   max-width: 8vw;
   height: 8vh;
-  padding: 1vh;
-  font-size: 5vw;
+  font-size: 6vw;
   font-weight: 500;
 }
 #todocontainer #listfooter {
   display: grid;
-  height: 18vh;
+  max-height: 28vh;
   grid-area: listfooter;
   text-align: left;
-  margin: 1vw;
+  margin: 2vw;
   grid-template-columns: 1fr 1fr;
   justify-content: left;
   color: #ffd700;
@@ -611,7 +590,7 @@ pre {
   text-align: center;
   margin: 1vw auto;
   max-height: 6vh;
-  width: 95%;
+  width: 100%;
 }
 #todocontainer #listfooter #allbtn {
   grid-area: allbtn;
@@ -632,9 +611,12 @@ pre {
   font-size: 3vw;
   grid-template-areas: "srchinput srchbtn";
 }
+#todocontainer #srchbar #srchbtn {
+  margin-left: 2vw;
+}
 #todocontainer #addbar {
   grid-area: addbar;
-  margin: 1vw;
+  margin: 2vw;
   grid-template-areas: "addinput addbtn";
   cursor: pointer;
   height: 8vw;

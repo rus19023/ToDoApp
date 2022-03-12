@@ -4,20 +4,21 @@ import * as util from "./utilities.js";
 let todoList = [];
 //const lskey = 'items';
 var dtasks = [
-  "Overall css: change the red color to one in your color scheme, maybe the blue with white text?",
-  "Home navbar item: I think it should not go to login screen if already logged in. Maybe to the shopping page? or a splash page with company/product/services info?",
-  "Login screen: should only show if not logged in. (Probably have to set up authentication to do that. I think I gave you a link for that?)",
-  "Menu item Shopping Category: gives page that says Shopping Categories, I think that should be another page, similar to Shopping Category in the menu, but with the medicine categories instead of the single medicines, with each category going to a page with all the medicines for just that one category. (I believe we started working on this?)",
-  "For shopping cart page: It needs an order total. ",
-  "For shopping cart page: Change Confirm Order button to Continue (the order isn't really ready for confirmation at this stage, it still needs the shipping and billing info, including payment card info).",
-  "For shopping cart page: I would also move the Continue and Return to Shopping buttons more to the right, maybe near the subtotal column.",
-  "For shopping cart page: Less horizontal and vertical space between line items.",
-  "For shopping cart page: Smaller box for quantity.",           
-  "For Current Order confirmation page: Maybe needs to be renamed Shipping/Billing info?",
-  "For Current Order confirmation page: Also needs the total.",
-  "For Current Order confirmation page: Should not allow empty shipping/billing addresses. I suggest making a database table for addresses, then they can be saved so the client won't have to type them again.",
-  "For Current Order confirmation page: Add card/payment info, which also should not be allowed to be blank.",
-  "Rename submit button to confirm order button which goes to a new Order Confirmation page."
+    "Push changes to github more often, whenever something is working, commit and push it. You never know when something might go wrong...it's better to be safe with a backup than sorry.",
+    "Overall css: change the red color to one in your color scheme, maybe the blue with white text?",
+    "Home navbar item: I think it should not go to login screen if already logged in. Maybe to the shopping page? or a splash page with company / product / services info?",
+    "Login screen: should only show if not logged in. (Probably have to set up authentication to do that. I think I gave you a link for that?)",
+    "For shopping cart page: It needs an order total. ",
+    "For shopping cart page: Change Confirm Order button to Continue (the order isn't really ready for confirmation at this stage, it still needs the shipping and billing info, including payment card info).",
+    "For shopping cart page: I would also move the Continue and Return to Shopping buttons more to the right, maybe near the subtotal column.",
+    "For shopping cart page: Less horizontal and vertical space between line items.",
+    "For shopping cart page: Smaller box for quantity.",
+    "For order history page: It needs a button to place an order.",
+    "For Current Order confirmation page: Maybe needs to be renamed Shipping / Billing info?",
+    "For Current Order confirmation page: Also needs the order total.",
+    "For Current Order confirmation page: Form validation should not allow empty shipping/billing addresses. <a href='https://www.freecodecamp.org/news/how-to-make-input-validation-simple-and-clean-in-your-express-js-app-ea9b5ff5a8a7/>form validation article</a>",
+    "For Current Order confirmation page: Add card / payment info, which also should not be allowed to be blank.",
+    "Rename submit button to confirm order button which goes to a new Order Confirmation page."
 ];
 
 export default class todos {
@@ -37,152 +38,149 @@ export default class todos {
         this.allbtn.addEventListener("touchend", () => { this.listAll(); }, false);
         this.actbtn.addEventListener("touchend", () => { this.listActive(); }, false);
         this.donebtn.addEventListener("touchend", () => { this.listDone(); }, false);
-  }
+    }
 
-  listAll() {
-      this.allbtn.classList.add('showborder');
-      this.todoList = getTodos('items');
-      this.renderTodoList(this.todoList, 'todos');
-      this.itemsLeft(this.todoList);
-  }
+    listAll() {
+        this.allbtn.classList.add('showborder');
+        this.todoList = getTodos('items');
+        this.renderTodoList(this.todoList, 'todos');
+        this.itemsLeft(this.todoList);
+    }
 
-  // function to show how many items are left undone in the todo list
-  itemsLeft(list) {
-      const itemcount = list.length;
-      let t;
-      if (itemcount === 1) {
-        t = ' todo ';
-      } else if ((itemcount > 1) || (itemcount === 0)) {
-        t = ' todos ';
-      }
-      util.qs("#tasks").innerHTML = `${itemcount} ${t} left`;
-      util.setFooter();
-  }
-
-  addDTodos() { 
-      // get list from localStorage
-      console.log(dtasks);
-      dtasks.forEach(ditem => {        
-          //console.log(ditem);
-          // be sure item is not null/blank, if so, give user a message to enter some text
-          if (!ditem.length > 0) {
-              this.todo_error = 'Item cannot be blank, please enter your todo.';
-              util.qs("#error").innerText = this.todo_error;
-          } else {
-              // check if task is not already in the list
-              let match = dtasks.filter((item) => (item.task === ditem));
-              console.log(ditem);
-              console.log(match);
-              // add new item if "ditem" is not already in the storage "items"
-              if (match = [] || match == null) {
-                  saveTodo(ditem, 'items');
-                  let matchit = getTodos('items');
-                  console.log(matchit);
-                  dtasks = dtasks.filter((item) => (!item.task === ditem));
-                  console.log(dtasks);
-              }
-              this.listAll();
-          }     
-      });
-  }
-
-  addTodo() {
-      // clear error message
-      this.todo_error = '';
-      util.qs("#error").innerText = this.todo_error;
-      // grab todo from input field
-      const task = util.qs("#addinput");
-      console.log(task);
-      if (task.length == 0) { task.push('sample to do list item'); }
-      console.log(task);
-      if (!task.value.length > 0) {
-          this.todo_error = 'Item cannot be blank, please enter your todo.';
-          util.qs("#error").innerText = this.todo_error;
-      } else {
-          saveTodo(task.value, 'items');
-      }
-      this.listAll;
-  }
-
-  markItem(id) {
-      markDone(id);
-      this.listAll;
-  }
-
-  removeItem(id) {
-      deleteTodo(id);
-      this.listAll;
-  }
-
-  renderTodoList(renderlist, parentElName) {
-      console.log(parentElName);
-      // build new display
-      const parentEl = util.qs(`#${parentElName}`);
-      console.log(parentEl);
-      parentEl.innerText = '';
-      renderlist.forEach((field) => {
-        // create new list item
-        //            createLMNT(LMNT, LMNTtype, LMNTid, LMNTtext, LMNTclass)
-        let item = util.createLMNT('li', '', '', '', 'listitem todo-bordered item-row nodots');
-
-        console.log(field.task.length);
-        if (field.task.length > 200) {
-          item.style.height = '27vh';
-        } else if (field.task.length > 100) {
-          item.style.height = '18vh';
-        } else if (field.task.length > 75) {
-          item.style.height = '15vh';
-        } else if (field.task.length > 30) {
-          item.style.height = '12vh';
+    // function to show how many items are left undone in the todo list
+    itemsLeft(list) {
+        const itemcount = list.length;
+        let t;
+        if (itemcount === 1) {
+          t = ' todo ';
+        } else if ((itemcount > 1) || (itemcount === 0)) {
+          t = ' todos ';
         }
-        let itemtext = util.createLMNT("p", "", "", field.task , "todo-text");
-        let markbox = util.createLMNT('label', `label${field.id}`, '', '', 'bordered markbtn');
-        markbox.setAttribute('name', `label${field.id}`);
-        let markbtn = util.createLMNT("input", "checkbox", field.id, "", "markbtn chkbtn");
-        let delbtn = util.createLMNT("button", "", `del${field.id}`, "X", "delbtn chkbtn");
-        if (field.done === true) {
-          itemtext.classList.add("todo-scratch");
-          markbtn.classList.add('markbtnX');
-          markbtn.checked = true;
+        util.qs("#tasks").innerHTML = `${itemcount} ${t} left`;
+        util.setFooter();
+    }
+
+    addSampleTodos = () => {
+        let runlist = false;
+        let mytasks = getTodos('items');
+        //console.log(mytasks);
+        if (mytasks.length == 0) { runlist = true; }
+        if (runlist) {
+            dtasks.forEach(ditem => {
+              // loop through list from variable and add to localStorage
+              //console.log(dtasks);
+                //console.log(ditem);
+                // be sure item is not null/blank, if so, give user a message to enter some text
+                if (!ditem.length > 0) {
+                    this.todo_error = 'Item cannot be blank, please enter your todo.';
+                    util.qs("#error").innerText = this.todo_error;
+                } else {
+                    // check if task is not already in the list
+                    let match = dtasks.filter((item) => (item.task === ditem));
+                    //console.log(ditem);
+                    //console.log(match);
+                    // add new item if "ditem" is not already in the storage "items"
+                    if (match = [] || match == null) {
+                        saveTodo(ditem, 'items');
+                        let matchit = getTodos('items');
+                        //console.log(matchit);
+                        dtasks = dtasks.filter((item) => (!item.task === ditem));
+                        //console.log(dtasks);
+                    }
+                    this.listAll();
+                }
+            })
+            runlist = false;
+        }
+    }
+
+    addTodo() {
+        // clear error message
+        this.todo_error = '';
+        util.qs("#error").innerText = this.todo_error;
+        // grab todo from input field
+        const task = util.qs("#addinput");
+        //console.log(task);
+        if (task.length == 0) { task.push('sample to do list item'); }
+        //console.log(task);
+        if (!task.value.length > 0) {
+            this.todo_error = 'Item cannot be blank, please enter your todo.';
+            util.qs("#error").innerText = this.todo_error;
         } else {
-          markbtn.checked = false;
-          markbtn.classList.remove('markbtnX');
-          itemtext.classList.remove("todo-scratch");
+            saveTodo(task.value, 'items');
         }
-        markbox.appendChild(markbtn);
-        item.appendChild(markbox);
-        item.appendChild(itemtext);
-        item.appendChild(delbtn);
-        parentEl.appendChild(item);
-      });
-      this.checkBtn();
-  }
+        this.listAll;
+    }
 
-  checkBtn() {
-      let btnitems = Array.from(document.querySelectorAll('.chkbtn'));
-      btnitems.forEach(function (item) {
-          item.addEventListener('touchend', function(e) {
-            // check if the event is a checkbox
-            if (e.target.type === 'checkbox') {
-              // get id from button id value and toggle the state
-              markDone(e.target.getAttribute('id'));
-            }
-            // check if that is a delete-button
-            if (e.target.classList.contains('delbtn')) {
-              // get id from button id value and delete it
-              deleteTodo(e.target.getAttribute('id'));
-            }
-            console.log(item);
-          });
-      });
-  }
+    markItem(id) {
+        markDone(id);
+        this.listAll;
+    }
 
-  listActive() {
-      this.actbtn.classList.add('showborder');
-      this.todoList = getTodos('items');
-      this.todoList = this.todoList.filter(el => el.done === false);
-      this.renderTodoList(this.todoList, 'todos');
-      this.itemsLeft(this.todoList);
+    removeItem(id) {
+        deleteTodo(id);
+        this.listAll;
+    }
+
+    renderTodoList(renderlist, parentElName) {
+        //console.log(parentElName);
+        // build new display
+        const parentEl = util.qs(`#${parentElName}`);
+        //console.log(parentEl);
+        parentEl.innerText = '';
+        renderlist.forEach((field) => {
+          // create new list item
+          //            createLMNT(LMNT, LMNTtype, LMNTid, LMNTtext, LMNTclass)
+          let item = util.createLMNT('li', '', '', '', 'listitem todo-bordered item-row nodots');
+          //console.log(field.task.length, field.task);
+          let itemtext = util.createLMNT("p", "", "", field.task , "todo-text");
+          let markbox = util.createLMNT('label', `label${field.id}`, '', '', 'bordered markbtn');
+          markbox.setAttribute('name', `label${field.id}`);
+          let markbtn = util.createLMNT("input", "checkbox", field.id, "", "markbtn chkbtn");
+          let delbtn = util.createLMNT("button", "", `del${field.id}`, "X", "delbtn chkbtn");
+          if (field.done === true) {
+            itemtext.classList.add("todo-scratch");
+            markbtn.classList.add('markbtnX');
+            markbtn.checked = true;
+          } else {
+            markbtn.checked = false;
+            markbtn.classList.remove('markbtnX');
+            itemtext.classList.remove("todo-scratch");
+          }
+          markbox.appendChild(markbtn);
+          item.appendChild(markbox);
+          item.appendChild(itemtext);
+          item.appendChild(delbtn);
+          parentEl.appendChild(item);
+        });
+        this.checkBtn();
+    }
+
+    checkBtn() {
+        let btnitems = Array.from(document.querySelectorAll('.chkbtn'));
+        btnitems.forEach(function (item) {
+            item.addEventListener('touchend', function(e) {
+              // check if the event is a checkbox
+              if (e.target.type === 'checkbox') {
+                // get id from button id value and toggle the state
+                markDone(e.target.getAttribute('id'));
+              }
+              // check if that is a delete-button
+              if (e.target.classList.contains('delbtn')) {
+                // get id from button id value and delete it
+                deleteTodo(e.target.getAttribute('id'));
+              }
+              console.log(item);
+            });
+        });
+    }
+
+    listActive() {
+        this.actbtn.classList.add('showborder');
+        this.todoList = getTodos('items');
+        this.todoList = this.todoList.filter(el => el.done === false);
+        this.renderTodoList(this.todoList, 'todos');
+        this.itemsLeft(this.todoList);
     }
 
     listDone() {
@@ -195,12 +193,12 @@ export default class todos {
 
     listFiltered() {
         this.todoList = getTodos('items');
-        const searchitem = util.qs('#searchinput').value;
-        console.log(searchitem);
+        const searchitem = util.qs('#srchinput').value;
+        //console.log(searchitem);
         let newlist = [];
         this.todoList.forEach((field) => {
             if (field.task.includes(searchitem)) {
-                console.log(field);
+                //console.log(field);
                 newlist.push(field);
             }
         });
@@ -215,30 +213,34 @@ export default class todos {
     }
 }
 
-/***** END OF todos CLASS *****/
-
-/*
-In the todos.js module, but not in the todos class create the following function
-/ check the contents of sList, a local variable containing a list of todos. If it is null then pull the list of todos from localstorage, update the local variable, and return it
-@param {string} key The key under which the value is stored under in LS @return {array} The value as an array of objects /
-function gettodos(key) { }
-*/
+/*  END OF CLASS  */
 
 function getTodos(lskey) {
     let todolist = JSON.parse(ls.readFromLS(lskey)) || [];
-  return todolist;
+    return todolist;
 }
 
-function saveTodo(todo, lskey) {
-  todoList = getTodos(lskey);
-  console.log(todoList);
-  // build todo object
-  const newItem = { id: Date.now(), task: todo, done: false };
-  // add obj to todoList
-  todoList.push(newItem);
-  console.log(todoList);
-  // save JSON.stringified list to ls
-  ls.writeToLS(lskey, JSON.stringify(todoList));
+function saveDTodo(todo) {
+    let taskList = getTodos('items');
+    console.log(todo);
+    // build todo object
+    const newItem = { id: Date.now(), task: todo, done: false };
+    console.log(newItem);
+    // add obj to todoList
+    taskList.push(newItem);
+    //console.log(taskList);
+    // save JSON.stringified list to ls
+    ls.writeToLS('items', JSON.stringify(taskList));
+}
+
+function saveTodo(todo) {
+    todoList = getTodos('items');
+    // build todo object
+    const newItem = { id: Date.now(), task: todo, done: false };  // prequel for task: todo.length + " " + 
+    // add obj to todoList
+    todoList.push(newItem);
+    // save JSON.stringified list to ls
+    ls.writeToLS('items', JSON.stringify(todoList));
 }
 
 function markDone(id) {
