@@ -148,7 +148,8 @@ section {
   background: black;
   color: $yellow;
   margin: 0 4.75vw;
-  padding: 2vw;
+  padding: 1vw;
+  font-size: $font4;
 }
 
 a {
@@ -184,6 +185,10 @@ a:hover {
 
 .inputs {
     max-width: 90%;
+}
+
+::placeholder {
+    color: $redorange;
 }
 
 footer#autofooter {
@@ -425,12 +430,27 @@ pre {
         }
     }
     & #srchbar {
+        display: grid;
         grid-area: srchbar;
         font-size: $font3;
         grid-template-areas:
             "srchinput srchbtn";
         & #srchbtn {
+            grid-area: srchbtn;
             margin-left: 2vw;
+            background: $chartreuse;
+            color: $royalblue;
+        }
+        & #srchinput {
+            grid-area: srchinput;
+            width: 50vw;
+            height: 4vh;
+            margin: auto;
+            padding: 1vw;
+            font-size: $font3;
+            font-weight: bold;
+            background: $chartreuse;
+            color: $royalblue;
         }
     }
     & #addbar {

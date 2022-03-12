@@ -32,12 +32,16 @@
 }
 @media screen and (min-width: 700px) {
   #addinput, #searchinput {
-    font-size: 5vw;
+    font-size: 2vw;
+  }
+
+  .title {
+    font-size: 2vw;
   }
 }
 @media screen and (min-width: 992px) {
   #addinput, #searchinput {
-    font-size: 6vw;
+    font-size: 2vw;
   }
 
   .color3 {
@@ -45,11 +49,10 @@
   }
 
   .normal-text, p.normal-text {
-    font-size: 3vw;
+    font-size: 2vw;
   }
 
   #gridcontainer {
-    max-width: 75%;
     margin: 0 auto;
     gap: 2vw;
     grid-template-areas: "left right";
@@ -60,13 +63,13 @@
     font-size: 7vw;
   }
 
-  #todocontainer {
-    max-width: 60%;
+  .title {
+    font-size: 1vw;
   }
 }
 @media screen and (min-width: 1500px) {
   body {
-    font-size: 4vw;
+    font-size: 2vw;
   }
 }
 .color3 {
@@ -337,7 +340,8 @@ section {
   background: black;
   color: #ffd700;
   margin: 0 4.75vw;
-  padding: 2vw;
+  padding: 1vw;
+  font-size: 4vw;
 }
 
 a {
@@ -373,6 +377,18 @@ a:hover {
 
 .inputs {
   max-width: 90%;
+}
+
+::-moz-placeholder {
+  color: #b70500;
+}
+
+:-ms-input-placeholder {
+  color: #b70500;
+}
+
+::placeholder {
+  color: #b70500;
 }
 
 footer#autofooter {
@@ -607,12 +623,27 @@ pre {
   margin: 0 2vw;
 }
 #todocontainer #srchbar {
+  display: grid;
   grid-area: srchbar;
   font-size: 3vw;
   grid-template-areas: "srchinput srchbtn";
 }
 #todocontainer #srchbar #srchbtn {
+  grid-area: srchbtn;
   margin-left: 2vw;
+  background: #57b700;
+  color: #0500b7;
+}
+#todocontainer #srchbar #srchinput {
+  grid-area: srchinput;
+  width: 50vw;
+  height: 4vh;
+  margin: auto;
+  padding: 1vw;
+  font-size: 3vw;
+  font-weight: bold;
+  background: #57b700;
+  color: #0500b7;
 }
 #todocontainer #addbar {
   grid-area: addbar;

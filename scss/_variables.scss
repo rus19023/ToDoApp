@@ -108,3 +108,15 @@ $fa-fw-width:          20em;
 $fa-orange-opacity:   1 !default;
 $fa-secondary-opacity: .4 !default;
 
+@media screen and (min-width: 992px) {
+    $radius: 20px;
+    $fontinput: max(4vw);
+    $font1: 1vh;
+    $font2: 2vh;
+    $font3: 3vh;
+    $font4: 4vh;
+    $font5: 5vh;
+    $font6: 6vh;
+    $font7: 7vh;
+    $fonth1: 10vh;
+}

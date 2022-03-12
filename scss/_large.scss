@@ -6,28 +6,31 @@
 }
 
 @media screen and (min-width: 700px) {
-    
+
     #addinput, #searchinput {
-        font-size: $font5;
+        font-size: $font2;
+    }
+
+    .title {
+      font-size: $font2;
     }
 }
 
 @media screen and (min-width: 992px) {
-    
+
     #addinput, #searchinput {
-        font-size: $font6;
+        font-size: $font2;
     }
-    
+
     .color3 {
         grid-template-columns: repeat(6, 1fr);
     }
 
     .normal-text, p.normal-text  {
-        font-size: $font3;
+        font-size: $font2;
     }
 
     #gridcontainer {
-        max-width: 75%;
         margin: 0 auto;
         gap: 2vw;
         grid-template-areas:
@@ -37,18 +40,18 @@
 
 
 @media screen and (min-width: 1200px) {
-    
+
     #addinput, #searchinput {
         font-size: $font7;
     }
 
-    #todocontainer {
-        max-width: 60%;
+    .title {
+      font-size: $font1;
     }
 }
 
 @media screen and (min-width: 1500px) {
     body {
-        font-size: $font4;
+        font-size: $font2;
     }
 }

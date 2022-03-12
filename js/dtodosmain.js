@@ -1,8 +1,7 @@
-import ToDos from "./ToDos.js";
+import ToDos from "./dToDos.js";
 
-let count = 0;
 window.addEventListener("load", () => {
-    const myDTodos = new ToDos("dtodos");
+    const myDTodos = new ToDos("todos");
     myDTodos.addSampleTodos();
     myDTodos.listAll();
 });
