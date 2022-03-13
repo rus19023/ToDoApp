@@ -26,11 +26,43 @@
   }
 }
 @media screen and (min-width: 451px) {
+  h1.title, li.cert-text {
+    font-size: 4vw;
+  }
+
+  h2.title, .sources {
+    font-size: 3.5vw;
+  }
+
+  h3.title {
+    font-size: 3.25vw;
+  }
+
+  p.normal-text, li a, #autofooter, .source, li.normal-text {
+    font-size: 3vw;
+  }
+
   #todocontainer {
     max-width: 500px;
   }
 }
 @media screen and (min-width: 700px) {
+  h1.title, li.cert-text {
+    font-size: 3.5vw;
+  }
+
+  h2.title, .sources {
+    font-size: 2.5vw;
+  }
+
+  h3.title {
+    font-size: 2.25vw;
+  }
+
+  p.normal-text, li a, #autofooter, .source, li.normal-text {
+    font-size: 2vw;
+  }
+
   #addinput, #searchinput {
     font-size: 2vw;
   }
@@ -40,6 +72,22 @@
   }
 }
 @media screen and (min-width: 992px) {
+  h1.title, li.cert-text {
+    font-size: 3vw;
+  }
+
+  h2.title, .sources {
+    font-size: 2.75vw;
+  }
+
+  h3.title {
+    font-size: 2.5vw;
+  }
+
+  p.normal-text, li a, #autofooter, .source, li.normal-text {
+    font-size: 2.25vw;
+  }
+
   #addinput, #searchinput {
     font-size: 2vw;
   }
@@ -59,6 +107,22 @@
   }
 }
 @media screen and (min-width: 1200px) {
+  h1.title, li.cert-text {
+    font-size: 2.5vw;
+  }
+
+  h2.title, .sources {
+    font-size: 2.5vw;
+  }
+
+  h3.title {
+    font-size: 2.25vw;
+  }
+
+  p.normal-text, li a, #autofooter, .source, li.normal-text {
+    font-size: 2vw;
+  }
+
   #addinput, #searchinput {
     font-size: 7vw;
   }
@@ -68,8 +132,20 @@
   }
 }
 @media screen and (min-width: 1500px) {
-  body {
+  h1.title, li.cert-text {
     font-size: 2vw;
+  }
+
+  h2.title, .sources {
+    font-size: 1.75vw;
+  }
+
+  h3.title {
+    font-size: 1.5vw;
+  }
+
+  p.normal-text, li a, #autofooter, .source, li.normal-text {
+    font-size: 1.25vw;
   }
 }
 .color3 {
@@ -336,6 +412,34 @@ section {
   font-weight: bold;
 }
 
+h1.title, li.cert-text {
+  font-size: 7vw;
+}
+
+h2.title, .sources {
+  font-size: 6vw;
+}
+
+h3.title {
+  font-size: 4vw;
+}
+
+h4.title {
+  font-size: 3.5vw;
+}
+
+h5.title {
+  font-size: 3.25vw;
+}
+
+h6.title {
+  font-size: 3vw;
+}
+
+p.normal-text, li a, #autofooter, .source, li.title {
+  font-size: 4vw;
+}
+
 .title {
   background: black;
   color: #ffd700;
@@ -380,15 +484,15 @@ a:hover {
 }
 
 ::-moz-placeholder {
-  color: #b70500;
+  color: black;
 }
 
 :-ms-input-placeholder {
-  color: #b70500;
+  color: black;
 }
 
 ::placeholder {
-  color: #b70500;
+  color: black;
 }
 
 footer#autofooter {
@@ -542,7 +646,6 @@ pre {
 #todocontainer #header1 {
   grid-area: header1;
   margin-bottom: 0;
-  font-size: 3vw;
 }
 #todocontainer #todos, #todocontainer #dtodos {
   grid-area: todos;

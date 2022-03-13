@@ -144,6 +144,14 @@ section {
     font-weight: bold;
 }
 
+h1.title, li.cert-text { font-size: 7vw; }
+h2.title, .sources { font-size: 6vw; }
+h3.title { font-size: 4vw; }
+h4.title { font-size: 3.5vw; }
+h5.title { font-size: 3.25vw; }
+h6.title { font-size: 3vw; }
+p.normal-text, li a, #autofooter, .source, li.title { font-size: 4vw; }
+
 .title {
   background: black;
   color: $yellow;
@@ -188,7 +196,7 @@ a:hover {
 }
 
 ::placeholder {
-    color: $redorange;
+    color: black;
 }
 
 footer#autofooter {
@@ -345,7 +353,6 @@ pre {
     & #header1 {
         grid-area: header1;
         margin-bottom: 0;
-        font-size: $font3;
     }
     & #todos, #dtodos {
         grid-area: todos;
