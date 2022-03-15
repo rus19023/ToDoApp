@@ -4,6 +4,20 @@ import * as util from "./utilities.js";
 let todoList = [];
 //const lskey = 'items';
 var dtasks = [
+    "Push changes to github more often, whenever something is working, commit and push it. You never know when something might go wrong...it's better to be safe with a backup than sorry.",
+    "Overall css: change the red color to one in your color scheme, maybe the blue with white text?",
+    "Home navbar item: I think it should not go to login screen if already logged in. Maybe to the shopping page? or a splash page with company / product / services info?",
+    "Login screen: should only show if not logged in. (Probably have to set up authentication to do that. I think I gave you a link for that?)",
+    "For shopping cart page: It needs an order total. ",
+    "For shopping cart page: Change Confirm Order button to Continue (the order isn't really ready for confirmation at this stage, it still needs the shipping and billing info, including payment card info).",
+    "For shopping cart page: I would also move the Continue and Return to Shopping buttons more to the right, maybe near the subtotal column.",
+    "For shopping cart page: Less horizontal and vertical space between line items.",
+    "For shopping cart page: Smaller box for quantity.",
+    "For order history page: It needs a button to place an order.",
+    "For Current Order confirmation page: Maybe needs to be renamed Shipping / Billing info?",
+    "For Current Order confirmation page: Also needs the order total.",
+    "For Current Order confirmation page: Form validation should not allow empty shipping/billing addresses. <a href='https://www.freecodecamp.org/news/how-to-make-input-validation-simple-and-clean-in-your-express-js-app-ea9b5ff5a8a7/>form validation article</a>",
+    "For Current Order confirmation page: Add card / payment info, which also should not be allowed to be blank.",
     "Rename submit button to confirm order button which goes to a new Order Confirmation page."
 ];
 
@@ -27,8 +41,6 @@ export default class todos {
     }
 
     async listAll() {
-        this.actbtn.classList.remove('showborder');
-        this.donebtn.classList.remove('showborder');
         this.allbtn.classList.add('showborder');
         this.todoList = await getTodos('items');
         this.renderTodoList(this.todoList, 'todos');
@@ -97,18 +109,8 @@ export default class todos {
             util.qs("#error").innerText = this.todo_error;
         } else {
             saveTodo(task.value, 'items');
+            this.listAll();
         }
-        this.listAll;
-    }
-
-    markItem(id) {
-        markDone(id);
-        this.listAll;
-    }
-
-    removeItem(id) {
-        deleteTodo(id);
-        this.listAll;
     }
 
     renderTodoList(renderlist, parentElName) {
@@ -126,7 +128,7 @@ export default class todos {
           let markbox = util.createLMNT('label', `label${field.id}`, '', '', 'bordered markbtn');
           markbox.setAttribute('name', `label${field.id}`);
           let markbtn = util.createLMNT("input", "checkbox", field.id, "", "markbtn chkbtn");
-          let delbtn = util.createLMNT("button", "", `del${field.id}`, "X", "delbtn chkbtn");
+          let delbtn = util.createLMNT("button", "button", `del${field.id}`, "X", "delbtn chkbtn");
           if (field.done === true) {
             itemtext.classList.add("todo-scratch");
             markbtn.classList.add('markbtnX');
@@ -149,24 +151,29 @@ export default class todos {
         let btnitems = Array.from(document.querySelectorAll('.chkbtn'));
         btnitems.forEach(function (item) {
             item.addEventListener('touchend', function(e) {
-              // check if the event is a checkbox
-              if (e.target.type === 'checkbox') {
-                // get id from button id value and toggle the state
-                markDone(e.target.getAttribute('id'));
-              }
-              // check if that is a delete-button
-              if (e.target.classList.contains('delbtn')) {
-                // get id from button id value and delete it
-                deleteTodo(e.target.getAttribute('id'));
-              }
-              console.log(item);
+                let btnid = e.target.getAttribute('id');
+                console.log(btnid);
+                // check if the event is a checkbox
+                if (e.target.type === 'checkbox') {
+                    // get id from button id value and toggle the state
+                    markDone(btnid);
+                    this.listAll;
+                }
+                // check if that is a delete-button
+                if (e.target.classList.contains('delbtn')) {
+                    // get id from button id value and delete it
+                    btnid = btnid.substring(3, btnid.length);
+                    console.log(btnid);
+                    //console.log(e.target.getAttribute('id').substring(3, id.length));
+                    deleteTodo(btnid);
+                    this.listAll();
+                }
+                //console.log(item);
             });
         });
     }
 
     listActive() {
-        this.donebtn.classList.remove('showborder');
-        this.allbtn.classList.remove('showborder');
         this.actbtn.classList.add('showborder');
         this.todoList = getTodos('items');
         this.todoList = this.todoList.filter(el => el.done === false);
@@ -175,8 +182,6 @@ export default class todos {
     }
 
     listDone() {
-      this.actbtn.classList.remove('showborder');
-      this.allbtn.classList.remove('showborder');
       this.donebtn.classList.add('showborder');
       this.todoList = getTodos('items');
       this.todoList = this.todoList.filter(el => el.done === true);
@@ -229,7 +234,7 @@ function saveDTodo(todo) {
 function saveTodo(todo) {
     todoList = getTodos('items');
     // build todo object
-    const newItem = { id: Date.now(), task: todo, done: false };  // prequel for task: todo.length + " " + 
+    const newItem = { id: Date.now(), task: todo, done: false };  // prequel for task: todo.length + " " +
     // add obj to todoList
     todoList.push(newItem);
     // save JSON.stringified list to ls
@@ -248,11 +253,15 @@ function markDone(id) {
     // save modified JSON.stringified list to ls
     ls.writeToLS('items', JSON.stringify(todoList));
     console.log(todoList);
+    location.reload();
 }
 
 function deleteTodo(id) {
     todoList = getTodos('items');
-    todoList = todoList.filter(item => item.id != id.substr(3, id.length));
+    const filtered = todoList.filter(item => item.id != id);
     // save JSON.stringified list to ls
-    ls.writeToLS('items', JSON.stringify(todoList));
+    ls.writeToLS('items', JSON.stringify(filtered));
+    console.log(filtered);
+    console.log(todoList);
+    location.reload();
 }
