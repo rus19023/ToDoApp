@@ -433,29 +433,31 @@ pre {
             padding: 1vw;
             margin: 0 2vw;
         }
-    }
-    & #srchbar {
-        display: grid;
-        grid-area: srchbar;
-        font-size: $font3;
-        grid-template-areas:
+        & #srchbar {
+            display: grid;
+            grid-area: srchbar;
+            max-width: 100%;
+            grid-template-areas:
             "srchinput srchbtn";
-        & #srchbtn {
-            grid-area: srchbtn;
-            margin-left: 2vw;
-            background: $chartreuse;
-            color: $royalblue;
-        }
-        & #srchinput {
-            grid-area: srchinput;
-            width: 50vw;
-            height: 4vh;
-            margin: auto;
-            padding: 1vw;
-            font-size: $font3;
-            font-weight: bold;
-            background: $chartreuse;
-            color: $royalblue;
+            & #srchbtn {
+                grid-area: srchbtn;
+                background: $limegreen;
+                padding: .5vw;
+                margin-left: 1vw;
+                color: $yellow;
+                max-width: 100%;
+            }
+            & #srchinput {
+                grid-area: srchinput;
+                width: 46vw;
+                height: 4vh;
+                margin: auto;
+                padding: 1vw;
+                font-size: $font2;
+                font-weight: bold;
+                background: $limegreen;
+                color: $yellow;
+            }
         }
     }
     & #addbar {

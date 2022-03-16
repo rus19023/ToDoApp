@@ -42,7 +42,7 @@
 }
 @media screen and (min-width: 700px) {
   #gridcontainer {
-    max-width: 50%;
+    max-width: 80%;
   }
 
   #addinput, #searchinput {
@@ -707,28 +707,30 @@ pre {
   padding: 1vw;
   margin: 0 2vw;
 }
-#todocontainer #srchbar {
+#todocontainer #listfooter #srchbar {
   display: grid;
   grid-area: srchbar;
-  font-size: 3vw;
+  max-width: 100%;
   grid-template-areas: "srchinput srchbtn";
 }
-#todocontainer #srchbar #srchbtn {
+#todocontainer #listfooter #srchbar #srchbtn {
   grid-area: srchbtn;
-  margin-left: 2vw;
-  background: #57b700;
-  color: #0500b7;
+  background: #00b705;
+  padding: 0.5vw;
+  margin-left: 1vw;
+  color: #ffd700;
+  max-width: 100%;
 }
-#todocontainer #srchbar #srchinput {
+#todocontainer #listfooter #srchbar #srchinput {
   grid-area: srchinput;
-  width: 50vw;
+  width: 46vw;
   height: 4vh;
   margin: auto;
   padding: 1vw;
-  font-size: 3vw;
+  font-size: 2vw;
   font-weight: bold;
-  background: #57b700;
-  color: #0500b7;
+  background: #00b705;
+  color: #ffd700;
 }
 #todocontainer #addbar {
   grid-area: addbar;
