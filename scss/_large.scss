@@ -5,12 +5,13 @@
     h3.title { font-size: 3.25vw; }
     p.normal-text, li a, #autofooter, .source, li.normal-text { font-size: 3vw; }
 
-    #todocontainer {
-        max-width: 500px;
-    }
 }
 
 @media screen and (min-width: 700px) {
+
+    #todocontainer {
+        max-width: 50%;
+    }
 
     h1.title, li.cert-text { font-size: 3.5vw; }
     h2.title, .sources  { font-size: 2.5vw; }
@@ -72,8 +73,8 @@
 
 @media screen and (min-width: 1500px) {
     
-    h1.title, li.cert-text { font-size: 2vw; }
-    h2.title, .sources  { font-size: 1.75vw; }
-    h3.title { font-size: 1.5vw; }
-    p.normal-text, li a, #autofooter, .source, li.normal-text { font-size: 1.25vw; }
+    h1.title, li.cert-text { font-size: 1.5vw; }
+    h2.title, .sources  { font-size: 1.25vw; }
+    h3.title { font-size: 1vw; }
+    p.normal-text, li a, #autofooter, .source, li.normal-text { font-size: .75vw; }
 }

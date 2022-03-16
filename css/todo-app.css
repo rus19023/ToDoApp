@@ -41,12 +41,12 @@
   p.normal-text, li a, #autofooter, .source, li.normal-text {
     font-size: 3vw;
   }
-
-  #todocontainer {
-    max-width: 500px;
-  }
 }
 @media screen and (min-width: 700px) {
+  #todocontainer {
+    max-width: 50%;
+  }
+
   h1.title, li.cert-text {
     font-size: 3.5vw;
   }
@@ -133,19 +133,19 @@
 }
 @media screen and (min-width: 1500px) {
   h1.title, li.cert-text {
-    font-size: 2vw;
-  }
-
-  h2.title, .sources {
-    font-size: 1.75vw;
-  }
-
-  h3.title {
     font-size: 1.5vw;
   }
 
-  p.normal-text, li a, #autofooter, .source, li.normal-text {
+  h2.title, .sources {
     font-size: 1.25vw;
+  }
+
+  h3.title {
+    font-size: 1vw;
+  }
+
+  p.normal-text, li a, #autofooter, .source, li.normal-text {
+    font-size: 0.75vw;
   }
 }
 .color3 {
@@ -238,7 +238,7 @@ body {
   color: white;
   font-size: 16px;
   font-family: "Hubballi", sans-serif;
-  background: linear-gradient(180deg, #0059b8 0%, #9fa290 52%, #ffd900 100%);
+  background: linear-gradient(180deg, #0059b8 40%, #9fa290 50%, #ffd900 60%);
   height: 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
