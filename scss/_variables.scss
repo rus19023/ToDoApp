@@ -2,18 +2,18 @@
 $orange: #b76000;
 $yellow: #ffd700;
 $uyellow: #ffd700;
-$ublue: #0059b8;
-$yellowFromSet: adjust-hue($orange, 30deg);
-$chartreuse: adjust-hue($orange, 60deg);
-$limegreen: adjust-hue($orange, 90deg);
-$seafoam: adjust-hue($orange, 120deg);
-$skyblue: adjust-hue($orange, 150deg);
-$medblue: adjust-hue($orange, 180deg);
-$royalblue: adjust-hue($orange, -150deg);
-$purple: adjust-hue($orange, -120deg);
-$hotpink: adjust-hue($orange, -90deg);
-$dksalmon: adjust-hue($orange, -60deg);
-$redorange: adjust-hue($orange, -30deg);
+$ublue: #0057b7;
+$yellowFromSet: adjust-hue($orange,   30deg);
+$chartreuse:    adjust-hue($orange,   60deg);
+$limegreen:     adjust-hue($orange,   90deg);
+$seafoam:       adjust-hue($orange,  120deg);
+$skyblue:       adjust-hue($orange,  150deg);
+$medblue:       adjust-hue($orange,  180deg);
+$royalblue:     adjust-hue($orange, -150deg);
+$purple:        adjust-hue($orange, -120deg);
+$hotpink:       adjust-hue($orange,  -90deg);
+$dksalmon:      adjust-hue($orange,  -60deg);
+$redorange:     adjust-hue($orange,  -30deg);
 
 $todoborder: 2px solid white;
 $dotborder: 2px dotted white;
@@ -26,8 +26,6 @@ $orangeborder: darken($orange, 20%);
 $warning: darken($redorange, 50%);
 $nav: $dksalmon;
 $valid: $limegreen;
-// $background: darken($orange, 0%);
-// $background: #7e5201;
 
 
 $bgmoz: -moz-linear-gradient(180deg, rgb(0, 89, 184) 0%, rgba(255, 215, 0, 1) 67%);

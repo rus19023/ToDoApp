@@ -1,6 +1,4 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Dosis");
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@100;200;300;400;500");
 @import url("https://fonts.googleapis.com/css2?family=Handlee&family=Hubballi");
 #gridcontainer {
   grid-area: gridcontainer;
@@ -43,24 +41,8 @@
   }
 }
 @media screen and (min-width: 700px) {
-  #todocontainer {
+  #gridcontainer {
     max-width: 50%;
-  }
-
-  h1.title, li.cert-text {
-    font-size: 3.5vw;
-  }
-
-  h2.title, .sources {
-    font-size: 2.5vw;
-  }
-
-  h3.title {
-    font-size: 2.25vw;
-  }
-
-  p.normal-text, li a, #autofooter, .source, li.normal-text {
-    font-size: 2vw;
   }
 
   #addinput, #searchinput {

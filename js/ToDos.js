@@ -109,6 +109,7 @@ export default class todos {
             util.qs("#error").innerText = this.todo_error;
         } else {
             saveTodo(task.value, 'items');
+            util.qs("#addinput").value = '';
             this.listAll();
         }
     }
