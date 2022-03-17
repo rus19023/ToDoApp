@@ -23,63 +23,14 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-@media screen and (min-width: 451px) {
-  h1.title, li.cert-text {
-    font-size: 4vw;
-  }
-
-  h2.title, .sources {
-    font-size: 3.5vw;
-  }
-
-  h3.title {
-    font-size: 3.25vw;
-  }
-
-  p.normal-text, li a, #autofooter, .source, li.normal-text {
-    font-size: 3vw;
-  }
-}
 @media screen and (min-width: 700px) {
   #gridcontainer {
     max-width: 80%;
   }
-
-  #addinput, #searchinput {
-    font-size: 2vw;
-  }
-
-  .title {
-    font-size: 2vw;
-  }
 }
 @media screen and (min-width: 992px) {
-  h1.title, li.cert-text {
-    font-size: 3vw;
-  }
-
-  h2.title, .sources {
-    font-size: 2.75vw;
-  }
-
-  h3.title {
-    font-size: 2.5vw;
-  }
-
-  p.normal-text, li a, #autofooter, .source, li.normal-text {
-    font-size: 2.25vw;
-  }
-
-  #addinput, #searchinput {
-    font-size: 2vw;
-  }
-
   .color3 {
     grid-template-columns: repeat(6, 1fr);
-  }
-
-  .normal-text, p.normal-text {
-    font-size: 2vw;
   }
 
   #gridcontainer {
@@ -88,53 +39,11 @@
     grid-template-areas: "left right";
   }
 }
-@media screen and (min-width: 1200px) {
-  h1.title, li.cert-text {
-    font-size: 2.5vw;
-  }
-
-  h2.title, .sources {
-    font-size: 2.5vw;
-  }
-
-  h3.title {
-    font-size: 2.25vw;
-  }
-
-  p.normal-text, li a, #autofooter, .source, li.normal-text {
-    font-size: 2vw;
-  }
-
-  #addinput, #searchinput {
-    font-size: 7vw;
-  }
-
-  .title {
-    font-size: 1vw;
-  }
-}
-@media screen and (min-width: 1500px) {
-  h1.title, li.cert-text {
-    font-size: 1.5vw;
-  }
-
-  h2.title, .sources {
-    font-size: 1.25vw;
-  }
-
-  h3.title {
-    font-size: 1vw;
-  }
-
-  p.normal-text, li a, #autofooter, .source, li.normal-text {
-    font-size: 0.75vw;
-  }
-}
 .color3 {
   display: grid;
   grid-template-columns: 1fr;
   max-width: 100%;
-  font-size: 4vw;
+  font-size: 2rem;
   padding: 0.25vw;
 }
 
@@ -213,7 +122,7 @@
 input[type=checkbox].markbtnX {
   content: "✕";
   color: #b70500;
-  font-size: 6vw;
+  font-size: 3rem;
 }
 
 body {
@@ -252,29 +161,29 @@ h6 {
 }
 
 h1 {
-  font-size: 6vw;
+  font-size: 3rem;
 }
 
 h2 {
-  font-size: 3vw;
+  font-size: 1.5rem;
 }
 
 h3 {
-  font-size: 3vw;
+  font-size: 1.5rem;
 }
 
 h4 {
-  font-size: 3vw;
+  font-size: 1.5rem;
 }
 
 h5 {
-  font-size: 2vw;
+  font-size: 1rem;
   font-weight: bold;
   background: #0500b7;
 }
 
 h6 {
-  font-size: 3vw;
+  font-size: 1.5rem;
   font-weight: bold;
   font-family: "Hubballi", sans-serif;
   background: #0500b7;
@@ -394,40 +303,11 @@ section {
   font-weight: bold;
 }
 
-h1.title, li.cert-text {
-  font-size: 7vw;
-}
-
-h2.title, .sources {
-  font-size: 6vw;
-}
-
-h3.title {
-  font-size: 4vw;
-}
-
-h4.title {
-  font-size: 3.5vw;
-}
-
-h5.title {
-  font-size: 3.25vw;
-}
-
-h6.title {
-  font-size: 3vw;
-}
-
-p.normal-text, li a, #autofooter, .source, li.title {
-  font-size: 4vw;
-}
-
 .title {
   background: black;
   color: #ffd700;
-  margin: 0 4.75vw;
+  margin: 0 auto;
   padding: 1vw;
-  font-size: 4vw;
 }
 
 a {
@@ -452,7 +332,6 @@ a:hover {
 }
 
 #siteTitle2 {
-  font-size: 4vw;
   color: #57b700;
   font-family: "Hubballi", sans-serif;
   font-weight: bold;
@@ -478,7 +357,6 @@ a:hover {
 }
 
 footer#autofooter {
-  font-size: 3vh;
   font-weight: bold;
   text-align: center;
   margin-bottom: 6vh;
@@ -492,20 +370,17 @@ footer#autofooter {
 .sources {
   text-align: left;
   color: #00b760;
-  font-size: 3vh;
   font-weight: bold;
   margin: 2vh auto;
 }
 .sources a {
   text-decoration: none;
   color: #00b760;
-  font-size: 3vh;
 }
 
 .code {
   background: #b76000;
   color: black;
-  font-size: 3vw;
   border-radius: 10px;
   padding: 1.5vw;
   font-family: "Hubballi", sans-serif;
@@ -536,7 +411,6 @@ pre {
 }
 
 #todo-error {
-  font-size: 4vw;
   font-weight: bold;
   color: #b70500;
 }
@@ -555,7 +429,6 @@ pre {
   max-height: 8vw;
   padding: 1vw;
   color: #ffd700;
-  font-size: 3vw;
   background: #0057b7;
   border: 2px solid white;
   border-radius: 10px;
@@ -564,7 +437,6 @@ pre {
   text-decoration: none;
   color: #0500b7;
   text-align: center;
-  font-size: 4vh;
 }
 .todo-buttons a :hover {
   border: 2px solid #00b3b7;
@@ -594,8 +466,7 @@ pre {
 .todo-text, p.todo-text {
   text-align: left;
   font-weight: bold;
-  font-size: 3vw;
-  margin: 1vw auto;
+  margin: 1vw;
   padding: 1vw;
 }
 
@@ -638,7 +509,7 @@ pre {
   grid-area: listitem;
   display: grid;
   grid-template-columns: 1fr 9fr 1fr;
-  margin: 0 2vw;
+  margin: 0;
   max-height: 25vw;
   max-width: 100%;
   grid-template-areas: "markbtn itemtext delbtn";
@@ -663,7 +534,7 @@ pre {
   border: none;
   max-width: 8vw;
   height: 8vh;
-  font-size: 6vw;
+  font-size: 2rem;
   font-weight: 500;
 }
 #todocontainer #listfooter {
@@ -687,7 +558,7 @@ pre {
 }
 #todocontainer #listfooter p#tasks {
   grid-area: tasks;
-  font-size: 4vw;
+  font-size: 2rem;
   text-align: center;
   margin: 1vw auto;
   max-height: 6vh;
@@ -727,7 +598,6 @@ pre {
   height: 4vh;
   margin: auto;
   padding: 1vw;
-  font-size: 2vw;
   font-weight: bold;
   background: #00b705;
   color: #ffd700;
@@ -743,16 +613,16 @@ pre {
   grid-template-columns: 9fr 1fr;
 }
 #todocontainer #addbar #addinput {
-  font-size: 3vw;
   background: #ffd700;
 }
 #todocontainer #addbar #addbtn {
   width: 8vw;
   height: 8vw;
-  margin-left: 1vw;
+  margin: 1vw auto;
+  padding: 0.25vw;
   color: #0057b7;
   background: #ffd700;
-  font-size: 5vw;
+  font-size: 2rem;
 }
 #todocontainer h3 {
   padding: 1vh;
@@ -761,6 +631,30 @@ pre {
 }
 
 /* Smartphone Portrait and Landscape */
+h1.title, li.cert-text {
+  font-size: 2.5rem;
+}
+
+h2.title, .sources {
+  font-size: 1.5rem;
+}
+
+h3.title {
+  font-size: 1rem;
+}
+
+h4.title {
+  font-size: 0.5rem;
+}
+
+h6.title {
+  font-size: 0.5rem;
+}
+
+p.normal-text, li a, #autofooter, .source, li.title, h5.title {
+  font-size: 0.5rem;
+}
+
 @media screen and (min-width: 768px) {
   .color3 {
     grid-template-columns: 1fr 1fr 1fr;

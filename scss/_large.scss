@@ -1,9 +1,9 @@
 @media screen and (min-width: 451px) {
 
-    h1.title, li.cert-text { font-size: 4vw; }
-    h2.title, .sources { font-size: 3.5vw; }
-    h3.title { font-size: 3.25vw; }
-    p.normal-text, li a, #autofooter, .source, li.normal-text { font-size: 3vw; }
+    // h1.title, li.cert-text { font-size: 4vw; }
+    // h2.title, .sources { font-size: 3.5vw; }
+    // h3.title { font-size: 3.25vw; }
+    // p.normal-text, li a, #autofooter, .source, li.normal-text { font-size: 3vw; }
 
 }
 
@@ -13,32 +13,32 @@
         max-width: 80%;
     }
 
-    #addinput, #searchinput {
-        font-size: $font2;
-    }
+    // #addinput, #searchinput {
+    //     font-size: $font2;
+    // }
 
-    .title {
-      font-size: $font2;
-    }
+    // .title {
+    //   font-size: $font2;
+    // }
 }
 
 @media screen and (min-width: 992px) {
 
-    h1.title, li.cert-text { font-size: 3vw; }
-    h2.title, .sources  { font-size: 2.75vw; }
-    h3.title { font-size: 2.5vw; }
-    p.normal-text, li a, #autofooter, .source, li.normal-text { font-size: 2.25vw; }
+    // h1.title, li.cert-text { font-size: 3vw; }
+    // h2.title, .sources  { font-size: 2.75vw; }
+    // h3.title { font-size: 2.5vw; }
+    // p.normal-text, li a, #autofooter, .source, li.normal-text { font-size: 2.25vw; }
 
-    #addinput, #searchinput {
-        font-size: $font2;
-    }
+    // #addinput, #searchinput {
+    //     font-size: $font2;
+    // }
+
+    // .normal-text, p.normal-text  {
+    //     font-size: $font2;
+    // }
 
     .color3 {
         grid-template-columns: repeat(6, 1fr);
-    }
-
-    .normal-text, p.normal-text  {
-        font-size: $font2;
     }
 
     #gridcontainer {
@@ -52,24 +52,24 @@
 
 @media screen and (min-width: 1200px) {
 
-    h1.title, li.cert-text { font-size: 2.5vw; }
-    h2.title, .sources  { font-size: 2.5vw; }
-    h3.title { font-size: 2.25vw; }
-    p.normal-text, li a, #autofooter, .source, li.normal-text { font-size: 2vw; }
+    // h1.title, li.cert-text { font-size: 2.5vw; }
+    // h2.title, .sources  { font-size: 2.5vw; }
+    // h3.title { font-size: 2.25vw; }
+    // p.normal-text, li a, #autofooter, .source, li.normal-text { font-size: 2vw; }
 
-    #addinput, #searchinput {
-        font-size: $font7;
-    }
+    // #addinput, #searchinput {
+    //     font-size: $font7;
+    // }
 
-    .title {
-      font-size: $font1;
-    }
+    // .title {
+    //   font-size: $font1;
+    // }
 }
 
 @media screen and (min-width: 1500px) {
     
-    h1.title, li.cert-text { font-size: 1.5vw; }
-    h2.title, .sources  { font-size: 1.25vw; }
-    h3.title { font-size: 1vw; }
-    p.normal-text, li a, #autofooter, .source, li.normal-text { font-size: .75vw; }
+    // h1.title, li.cert-text { font-size: 1vw; }
+    // h2.title, .sources  { font-size: 1.25vw; }
+    // h3.title { font-size: 1vw; }
+    // p.normal-text, li a, #autofooter, .source, li.normal-text { font-size: .75vw; }
 }

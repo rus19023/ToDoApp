@@ -142,20 +142,11 @@ section {
     font-weight: bold;
 }
 
-h1.title, li.cert-text { font-size: 7vw; }
-h2.title, .sources { font-size: 6vw; }
-h3.title { font-size: 4vw; }
-h4.title { font-size: 3.5vw; }
-h5.title { font-size: 3.25vw; }
-h6.title { font-size: 3vw; }
-p.normal-text, li a, #autofooter, .source, li.title { font-size: 4vw; }
-
 .title {
   background: black;
   color: $yellow;
-  margin: 0 4.75vw;
+  margin: 0 auto;
   padding: 1vw;
-  font-size: $font4;
 }
 
 a {
@@ -180,7 +171,6 @@ a:hover {
 }
 
 #siteTitle2 {
-    font-size: $font4;
     color: $accent;
     font-family: $fontsecond;
     font-weight: bold;
@@ -198,7 +188,6 @@ a:hover {
 }
 
 footer#autofooter {
-    font-size: 3vh;
     font-weight: bold;
     text-align: center;
     margin-bottom: 6vh;
@@ -212,20 +201,17 @@ footer#autofooter {
 .sources {
     text-align: left;
     color: $seafoam;
-    font-size: 3vh;
     font-weight: bold;
     margin: 2vh auto;
     & a {
         text-decoration: none;
         color: $seafoam;
-        font-size: 3vh;
     }
 }
-  
+
 .code {
     background: $orange;
     color: black;
-    font-size: $font3;
     border-radius: 10px;
     padding: 1.5vw;
     font-family: $fontsecond;
@@ -235,13 +221,13 @@ footer#autofooter {
     text-decoration: none;
     list-style: none;
 }
-  
+
 .col2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2vw;
 }
-  
+
 pre {
     overflow-x: auto;
     white-space: pre-wrap;
@@ -250,13 +236,12 @@ pre {
     white-space: -o-pre-wrap;
     word-wrap: break-word;
 }
-  
+
 .italic {
     font-style: italic;
 }
 
 #todo-error {
-    font-size: $font4;
     font-weight: bold;
     color: $redorange;
 }
@@ -275,7 +260,6 @@ pre {
     max-height: 8vw;
     padding: 1vw;
     color: $yellow;
-    font-size: $font3;
     background: $contrast;
     border: $todoborder;
     border-radius: $radius;
@@ -283,7 +267,6 @@ pre {
       text-decoration: none;
       color: $royalblue;
       text-align: center;
-      font-size: 4vh;
       & :hover {
           border: 2px solid $skyblue;
       }
@@ -314,8 +297,7 @@ pre {
 .todo-text, p.todo-text {
     text-align: left;
     font-weight: bold;
-    font-size: $font3;
-    margin: 1vw auto;
+    margin: 1vw;
     padding: 1vw;
 }
 
@@ -361,7 +343,7 @@ pre {
             grid-area: listitem;
             display: grid;
             grid-template-columns: 1fr 9fr 1fr;
-            margin: 0 2vw;
+            margin: 0;
             max-height: 25vw;
             max-width: 100%;
             grid-template-areas:
@@ -386,7 +368,7 @@ pre {
                 border: none;
                 max-width: 8vw;
                 height: 8vh;
-                font-size: $font6;
+                font-size: $font4;
                 font-weight: 500;
             }
         }
@@ -453,7 +435,6 @@ pre {
                 height: 4vh;
                 margin: auto;
                 padding: 1vw;
-                font-size: $font2;
                 font-weight: bold;
                 background: $limegreen;
                 color: $yellow;
@@ -471,16 +452,16 @@ pre {
         display: grid;
         grid-template-columns: 9fr 1fr;
         & #addinput {
-            font-size: $font3;
             background: $yellow;
         }
         & #addbtn {
             width: 8vw;
             height: 8vw;
-            margin-left: 1vw;
+            margin: 1vw auto;
+            padding: .25vw;
             color: $medblue;
             background: $yellow;
-            font-size: $font5;
+            font-size: $font4;
         }
     }
     & h3 {
@@ -495,6 +476,13 @@ pre {
 // .mobileHide { display: none; }
 
 /* Smartphone Portrait and Landscape */
+
+h1.title, li.cert-text { font-size: $font5; }
+h2.title, .sources { font-size: $font3; }
+h3.title { font-size: $font2; }
+h4.title { font-size: $font1; }
+h6.title { font-size: .5rem; }
+p.normal-text, li a, #autofooter, .source, li.title, h5.title { font-size: $font1; }
 
 @media screen and (min-width: 768px) {
 

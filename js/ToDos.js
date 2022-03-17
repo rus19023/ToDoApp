@@ -61,6 +61,7 @@ export default class todos {
     }
 
     addSampleTodos = () => {
+        // function to add sample todos to the todo list from an array of objects
         // todo: get from JSON file or API or database
         let runlist = false;
         let mytasks = getTodos('items');
@@ -69,8 +70,6 @@ export default class todos {
         if (runlist) {
             dtasks.forEach(ditem => {
                 // loop through list from variable and add to localStorage
-                //console.log(dtasks);
-                //console.log(ditem);
                 // be sure item is not null/blank, if so, give user a message to enter some text
                 if (!ditem.length > 0) {
                     this.todo_error = 'Item cannot be blank, please enter your todo.';
@@ -78,15 +77,10 @@ export default class todos {
                 } else {
                     // check if task is not already in the list
                     let match = dtasks.filter((item) => (item.task === ditem));
-                    //console.log(ditem);
-                    //console.log(match);
                     // add new item if "ditem" is not already in the storage "items"
                     if (match = [] || match == null) {
                         saveTodo(ditem, 'items');
-                        let matchit = getTodos('items');
-                        //console.log(matchit);
                         dtasks = dtasks.filter((item) => (!item.task === ditem));
-                        //console.log(dtasks);
                     }
                     this.listAll();
                 }
