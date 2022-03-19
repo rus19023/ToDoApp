@@ -39,13 +39,13 @@ $newhgradient: linear-gradient(
     hsl(211, 100%, 36%) 40%,
     hsl(69deg 9% 60%) 50%,
     hsl(51, 100%, 50%) 60%
-  );
-  $newvgradient: linear-gradient(
+);
+$newvgradient: linear-gradient(
       90deg,
       hsl(211, 100%, 36%) 0%,
       hsl(69deg 9% 60%) 52%,
       hsl(51, 100%, 50%) 100%
-    );
+);
 $background: $newhgradient;
 $debug: rgb(190, 255, 60);
 

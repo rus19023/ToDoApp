@@ -3,22 +3,8 @@ import * as util from "./utilities.js";
 
 let todoList = [];
 //const lskey = 'items';
-var dtasks = [
-    "Push changes to github more often, whenever something is working, commit and push it. You never know when something might go wrong...it's better to be safe with a backup than sorry.",
-    "Overall css: change the red color to one in your color scheme, maybe the blue with white text?",
-    "Home navbar item: I think it should not go to login screen if already logged in. Maybe to the shopping page? or a splash page with company / product / services info?",
-    "Login screen: should only show if not logged in. (Probably have to set up authentication to do that. I think I gave you a link for that?)",
-    "For shopping cart page: It needs an order total. ",
-    "For shopping cart page: Change Confirm Order button to Continue (the order isn't really ready for confirmation at this stage, it still needs the shipping and billing info, including payment card info).",
-    "For shopping cart page: I would also move the Continue and Return to Shopping buttons more to the right, maybe near the subtotal column.",
-    "For shopping cart page: Less horizontal and vertical space between line items.",
-    "For shopping cart page: Smaller box for quantity.",
-    "For order history page: It needs a button to place an order.",
-    "For Current Order confirmation page: Maybe needs to be renamed Shipping / Billing info?",
-    "For Current Order confirmation page: Also needs the order total.",
-    "For Current Order confirmation page: Form validation should not allow empty shipping/billing addresses. <a href='https://www.freecodecamp.org/news/how-to-make-input-validation-simple-and-clean-in-your-express-js-app-ea9b5ff5a8a7/>form validation article</a>",
-    "For Current Order confirmation page: Add card / payment info, which also should not be allowed to be blank.",
-    "Rename submit button to confirm order button which goes to a new Order Confirmation page."
+var customtasks = [
+    "Push changes to github more often, whenever something is working, commit and push it. You never know when something might go wrong...it's better to be safe with a backup than sorry."
 ];
 
 export default class todos {
@@ -44,43 +30,43 @@ export default class todos {
         this.allbtn.classList.add('showborder');
         this.todoList = await getTodos('items');
         this.renderTodoList(this.todoList, 'todos');
-        this.itemsLeft(this.todoList);
+        this.itemsLeft('All');
     }
 
-    // function to show how many items are left undone in the todo list
-    itemsLeft(list) {
-        const itemcount = list.length;
+    // function to show how many items are in the current todo list
+    itemsLeft(filter) {
+        const itemcount = this.todoList.length;
         let t;
         if (itemcount === 1) {
           t = ' todo ';
         } else if ((itemcount > 1) || (itemcount === 0)) {
           t = ' todos ';
         }
-        util.qs("#tasks").innerHTML = `${itemcount} ${t} left`;
+        util.qs("#tasks").innerHTML = ` ${filter}: ${itemcount} ${t} left`;
         util.setFooter();
     }
 
-    addSampleTodos = () => {
-        // function to add sample todos to the todo list from an array of objects
+    addCustomTodos = () => {
+        // function to add Custom todos to the todo list from an array of objects
         // todo: get from JSON file or API or database
         let runlist = false;
         let mytasks = getTodos('items');
         //console.log(mytasks);
         if (mytasks.length == 0) { runlist = true; }
         if (runlist) {
-            dtasks.forEach(ditem => {
+            customtasks.forEach(citem => {
                 // loop through list from variable and add to localStorage
                 // be sure item is not null/blank, if so, give user a message to enter some text
-                if (!ditem.length > 0) {
+                if (!citem.length > 0) {
                     this.todo_error = 'Item cannot be blank, please enter your todo.';
                     util.qs("#error").innerText = this.todo_error;
                 } else {
                     // check if task is not already in the list
-                    let match = dtasks.filter((item) => (item.task === ditem));
+                    let match = customtasks.filter((citem) => (citem.task === citem));
                     // add new item if "ditem" is not already in the storage "items"
                     if (match = [] || match == null) {
-                        saveTodo(ditem, 'items');
-                        dtasks = dtasks.filter((item) => (!item.task === ditem));
+                        saveTodo(citem, 'items');
+                        customtasks = customtasks.filter((citem) => (!citem.task === citem));
                     }
                     this.listAll();
                 }
@@ -96,7 +82,7 @@ export default class todos {
         // grab todo from input field
         const task = util.qs("#addinput");
         //console.log(task);
-        if (task.length == 0) { task.push('sample to do list item'); }
+        if (task.length == 0) { task.push('Custom to do list item'); }
         //console.log(task);
         if (!task.value.length > 0) {
             this.todo_error = 'Item cannot be blank, please enter your todo.';
@@ -173,7 +159,7 @@ export default class todos {
         this.todoList = getTodos('items');
         this.todoList = this.todoList.filter(el => el.done === false);
         this.renderTodoList(this.todoList, 'todos');
-        this.itemsLeft(this.todoList);
+        this.itemsLeft('Pending');
     }
 
     listDone() {
@@ -181,7 +167,7 @@ export default class todos {
       this.todoList = getTodos('items');
       this.todoList = this.todoList.filter(el => el.done === true);
       this.renderTodoList(this.todoList, 'todos');
-      this.itemsLeft(this.todoList);
+      this.itemsLeft('Done');
     }
 
     listFiltered() {
@@ -202,7 +188,7 @@ export default class todos {
         // });
         console.log(newlist);
         this.renderTodoList(newlist, 'todos');
-        this.itemsLeft(this.todoList);
+        this.itemsLeft(searchitem);
     }
 }
 
@@ -211,19 +197,6 @@ export default class todos {
 function getTodos(lskey) {
     let todolist = JSON.parse(ls.readFromLS(lskey)) || [];
     return todolist;
-}
-
-function saveDTodo(todo) {
-    let taskList = getTodos('items');
-    console.log(todo);
-    // build todo object
-    const newItem = { id: Date.now(), task: todo, done: false };
-    console.log(newItem);
-    // add obj to todoList
-    taskList.push(newItem);
-    //console.log(taskList);
-    // save JSON.stringified list to ls
-    ls.writeToLS('items', JSON.stringify(taskList));
 }
 
 function saveTodo(todo) {
