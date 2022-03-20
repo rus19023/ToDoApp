@@ -464,6 +464,7 @@ pre {
 }
 
 .todo-text, p.todo-text {
+  color: white;
   text-align: left;
   font-weight: bold;
   margin: 1vw;
