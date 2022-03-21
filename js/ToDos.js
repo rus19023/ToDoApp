@@ -108,8 +108,8 @@ export default class todos {
           let itemtext = util.createLMNT("p", "", "", field.task , "todo-text");
           let markbox = util.createLMNT('label', `label${field.id}`, '', '', 'bordered markbtn');
           markbox.setAttribute('name', `label${field.id}`);
-          let markbtn = util.createLMNT("input", "checkbox", field.id, "", "markbtn chkbtn");
-          let delbtn = util.createLMNT("button", "button", `del${field.id}`, "X", "delbtn chkbtn");
+          let markbtn = util.createLMNT("input", "checkbox", field.id, "", "markbtn");
+          let delbtn = util.createLMNT("button", "button", `del${field.id}`, "X", "delbtn");
           if (field.done === true) {
             itemtext.classList.add("todo-scratch");
             markbtn.classList.add('markbtnX');

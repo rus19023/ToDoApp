@@ -19,39 +19,39 @@
             <h1 id="todoheading" class="title">
                 To Do App
             </h1>
-            <h5 class="title">
-                By Doris Rush-Lopez
-            </h5>
         </header>
         <main id="gridcontainer">
-            <section id="left">
-                <h6 class="title white">
-                    In solidarity with the Ukraine, the color scheme is from a color wheel based on <a href="https://en.wikipedia.org/wiki/Flag_of_Ukraine#Design">their flag colors.</a>
+            <section id="content-wrap">
+                <h6 class="title">
+                    In solidarity with the Ukraine, the color scheme is from a color wheel based on 
+                        <a class="white" href="https://en.wikipedia.org/wiki/Flag_of_Ukraine#Design">
+                            their flag colors.
+                        </a>
                 </h6>
                 <div id="todocontainer">
                     <h2 id="header1" class="centered title">To Do List</h2>
                     <ul id="todos"></ul>
-                    <div id="listfooter" class="todo-bordered todo-text foot-row">
-                        <p id="tasks" class="normal-text">_ tasks done.</p>
-                        <div id="btncontainer">
-                            <button  class="todo-buttons" id="allbtn"> All</button>
-                            <button  class="todo-buttons" id="actbtn"> Pending</button>
-                            <button  class="todo-buttons" id="donebtn"> Done</button>
-                        </div>
-                        <div id="srchbar" class="todo-text">
-                            <input id="srchinput" type="text" name="srchinput" placeholder="Search in tasks (case sensitive)" value="sc" class="todo-bordered ">
-                            <button id="srchbtn" class="todo-buttons todo-bordered">Search</button>
-                        </div>
-                    </div>
                     <div id="addbar" class="">
-                        <input id="addinput" type="text" name="addinput" placeholder="Add a To Do task" value="sc app:" class="todo-bordered inputs" autofocus required>
-                        <button id="addbtn" class="todo-buttons">+</button>
+                        <input id="addinput" type="text" name="addinput" placeholder="Add a To Do task" value="sc app:" class="inputs" required autofocus>
+                        <button id="addbtn" class="">+</button>
                     </div>
                 </div>
                 <div id="error"></div>
+                <div id="listfooter" class="todo-bordered todo-text foot-row">
+                    <p id="tasks" class="normal-text">_ tasks done.</p>
+                    <div id="btncontainer">
+                        <button  class="todo-buttons" id="allbtn"> All</button>
+                        <button  class="todo-buttons" id="actbtn"> Pending</button>
+                        <button  class="todo-buttons" id="donebtn"> Done</button>
+                    </div>
+                    <div id="srchbar" class="todo-text todo-bordered">
+                        <input id="srchinput" type="text" name="srchinput" placeholder="Search in tasks (case sensitive)" value="sc" class="todo-bordered ">
+                        <button id="srchbtn" class="todo-buttons todo-bordered">Search</button>
+                    </div>
+                </div>
             </section>
+            <footer id="autofooter" class="title"></footer>
         </main>
-        <footer id="autofooter" class="title"></footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="./js/todosmain.js" type="module"></script>
     </body>
