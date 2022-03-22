@@ -27,7 +27,6 @@ export default class todos {
     }
 
     async listAll() {
-        this.allbtn.classList.add('showborder');
         this.todoList = await getTodos('items');
         this.renderTodoList(this.todoList, 'todos');
         this.itemsLeft('All');
@@ -42,7 +41,43 @@ export default class todos {
         } else if ((itemcount > 1) || (itemcount === 0)) {
           t = ' todos ';
         }
-        util.qs("#tasks").innerHTML = ` ${filter}: ${itemcount} ${t} left`;
+        let tasktext = filter;
+        let done = this.todoList.filter(item => item.done === true).length;
+        let pending = itemcount - done;
+        switch (filter) {
+            case ('All'):
+                tasktext += `, Pending: ${pending} ${t}, Done: ${done} ${t} `;
+                this.allbtn.classList.add('todobordered');
+                this.srchbtn.classList.remove('todobordered');
+                this.actbtn.classList.remove('todobordered');
+                this.donebtn.classList.remove('todobordered');
+                break;
+
+            case ('Active'):
+                tasktext += `: Pending: ${itemcount} ${t}`;
+                this.actbtn.classList.add('todobordered');
+                this.allbtn.classList.remove('todobordered');
+                this.actbtn.classList.remove('todobordered');
+                this.donebtn.classList.remove('todobordered');
+                break;
+
+            case ('Done'):
+                tasktext += `:  ${t} ${done} done`;
+                this.donebtn.classList.add('todobordered');
+                this.allbtn.classList.remove('todobordered');
+                this.actbtn.classList.remove('todobordered');
+                this.srchbtn.classList.remove('todobordered');
+                break;
+
+            default:
+                tasktext = `Search: ${itemcount} ${t} found for "${filter}"`;
+                this.srchbtn.classList.add('todobordered');
+                this.allbtn.classList.remove('todobordered');
+                this.actbtn.classList.remove('todobordered');
+                this.donebtn.classList.remove('todobordered');
+                break;
+        }
+        util.qs("#tasks").innerHTML = tasktext;
         util.setFooter();
     }
 
@@ -94,7 +129,7 @@ export default class todos {
         }
     }
 
-    renderTodoList(renderlist, parentElName) {
+    renderTodoList(renderlist, parentElName, filter) {
         //console.log(parentElName);
         // build new display
         const parentEl = util.qs(`#${parentElName}`);
@@ -107,7 +142,6 @@ export default class todos {
           //console.log(field.task.length, field.task);
           let itemtext = util.createLMNT("p", "", "", field.task , "todo-text");
           let markbox = util.createLMNT('label', `label${field.id}`, '', '', 'bordered markbtn');
-          markbox.setAttribute('name', `label${field.id}`);
           let markbtn = util.createLMNT("input", "checkbox", field.id, "", "markbtn");
           let delbtn = util.createLMNT("button", "button", `del${field.id}`, "X", "delbtn");
           if (field.done === true) {
@@ -126,6 +160,7 @@ export default class todos {
           parentEl.appendChild(item);
         });
         this.checkBtn();
+
     }
 
     checkBtn() {
@@ -155,7 +190,6 @@ export default class todos {
     }
 
     listActive() {
-        this.actbtn.classList.add('showborder');
         this.todoList = getTodos('items');
         this.todoList = this.todoList.filter(el => el.done === false);
         this.renderTodoList(this.todoList, 'todos');
@@ -163,11 +197,10 @@ export default class todos {
     }
 
     listDone() {
-      this.donebtn.classList.add('showborder');
-      this.todoList = getTodos('items');
-      this.todoList = this.todoList.filter(el => el.done === true);
-      this.renderTodoList(this.todoList, 'todos');
-      this.itemsLeft('Done');
+        this.todoList = getTodos('items');
+        this.todoList = this.todoList.filter(el => el.done === true);
+        this.renderTodoList(this.todoList, 'todos');
+        this.itemsLeft('Done');
     }
 
     listFiltered() {
@@ -187,6 +220,7 @@ export default class todos {
         //     return true;
         // });
         console.log(newlist);
+        this.todoList = newlist;
         this.renderTodoList(newlist, 'todos');
         this.itemsLeft(searchitem);
     }
