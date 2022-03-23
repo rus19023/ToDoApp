@@ -22,7 +22,7 @@ export default class todos {
         this.srchbtn.addEventListener("touchend", () => { this.listFiltered(); }, false);
         this.addbtn.addEventListener("touchend", () => { this.addTodo(); }, false);
         this.allbtn.addEventListener("touchend", () => { this.listAll(); }, false);
-        this.actbtn.addEventListener("touchend", () => { this.listActive(); }, false);
+        this.actbtn.addEventListener("touchend", () => { this.listAklctive(); }, false);
         this.donebtn.addEventListener("touchend", () => { this.listDone(); }, false);
     }
 
@@ -142,8 +142,8 @@ export default class todos {
           //console.log(field.task.length, field.task);
           let itemtext = util.createLMNT("p", "", "", field.task , "todo-text");
           let markbox = util.createLMNT('label', `label${field.id}`, '', '', 'bordered markbtn');
-          let markbtn = util.createLMNT("input", "checkbox", field.id, "", "markbtn");
-          let delbtn = util.createLMNT("button", "button", `del${field.id}`, "X", "delbtn");
+          let markbtn = util.createLMNT("input", "checkbox", field.id, "✕", "markbtn chkbtn");
+          let delbtn = util.createLMNT("button", "button", `del${field.id}`, "X", "delbtn chkbtn");
           if (field.done === true) {
             itemtext.classList.add("todo-scratch");
             markbtn.classList.add('markbtnX');
@@ -165,6 +165,7 @@ export default class todos {
 
     checkBtn() {
         let btnitems = Array.from(document.querySelectorAll('.chkbtn'));
+        console.log(btnitems);
         btnitems.forEach(function (item) {
             item.addEventListener('touchend', function(e) {
                 let btnid = e.target.getAttribute('id');
@@ -173,7 +174,7 @@ export default class todos {
                 if (e.target.type === 'checkbox') {
                     // get id from button id value and toggle the state
                     markDone(btnid);
-                    this.listAll;
+                    this.listAll();
                 }
                 // check if that is a delete-button
                 if (e.target.classList.contains('delbtn')) {
@@ -193,7 +194,7 @@ export default class todos {
         this.todoList = getTodos('items');
         this.todoList = this.todoList.filter(el => el.done === false);
         this.renderTodoList(this.todoList, 'todos');
-        this.itemsLeft('Pending');
+        this.itemsLeft('Active');
     }
 
     listDone() {
@@ -205,7 +206,7 @@ export default class todos {
 
     listFiltered() {
         this.todoList = getTodos('items');
-        const searchitem = util.qs('#srchinput').value;
+        const searchitem = this.searchWord.value;
         //console.log(searchitem);
         let newlist = [];
         this.todoList.forEach((field) => {
@@ -244,9 +245,10 @@ function saveTodo(todo) {
 }
 
 function markDone(id) {
+    console.log(id);
     todoList = getTodos('items');
     todoList.forEach(function(item) {
-        // use == not ===, because here types are different. One is number and other is string
+        // use == (not ===) because here types are different. One is number and other is string
         if (item.id == id) {
           // toggle the value
           item.done = !item.done;
