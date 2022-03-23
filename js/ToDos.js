@@ -19,7 +19,9 @@ export default class todos {
         this.actbtn = util.qs('#actbtn');
         this.donebtn = util.qs('#donebtn');
         this.addbtn = util.qs('#addbtn');
+        this.srchbtn2 = util.qs('#srchbtn2');
         this.srchbtn.addEventListener("touchend", () => { this.listFiltered(); }, false);
+        this.srchbtn2.addEventListener("touchend", () => { this.listFiltered(); }, false);
         this.addbtn.addEventListener("touchend", () => { this.addTodo(); }, false);
         this.allbtn.addEventListener("touchend", () => { this.listAll(); }, false);
         this.actbtn.addEventListener("touchend", () => { this.listAklctive(); }, false);
@@ -43,10 +45,10 @@ export default class todos {
         }
         let tasktext = filter;
         let done = this.todoList.filter(item => item.done === true).length;
-        let pending = itemcount - done;
+        let pending = (itemcount - done) + ' ' + t + ', ';
         switch (filter) {
             case ('All'):
-                tasktext += `, Pending: ${pending} ${t}, Done: ${done} ${t} `;
+                tasktext += ', <br> Pending:<br>' + pending + '<br> Done: ' + done + ' ' + t;
                 this.allbtn.classList.add('todobordered');
                 this.srchbtn.classList.remove('todobordered');
                 this.actbtn.classList.remove('todobordered');
@@ -85,6 +87,7 @@ export default class todos {
         // function to add Custom todos to the todo list from an array of objects
         // todo: get from JSON file or API or database
         let runlist = false;
+        // TODO: add function to retrieve from firebase
         let mytasks = getTodos('items');
         //console.log(mytasks);
         if (mytasks.length == 0) { runlist = true; }
@@ -93,12 +96,12 @@ export default class todos {
                 // loop through list from variable and add to localStorage
                 // be sure item is not null/blank, if so, give user a message to enter some text
                 if (!citem.length > 0) {
-                    this.todo_error = 'Item cannot be blank, please enter your todo.';
+                    this.todo_error = 'Item cannot be blank, there is an error in the input file.';
                     util.qs("#error").innerText = this.todo_error;
                 } else {
                     // check if task is not already in the list
                     let match = customtasks.filter((citem) => (citem.task === citem));
-                    // add new item if "ditem" is not already in the storage "items"
+                    // add new item if "citem" is not already in the storage "items"
                     if (match = [] || match == null) {
                         saveTodo(citem, 'items');
                         customtasks = customtasks.filter((citem) => (!citem.task === citem));
@@ -129,7 +132,7 @@ export default class todos {
         }
     }
 
-    renderTodoList(renderlist, parentElName, filter) {
+    renderTodoList(renderlist, parentElName) {
         //console.log(parentElName);
         // build new display
         const parentEl = util.qs(`#${parentElName}`);
@@ -160,7 +163,6 @@ export default class todos {
           parentEl.appendChild(item);
         });
         this.checkBtn();
-
     }
 
     checkBtn() {
@@ -206,12 +208,13 @@ export default class todos {
 
     listFiltered() {
         this.todoList = getTodos('items');
-        this.searchWord = util.qs("#srchinput").value;
-        const searchitem = this.searchWord;
-        //console.log(searchitem);
+        if (this.searchWord == null) {
+            this.searchWord = util.qs("#srchinput").value;
+            console.log(this.searchWord);
+        }
         let newlist = [];
         this.todoList.forEach((field) => {
-            if (field.task.includes(searchitem)) {
+            if (field.task.includes(this.searchWord)) {
                 console.log(field);
                 newlist.push(field);
             }
@@ -224,7 +227,7 @@ export default class todos {
         console.log(newlist);
         this.todoList = newlist;
         this.renderTodoList(newlist, 'todos');
-        this.itemsLeft(searchitem);
+        this.itemsLeft(this.searchWord);
     }
 }
 
