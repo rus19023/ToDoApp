@@ -206,12 +206,13 @@ export default class todos {
 
     listFiltered() {
         this.todoList = getTodos('items');
-        const searchitem = this.searchWord.value;
+        this.searchWord = util.qs("#srchinput").value;
+        const searchitem = this.searchWord;
         //console.log(searchitem);
         let newlist = [];
         this.todoList.forEach((field) => {
             if (field.task.includes(searchitem)) {
-                //console.log(field);
+                console.log(field);
                 newlist.push(field);
             }
         });
