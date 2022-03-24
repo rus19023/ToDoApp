@@ -24,7 +24,7 @@ export default class todos {
         this.srchbtn2.addEventListener("touchend", () => { this.listFiltered(); }, false);
         this.addbtn.addEventListener("touchend", () => { this.addTodo(); }, false);
         this.allbtn.addEventListener("touchend", () => { this.listAll(); }, false);
-        this.actbtn.addEventListener("touchend", () => { this.listAklctive(); }, false);
+        this.actbtn.addEventListener("touchend", () => { this.listActive(); }, false);
         this.donebtn.addEventListener("touchend", () => { this.listDone(); }, false);
     }
 
@@ -208,10 +208,8 @@ export default class todos {
 
     listFiltered() {
         this.todoList = getTodos('items');
-        if (this.searchWord == null) {
-            this.searchWord = util.qs("#srchinput").value;
-            console.log(this.searchWord);
-        }
+        this.searchWord = util.qs("#srchinput").value;
+        console.log(this.searchWord);
         let newlist = [];
         this.todoList.forEach((field) => {
             if (field.task.includes(this.searchWord)) {
