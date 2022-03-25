@@ -13,8 +13,8 @@ export default class todos {
         this.parentId = parentId;
         this.todoList = [];
         this.todo_error = error;
-        this.sort = Array.from(document.querySelectorAll('input[name="sort"]'));
-        this.sortval = this.sortItems();
+        this.sort = this.sortItems();
+        this.sortval = 'time';
         this.searchWord = util.qs('#searchinput');
         this.srchbtn = util.qs('#srchbtn');
         this.allbtn = util.qs('#allbtn');
@@ -31,20 +31,23 @@ export default class todos {
     }
 
     async listAll() {
-        console.log(this.sortval);
+        console.log(this.sort);
         this.todoList = await getTodos('items', this.sortval);
         this.renderTodoList(this.todoList, 'todos');
         this.itemsLeft('All');
     }
 
     sortItems() {
+        this.sort = Array.from(document.querySelectorAll('input[name="sort"]'));
         console.log(this.sort);
         this.sort.forEach(el => {
+            console.log(el.value);
             el.addEventListener('change', () => {
+                console.log(el.checked);
                 if (el.checked) {
                     console.log(el.value, el.checked);
                     this.sortval = el.value;
-                    this.listAll();
+                    this.listActive();
                     console.log('sorted by ' + this.sortval);
                 }
             });
@@ -145,7 +148,8 @@ export default class todos {
         } else {
             saveTodo(task.value, 'items');
             util.qs("#addinput").value = '';
-            this.listAll();
+            this.listActive();
+            element.focus(addinput);
         }
     }
 
@@ -224,22 +228,22 @@ export default class todos {
         });
     }
 
-    listActive() {
-        this.todoList = getTodos('items', this.sortval);
+    async listActive() {
+        this.todoList = await getTodos('items', this.sortval);
         this.todoList = this.todoList.filter(el => el.done === false);
-        this.renderTodoList(this.todoList, 'todos', 'alpha');
+        this.renderTodoList(this.todoList, 'todos');
         this.itemsLeft('Active');
     }
 
-    listDone() {
-        this.todoList = getTodos('items', this.sortval);
+    async listDone() {
+        this.todoList = await getTodos('items', this.sortval);
         this.todoList = this.todoList.filter(el => el.done === true);
         this.renderTodoList(this.todoList, 'todos');
         this.itemsLeft('Done');
     }
 
-    listFiltered() {
-        this.todoList = getTodos('items', this.sortval);
+    async listFiltered() {
+        this.todoList = await getTodos('items', this.sortval);
         this.searchWord = util.qs("#srchinput").value;
         console.log(this.searchWord);
         let newlist = [];
@@ -265,7 +269,7 @@ export default class todos {
 
 function getTodos(lskey, sort) {
     let mylist = JSON.parse(ls.readFromLS(lskey)) || [];
-    if (sort = 'alpha') {
+    if (sort === 'alpha') {
         //mylist = mylist.sort((a, b) => (a.task - b.task));
         mylist.sort(function(a, b) {
             if (a.task < b.task) { return -1; }
@@ -273,7 +277,7 @@ function getTodos(lskey, sort) {
             return 0;
         });
         console.log(mylist);
-    } else if (sort = 'time') {
+    } else if (sort === 'time') {
         //mylist = mylist.sort((a, b) => (a.id - b.id));
         mylist.sort(function(a, b) {
             console.log(a.id, b.id);
@@ -282,7 +286,7 @@ function getTodos(lskey, sort) {
             return 0;
         });
         console.log(mylist);
-    } else if (sort = 'cat') {
+    } else if (sort === 'cat') {
         //mylist = mylist.sort((a, b) => (a.cat - b.cat));
         mylist.sort(function(a, b) {
             if (a.cat < b.cat) { return -1; }
