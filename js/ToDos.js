@@ -213,7 +213,7 @@ export default class todos {
     listActive() {
         this.todoList = getTodos('items', this.sortval);
         this.todoList = this.todoList.filter(el => el.done === false);
-        this.renderTodoList(this.todoList, 'todos');
+        this.renderTodoList(this.todoList, 'todos', 'alpha');
         this.itemsLeft('Active');
     }
 
