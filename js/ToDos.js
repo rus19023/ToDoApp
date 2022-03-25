@@ -165,7 +165,7 @@ export default class todos {
             //                   createLMNT(LMNT, LMNTtype, LMNTid, LMNTtext, LMNTclass)
             let item = util.createLMNT('li', '', '', '', 'listitem todo-bordered nodots');
             //console.log(field.task.length, field.task);
-            let itemtext = util.createLMNT("p", "", "", `${field.task} ${field.id}` , "todo-text");
+            let itemtext = util.createLMNT("p", "", "", `${field.task}` , "todo-text");
             let markbox = util.createLMNT('label', `label${field.id}`, '', '', 'bordered markbtn');
             let markbtn = util.createLMNT("input", "checkbox", field.id, "✕", "markbtn chkbtn");
             let delbtn = util.createLMNT("button", "button", `del${field.id}`, "X", "delbtn chkbtn");
