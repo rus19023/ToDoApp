@@ -13,6 +13,8 @@ export default class todos {
         this.parentId = parentId;
         this.todoList = [];
         this.todo_error = error;
+        this.sort = Array.from(document.querySelectorAll('input[name="sort"]'));
+        this.sortval = this.sortItems();
         this.searchWord = util.qs('#searchinput');
         this.srchbtn = util.qs('#srchbtn');
         this.allbtn = util.qs('#allbtn');
@@ -29,9 +31,24 @@ export default class todos {
     }
 
     async listAll() {
-        this.todoList = await getTodos('items');
+        console.log(this.sortval);
+        this.todoList = await getTodos('items', this.sortval);
         this.renderTodoList(this.todoList, 'todos');
         this.itemsLeft('All');
+    }
+
+    sortItems() {
+        console.log(this.sort);
+        this.sort.forEach(el => {
+            el.addEventListener('change', () => {
+                if (el.checked) {
+                    console.log(el.value, el.checked);
+                    this.sortval = el.value;
+                    this.listAll();
+                    console.log('sorted by ' + this.sortval);
+                }
+            });
+        });
     }
 
     // function to show how many items are in the current todo list
@@ -48,7 +65,7 @@ export default class todos {
         let pending = (itemcount - done) + ' ' + t + ', ';
         switch (filter) {
             case ('All'):
-                tasktext += ', <br> Pending:<br>' + pending + '<br> Done: ' + done + ' ' + t;
+                tasktext += ', <br> Pending:' + pending + ', Done: ' + done + ' ' + t;
                 this.allbtn.classList.add('todobordered');
                 this.srchbtn.classList.remove('todobordered');
                 this.actbtn.classList.remove('todobordered');
@@ -88,7 +105,7 @@ export default class todos {
         // todo: get from JSON file or API or database
         let runlist = false;
         // TODO: add function to retrieve from firebase
-        let mytasks = getTodos('items');
+        let mytasks = getTodos('items', this.sortval);
         //console.log(mytasks);
         if (mytasks.length == 0) { runlist = true; }
         if (runlist) {
@@ -133,6 +150,7 @@ export default class todos {
     }
 
     renderTodoList(renderlist, parentElName) {
+
         //console.log(parentElName);
         // build new display
         const parentEl = util.qs(`#${parentElName}`);
@@ -143,7 +161,7 @@ export default class todos {
           //            createLMNT(LMNT, LMNTtype, LMNTid, LMNTtext, LMNTclass)
           let item = util.createLMNT('li', '', '', '', 'listitem todo-bordered item-row nodots');
           //console.log(field.task.length, field.task);
-          let itemtext = util.createLMNT("p", "", "", field.task , "todo-text");
+          let itemtext = util.createLMNT("p", "", "", `${field.task} ${field.id}` , "todo-text");
           let markbox = util.createLMNT('label', `label${field.id}`, '', '', 'bordered markbtn');
           let markbtn = util.createLMNT("input", "checkbox", field.id, "✕", "markbtn chkbtn");
           let delbtn = util.createLMNT("button", "button", `del${field.id}`, "X", "delbtn chkbtn");
@@ -167,7 +185,7 @@ export default class todos {
 
     checkBtn() {
         let btnitems = Array.from(document.querySelectorAll('.chkbtn'));
-        console.log(btnitems);
+        //console.log(btnitems);
         btnitems.forEach(function (item) {
             item.addEventListener('touchend', function(e) {
                 let btnid = e.target.getAttribute('id');
@@ -193,21 +211,21 @@ export default class todos {
     }
 
     listActive() {
-        this.todoList = getTodos('items');
+        this.todoList = getTodos('items', this.sortval);
         this.todoList = this.todoList.filter(el => el.done === false);
         this.renderTodoList(this.todoList, 'todos');
         this.itemsLeft('Active');
     }
 
     listDone() {
-        this.todoList = getTodos('items');
+        this.todoList = getTodos('items', this.sortval);
         this.todoList = this.todoList.filter(el => el.done === true);
         this.renderTodoList(this.todoList, 'todos');
         this.itemsLeft('Done');
     }
 
     listFiltered() {
-        this.todoList = getTodos('items');
+        this.todoList = getTodos('items', this.sortval);
         this.searchWord = util.qs("#srchinput").value;
         console.log(this.searchWord);
         let newlist = [];
@@ -231,15 +249,41 @@ export default class todos {
 
 /*  END OF CLASS  */
 
-function getTodos(lskey) {
-    let todolist = JSON.parse(ls.readFromLS(lskey)) || [];
-    return todolist;
+function getTodos(lskey, sort) {
+    let mylist = JSON.parse(ls.readFromLS(lskey)) || [];
+    if (sort = 'alpha') {
+        //mylist = mylist.sort((a, b) => (a.task - b.task));
+        mylist.sort(function(a, b) {
+            if (a.task < b.task) { return -1; }
+            if (a.task > b.task) { return 1; }
+            return 0;
+        });
+        console.log(mylist);
+    } else if (sort = 'time') {
+        //mylist = mylist.sort((a, b) => (a.id - b.id));
+        mylist.sort(function(a, b) {
+            console.log(a.id, b.id);
+            if (a.id < b.id) { return -1; }
+            if (a.id > b.id) { return 1; }
+            return 0;
+        });
+        console.log(mylist);
+    } else if (sort = 'cat') {
+        //mylist = mylist.sort((a, b) => (a.cat - b.cat));
+        mylist.sort(function(a, b) {
+            if (a.cat < b.cat) { return -1; }
+            if (a.cat > b.cat) { return 1; }
+            return 0;
+        });
+        console.log(mylist);
+    }
+    return mylist;
 }
 
 function saveTodo(todo) {
     todoList = getTodos('items');
     // build todo object
-    const newItem = { id: Date.now(), task: todo, done: false };  // prequel for task: todo.length + " " +
+    const newItem = { id: `${Date.now()}`, task: todo, done: false };  // prequel for task: todo.length + " " +
     // add obj to todoList
     todoList.push(newItem);
     // save JSON.stringified list to ls
@@ -263,7 +307,7 @@ function markDone(id) {
 }
 
 function deleteTodo(id) {
-    todoList = getTodos('items');
+    todoList = getTodos('items', 'time');
     const filtered = todoList.filter(item => item.id != id);
     // save JSON.stringified list to ls
     ls.writeToLS('items', JSON.stringify(filtered));

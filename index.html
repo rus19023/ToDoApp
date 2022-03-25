@@ -15,19 +15,19 @@
 
     <body>
         <!-- <h1>App only available on mobile devices with screens smaller than 1000px wide</h1> -->
-        <header id="autoheader330" class="title">
+        <header id="autoheader330" class="title col2">
             <h1 id="todoheading" class="title">
                 To Do App
             </h1>
+            <h3 class="normal-text marg centered ">
+                In solidarity with the Ukraine, the color scheme is based on
+                <a href="https://en.wikipedia.org/wiki/Flag_of_Ukraine#Design">
+                    their flag colors.
+                </a>
+            </h3>
         </header>
         <main id="gridcontainer">
             <section id="content-wrap">
-                <h3 class="normal-text marg centered ">
-                    In solidarity with the Ukraine, the color scheme is based on
-                    <a href="https://en.wikipedia.org/wiki/Flag_of_Ukraine#Design">
-                        their flag colors.
-                    </a>
-                </h3>
                 <div id="todocontainer">
                     <h2 id="header1" class="centered title">To Do List</h2>
                     <ul id="todos"></ul>
@@ -39,6 +39,12 @@
                 <div id="error"></div>
                 <div id="listfooter" class="todo-bordered todo-text foot-row">
                     <p id="tasks" class="normal-text">_ tasks done.</p>
+                    <div id="sortitems">
+                        <h3>Sort by:</h3>
+                        <label for="alpha"><input type="radio" name="sort" id="alpha" value="alpha">Alphabetical order</label>
+                        <label for="time"><input type="radio" name="sort" id="time" value="time" checked>Time entered</label>
+                        <label for="cat"><input type="radio" name="sort" id="cat" value="cat">By Category</label>
+                    </div>
                     <div id="btncontainer">
                         <button  class="todo-buttons" id="allbtn"> All</button>
                         <button  class="todo-buttons" id="actbtn"> Pending</button>
