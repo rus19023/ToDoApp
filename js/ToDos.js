@@ -171,7 +171,7 @@ export default class todos {
             let delbtn = util.createLMNT("button", "button", `del${field.id}`, "X", "delbtn chkbtn");
             let editbtn = util.createLMNT("button", "button", `edit${field.id}`, "", "editbtn chkbtn");
             let editicon = util.createLMNT("img", "", "", "", "editicon");
-            editicon.setAttribute('src', '../img/icons8-edit-30.png');
+            editicon.setAttribute('src', './img/icons8-edit-30.png');
 
             if (field.done === true) {
                 itemtext.classList.add("todo-scratch");
