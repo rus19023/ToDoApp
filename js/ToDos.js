@@ -1,20 +1,20 @@
 import * as ls from "./ls.js";
 import * as util from "./utilities.js";
 
-// make some waves.
-var ocean = document.getElementById("ocean"),
-    waveWidth = 10,
-    waveCount = Math.floor(window.innerWidth/waveWidth),
-    docFrag = document.createDocumentFragment();
+// // make some waves.
+// var ocean = document.getElementById("ocean"),
+//     waveWidth = 10,
+//     waveCount = Math.floor(window.innerWidth/waveWidth),
+//     docFrag = document.createDocumentFragment();
 
-for(var i = 0; i < waveCount; i++){
-  var wave = document.createElement("div");
-  wave.className += " wave";
-  docFrag.appendChild(wave);
-  wave.style.left = i * waveWidth + "px";
-  wave.style.webkitAnimationDelay = (i/100) + "s";
-}
-ocean.appendChild(docFrag);
+// for(var i = 0; i < waveCount; i++){
+//   var wave = document.createElement("div");
+//   wave.className += " wave";
+//   docFrag.appendChild(wave);
+//   wave.style.left = i * waveWidth + "px";
+//   wave.style.webkitAnimationDelay = (i/100) + "s";
+// }
+// ocean.appendChild(docFrag);
 
 let todoList = [];
 //const lskey = 'items';
@@ -54,9 +54,9 @@ export default class todos {
 
     sortItems() {
         this.sort = Array.from(document.querySelectorAll('input[name="sort"]'));
-        console.log(this.sort);
+        //console.log(this.sort);
         this.sort.forEach(el => {
-            console.log(el.value);
+            //console.log(el.value);
             el.addEventListener('change', () => {
                 console.log(el.checked);
                 if (el.checked) {
@@ -295,12 +295,12 @@ function getTodos(lskey, sort) {
     } else if (sort === 'time') {
         //mylist = mylist.sort((a, b) => (a.id - b.id));
         mylist.sort(function(a, b) {
-            console.log(a.id, b.id);
+            //console.log(a.id, b.id);
             if (a.id < b.id) { return -1; }
             if (a.id > b.id) { return 1; }
             return 0;
         });
-        console.log(mylist);
+        //console.log(mylist);
     } else if (sort === 'cat') {
         //mylist = mylist.sort((a, b) => (a.cat - b.cat));
         mylist.sort(function(a, b) {
