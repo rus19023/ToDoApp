@@ -74,16 +74,16 @@ export default class todos {
         const itemcount = this.todoList.length;
         let t;
         if (itemcount === 1) {
-          t = ' todo ';
+          t = ' list item ';
         } else if ((itemcount > 1) || (itemcount === 0)) {
-          t = ' todos ';
+          t = ' list items ';
         }
         let tasktext = filter;
         let done = this.todoList.filter(item => item.done === true).length;
         let pending = (itemcount - done) + ' ' + t + ', ';
         switch (filter) {
             case ('All'):
-                tasktext += ', <br> Pending:' + pending + ', Done: ' + done + ' ' + t;
+                tasktext = 'Pending:' + pending + ', Done: ' + done + ', All:' + t;
                 this.allbtn.classList.add('todobordered');
                 this.srchbtn.classList.remove('todobordered');
                 this.actbtn.classList.remove('todobordered');
@@ -91,7 +91,7 @@ export default class todos {
                 break;
 
             case ('Active'):
-                tasktext += `: Pending: ${itemcount} ${t}`;
+                tasktext = `Pending: ${itemcount} ${t}`;
                 this.actbtn.classList.add('todobordered');
                 this.allbtn.classList.remove('todobordered');
                 this.actbtn.classList.remove('todobordered');
@@ -99,7 +99,7 @@ export default class todos {
                 break;
 
             case ('Done'):
-                tasktext += `:  ${t} ${done} done`;
+                tasktext += `:  ${t} ${done}`;
                 this.donebtn.classList.add('todobordered');
                 this.allbtn.classList.remove('todobordered');
                 this.actbtn.classList.remove('todobordered');
@@ -209,7 +209,7 @@ export default class todos {
     }
 
     checkBtn() {
-        let btnitems = Array.from(document.querySelectorAll('.chkbtn'));
+        let btnitems = Array.from(util.qs('.chkbtn'));
         //console.log(btnitems);
         btnitems.forEach(function (item) {
             item.addEventListener('touchend', function(e) {

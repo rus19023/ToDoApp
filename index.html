@@ -5,18 +5,27 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
         <link type="text/css" rel="stylesheet" href="http://127.0.0.1:5501/css/styles.css" />
+
         <!--
         <li class="normal-text"nk type="text/css" rel="stylesheet" href="https://rus19023.github.io/myportfolio/css/styles.css" /> -->
         <!--
           <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
         -->
+
+        <!-- For Sharing buttons -->
+        <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
         <title id="wdd330todoapptitle" class="title"> To Do App</title>
+        <meta property="og:url" content="https://rus19023.github.io/ToDoApp/"/>
+        <meta property="og:title" content="A To Do List WebApp, built by Doris Rush-Lopez"/>
+        <meta property="og:description" content="Add list items, sort alphabetically or by timestamp, search, edit, delete and mark them done."/>
+        <meta property="og:site_name" content="To Do App"/>
+        <meta property=”og:image" content="/images/og/default.jpg"/>
     </head>
 
     <body>
         <!-- <div id="ocean"></div> -->
             <!-- <h1>App only available on mobile devices with screens smaller than 1000px wide</h1> -->
-            <header id="autoheader330" class="title col2">
+            <header id="autoheader330" class="title col3">
                 <h1 id="todoheading" class="title">
                     To Do App
                 </h1>
@@ -29,6 +38,25 @@
             </header>
             <main id="gridcontainer">
                 <section id="content-wrap">
+                    <div id="social-share">
+                        <div><h3 class="title">Share:</h3></div>
+                        <div>
+                            <button class="sharer"
+                                data-sharer="facebook"
+                                data-url="https://rus19023.github.io/ToDoApp/"
+                                data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho">
+                                <img class="centered icons" src="../img/icons/icons8-facebook-96.png" alt="">
+                            </button>
+                        </div>
+                        <div>
+                            <button class="sharer"
+                                data-sharer="linkedin"
+                                data-url="https://rus19023.github.io/ToDoApp/"
+                                data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho">
+                                <img class="centered icons" src="../img/icons/icons8-linkedin-96.png" alt="">
+                            </button>
+                        </div>
+                    </div>
                     <div id="todocontainer">
                         <h2 id="header1" class="centered title">To Do List</h2>
                         <ul id="todos"></ul>
@@ -41,7 +69,7 @@
                     <div id="listfooter" class="todo-bordered todo-text foot-row">
                         <p id="tasks" class="normal-text">_ tasks done.</p>
                         <div id="sortitems">
-                            <h3>Sort by:</h3>
+                            <h3 class="">Sort by:</h3>
                             <label for="alpha"><input type="radio" name="sort" id="alpha" value="alpha">Alphabetical order</label>
                             <label for="time"><input type="radio" name="sort" id="time" value="time" checked>Time entered</label>
                             <label for="cat"><input type="radio" name="sort" id="cat" value="cat">By Category</label>
@@ -57,6 +85,7 @@
                             <button id="srchbtn" class="todo-buttons">Search</button>
                         </div>
                     </div>
+                    <div>All icons from <a href="https://icons8.com">icons8.com</a></div>
                     <footer id="autofooter" class="title"></footer>
                 </section>
             </main>
