@@ -46,7 +46,7 @@ export default class todos {
     }
 
     async listAll() {
-        console.log(this.sort);
+        //console.log(this.sort);
         this.todoList = await getTodos('items', this.sortval);
         this.renderTodoList(this.todoList, 'todos');
         this.itemsLeft('All');
@@ -58,12 +58,12 @@ export default class todos {
         this.sort.forEach(el => {
             //console.log(el.value);
             el.addEventListener('change', () => {
-                console.log(el.checked);
+                //console.log(el.checked);
                 if (el.checked) {
-                    console.log(el.value, el.checked);
+                    //console.log(el.value, el.checked);
                     this.sortval = el.value;
                     this.listActive();
-                    console.log('sorted by ' + this.sortval);
+                    //console.log('sorted by ' + this.sortval);
                 }
             });
         });
@@ -211,15 +211,15 @@ export default class todos {
 
     checkBtn() {
         let btnitems = Array.from(document.querySelectorAll('.chkbtn'));
-        console.log(btnitems);
+        //console.log(btnitems);
         btnitems.forEach((item) => {
             item.addEventListener('touchend', function(e) {
                 let btnid = e.target.getAttribute('id');
-                console.log(btnid);
+                //console.log(btnid);
                 // check if the event is a checkbox
                 if (e.target.type === 'checkbox') {
                     // get id from button id value and toggle the state
-                    console.log(btnid);
+                    //console.log(btnid);
                     markDone(btnid);
                     this.listActive();
                 }
@@ -227,7 +227,7 @@ export default class todos {
                 if (e.target.classList.contains('delbtn')) {
                     // get id from button id value and delete it
                     btnid = btnid.substring(3, btnid.length);
-                    console.log(btnid);
+                    //console.log(btnid);
                     //console.log(e.target.getAttribute('id').substring(3, id.length));
                     deleteTodo(btnid);
                     this.listActive();
@@ -235,7 +235,7 @@ export default class todos {
                 if (e.target.classList.contains('editbtn')) {
                     // get id from button id value and delete it
                     btnid = btnid.substring(4, btnid.length);
-                    console.log(btnid);
+                    //console.log(btnid);
                     //console.log(e.target.getAttribute('id').substring(3, id.length));
                     editTodo(btnid);
                     this.listActive();
@@ -293,7 +293,7 @@ function getTodos(lskey, sort) {
             if (a.task > b.task) { return 1; }
             return 0;
         });
-        console.log(mylist);
+        //console.log(mylist);
     } else if (sort === 'time') {
         //mylist = mylist.sort((a, b) => (a.id - b.id));
         mylist.sort(function(a, b) {
@@ -310,7 +310,7 @@ function getTodos(lskey, sort) {
             if (a.cat > b.cat) { return 1; }
             return 0;
         });
-        console.log(mylist);
+        //console.log(mylist);
     }
     return mylist;
 }
@@ -328,7 +328,7 @@ function saveTodo(todo) {
 function editTodo(id) {
     let todoList = getTodos('items');
     let item = todoList.find(el => el.id === id);
-    console.log(item);
+    //console.log(item);
     let newtask = prompt("Edit task", item.task);
     if (newtask !== null) {
         item.task = newtask;
@@ -337,24 +337,24 @@ function editTodo(id) {
 }
 
 function markDone(id) {
-    console.log(id);
+    //console.log(id);
     todoList = getTodos('items');
-    console.log(todoList);
+    //console.log(todoList);
     todoList.forEach(function(item) {
-        console.log(item.done);
-        console.log(item);
-        console.log(id);
+        // console.log(item.done);
+        // console.log(item);
+        // console.log(id);
         // use == (not ===) because here types are different. One is number and other is string
         if (`mark${item.id}` == id) {
-            console.log(item.done);
+            //console.log(item.done);
           // toggle the value
           item.done = !item.done;
-          console.log(item.done);
+          //console.log(item.done);
         }
     });
     // save modified JSON.stringified list to ls
     writeToLS('items', JSON.stringify(todoList));
-    console.log(todoList);
+    //console.log(todoList);
     location.reload();
 }
 
@@ -363,8 +363,8 @@ function deleteTodo(id) {
     const filtered = todoList.filter(item => item.id != id);
     // save JSON.stringified list to ls
     writeToLS('items', JSON.stringify(filtered));
-    console.log(filtered);
-    console.log(todoList);
+    //console.log(filtered);
+    //console.log(todoList);
     location.reload();
 }
 
