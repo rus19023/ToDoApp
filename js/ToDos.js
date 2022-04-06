@@ -1,5 +1,5 @@
-import * as ls from "./ls.js";
-import * as util from "./utilities.js";
+import { readFromLS, writeToLS } from "./ls.js";
+import { qs, createLMNT, setFooter } from "./utilities.js";
 
 // // make some waves.
 // var ocean = document.getElementById("ocean"),
@@ -30,13 +30,13 @@ export default class todos {
         this.todo_error = error;
         this.sort = this.sortItems();
         this.sortval = 'time';
-        this.searchWord = util.qs('#searchinput');
-        this.srchbtn = util.qs('#srchbtn');
-        this.allbtn = util.qs('#allbtn');
-        this.actbtn = util.qs('#actbtn');
-        this.donebtn = util.qs('#donebtn');
-        this.addbtn = util.qs('#addbtn');
-        this.srchbtn2 = util.qs('#srchbtn2');
+        this.searchWord = qs('#srchinput');
+        this.srchbtn = qs('#srchbtn');
+        this.allbtn = qs('#allbtn');
+        this.actbtn = qs('#actbtn');
+        this.donebtn = qs('#donebtn');
+        this.addbtn = qs('#addbtn');
+        this.srchbtn2 = qs('#srchbtn2');
         this.srchbtn.addEventListener("touchend", () => { this.listFiltered(); }, false);
         this.srchbtn2.addEventListener("touchend", () => { this.listFiltered(); }, false);
         this.addbtn.addEventListener("touchend", () => { this.addTodo(); }, false);
@@ -114,8 +114,8 @@ export default class todos {
                 this.donebtn.classList.remove('todobordered');
                 break;
         }
-        util.qs("#tasks").innerHTML = tasktext;
-        util.setFooter();
+        qs("#tasks").innerHTML = tasktext;
+        setFooter();
     }
 
     addCustomTodos = () => {
@@ -132,7 +132,7 @@ export default class todos {
                 // be sure item is not null/blank, if so, give user a message to enter some text
                 if (!citem.length > 0) {
                     this.todo_error = 'Item cannot be blank, there is an error in the input file.';
-                    util.qs("#error").innerText = this.todo_error;
+                    qs("#error").innerText = this.todo_error;
                 } else {
                     // check if task is not already in the list
                     let match = customtasks.filter((citem) => (citem.task === citem));
@@ -151,20 +151,19 @@ export default class todos {
     addTodo() {
         // clear error message
         this.todo_error = '';
-        util.qs("#error").innerText = this.todo_error;
+        qs("#error").innerText = this.todo_error;
         // grab todo from input field
-        const task = util.qs("#addinput");
+        const task = qs("#addinput");
         //console.log(task);
         if (task.length == 0) { task.push('Custom to do list item'); }
         //console.log(task);
         if (!task.value.length > 0) {
             this.todo_error = 'Item cannot be blank, please enter your todo.';
-            util.qs("#error").innerText = this.todo_error;
+            qs("#error").innerText = this.todo_error;
         } else {
             saveTodo(task.value, 'items');
-            util.qs("#addinput").value = '';
+            qs("#addinput").value = '';
             this.listActive();
-            element.focus(addinput);
         }
     }
 
@@ -172,27 +171,29 @@ export default class todos {
 
         //console.log(parentElName);
         // build new display
-        const parentEl = util.qs(`#${parentElName}`);
+        const parentEl = qs(`#${parentElName}`);
         //console.log(parentEl);
         parentEl.innerText = '';
         renderlist.forEach((field) => {
             // create new list item
             //                   createLMNT(LMNT, LMNTtype, LMNTid, LMNTtext, LMNTclass)
-            let item = util.createLMNT('li', '', '', '', 'listitem todo-bordered nodots');
+            let item = createLMNT('li', '', '', '', 'listitem todo-bordered nodots');
             //console.log(field.task.length, field.task);
-            let itemtext = util.createLMNT("p", "", "", field.task , "todo-text");
-            let markbox = util.createLMNT('label', `lbl${field.id}`, '', '', 'bordered markbtn');
-            let markbtn = util.createLMNT("input", "checkbox", `mark${field.id}`, "✕", "markbtn chkbtn");
-            let delbtn = util.createLMNT("button", "button", `del${field.id}`, "X", "delbtn chkbtn");
-            let editbtn = util.createLMNT("button", "button", `edit${field.id}`, "", "editbtn chkbtn");
-            let editicon = util.createLMNT("img", "", "", "", "editicon");
+            let itemtext = createLMNT("p", "", "", field.task , "todo-text");
+            let markbox = createLMNT('label', `lbl${field.id}`, '', '', 'bordered markbtn');
+            let markbtn = createLMNT("input", "checkbox", `mark${field.id}`, "", "markbtn chkbtn"); //  "✕"
+            let delbtn = createLMNT("button", "button", `del${field.id}`, "X", "delbtn chkbtn");
+            let editbtn = createLMNT("button", "button", `edit${field.id}`, "", "editbtn chkbtn");
+            let editicon = createLMNT("img", "", "", "", "editicon");
             editicon.setAttribute('src', './img/icons8-edit-30.png');
 
             if (field.done === true) {
+                console.log('done = true');
                 itemtext.classList.add("todo-scratch");
                 markbtn.classList.add('markbtnX');
                 markbtn.checked = true;
             } else {
+                //console.log('done = false');
                 markbtn.checked = false;
                 markbtn.classList.remove('markbtnX');
                 itemtext.classList.remove("todo-scratch");
@@ -209,15 +210,16 @@ export default class todos {
     }
 
     checkBtn() {
-        let btnitems = Array.from(util.qs('.chkbtn'));
-        //console.log(btnitems);
-        btnitems.forEach(function (item) {
+        let btnitems = Array.from(document.querySelectorAll('.chkbtn'));
+        console.log(btnitems);
+        btnitems.forEach((item) => {
             item.addEventListener('touchend', function(e) {
                 let btnid = e.target.getAttribute('id');
                 console.log(btnid);
                 // check if the event is a checkbox
                 if (e.target.type === 'checkbox') {
                     // get id from button id value and toggle the state
+                    console.log(btnid);
                     markDone(btnid);
                     this.listActive();
                 }
@@ -259,12 +261,12 @@ export default class todos {
 
     async listFiltered() {
         this.todoList = await getTodos('items', this.sortval);
-        this.searchWord = util.qs("#srchinput").value;
-        console.log(this.searchWord);
+        this.searchWord = qs("#srchinput").value;
+        //console.log(this.searchWord);
         let newlist = [];
         this.todoList.forEach((field) => {
             if (field.task.includes(this.searchWord)) {
-                console.log(field);
+                //console.log(field);
                 newlist.push(field);
             }
         });
@@ -273,7 +275,7 @@ export default class todos {
         //   if(post.title == 'Guava')
         //     return true;
         // });
-        console.log(newlist);
+        //console.log(newlist);
         this.todoList = newlist;
         this.renderTodoList(newlist, 'todos');
         this.itemsLeft(this.searchWord);
@@ -283,7 +285,7 @@ export default class todos {
 /*  END OF CLASS  */
 
 function getTodos(lskey, sort) {
-    let mylist = JSON.parse(ls.readFromLS(lskey)) || [];
+    let mylist = JSON.parse(readFromLS(lskey)) || [];
     if (sort === 'alpha') {
         //mylist = mylist.sort((a, b) => (a.task - b.task));
         mylist.sort(function(a, b) {
@@ -320,7 +322,7 @@ function saveTodo(todo) {
     // add obj to todoList
     todoList.push(newItem);
     // save JSON.stringified list to ls
-    ls.writeToLS('items', JSON.stringify(todoList));
+    writeToLS('items', JSON.stringify(todoList));
 }
 
 function editTodo(id) {
@@ -330,22 +332,29 @@ function editTodo(id) {
     let newtask = prompt("Edit task", item.task);
     if (newtask !== null) {
         item.task = newtask;
-        ls.writeToLS('items', JSON.stringify(todoList));
+        writeToLS('items', JSON.stringify(todoList));
     }
 }
 
 function markDone(id) {
     console.log(id);
     todoList = getTodos('items');
+    console.log(todoList);
     todoList.forEach(function(item) {
+        console.log(item.done);
+        console.log(item);
+        console.log(id);
         // use == (not ===) because here types are different. One is number and other is string
-        if (item.id == id) {
+        if (`mark${item.id}` == id) {
+            console.log(item.done);
           // toggle the value
           item.done = !item.done;
+          console.log(item.done);
         }
+        debugger;
     });
     // save modified JSON.stringified list to ls
-    ls.writeToLS('items', JSON.stringify(todoList));
+    writeToLS('items', JSON.stringify(todoList));
     console.log(todoList);
     location.reload();
 }
@@ -354,7 +363,7 @@ function deleteTodo(id) {
     todoList = getTodos('items', 'time');
     const filtered = todoList.filter(item => item.id != id);
     // save JSON.stringified list to ls
-    ls.writeToLS('items', JSON.stringify(filtered));
+    writeToLS('items', JSON.stringify(filtered));
     console.log(filtered);
     console.log(todoList);
     location.reload();

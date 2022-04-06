@@ -5,9 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
         <link type="text/css" rel="stylesheet" href="http://127.0.0.1:5501/css/styles.css" />
-
-        <!--
-        <li class="normal-text"nk type="text/css" rel="stylesheet" href="https://rus19023.github.io/myportfolio/css/styles.css" /> -->
+        <link type="text/css" rel="stylesheet" href="https://rus19023.github.io/myportfolio/css/styles.css" />
         <!--
           <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
         -->
@@ -35,33 +33,34 @@
                         their flag colors.
                     </a>
                 </h3>
+                <div id="social-share">
+                    <div><h3 class="title">Share:</h3></div>
+                    <div>
+                        <button class="sharer todo-buttons"
+                            data-sharer="facebook"
+                            data-url="https://rus19023.github.io/ToDoApp/"
+                            data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho">
+                            <img class="centered icons" src="https://rus19023.github.io/ToDoApp/img/icons/icons8-facebook-96.png" alt="">
+                        </button>
+                    </div>
+                    <div>
+                        <button class=" todo-buttons"
+                            data-sharer="linkedin"
+                            data-url="https://rus19023.github.io/ToDoApp/"
+                            data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho"
+                            >
+                            <img class="centered icons" src="https://rus19023.github.io/ToDoApp/img/icons/icons8-linkedin-96.png" alt="">
+                        </button>
+                    </div>
+                </div>
             </header>
             <main id="gridcontainer">
                 <section id="content-wrap">
-                    <div id="social-share">
-                        <div><h3 class="title">Share:</h3></div>
-                        <div>
-                            <button class="sharer todo-buttons"
-                                data-sharer="facebook"
-                                data-url="https://rus19023.github.io/ToDoApp/"
-                                data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho">
-                                <img class="centered icons" src="https://rus19023.github.io/ToDoApp/img/icons/icons8-facebook-96.png" alt="">
-                            </button>
-                        </div>
-                        <div>
-                            <button class="sharer todo-buttons"
-                                data-sharer="linkedin"
-                                data-url="https://rus19023.github.io/ToDoApp/"
-                                data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho">
-                                <img class="centered icons" src="https://rus19023.github.io/ToDoApp/img/icons/icons8-linkedin-96.png" alt="">
-                            </button>
-                        </div>
-                    </div>
                     <div id="todocontainer">
                         <h2 id="header1" class="centered title">To Do List</h2>
                         <ul id="todos"></ul>
                         <div id="addbar" class="">
-                            <input id="addinput" type="text" name="addinput" placeholder="Add a To Do task" value="" class="inputs" autofocus>
+                            <input id="addinput" type="text" name="addinput" placeholder="Add a To Do task" value="" class="inputs" autofocus tabindex="0">
                             <button id="addbtn">+</button>
                         </div>
                     </div>
@@ -81,11 +80,11 @@
                             <button  class="todo-buttons" id="srchbtn2"> Search Again</button>
                         </div>
                         <div id="srchbar" class="todo-text">
-                            <input id="srchinput" type="text" name="srchinput" placeholder="Search in tasks (case sensitive)" value="" class="inputs">
+                            <input id="srchinput" type="text" name="srchinput" placeholder="Search in tasks (case sensitive)" value="" class="inputs" tabindex="1">
                             <button id="srchbtn" class="todo-buttons">Search</button>
                         </div>
                     </div>
-                    <div>All icons from <a href="https://icons8.com">icons8.com</a></div>
+                    <div class="normal-text">All icons from <a href="https://icons8.com">icons8.com</a></div>
                     <footer id="autofooter" class="title"></footer>
                 </section>
             </main>

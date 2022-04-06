@@ -3,7 +3,8 @@
 // do a querySelector lookup @param {string} selector The selector passed to querySelector
 
 // @return {element} The matching element or null if not found /
-const qs = selector => {
+export const qs = selector => {
+    //console.log(document.querySelector(selector));
     return document.querySelector(selector);
 }
 
@@ -24,7 +25,7 @@ add a touchend event listener to an element for mobile with a click event fallba
 //     return event.type;
 // });
 
-function onTouch(elSelector, callback) {
+export function onTouch(elSelector, callback) {
     const el = qs(elSelector);
     //const eventType = getEventType(el);
     if (el.addEventListener) {
@@ -37,7 +38,7 @@ function onTouch(elSelector, callback) {
     }
 }
 
-function createLMNT(LMNT, LMNTtype, LMNTid, LMNTtext, LMNTclass) {
+export function createLMNT(LMNT, LMNTtype, LMNTid, LMNTtext, LMNTclass) {
     let lmnt = document.createElement(LMNT);
     lmnt.setAttribute('type', LMNTtype);
     lmnt.setAttribute('id', LMNTid);
@@ -47,25 +48,25 @@ function createLMNT(LMNT, LMNTtype, LMNTid, LMNTtext, LMNTclass) {
 }
 
 // set footer
-function setFooter() {
+export function setFooter() {
     if (isElement("autofooter")) {
         writeById("autofooter", createLink("https://rus19023.github.io/myportfolio/", "&copy; 2019-2022 | Doris Rush-Lopez, BYU-Idaho Candidate for Bachelor of Science in Applied Technology"));
     }
 }
 
-const createLink = (url, text) => {
+export const createLink = (url, text) => {
     return `<a href="${url}">${text}</a>`;
 };
 
-function writeById(output, input) {
+export function writeById(output, input) {
     qs(`#${output}`).innerHTML = input;
 }
 
-function writeByClass(output, input) {
+export function writeByClass(output, input) {
     qs(`.${output}`).innerHTML = input;
 }
 
-function isElement(element) {
+export function isElement(element) {
     // check if id exists
     const myId = qs(`#${element}`);
     if (typeof myId != "undefined" && myId != null) {
@@ -73,13 +74,10 @@ function isElement(element) {
     }
 }
 
-function isClass(element) {
+export function isClass(element) {
     // check if class exists
     const myClass = qs(`.${element}`);
     if (typeof myClass != "undefined" && myClass != null) {
         return myClass.nodeType === 1;
     }
 }
-
-
-export { qs, onTouch, createLMNT, setFooter, isClass, isElement, writeByClass, writeById, createLink };
