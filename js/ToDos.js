@@ -351,7 +351,6 @@ function markDone(id) {
           item.done = !item.done;
           console.log(item.done);
         }
-        debugger;
     });
     // save modified JSON.stringified list to ls
     writeToLS('items', JSON.stringify(todoList));
