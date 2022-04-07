@@ -37,12 +37,12 @@ export default class todos {
         this.donebtn = qs('#donebtn');
         this.addbtn = qs('#addbtn');
         this.srchbtn2 = qs('#srchbtn2');
-        this.srchbtn.addEventListener("touchend", () => { this.listFiltered(); }, false);
-        this.srchbtn2.addEventListener("touchend", () => { this.listFiltered(); }, false);
-        this.addbtn.addEventListener("touchend", () => { this.addTodo(); }, false);
-        this.allbtn.addEventListener("touchend", () => { this.listAll(); }, false);
-        this.actbtn.addEventListener("touchend", () => { this.listActive(); }, false);
-        this.donebtn.addEventListener("touchend", () => { this.listDone(); }, false);
+        this.srchbtn.addEventListener("click", () => { this.listFiltered(); }, false);
+        this.srchbtn2.addEventListener("click", () => { this.listFiltered(); }, false);
+        this.addbtn.addEventListener("click", () => { this.addTodo(); }, false);
+        this.allbtn.addEventListener("click", () => { this.listAll(); }, false);
+        this.actbtn.addEventListener("click", () => { this.listActive(); }, false);
+        this.donebtn.addEventListener("click", () => { this.listDone(); }, false);
     }
 
     async listAll() {
@@ -213,7 +213,7 @@ export default class todos {
         let btnitems = Array.from(document.querySelectorAll('.chkbtn'));
         //console.log(btnitems);
         btnitems.forEach((item) => {
-            item.addEventListener('touchend', function(e) {
+            item.addEventListener('click', function(e) {
                 let btnid = e.target.getAttribute('id');
                 //console.log(btnid);
                 // check if the event is a checkbox
