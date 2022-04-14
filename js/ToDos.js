@@ -80,10 +80,10 @@ export default class todos {
         }
         let tasktext = filter;
         let done = this.todoList.filter(item => item.done === true).length;
-        let pending = (itemcount - done) + ' ' + t + ', ';
+        let pending = (itemcount - done);
         switch (filter) {
             case ('All'):
-                tasktext = 'Pending:' + pending + ', Done: ' + done + ', All:' + t;
+                tasktext = 'Pending: ' + pending +  t + ', Done: ' + done + t;
                 this.allbtn.classList.add('todobordered');
                 this.srchbtn.classList.remove('todobordered');
                 this.actbtn.classList.remove('todobordered');
@@ -91,7 +91,7 @@ export default class todos {
                 break;
 
             case ('Active'):
-                tasktext = `Pending: ${itemcount} ${t}`;
+                tasktext = `Pending: ${pending} ${t}`;
                 this.actbtn.classList.add('todobordered');
                 this.allbtn.classList.remove('todobordered');
                 this.actbtn.classList.remove('todobordered');
@@ -99,7 +99,7 @@ export default class todos {
                 break;
 
             case ('Done'):
-                tasktext += `:  ${t} ${done}`;
+                tasktext = `Done: ${done} ${t}`;
                 this.donebtn.classList.add('todobordered');
                 this.allbtn.classList.remove('todobordered');
                 this.actbtn.classList.remove('todobordered');
