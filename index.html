@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-        <link type="text/css" rel="stylesheet" href="http://127.0.0.1:5501/css/styles.css" />
+        <!-- <link type="text/css" rel="stylesheet" href="http://127.0.0.1:5501/css/styles.css" /> -->
         <link type="text/css" rel="stylesheet" href="https://rus19023.github.io/myportfolio/css/styles.css" />
         <!--
           <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
@@ -21,19 +21,19 @@
     </head>
 
     <body>
-        <!-- <div id="ocean"></div> -->
+        <div id="ocean"></div>
             <!-- <h1>App only available on mobile devices with screens smaller than 1000px wide</h1> -->
             <header class="title col3">
                 <h1 id="todoheading" class="title">
                     To Do App
                 </h1>
-                <h3 class="normal-text marg centered ">
-                    In solidarity with the Ukraine, the color scheme is based on
-                    <a href="https://en.wikipedia.org/wiki/Flag_of_Ukraine#Design">
-                        their flag colors.
-                    </a>
-                </h3>
                 <div id="social-share">
+                    <h3 class="normal-text marg centered ">
+                        In solidarity with the Ukraine, the color scheme is based on
+                        <a href="https://en.wikipedia.org/wiki/Flag_of_Ukraine#Design">
+                            their flag colors.
+                        </a>
+                    </h3>
                     <div><h3 class="title">Share: </h3></div>
                     <div>
                         <button class="sharer todo-buttons"
@@ -57,18 +57,19 @@
             <br>
             <main id="gridcontainer">
                 <div id="left">
+                    <h2 id="header1" class="centered title">To Do List</h2>
                     <div id="todocontainer">
-                        <h2 id="header1" class="centered title">To Do List</h2>
                         <ul id="todos"></ul>
-                        <div id="addbar" class="">
-                            <input id="addinput" type="text" name="addinput" placeholder="Add a To Do task" value="" class="inputs" autofocus tabindex="0">
-                            <button id="addbtn">+</button>
-                        </div>
                     </div>
                     <div id="error"></div>
                 </div>
                 <div id="right">
                     <section id="content-wrap">
+                        <br><br>
+                        <div id="addbar" class="">
+                            <input id="addinput" type="text" name="addinput" placeholder="Add a To Do task" value="" class="inputs" autofocus tabindex="0">
+                            <button id="addbtn">+</button>
+                        </div>
                         <div id="listfooter" class="todo-bordered todo-text foot-row">
                             <p id="tasks" class="normal-text">_ tasks done.</p>
                             <div id="sortitems">
@@ -96,6 +97,7 @@
                 <div id="autofooter" class="title centered"></div>
                 <div class="normal-text centered">All icons from <a href="https://icons8.com">icons8.com</a></div>
             </footer>
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js"></script>
