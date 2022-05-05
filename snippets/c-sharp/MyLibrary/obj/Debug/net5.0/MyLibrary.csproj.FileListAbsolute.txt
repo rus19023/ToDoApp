@@ -1,0 +1,12 @@
+U:\000000-git\0000-todo-app\snippets\c-sharp\MyLibrary\bin\Debug\net5.0\MyLibrary.deps.json
+U:\000000-git\0000-todo-app\snippets\c-sharp\MyLibrary\bin\Debug\net5.0\MyLibrary.dll
+U:\000000-git\0000-todo-app\snippets\c-sharp\MyLibrary\bin\Debug\net5.0\MyLibrary.pdb
+U:\000000-git\0000-todo-app\snippets\c-sharp\MyLibrary\obj\Debug\net5.0\MyLibrary.csproj.AssemblyReference.cache
+U:\000000-git\0000-todo-app\snippets\c-sharp\MyLibrary\obj\Debug\net5.0\MyLibrary.GeneratedMSBuildEditorConfig.editorconfig
+U:\000000-git\0000-todo-app\snippets\c-sharp\MyLibrary\obj\Debug\net5.0\MyLibrary.AssemblyInfoInputs.cache
+U:\000000-git\0000-todo-app\snippets\c-sharp\MyLibrary\obj\Debug\net5.0\MyLibrary.AssemblyInfo.cs
+U:\000000-git\0000-todo-app\snippets\c-sharp\MyLibrary\obj\Debug\net5.0\MyLibrary.csproj.CoreCompileInputs.cache
+U:\000000-git\0000-todo-app\snippets\c-sharp\MyLibrary\obj\Debug\net5.0\MyLibrary.dll
+U:\000000-git\0000-todo-app\snippets\c-sharp\MyLibrary\obj\Debug\net5.0\refint\MyLibrary.dll
+U:\000000-git\0000-todo-app\snippets\c-sharp\MyLibrary\obj\Debug\net5.0\MyLibrary.pdb
+U:\000000-git\0000-todo-app\snippets\c-sharp\MyLibrary\obj\Debug\net5.0\ref\MyLibrary.dll
