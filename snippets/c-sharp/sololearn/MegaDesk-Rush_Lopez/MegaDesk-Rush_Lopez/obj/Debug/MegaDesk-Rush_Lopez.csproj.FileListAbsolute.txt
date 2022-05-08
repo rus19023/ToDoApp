@@ -1,0 +1,11 @@
+U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\MegaDesk-Rush_Lopez\MegaDesk-Rush_Lopez\bin\Debug\MegaDesk-Rush_Lopez.exe.config
+U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\MegaDesk-Rush_Lopez\MegaDesk-Rush_Lopez\bin\Debug\MegaDesk-Rush_Lopez.exe
+U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\MegaDesk-Rush_Lopez\MegaDesk-Rush_Lopez\bin\Debug\MegaDesk-Rush_Lopez.pdb
+U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\MegaDesk-Rush_Lopez\MegaDesk-Rush_Lopez\obj\Debug\MegaDesk-Rush_Lopez.csproj.AssemblyReference.cache
+U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\MegaDesk-Rush_Lopez\MegaDesk-Rush_Lopez\obj\Debug\MegaDesk-Rush_Lopez.csproj.SuggestedBindingRedirects.cache
+U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\MegaDesk-Rush_Lopez\MegaDesk-Rush_Lopez\obj\Debug\MegaDesk_Rush_Lopez.Properties.Resources.resources
+U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\MegaDesk-Rush_Lopez\MegaDesk-Rush_Lopez\obj\Debug\MegaDesk-Rush_Lopez.csproj.GenerateResource.cache
+U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\MegaDesk-Rush_Lopez\MegaDesk-Rush_Lopez\obj\Debug\MegaDesk-Rush_Lopez.csproj.CoreCompileInputs.cache
+U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\MegaDesk-Rush_Lopez\MegaDesk-Rush_Lopez\obj\Debug\MegaDesk-Rush_Lopez.exe
+U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\MegaDesk-Rush_Lopez\MegaDesk-Rush_Lopez\obj\Debug\MegaDesk-Rush_Lopez.pdb
+U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\MegaDesk-Rush_Lopez\MegaDesk-Rush_Lopez\obj\Debug\MegaDesk_Rush_Lopez.MainMenu.resources

@@ -14,11 +14,53 @@ namespace SoloLearnTests
 
             // MultipleOfThree();
 
-            System.Console.WriteLine(Discount(8000));
-            System.Console.WriteLine(Discount(13000));
-            PromptForExit();
+            // System.Console.WriteLine(Discount(8000));
+            // System.Console.WriteLine(Discount(13000));
+
+            //int var1 = 2;
+            //int var2 = 9;
+            //Swap(ref var1,  ref var2);
+
+            //int a;
+            //int z = Test(out a);
+            //Console.WriteLine("a + z: " + (a + z));
+
+            //int[] arr = { 8, 5, 4 };
+            //Array.Reverse(arr);
+            //double x = Math.Pow(arr[0], 2);
+            //Console.WriteLine(x);
+
+            class Temp
+        {
+            public int num = 2;
+            public Temp() { num++; }
+            ~Temp() { num++; }
+        }
+        static void Main(string[] args)
+        {
+            Temp t = new Temp();
+            Console.WriteLine(t.num);
+        }
+
+        PromptForExit();
 
         }  // End Main
+
+        static int Test(out int x, int y = 4)
+        {
+            x = 6;
+            return x * y;
+        }
+
+        static void Swap(ref int x, ref int y)
+        {
+            int temp;
+            temp = x;
+            x = y;
+            y = temp;
+            System.Console.WriteLine("x = : " + x);
+            System.Console.WriteLine("y = : " + y);
+        }
 
         static int Discount(int price)
         {
