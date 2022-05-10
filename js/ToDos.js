@@ -238,7 +238,7 @@ export default class todos {
                     //console.log(btnid);
                     //console.log(e.target.getAttribute('id').substring(3, id.length));
                     editTodo(btnid);
-                    this.listActive();
+                    this.listAll();
                 }
                 //console.log(item);
             });
