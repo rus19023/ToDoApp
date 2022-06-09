@@ -1,10 +1,8 @@
 // 1. Create DOM manipulation helper functions in utilities.js
-//Two here for starters should be good as well...may add more later
 // do a querySelector lookup @param {string} selector The selector passed to querySelector
 
 // @return {element} The matching element or null if not found /
 export const qs = selector => {
-    //console.log(document.querySelector(selector));
     return document.querySelector(selector);
 }
 
