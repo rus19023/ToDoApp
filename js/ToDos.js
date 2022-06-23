@@ -1,20 +1,20 @@
 import { readFromLS, writeToLS } from "./ls.js";
 import { qs, createLMNT, setFooter, onTouch } from "./utilities.js";
 
-// make some waves.
-var ocean = document.getElementById("ocean"),
-    waveWidth = 10,
-    waveCount = Math.floor(window.innerWidth/waveWidth),
-    docFrag = document.createDocumentFragment();
+// // make some waves.
+// var ocean = document.getElementById("ocean"),
+//     waveWidth = 10,
+//     waveCount = Math.floor(window.innerWidth/waveWidth),
+//     docFrag = document.createDocumentFragment();
 
-for(var i = 0; i < waveCount; i++){
-  var wave = document.createElement("div");
-  wave.className += " wave";
-  docFrag.appendChild(wave);
-  wave.style.left = i * waveWidth + "px";
-  wave.style.AnimationDelay = (i/100) + "s";
-}
-ocean.appendChild(docFrag);
+// for(var i = 0; i < waveCount; i++){
+//   var wave = document.createElement("div");
+//   wave.className += " wave";
+//   docFrag.appendChild(wave);
+//   wave.style.left = i * waveWidth + "px";
+//   wave.style.AnimationDelay = (i/100) + "s";
+// }
+// ocean.appendChild(docFrag);
 
 let todoList = [];
 //const lskey = 'items';
