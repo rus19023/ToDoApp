@@ -4,11 +4,16 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-        <!-- <link type="text/css" rel="stylesheet" href="http://127.0.0.1:5501/css/styles.css" /> -->
-        <link type="text/css" rel="stylesheet" href="https://rus19023.github.io/myportfolio/css/styles.css" />
+        <link rel="stylesheet" href="dist/css/tailwind.css">
+
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
         <!--
-          <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
-        -->
+            <link rel="stylesheet" href="/css/todo-app.css">
+
+            <link type="text/css" rel="stylesheet" href="https://rus19023.github.io/myportfolio/css/styles.css" />
+            <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
+
+            <link type="text/css" rel="stylesheet" href="http://127.0.0.1:5500/css/styles.css" /> -->
 
         <!-- For Sharing buttons -->
         <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
@@ -18,7 +23,7 @@
         <meta property="og:site_name" content="To Do App"/>
         <meta property=”og:image" content="/images/og/default.jpg"/>
 
-        <title id="wdd330todoapptitle" class="title"> To Do App</title>
+        <title id="wdd330todoapptitle" class="title">To Do App</title>
     </head>
 
     <body>
@@ -68,12 +73,14 @@
                     </div>
                     <div id="error"></div>
                 </div>
-                <div id="right">
-                    <section id="content-wrap">
+                <div id="right" class="scroll-container">
+                    <section id="content-wrap" class="scroll-element js-scroll">
                         <br><br>
                         <div id="addbar" class="">
                             <input id="addinput" type="text" name="addinput" placeholder="Add a To Do task" value="" class="inputs" autofocus tabindex="0">
                             <button id="addbtn">+</button>
+                        </div>
+                        <div id="listfooter" class="todo-bordered todo-text foot-row">
                         </div>
                         <div id="listfooter" class="todo-bordered todo-text foot-row">
                             <p id="tasks" class="normal-text">_ tasks done.</p>
@@ -99,13 +106,13 @@
             </main>
             <br>
             <footer>
-                <div id="autofooter" class="title centered"></div>
+                <div id="autofooter" class="footer footer-center "></div>
                 <div class="normal-text centered">All icons from <a href="https://icons8.com">icons8.com</a></div>
             </footer>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js"></script>
-        <script src="./js/todosmain.js" type="module"></script>
+        <script src="./src/js/todosmain.js" type="module"></script>
     </body>
 </html>

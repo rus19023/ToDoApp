@@ -1,0 +1,38 @@
+{
+    "name": "TO DO APP",
+    "version": "1.0.0",
+    "description": "To Do App",
+    "main": "",
+    "scripts": {
+        "tailwind:css": "postcss src/css/main.css -o dist/css/tailwind.css",
+        "dev": "npm run tailwind:css",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rus19023/myportfolio.git"
+    },
+    "keywords": [
+        "portfolio",
+        "tailwind",
+        "javascript"
+    ],
+    "author": "Doris Rush-Lopez",
+    "license": "",
+    "bugs": {
+        "url": "https://github.com/rus19023/myportfolio/issues"
+    },
+    "homepage": "https://github.com/rus19023/myportfolio#readme",
+    "devDependencies": {
+        "autoprefixer": "^10.4.8",
+        "nodemon": "^2.0.19",
+        "postcss": "^8.4.16",
+        "postcss-cli": "^10.0.0",
+        "tailwindcss": "^3.1.8",
+        "webpack": "^5.74.0",
+        "webpack-cli": "^4.10.0"
+    },
+    "dependencies": {
+        "@material-tailwind/html": "^1.2.1"
+    }
+}

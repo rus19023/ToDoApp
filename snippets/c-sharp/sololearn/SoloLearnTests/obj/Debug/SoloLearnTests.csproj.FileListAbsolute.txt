@@ -1,8 +1,0 @@
-U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\SoloLearnTests\bin\Debug\SoloLearnTests.exe.config
-U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\SoloLearnTests\bin\Debug\SoloLearnTests.exe
-U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\SoloLearnTests\bin\Debug\SoloLearnTests.pdb
-U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\SoloLearnTests\obj\Debug\SoloLearnTests.csproj.AssemblyReference.cache
-U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\SoloLearnTests\obj\Debug\SoloLearnTests.csproj.SuggestedBindingRedirects.cache
-U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\SoloLearnTests\obj\Debug\SoloLearnTests.csproj.CoreCompileInputs.cache
-U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\SoloLearnTests\obj\Debug\SoloLearnTests.exe
-U:\000000-git\0000-todo-app\snippets\c-sharp\sololearn\SoloLearnTests\obj\Debug\SoloLearnTests.pdb
