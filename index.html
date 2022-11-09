@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
         <!-- <link type="text/css" rel="stylesheet" href="http://127.0.0.1:5501/css/styles.css" /> -->
         <link type="text/css" rel="stylesheet" href="https://rus19023.github.io/myportfolio/css/styles.css" />
+        <!-- <link type="text/css" rel="stylesheet" href="/css/todo.css" /> -->
         <!--
           <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
         -->
@@ -25,56 +26,58 @@
         <div id="ocean"></div>
             <!-- <h1>App only available on mobile devices with screens smaller than 1000px wide</h1> -->
             <header class="title col3">
-                <h1 id="todoheading" class="title">
-                    To Do App
-                </h1>
-                <section id="social-share">
-                    <h3 class="normal-text marg centered ">
+                <section>
+                    <h1 id="todoheading" class="title">
+                        To Do App
+                    </h1>
+                </section>
+                <section>
+                    <h2 class="normal-text marg centered ">
                         In solidarity with the Ukraine, the color scheme is based on
                         <a href="https://en.wikipedia.org/wiki/Flag_of_Ukraine#Design">
                             their flag colors.
                         </a>
-                    </h3>
-                    <div><h3 class="title">Share: </h3></div>
-                    <div>
-                        <button class="sharer todo-buttons"
+                    </h2>
+                </section>
+                <section id="social-share">
+                    <h3 class="title">Share: </h3>
+                        <button class="sharer"
                             data-sharer="facebook"
                             data-url="https://rus19023.github.io/ToDoApp/"
                             data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho">
                             <img class="centered icons" src="https://rus19023.github.io/ToDoApp/img/icons/icons8-facebook-96.png" alt="share on Facebook">
                         </button>
-                    </div>
-                    <div>
-                        <button class=" todo-buttons"
+                        <button class="sharer"
                             data-sharer="linkedin"
                             data-url="https://rus19023.github.io/ToDoApp/"
                             data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho"
                             >
                             <img class="centered icons" src="https://rus19023.github.io/ToDoApp/img/icons/icons8-linkedin-96.png" alt="">
                         </button>
-                        <button class="todo-buttons"
-                        data-sharer="whatsapp"
-                        data-title="Checkout my To Do App! "
-                        data-url="https://rus19023.github.io/ToDoApp/"></button>
-                    </div>
+                        <button class="sharer"
+                            data-sharer="whatsapp"
+                            data-title="Checkout my To Do App! "
+                            data-url="https://rus19023.github.io/ToDoApp/">
+                            <img class="centered icons" src="https://rus19023.github.io/ToDoApp/img/icons/icons8-whatsapp-96.png" alt="">
+                        </button>
                 </section>
             </header>
             <br>
             <main id="gridcontainer">
-                <div id="left">
+                <div id="left" class="">
                     <h2 id="header1" class="centered title">To Do List</h2>
                     <div id="todocontainer">
                         <ul id="todos"></ul>
                     </div>
-                    <div id="error"></div>
+                    <div id="todo-error">Text set in index.html</div>
                 </div>
-                <div id="right">
-                    <section id="content-wrap">
+                <div id="right" class="">
                         <br><br>
-                        <div id="addbar" class="">
-                            <input id="addinput" type="text" name="addinput" placeholder="Add a To Do task" value="" class="inputs" autofocus tabindex="0">
+                        <form id="addbar" class="">
+                            <input id="catinput" type="text" name="catinput" placeholder="Task Category" class="inputs" autofocus tabindex="0" value="430-06">
+                            <input id="addinput" type="text" name="addinput" placeholder="Add a To Do task" value="" class="inputs" autofocus tabindex="1">
                             <button id="addbtn">+</button>
-                        </div>
+                        </form>
                         <div id="listfooter" class="todo-bordered todo-text foot-row">
                             <p id="tasks" class="normal-text">_ tasks done.</p>
                             <div id="sortitems">
@@ -84,17 +87,16 @@
                                 <label for="cat"><input type="radio" name="sort" id="cat" value="cat">By Category</label>
                             </div>
                             <div id="btncontainer">
-                                <button  class="todo-buttons" id="allbtn"> All</button>
-                                <button  class="todo-buttons" id="actbtn"> Pending</button>
-                                <button  class="todo-buttons" id="donebtn"> Done</button>
-                                <button  class="todo-buttons" id="srchbtn2"> Search Again</button>
+                                <button class="todo-buttons" id="allbtn"> All</button>
+                                <button class="todo-buttons" id="actbtn"> Pending</button>
+                                <button class="todo-buttons" id="donebtn"> Done</button>
+                                <button class="todo-buttons" id="srchbtn2"> Search Again</button>
                             </div>
                             <div id="srchbar" class="todo-text">
                                 <input id="srchinput" type="text" name="srchinput" placeholder="Search in tasks (case sensitive)" value="" class="inputs" tabindex="1">
                                 <button id="srchbtn" class="todo-buttons">Search</button>
                             </div>
                         </div>
-                    </section>
                 </div>
             </main>
             <br>

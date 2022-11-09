@@ -1,4 +1,3 @@
-
 // Colors
 $orange: #0057b7;
 $yellow: adjust-hue($orange, 30deg);
@@ -208,7 +207,7 @@ $ft: $contrast;
         padding: 0;
         margin: 10vh 0 2vw 0;
         display: grid;
-        grid-template-columns: 8fr 1fr;
+        grid-template-columns: 8fr 2fr 1fr;
         grid-template-areas:
             "addinput addbtn";
         & #addinput {

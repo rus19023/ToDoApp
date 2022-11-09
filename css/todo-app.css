@@ -18,7 +18,6 @@
   .navbar-collapse {
     justify-content: center;
   }
-
   .color3 {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -32,7 +31,6 @@
   .color3 {
     grid-template-columns: repeat(6, 1fr);
   }
-
   #gridcontainer {
     margin: 0 auto;
     gap: 2vw;
@@ -129,7 +127,7 @@ body {
   color: white;
   font-size: 16px;
   font-family: "Hubballi", sans-serif;
-  background: linear-gradient(180deg, #0059b8 40%, #9fa290 50%, #ffd900 60%);
+  background: linear-gradient(180deg, hsl(211deg, 100%, 36%) 40%, hsl(69deg, 9%, 60%) 50%, hsl(51deg, 100%, 50%) 60%);
   height: 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -509,11 +507,11 @@ pre {
 #todocontainer #todos li.listitem, #todocontainer #dtodos li.listitem {
   grid-area: listitem;
   display: grid;
-  grid-template-columns: 1fr 9fr 1fr;
+  grid-template-columns: 1fr 2fr 7fr 1fr;
   margin: 0;
   max-height: 25vw;
   max-width: 100%;
-  grid-template-areas: "markbtn itemtext delbtn";
+  grid-template-areas: "markbtn cattext itemtext delbtn";
 }
 #todocontainer #todos li.listitem .markbtn, #todocontainer #dtodos li.listitem .markbtn {
   grid-area: markbtn;
@@ -522,7 +520,7 @@ pre {
   padding: 1vw;
   margin: auto;
 }
-#todocontainer #todos li.listitem #itemtext, #todocontainer #dtodos li.listitem #itemtext {
+#todocontainer #todos li.listitem #itemtext, #todocontainer #todos li.listitem #cattext, #todocontainer #dtodos li.listitem #itemtext, #todocontainer #dtodos li.listitem #cattext {
   grid-area: itemtext;
   height: 4vh;
   margin: 2vh;
@@ -532,11 +530,16 @@ pre {
   color: #b70057;
   background: transparent;
   margin: auto;
-  border: none;
+  border: 1px solid #b70057;
   max-width: 8vw;
   height: 8vh;
   font-size: 2rem;
   font-weight: 500;
+}
+#todocontainer #todos li.listitem .editbtn, #todocontainer #dtodos li.listitem .editbtn {
+  grid-area: edittbn;
+  border: 1px solid #00b3b7;
+  color: #00b3b7;
 }
 #todocontainer #listfooter {
   display: grid;

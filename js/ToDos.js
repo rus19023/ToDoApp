@@ -17,7 +17,7 @@ import { qs, createLMNT, setFooter, onTouch } from "./utilities.js";
 // ocean.appendChild(docFrag);
 
 let todoList = [];
-//const lskey = 'items';
+const listkey = 'items';
 var customtasks = [
     "Push changes to github more often, whenever something is working, commit and push it. You never know when something might go wrong...it's better to be safe with a backup than sorry."
 ];
@@ -25,11 +25,14 @@ var customtasks = [
 export default class todos {
     // a class needs a constructor
     constructor(parentId) {
+        this.taskCount = 0;
         this.parentId = parentId;
+        this.listname = listkey;
         this.todoList = [];
-        this.todo_error = error;
+        this.todo_error = 'text set in constructor';
         this.sort = this.sortItems();
         this.sortval = 'time';
+        this.filter = '';
         this.searchWord = qs('#srchinput');
         this.srchbtn = qs('#srchbtn');
         this.allbtn = qs('#allbtn');
@@ -38,22 +41,57 @@ export default class todos {
         this.addbtn = qs('#addbtn');
         this.srchbtn2 = qs('#srchbtn2');
         //this.srchbtn = onTouch(this.srchbtn, () => this.listFiltered());
-        this.srchbtn.addEventListener("click", () => { this.listFiltered(); }, false);
-        this.srchbtn2.addEventListener("click", () => { this.listFiltered(); }, false);
-        //this.addbtn.onTouch(() => this.addTodo());
-        this.addbtn.addEventListener("click", () => { this.addTodo(); }, false);
-        this.allbtn.addEventListener("click", () => { this.listAll(); }, false);
-        this.actbtn.addEventListener("click", () => { this.listActive(); }, false);
-        this.donebtn.addEventListener("click", () => { this.listDone(); }, false);
+        this.srchbtn.addEventListener('click', () => { this.listFiltered(); }, false);
+        this.srchbtn2.addEventListener('click', () => { this.listFiltered(); }, false);
+        //this.addbtn.onTouch(), this.addTodo();
+        this.addbtn.addEventListener('click', () => { this.addTodo(); }, false);
+        this.allbtn.addEventListener('click', () => { this.listAll(); }, false);
+        this.actbtn.addEventListener('click', () => { this.listActive(); }, false);
+        this.donebtn.addEventListener('click', () => { this.listDone(); }, false);
     }
 
+    // TODO:  add functionality to choose from listnames or just filter on category?
     async listAll() {
-        this.todoList = await getTodos('items', this.sortval);
+        this.filter = 'all';
+        this.todoList = await getTodos(this.listname);
         this.renderTodoList(this.todoList, 'todos');
         this.itemsLeft('All');
     }
 
+    async listActive() {
+        this.todoList = await getTodos(this.todoList);
+        this.todoList = this.todoList.filter(el => el.done === false);
+        this.renderTodoList(this.todoList, 'todos');
+        this.itemsLeft('Active');
+    }
+
+    async listDone() {
+        this.todoList = await getTodos(this.todoList);
+        this.todoList = this.todoList.filter(el => el.done === true);
+        this.renderTodoList(this.todoList, 'todos');
+        this.itemsLeft('Done');
+    }
+
+    async listFiltered() {
+        this.todoList = await getTodos(this.todoList);
+        this.searchWord = qs("#srchinput").value;
+        let newlist = [];
+        this.todoList.forEach((field) => {
+            if (field.task.includes(this.searchWord)) {
+                newlist.push(field);
+            }
+        });
+        // Save filtered list to property
+        this.todoList = filteredlist;
+        sortedlist = sortList(filteredlist);
+        // Display filtered list
+        this.renderTodoList(sortedlist, 'todos');
+        // Show item stats for filtered list
+        this.itemsLeft(this.searchWord);
+    }
+
     sortItems() {
+        // Get list of sort terms
         this.sort = Array.from(document.querySelectorAll('input[name="sort"]'));
         this.sort.forEach(el => {
             el.addEventListener('change', () => {
@@ -74,11 +112,13 @@ export default class todos {
         } else if ((itemcount > 1) || (itemcount === 0)) {
           t = ' list items ';
         }
+        filter = this.filter;
+        //console.log(`inside itemsLeft, line 81, this.filter: ${this.filter}`);
         let tasktext = filter;
         let done = this.todoList.filter(item => item.done === true).length;
         let pending = (itemcount - done);
         switch (filter) {
-            case ('All'):
+            case ('all'):
                 tasktext = 'Pending: ' + pending +  t + ', Done: ' + done + t;
                 this.allbtn.classList.add('todobordered');
                 this.srchbtn.classList.remove('todobordered');
@@ -86,7 +126,7 @@ export default class todos {
                 this.donebtn.classList.remove('todobordered');
                 break;
 
-            case ('Active'):
+            case ('active'):
                 tasktext = `Pending: ${pending} ${t}`;
                 this.actbtn.classList.add('todobordered');
                 this.allbtn.classList.remove('todobordered');
@@ -94,7 +134,7 @@ export default class todos {
                 this.donebtn.classList.remove('todobordered');
                 break;
 
-            case ('Done'):
+            case ('done'):
                 tasktext = `Done: ${done} ${t}`;
                 this.donebtn.classList.add('todobordered');
                 this.allbtn.classList.remove('todobordered');
@@ -119,21 +159,22 @@ export default class todos {
         // todo: get from JSON file or API or database
         let runlist = false;
         // TODO: add function to retrieve from firebase
-        let mytasks = getTodos('items', this.sortval);
+        let mytasks = getTodos(this.listname);
         if (mytasks.length == 0) { runlist = true; }
         if (runlist) {
             customtasks.forEach(citem => {
                 // loop through list from variable and add to localStorage
                 // be sure item is not null/blank, if so, give user a message to enter some text
                 if (!citem.length > 0) {
+                    let cat = 'From custom todos'
                     this.todo_error = 'Item cannot be blank, there is an error in the input file.';
-                    qs("#error").innerText = this.todo_error;
+                    qs("#todo-error").innerText = this.todo_error;
                 } else {
                     // check if task is not already in the list
                     let match = customtasks.filter((citem) => (citem.task === citem));
                     // add new item if "citem" is not already in the storage "items"
                     if (match = [] || match == null) {
-                        saveTodo(citem, 'items');
+                        saveTodo(cat, citem, this.listname, this.sortval);
                         customtasks = customtasks.filter((citem) => (!citem.task === citem));
                     }
                     this.listAll();
@@ -144,17 +185,42 @@ export default class todos {
     }
 
     addTodo() {
-        // clear error message
+        // set error message
+        //console.log("inside addTodo");
+        // Clear error message
         this.todo_error = '';
-        qs("#error").innerText = this.todo_error;
+        // Get current error message
+        qs("#todo-error").innerText = this.todo_error;
         // grab todo from input field
         const task = qs("#addinput");
+        let category = qs("#catinput").value;
+        console.log(`category: ${category}`);
+        if (category.length == 0) {
+            category = 'General';
+        } else {
+            this.taskCount++;
+            if (this.taskCount < 9) {
+                category += '-0' + this.taskCount.toString();
+            } else {
+                category += '-' + this.taskCount.toString();          
+            }
+        }
+        console.log(`category: ${category}`);
         if (task.length == 0) { task.push('Custom to do list item'); }
         if (!task.value.length > 0) {
             this.todo_error = 'Item cannot be blank, please enter your todo.';
-            qs("#error").innerText = this.todo_error;
-        } else {
-            saveTodo(task.value, 'items');
+            qs("#todo-error").innerText = this.todo_error;
+        } 
+        else if (!task.value.length > 5) {
+            this.todo_error = 'Item must be longer than 5 characters, please enter your todo.';
+            qs("#todo-error").innerText = this.todo_error;
+        } 
+        else {
+        console.log("inside addTodo, just before saveTodo");
+        console.log(`category: ${category}`);
+        console.log(`task.value: ${task.value}`);
+        //console.log(`this.listname: ${this.listname}`);
+            saveTodo(category, task.value, this.listname, this.sortval);  // TODO: fix 'save the category' functionality 
             qs("#addinput").value = '';
             this.listAll();
         }
@@ -168,13 +234,14 @@ export default class todos {
             // create new list item
             //                   createLMNT(LMNT, LMNTtype, LMNTid, LMNTtext, LMNTclass)
             let item = createLMNT('li', '', '', '', 'listitem todo-bordered nodots');
-            let itemtext = createLMNT("p", "", "", field.task , "todo-text");
+            let cattext = createLMNT("p", "", "cattext", field.category, "todo-text");
+            let itemtext = createLMNT("p", "", "itemtext", field.task, "todo-text");
             let markbox = createLMNT('label', `lbl${field.id}`, '', '', 'bordered markbtn');
             let markbtn = createLMNT("input", "checkbox", `mark${field.id}`, "", "markbtn chkbtn"); //  "✕"
-            let delbtn = createLMNT("button", "button", `del${field.id}`, "X", "delbtn chkbtn");
-            let editbtn = createLMNT("button", "button", `edit${field.id}`, "", "editbtn chkbtn");
-            let editicon = createLMNT("img", "", "", "", "editicon");
-            editicon.setAttribute('src', './img/icons8-edit-30.png');
+            let delbtn = createLMNT("button", "button", `del${field.id}`, "Delete", "delbtn chkbtn");
+            let editbtn = createLMNT("button", "button", `edit${field.id}`, "Edit", "editbtn chkbtn");
+            //let editicon = createLMNT("img", "", "", "", "editicon");
+            //editicon.setAttribute('src', '../img/icons8-edit-30.png');
 
             if (field.done === true) {
                 itemtext.classList.add("todo-scratch");
@@ -185,9 +252,10 @@ export default class todos {
                 markbtn.classList.remove('markbtnX');
                 itemtext.classList.remove("todo-scratch");
             }
-            editbtn.appendChild(editicon);
+            //editbtn.appendChild(editicon);
             markbox.appendChild(markbtn);
             item.appendChild(markbox);
+            item.appendChild(cattext);
             item.appendChild(itemtext);
             item.appendChild(delbtn);
             item.appendChild(editbtn);
@@ -200,108 +268,88 @@ export default class todos {
         let btnitems = Array.from(document.querySelectorAll('.chkbtn'));
         btnitems.forEach((item) => {
             item.addEventListener('click', function(e) {
-                let btnid = e.target.getAttribute('id');
+                const btnid = e.target.getAttribute('id');
+                //console.log(`this.listname, line 225: ${this.listname}`);
                 // check if the event is a checkbox
                 if (e.target.type === 'checkbox') {
                     // get id from button id value and toggle the state
                     markDone(btnid);
-                    this.listActive();
+                    this.listAll();
                 }
                 // check if that is a delete-button
                 if (e.target.classList.contains('delbtn')) {
                     // get id from button id value and delete it
-                    btnid = btnid.substring(3, btnid.length);
-                    deleteTodo(btnid);
-                    this.listActive();
+                    let btnidsub = btnid.substring(3, btnid.length);
+                    console.log(`btnidsub: ${btnidsub}`);
+                    //console.log(`this.listname: ${this.listname}`);
+                    deleteTodo(btnidsub);
+                    this.listAll();
                 }
                 if (e.target.classList.contains('editbtn')) {
-                    // get id from button id value and delete it
-                    btnid = btnid.substring(4, btnid.length);
-                    editTodo(btnid);
+                    // get id from button id value and use it to find the item to edit
+                    let btnidsub = btnid.substring(4, btnid.length);
+                    //console.log(`btnidsub: ${btnidsub}`)
+                    editTodo(btnidsub);
                     this.listAll();
                 }
             });
         });
     }
 
-    async listActive() {
-        this.todoList = await getTodos('items', this.sortval);
-        this.todoList = this.todoList.filter(el => el.done === false);
-        this.renderTodoList(this.todoList, 'todos');
-        this.itemsLeft('Active');
-    }
-
-    async listDone() {
-        this.todoList = await getTodos('items', this.sortval);
-        this.todoList = this.todoList.filter(el => el.done === true);
-        this.renderTodoList(this.todoList, 'todos');
-        this.itemsLeft('Done');
-    }
-
-    async listFiltered() {
-        this.todoList = await getTodos('items', this.sortval);
-        this.searchWord = qs("#srchinput").value;
-        let newlist = [];
-        this.todoList.forEach((field) => {
-            if (field.task.includes(this.searchWord)) {
-                newlist.push(field);
-            }
-        });
-        this.todoList = newlist;
-        this.renderTodoList(newlist, 'todos');
-        this.itemsLeft(this.searchWord);
+    sortList(list) {        
+        if (sort === "alpha") {
+            list.sort(function(a, b) {
+                if (a.task < b.task) { return -1; }
+                if (a.task > b.task) { return 1; }
+                return 0;
+            });
+        } else if (sort === "time") {
+            list.sort(function(a, b) {
+                if (a.id < b.id) { return -1; }
+                if (a.id > b.id) { return 1; }
+                return 0;
+            });
+        } else if (sort === "cat") {
+            list.sort(function(a, b) {
+                if (a.cat < b.cat) { return -1; }
+                if (a.cat > b.cat) { return 1; }
+                return 0;
+            });
+        }
     }
 }
 
 /*  END OF CLASS  */
 
-function getTodos(lskey, sort) {
-    let mylist = JSON.parse(readFromLS(lskey)) || [];
-    if (sort === 'alpha') {
-        mylist.sort(function(a, b) {
-            if (a.task < b.task) { return -1; }
-            if (a.task > b.task) { return 1; }
-            return 0;
-        });
-    } else if (sort === 'time') {
-        mylist.sort(function(a, b) {
-            if (a.id < b.id) { return -1; }
-            if (a.id > b.id) { return 1; }
-            return 0;
-        });
-    } else if (sort === 'cat') {
-        mylist.sort(function(a, b) {
-            if (a.cat < b.cat) { return -1; }
-            if (a.cat > b.cat) { return 1; }
-            return 0;
-        });
-    }
-    return mylist;
+function getTodos(listkey) {
+    return JSON.parse(readFromLS(listkey)) || [];
 }
 
-function saveTodo(todo) {
+function saveTodo(cat, todo) {
     // read current todo list from local storage
-    todoList = getTodos('items');
+    console.log(`listkey: ${listkey}`)
+    let todoList = getTodos(listkey);
     // build todo object
-    const newItem = { id: `${Date.now()}`, task: todo, done: false };  // prequel for task: todo.length + " " +
+    const newItem = { id: `${Date.now()}`, task: todo, done: false, category: cat };  // prequel for task: todo.length + " " +
     // add obj to todoList
     todoList.push(newItem);
     // save JSON.stringified list to ls
-    writeToLS('items', JSON.stringify(todoList));
+    writeToLS(listkey, JSON.stringify(todoList));
 }
 
 function editTodo(id) {
-    let todoList = getTodos('items');
+    let todoList = getTodos(listkey);
     let item = todoList.find(el => el.id === id);
     let newtask = prompt("Edit task", item.task);
     if (newtask !== null) {
         item.task = newtask;
-        writeToLS('items', JSON.stringify(todoList));
+        writeToLS(listkey, JSON.stringify(todoList));
     }
+    location.reload();
 }
 
 function markDone(id) {
-    todoList = getTodos('items');
+    todoList = getTodos(listkey);
     todoList.forEach(function(item) {
         // use == (not ===) because here types are different. One is number and other is string
         if (`mark${item.id}` == id) {
@@ -310,14 +358,16 @@ function markDone(id) {
         }
     });
     // save modified JSON.stringified list to ls
-    writeToLS('items', JSON.stringify(todoList));
+    writeToLS(listkey, JSON.stringify(todoList));
     location.reload();
 }
 
 function deleteTodo(id) {
-    todoList = getTodos('items', 'time');
+    // console.log(`id: ${id}`)
+    // console.log(`listkey: ${listkey}`)
+    todoList = getTodos(listkey);
     const filtered = todoList.filter(item => item.id != id);
     // save JSON.stringified list to ls
-    writeToLS('items', JSON.stringify(filtered));
+    writeToLS(listkey, JSON.stringify(filtered));
     location.reload();
 }

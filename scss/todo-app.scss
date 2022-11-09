@@ -343,12 +343,12 @@ pre {
         & li.listitem {
             grid-area: listitem;
             display: grid;
-            grid-template-columns: 1fr 9fr 1fr;
+            grid-template-columns: 1fr 2fr 7fr 1fr;
             margin: 0;
             max-height: 25vw;
             max-width: 100%;
             grid-template-areas:
-            "markbtn itemtext delbtn";
+            "markbtn cattext itemtext delbtn";
             & .markbtn {
                 grid-area: markbtn;
                 width: 4vh;
@@ -356,7 +356,7 @@ pre {
                 padding: 1vw;
                 margin: auto;
             }
-            & #itemtext {
+            & #itemtext, #cattext {
                 grid-area: itemtext;
                 height: 4vh;
                 margin: 2vh;
@@ -366,11 +366,16 @@ pre {
                 color: $dksalmon;
                 background: transparent;
                 margin: auto;
-                border: none;
+                border: 1px solid $dksalmon;
                 max-width: 8vw;
                 height: 8vh;
                 font-size: $font4;
                 font-weight: 500;
+            }
+            & .editbtn {
+                grid-area: edittbn;
+                border: 1px solid $skyblue;
+                color: $skyblue;
             }
         }
     }

@@ -3,6 +3,7 @@
 
 // @return {element} The matching element or null if not found /
 export const qs = selector => {
+    //console.log("selector: " + selector + "," + document.querySelector(selector));
     return document.querySelector(selector);
 }
 
@@ -23,16 +24,28 @@ add a touchend event listener to an element for mobile with a click event fallba
 //     return event.type;
 // });
 
-export function onTouch(elSelector, callback) {
-    const el = qs(elSelector);
-    //const eventType = getEventType(el);
+export function onTouch(el, callback) {
+    //const el = qs(elSelector);
+    //const eventType = "click";
+    //console.log("elSelector: " + elSelector);
+    //console.log("el: " + el);
     if (el.addEventListener) {
         //this.allbtn.addEventListener("touchend", () => { this.listAll(); }, false);
-        el.addEventListener(eventType, () => { callback; }, false);
+        console.log("el: " + el);
+        //console.log("callback: " + callback);
+        el.addEventListener(
+            "click", () =>
+            {
+                console.log(el.type);
+                if (typeof callback == "function") {
+                    callback();
+                }
+                console.log("after callback in onTouch");
+            },
+            false);
+        // el.addEventListener("keyup", () => { callback }, false);
+        //console.log("eventType: " + eventType);
         //el.addEventListener(event, callback, false);
-    }
-    else if (el.attachEvent) {
-        el.attachEvent(eventType, () => { callback; })
     }
 }
 
