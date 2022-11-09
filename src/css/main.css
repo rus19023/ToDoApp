@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+
+    .navbar .nav-brand, ul.navbar-nav, .title {
+        @apply bg-medblue text-yellow font-semibold;
+    }
+
+    .title {
+        @apply block px-3 py-2 rounded-md text-yellow font-medium bg-medblue hover:text-medblue hover:bg-yellow
+    }
+
+    .autoheaderhome {
+        @apply bg-medblue text-yellow border-yellow;
+    }
+
+    .card-container {
+        @apply rounded-lg shadow-lg bg-yellow w-full flex flex-row flex-wrap p-3 antialiased;
+    }
+
+    main, nav, header {
+        @apply bg-black text-white;
+    }
+
+    a.nav-link {
+        @apply text-yellow hover:text-hotpink;
+    }
+
+    .page-container {
+        @apply min-h-screen p-10 pt-32;
+    }
+
+}
+
+body {
+    background: linear-gradient(180deg, hsl(211deg, 100%, 36%) 40%, hsl(69deg, 9%, 60%) 50%, hsl(51deg, 100%, 50%) 60%);
+    color: purple;
+    font: bold;
+}

@@ -1,0 +1,523 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Hubballi');
+
+@import "variables";
+@import "grid";
+@import "large";
+@import "colors";
+@import "checkbox";
+
+body {
+    color: white;
+    font-size: 16px;
+    font-family: $fontsecond;
+    background: $background;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.centered {
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.showborder {
+    border: $todoborder;
+    border-radius: $radius;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $yellow;
+    font-family: $fontsecond;
+}
+
+h1 {
+    font-size: $font6;
+}
+
+h2 {
+    font-size: $font3;
+}
+
+h3 {
+    font-size: $font3;
+}
+
+h4 {
+    font-size: $font3;
+}
+
+h5 {
+    font-size: $font2;
+    font-weight: bold;
+    background: $royalblue;
+}
+
+h6 {
+    font-size: $font3;
+    font-weight: bold;
+    font-family: $fontsecond;
+    background: $royalblue;
+}
+
+.padleft {
+    padding-left: 4vw;
+}
+
+.padleft8 {
+    padding-left: 8vw;
+}
+
+figcaption { color: $yellow; }
+
+div,
+form,
+footer,
+ul,
+p,
+header,
+section {
+    font-family: $fontsecond;
+    border-radius: $radius;
+}
+
+.morespc { line-height: 1.5; }
+
+.centerimg {
+    display: block;
+    max-width: 100%;
+    margin: auto;
+}
+
+.listdots {
+    list-style: square;
+}
+
+.f1 {
+    font-family: $fontfirst;
+}
+
+.f2 {
+    font-family: $fontsecond;
+}
+
+.gridparts {
+    border: 5px solid white;
+    border-radius: 15px;
+    margin: 0 auto;
+    padding: 2vw;
+    max-width: 100%;
+}
+
+.orange { color: $orange; }
+.yellow { color: $yellow; }
+.chartreuse { color: $chartreuse; }
+.limegreen { color: $limegreen; }
+.seafoam { color: $seafoam; }
+.skyblue { color: $skyblue; }
+.medblue { background: #bbbbbb; color: $medblue; }
+.royalblue { background: #bbbbbb; color: $royalblue; }
+.purple { background: #bbbbbb; color: $purple; }
+.hotpink { color: $hotpink; }
+.dksalmon { color: $dksalmon; }
+.redorange { color: $redorange; }
+
+.color3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4vw;
+    padding: 2vw;
+    border-radius: $radius;
+    margin: 4vw;
+    font-weight: bold;
+}
+
+.title {
+  background: black;
+  color: $yellow;
+  margin: 0 auto;
+  padding: 1vw;
+}
+
+a {
+    color: $royalblue;
+    text-decoration: none;
+    & a:hover {
+        color: $dksalmon;
+    }
+}
+
+a:visited {
+    color: $limegreen;
+}
+
+a:hover {
+    color: $purple;
+}
+
+.padit {
+    padding: 4vw;
+    margin: 1vw auto;
+}
+
+#siteTitle2 {
+    color: $accent;
+    font-family: $fontsecond;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.inputs {
+    max-width: 90%;
+}
+
+::placeholder {
+    color: black;
+}
+
+footer#autofooter {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 6vh;
+}
+
+.source {
+    text-align: center;
+    color: $hotpink;
+}
+
+.sources {
+    text-align: left;
+    color: $seafoam;
+    font-weight: bold;
+    margin: 2vh auto;
+    & a {
+        text-decoration: none;
+        color: $seafoam;
+    }
+}
+
+.code {
+    background: $orange;
+    color: black;
+    border-radius: 10px;
+    padding: 1.5vw;
+    font-family: $fontsecond;
+    font-weight: bold;
+    width: 90%;
+    margin: 2vw auto;
+    text-decoration: none;
+    list-style: none;
+}
+
+.col2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2vw;
+}
+
+pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+.italic {
+    font-style: italic;
+}
+
+#todo-error {
+    font-weight: bold;
+    color: $redorange;
+}
+
+#root a {
+    color: $accent;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#root a:visited {
+    color: $limegreen;
+}
+
+.todo-buttons {
+    max-height: 8vw;
+    padding: 1vw;
+    color: $yellow;
+    background: $contrast;
+    border: $todoborder;
+    border-radius: $radius;
+    & a {
+      text-decoration: none;
+      color: $royalblue;
+      text-align: center;
+      & :hover {
+          border: 2px solid $skyblue;
+      }
+    }
+}
+
+.todo-bordered {
+    border: $todoborder;
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+}
+
+.white {
+    color: white;
+}
+
+.todo-scratch {
+    text-decoration: line-through;
+}
+
+.nodots {
+    list-style-type: none;
+}
+
+.todo-text, p.todo-text {
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    margin: 1vw;
+    padding: 1vw;
+}
+
+.markbtn {
+    border: $todoborder;
+    border-radius: 10px;
+    margin: .5vh;
+    padding: .5vh;
+    width: 6vh;
+    height: 6vh;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+#todocontainer {
+    display: grid;
+    grid-area: todocontainer;
+    background: black;
+    text-align: center;
+    max-width: 90%;
+    margin: 1vw auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "header1"
+    "todos"
+    "addbar"
+    "listfooter";
+    & #header1 {
+        grid-area: header1;
+        margin-bottom: 0;
+    }
+    & #todos, #dtodos {
+        grid-area: todos;
+        padding: 1vw;
+        grid-template-areas:
+        "listitem";
+        & li.listitem {
+            grid-area: listitem;
+            display: grid;
+            grid-template-columns: 1fr 2fr 7fr 1fr;
+            margin: 0;
+            max-height: 25vw;
+            max-width: 100%;
+            grid-template-areas:
+            "markbtn cattext itemtext delbtn";
+            & .markbtn {
+                grid-area: markbtn;
+                width: 4vh;
+                height: 4vh;
+                padding: 1vw;
+                margin: auto;
+            }
+            & #itemtext, #cattext {
+                grid-area: itemtext;
+                height: 4vh;
+                margin: 2vh;
+            }
+            & .delbtn {
+                grid-area: delbtn;
+                color: $dksalmon;
+                background: transparent;
+                margin: auto;
+                border: 1px solid $dksalmon;
+                max-width: 8vw;
+                height: 8vh;
+                font-size: $font4;
+                font-weight: 500;
+            }
+            & .editbtn {
+                grid-area: edittbn;
+                border: 1px solid $skyblue;
+                color: $skyblue;
+            }
+        }
+    }
+    & #listfooter {
+        display: grid;
+        max-height: 28vh;
+        grid-area: listfooter;
+        text-align: left;
+        margin: 2vw;
+        grid-template-columns: 1fr 1fr;
+        justify-content: left;
+        color: $yellow;
+        grid-template-areas:
+        "tasks btns"
+        "srchbar srchbar";
+        & #btncontainer {
+            grid-area: btns;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 0;
+            padding: 0;
+        }
+        & p#tasks {
+            grid-area: tasks;
+            font-size: $font4;
+            text-align: center;
+            margin: 1vw auto;
+            max-height: 6vh;
+            width: 100%;
+        }
+        & #allbtn {
+            grid-area: allbtn;
+        }
+        & #actbtn {
+            grid-area: actbtn;
+        }
+        & #donebtn {
+            grid-area: donebtn;
+        }
+        & #allbtn, #actbtn, #donebtn {
+            border: $dotborder;
+            padding: 1vw;
+            margin: 0 2vw;
+        }
+        & #srchbar {
+            display: grid;
+            grid-area: srchbar;
+            max-width: 100%;
+            grid-template-areas:
+            "srchinput srchbtn";
+            & #srchbtn {
+                grid-area: srchbtn;
+                background: $limegreen;
+                padding: .5vw;
+                margin-left: 1vw;
+                color: $yellow;
+                max-width: 100%;
+            }
+            & #srchinput {
+                grid-area: srchinput;
+                width: 46vw;
+                height: 4vh;
+                margin: auto;
+                padding: 1vw;
+                font-weight: bold;
+                background: $limegreen;
+                color: $yellow;
+            }
+        }
+    }
+    & #addbar {
+        grid-area: addbar;
+        margin: 2vw;
+        grid-template-areas:
+            "addinput addbtn";
+        cursor: pointer;
+        height: 8vw;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 9fr 1fr;
+        & #addinput {
+            background: $yellow;
+        }
+        & #addbtn {
+            width: 8vw;
+            height: 8vw;
+            margin: 1vw auto;
+            padding: .25vw;
+            color: $medblue;
+            background: $yellow;
+            font-size: $font4;
+        }
+    }
+    & h3 {
+        padding: 1vh;
+        text-align: center;
+        font-weight: bolder;
+    }
+}
+
+.scroll-container {
+    position: fixed;
+}
+
+.js-scroll {
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+   
+  .js-scroll.scrolled {
+    opacity: 1;
+  }
+
+  .js-scroll {
+    width: 50%;
+    height: 300px;
+    background-color: #DADADA;
+    transition: background-color 500ms;
+  }
+   
+  .js-scroll.scrolled {
+    background-color: aquamarine;
+  }
+
+// .mobileShow { display: inline; }
+
+// .mobileHide { display: none; }
+
+/* Smartphone Portrait and Landscape */
+
+h1.title, li.cert-text { font-size: $font5; }
+h2.title, .sources { font-size: $font3; }
+h3.title { font-size: $font2; }
+h4.title { font-size: $font1; }
+h6.title { font-size: .5rem; }
+p.normal-text, li a, #autofooter, .source, li.title, h5.title { font-size: $font1; }
+
+@media screen and (min-width: 768px) {
+
+    .color3 {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
