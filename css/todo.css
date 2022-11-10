@@ -1,6 +1,20 @@
+.editbtn {
+  padding: 1.5vh;
+  color: #b70500 !important;
+  border: 1px solid #b70500 !important;
+}
+
+.delbtn {
+  padding: 1.5vh;
+  color: #00b3b7 !important;
+  border: 1px solid #00b3b7 !important;
+}
+
 .markbtn {
+  border: 2px solid white;
   border-radius: 10px;
   margin: 0.5vh;
+  padding: 0.5;
   width: 6vh;
   height: 6vh;
 }
@@ -43,36 +57,46 @@
 }
 #todocontainer #todos li.listitem {
   grid-area: listitem;
+  grid-template-columns: 1fr 2fr 7fr 2fr 2fr;
   list-style-type: none;
   max-width: 100%;
   border: 2px solid white;
   margin: 0;
   height: 8vh;
   border-radius: 10px;
-  grid-template-areas: "markbtn itemtext delbtn";
+  grid-template-areas: "markbtn cat task delbtn editbtn";
 }
 #todocontainer #todos li.listitem .markbtn {
   grid-area: markbtn;
-  width: 4vh;
-  height: 4vh;
-  padding: 1vw;
+  width: 2vh;
+  height: 2vh;
   margin: auto;
 }
-#todocontainer #todos li.listitem #itemtext {
-  grid-area: itemtext;
-  height: 4vh;
+#todocontainer #todos li.listitem .cat {
+  grid-area: cat;
+  width: 2vh;
+  height: 2vh;
+}
+#todocontainer #todos li.listitem .text {
+  grid-area: task;
+  height: 2vh;
   margin: 2vh;
 }
 #todocontainer #todos li.listitem .delbtn {
   grid-area: delbtn;
-  border: 2px solid transparent;
   border-radius: 10px;
-  max-width: 100%;
+  width: 100%;
   height: 4vh;
-  color: #00b3b7;
+  font-size: 2vh;
   background: black;
-  padding: 1vh;
-  font-size: 5vh;
+}
+#todocontainer #todos li.listitem .editbtn {
+  grid-area: editbtn;
+  border-radius: 10px;
+  width: 100%;
+  height: 4vh;
+  font-size: 2vh;
+  background: black;
 }
 #todocontainer #footer {
   height: 8vh;
@@ -134,7 +158,7 @@
 }
 #todocontainer h3 {
   background: black;
-  color: #6000b7;
+  color: #57b700;
   padding: 1vh;
   text-align: center;
   font-weight: bolder;

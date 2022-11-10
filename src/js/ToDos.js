@@ -22,7 +22,7 @@ var customtasks = [
     "Push changes to github more often, whenever something is working, commit and push it. You never know when something might go wrong...it's better to be safe with a backup than sorry."
 ];
 
-export default class todos {
+export default class Todolist {
     // a class needs a constructor
     constructor(parentId) {
         this.taskCount = 0;
@@ -55,21 +55,24 @@ export default class todos {
         this.filter = 'all';
         this.todoList = await getTodos(this.listname);
         this.renderTodoList(this.todoList, 'todos');
-        this.itemsLeft('All');
+        this.itemsLeft('all');
+        console.log('end of listAll()');
     }
 
     async listActive() {
         this.todoList = await getTodos(this.todoList);
         this.todoList = this.todoList.filter(el => el.done === false);
         this.renderTodoList(this.todoList, 'todos');
-        this.itemsLeft('Active');
+        this.itemsLeft('active');
+        console.log('end of listActive()');
     }
 
     async listDone() {
         this.todoList = await getTodos(this.todoList);
         this.todoList = this.todoList.filter(el => el.done === true);
         this.renderTodoList(this.todoList, 'todos');
-        this.itemsLeft('Done');
+        this.itemsLeft('done');
+        console.log('end of listDone()');
     }
 
     async listFiltered() {
@@ -157,9 +160,8 @@ export default class todos {
 
     addCustomTodos = () => {
         // function to add Custom todos to the todo list from an array of objects
-        // todo: get from JSON file or API or database
+        // TODO: get from JSON file or API or firebase/mongodb
         let runlist = false;
-        // TODO: add function to retrieve from firebase
         let mytasks = getTodos(this.listname);
         if (mytasks.length == 0) { runlist = true; }
         if (runlist) {
@@ -228,6 +230,7 @@ export default class todos {
     }
 
     renderTodoList(renderlist, parentElName) {
+        console.log('just inside renderTodoList');
         // build new display
         const parentEl = qs(`#${parentElName}`);
         parentEl.innerText = '';
@@ -235,9 +238,9 @@ export default class todos {
             // create new list item
             //                   createLMNT(LMNT, LMNTtype, LMNTid, LMNTtext, LMNTclass)
             let item = createLMNT('li', '', '', '', 'listitem todo-bordered nodots');
-            let cattext = createLMNT("p", "", "cattext", field.category, "todo-text");
-            let itemtext = createLMNT("p", "", "itemtext", field.task, "todo-text");
-            let markbox = createLMNT('label', `lbl${field.id}`, '', '', 'bordered markbtn');
+            let cattext = createLMNT("p", "", "", field.category, "todo-text cat");
+            let itemtext = createLMNT("p", "", "", field.task, "todo-text task");
+            //let markbox = createLMNT('label', `lbl${field.id}`, '', '', 'bordered markbtn');
             let markbtn = createLMNT("input", "checkbox", `mark${field.id}`, "", "markbtn chkbtn"); //  "✕"
             let delbtn = createLMNT("button", "button", `del${field.id}`, "Delete", "delbtn chkbtn");
             let editbtn = createLMNT("button", "button", `edit${field.id}`, "Edit", "editbtn chkbtn");
@@ -254,8 +257,8 @@ export default class todos {
                 itemtext.classList.remove("todo-scratch");
             }
             //editbtn.appendChild(editicon);
-            markbox.appendChild(markbtn);
-            item.appendChild(markbox);
+            //markbox.appendChild(markbtn);
+            item.appendChild(markbtn);
             item.appendChild(cattext);
             item.appendChild(itemtext);
             item.appendChild(delbtn);

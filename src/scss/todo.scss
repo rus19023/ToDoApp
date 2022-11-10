@@ -1,18 +1,20 @@
 // Colors
-$orange: #0057b7;
-$yellow: adjust-hue($orange, 30deg);
-$chartreuse: adjust-hue($orange, 60deg);
-$limegreen: adjust-hue($orange, 90deg);
-$seafoam: adjust-hue($orange, 120deg);
-$skyblue: adjust-hue($orange, 150deg);
-$medblue: adjust-hue($orange, 180deg);
-$royalblue: adjust-hue($orange, -150deg);
-$purple: adjust-hue($orange, -120deg);
-$hotpink: adjust-hue($orange, -90deg);
-$dksalmon: adjust-hue($orange, -60deg);
-$redorange: adjust-hue($orange, -30deg);
+$medblue: #0057b7;
+$royalblue: adjust-hue($medblue, 30deg);
+$purple: adjust-hue($medblue, 60deg);
+$limegreen: adjust-hue($medblue, 90deg);
+$seafoam: adjust-hue($medblue, 120deg);
+$skyblue: adjust-hue($medblue, 150deg);
+$yellow: adjust-hue($medblue, 180deg);
+$orange: adjust-hue($medblue, -150deg);
+$chartreuse: adjust-hue($medblue, -120deg);
+$hotpink: adjust-hue($medblue, -90deg);
+$dksalmon: adjust-hue($medblue, -60deg);
+$redorange: adjust-hue($medblue, -30deg);
 $todoborder: 2px solid white;
 
+.editbtn { padding: 1.5vh; color: $skyblue !important; border: 1px solid $skyblue !important; }
+.delbtn { padding: 1.5vh; color: $redorange !important; border: 1px solid $redorange !important; }
 
 $accent3: lighten($orange, 10%);
 
@@ -138,6 +140,7 @@ $ft: $contrast;
         "listitem";
         & li.listitem {
             grid-area: listitem;
+            grid-template-columns: 1fr 2fr 7fr 2fr 2fr;
             list-style-type: none;
             max-width: 100%;
             border: $todoborder;
@@ -145,29 +148,38 @@ $ft: $contrast;
             height: 8vh;
             border-radius: 10px;
             grid-template-areas:
-            "markbtn itemtext delbtn";
+            "markbtn cat task delbtn editbtn";
             & .markbtn {
                 grid-area: markbtn;
-                width: 4vh;
-                height: 4vh;
-                padding: 1vw;
+                width: 2vh;
+                height: 2vh;
                 margin: auto;
             }
-            & #itemtext {
-                grid-area: itemtext;
-                height: 4vh;
+            & .cat {
+                grid-area: cat;
+                width: 2vh;
+                height: 2vh;
+            }
+            & .text {
+                grid-area: task;
+                height: 2vh;
                 margin: 2vh;
             }
             & .delbtn {
                 grid-area: delbtn;
-                border: 2px solid transparent;
                 border-radius: 10px;
-                max-width: 100%;
+                width: 100%;
                 height: 4vh;
-                color: $redorange;
+                font-size: $font2;
                 background: black;
-                padding: 1vh;
-                font-size: $font5;
+            }
+            & .editbtn {
+                grid-area: editbtn;
+                border-radius: 10px;
+                width: 100%;
+                height: 4vh;
+                font-size: $font2;
+                background: black;
             }
         }
     }
