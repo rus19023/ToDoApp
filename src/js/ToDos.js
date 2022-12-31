@@ -36,7 +36,7 @@ export default class Todolist {
         this.searchTerm = qs('#srchinput');
         this.srchbtn = qs('#srchbtn');
         this.allbtn = qs('#allbtn');
-        this.actbtn = qs('#actbtn');
+        this.pendbtn = qs('#pendbtn');
         this.donebtn = qs('#donebtn');
         this.addbtn = qs('#addbtn');
         this.srchbtn2 = qs('#srchbtn2');
@@ -46,30 +46,35 @@ export default class Todolist {
         //this.addbtn.onTouch(), this.addTodo();
         this.addbtn.addEventListener('click', () => { this.addTodo(); }, false);
         this.allbtn.addEventListener('click', () => { this.listAll(); }, false);
-        this.actbtn.addEventListener('click', () => { this.listActive(); }, false);
+        this.pendbtn.addEventListener('click', () => { this.listPending(); }, false);
         this.donebtn.addEventListener('click', () => { this.listDone(); }, false);
     }
 
     // TODO:  add functionality to choose from listnames or just filter on category?
     async listAll() {
-        this.filter = 'all';
-        this.todoList = await getTodos(this.listname);
+        this.todolist = await this.getList(this.listname, 'all', this.sortval);
         this.renderTodoList(this.todoList, 'todos');
         this.itemsLeft('all');
         console.log('end of listAll()');
     }
 
-    async listActive() {
-        this.todoList = await getTodos(this.todoList);
-        this.todoList = this.todoList.filter(el => el.done === false);
+    async getList(listname, filter, sort) {
+        this.todoList = await getTodos(this.listname);        
+    }
+
+    async listPending() {
+        this.todolist = await this.getList(this.listname, 'pending', this.sortval);
+        console.log(this.todoList);
+        this.todoList = this.todoList.filter(el => !el.done);
+        console.log(this.todoList);
         this.renderTodoList(this.todoList, 'todos');
-        this.itemsLeft('active');
-        console.log('end of listActive()');
+        this.itemsLeft('pending');
+        console.log('end of listPending()');
     }
 
     async listDone() {
-        this.todoList = await getTodos(this.todoList);
-        this.todoList = this.todoList.filter(el => el.done === true);
+        this.todolist = await this.getList(this.listname, 'done', this.sortval);
+        this.todoList = this.todoList.filter(el => el.done);
         this.renderTodoList(this.todoList, 'todos');
         this.itemsLeft('done');
         console.log('end of listDone()');
@@ -86,8 +91,9 @@ export default class Todolist {
         });
         // Save filtered list to property
         this.todoList = filteredlist;
+        // Sort the list
         sortedlist = sortList(filteredlist);
-        // Display filtered list
+        // Display filtered and sorted list
         this.renderTodoList(sortedlist, 'todos');
         // Show item stats for filtered list
         this.itemsLeft(this.searchTerm);
@@ -101,7 +107,7 @@ export default class Todolist {
             el.addEventListener('change', () => {
                 if (el.checked) {
                     this.sortval = el.value;
-                    this.listActive();
+                    this.listPending();
                 }
             });
         });
@@ -126,15 +132,15 @@ export default class Todolist {
                 tasktext = 'Pending: ' + pending +  t + ', Done: ' + done + t;
                 this.allbtn.classList.add('todobordered');
                 this.srchbtn.classList.remove('todobordered');
-                this.actbtn.classList.remove('todobordered');
+                this.pendbtn.classList.remove('todobordered');
                 this.donebtn.classList.remove('todobordered');
                 break;
 
-            case ('active'):
+            case ('pending'):
                 tasktext = `Pending: ${pending} ${t}`;
-                this.actbtn.classList.add('todobordered');
+                this.pendbtn.classList.add('todobordered');
                 this.allbtn.classList.remove('todobordered');
-                this.actbtn.classList.remove('todobordered');
+                this.pendbtn.classList.remove('todobordered');
                 this.donebtn.classList.remove('todobordered');
                 break;
 
@@ -142,7 +148,7 @@ export default class Todolist {
                 tasktext = `Done: ${done} ${t}`;
                 this.donebtn.classList.add('todobordered');
                 this.allbtn.classList.remove('todobordered');
-                this.actbtn.classList.remove('todobordered');
+                this.pendbtn.classList.remove('todobordered');
                 this.srchbtn.classList.remove('todobordered');
                 break;
 
@@ -150,7 +156,7 @@ export default class Todolist {
                 tasktext = `Search: ${itemcount} ${t} found for "${filter}"`;
                 this.srchbtn.classList.add('todobordered');
                 this.allbtn.classList.remove('todobordered');
-                this.actbtn.classList.remove('todobordered');
+                this.pendbtn.classList.remove('todobordered');
                 this.donebtn.classList.remove('todobordered');
                 break;
         }
@@ -225,8 +231,8 @@ export default class Todolist {
         //console.log(`this.listname: ${this.listname}`);
             saveTodo(category, task.value, this.listname, this.sortval);  // TODO: fix 'save the category' functionality 
             qs("#addinput").value = '';
-            this.listAll();
         }
+        this.listAll();
     }
 
     renderTodoList(renderlist, parentElName) {
