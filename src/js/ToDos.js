@@ -91,11 +91,12 @@ export default class Todolist {
         });
         // Save filtered list to property
         this.todoList = newlist;
+        console.log('this.todoList', this.todoList);
         // Sort the list
-        let sortedlist = this.sortList(newlist);
-        console.log(sortedlist);
+        //let sortedlist = this.sortList(this.todoList);
+        //console.log('sortedlist', sortedlist);
         // Display filtered and sorted list
-        this.renderTodoList(sortedlist, 'todos');
+        this.renderTodoList(this.todoList, 'todos');
         // Show item stats for filtered list
         this.itemsLeft(this.searchTerm);
     }
@@ -210,9 +211,9 @@ export default class Todolist {
         } else {
             this.taskCount++;
             if (this.taskCount < 9) {
-                category += '-0' + this.taskCount.toString();
+                category;//  += '-0' + this.taskCount.toString();
             } else {
-                category += '-' + this.taskCount.toString();          
+                category;//  += '-'+ this.taskCount.toString();          
             }
         }
         console.log(`category: ${category}`);
@@ -241,7 +242,7 @@ export default class Todolist {
         // build new display
         const parentEl = qs(`#${parentElName}`);
         parentEl.innerText = '';
-        console.log(renderlist);
+        console.log('renderlist', renderlist);
         renderlist.forEach((field) => {
             // create new list item
             //                   createLMNT(LMNT, LMNTtype, LMNTid, LMNTtext, LMNTclass)

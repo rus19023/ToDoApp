@@ -172,6 +172,7 @@ footer#autofooter {
     font-weight: bold;
     text-align: center;
     margin-bottom: 6vh;
+    background: $medblue;
 }
 
 .source {
@@ -269,6 +270,24 @@ footer#autofooter {
     color: white;
 }
 
+
+#srchbar {
+    & #srchinput {
+        width: 12rem;
+        height: 1.5rem;
+        margin: auto;
+        padding: .25rem;
+        font-weight: bold;
+        background: $limegreen;
+        color: white;
+    }
+    & #srchbtn {
+        background: $limegreen;
+        padding: .25rem;
+        color: white;
+    }
+}
+
 #todocontainer {
     background: black;
     text-align: center;
@@ -333,33 +352,8 @@ footer#autofooter {
             border: $dotborder;
             
         }
-        & #srchbar {
-            max-width: 100%;
-            & #srchbtn {
-                background: $limegreen;
-                padding: .5vw;
-                margin-left: 1vw;
-                color: $yellow;
-                max-width: 100%;
-            }
-            & #srchinput {
-                width: 46vw;
-                height: 4vh;
-                margin: auto;
-                padding: 1vw;
-                font-weight: bold;
-                background: $limegreen;
-                color: $yellow;
-            }
-        }
     }
     & #addbar {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction: row;
-        justify-content: space-around;
-
-        margin: 2vw;
         cursor: pointer;
         height: 8vw;
         padding: 0;
@@ -411,10 +405,3 @@ h3.title { font-size: $font2; }
 h4.title { font-size: $font1; }
 h6.title { font-size: .5rem; }
 p.normal-text, li a, #autofooter, .source, li.title, h5.title { font-size: $font1; }
-
-@media screen and (min-width: 768px) {
-
-    .color3 {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}

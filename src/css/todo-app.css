@@ -98,7 +98,7 @@ input[type=checkbox].markbtnX {
 
 #left1 {
   grid-area: left1;
-  grid-template-areas: "header1" "todos" "listfooter";
+  grid-template-areas: "header1" "srchbar" "todos" "listfooter";
 }
 
 #header1 {
@@ -149,7 +149,7 @@ p.todo-text.cat {
   grid-area: editbtn;
 }
 
-#right {
+#right1 {
   margin: auto;
   grid-area: right1;
   grid-template-areas: "todocontainer";
@@ -164,7 +164,7 @@ p.todo-text.cat {
   display: grid;
   grid-area: listfooter;
   grid-template-columns: 1fr;
-  grid-template-areas: "tasks" "btns" "srchbar";
+  grid-template-areas: "tasks" "btns";
 }
 
 #filters {
@@ -205,6 +205,11 @@ p.todo-text.cat {
 }
 
 #addbar {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 2vw;
   padding: 0.5vh;
   grid-area: addbar;
   grid-template-areas: "catinput addinput addbtn";
@@ -231,6 +236,11 @@ p.todo-text.cat {
   border-radius: 4px;
 }
 
+@media screen and (min-width: 700px) {
+  #gridcontainer {
+    max-width: 90%;
+  }
+}
 @media screen and (min-width: 768px) {
   .listitem {
     grid-template-columns: 6% 70% 14% 10%;
@@ -240,11 +250,6 @@ p.todo-text.cat {
   }
   .color3 {
     grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-@media screen and (min-width: 700px) {
-  #gridcontainer {
-    max-width: 90%;
   }
 }
 @media screen and (min-width: 992px) {
@@ -434,6 +439,7 @@ footer#autofooter {
   font-weight: bold;
   text-align: center;
   margin-bottom: 6vh;
+  background: #0057b7;
 }
 
 .source {
@@ -531,6 +537,21 @@ footer#autofooter {
   color: white;
 }
 
+#srchbar #srchinput {
+  width: 12rem;
+  height: 1.5rem;
+  margin: auto;
+  padding: 0.25rem;
+  font-weight: bold;
+  background: #00b705;
+  color: white;
+}
+#srchbar #srchbtn {
+  background: #00b705;
+  padding: 0.25rem;
+  color: white;
+}
+
 #todocontainer {
   background: black;
   text-align: center;
@@ -596,31 +617,7 @@ footer#autofooter {
 #todocontainer #listfooter #allbtn, #todocontainer #listfooter #actbtn, #todocontainer #listfooter #donebtn {
   border: 2px dotted white;
 }
-#todocontainer #listfooter #srchbar {
-  max-width: 100%;
-}
-#todocontainer #listfooter #srchbar #srchbtn {
-  background: #00b705;
-  padding: 0.5vw;
-  margin-left: 1vw;
-  color: #ffcc00;
-  max-width: 100%;
-}
-#todocontainer #listfooter #srchbar #srchinput {
-  width: 46vw;
-  height: 4vh;
-  margin: auto;
-  padding: 1vw;
-  font-weight: bold;
-  background: #00b705;
-  color: #ffcc00;
-}
 #todocontainer #addbar {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 2vw;
   cursor: pointer;
   height: 8vw;
   padding: 0;
@@ -682,10 +679,4 @@ h6.title {
 
 p.normal-text, li a, #autofooter, .source, li.title, h5.title {
   font-size: 0.5rem;
-}
-
-@media screen and (min-width: 768px) {
-  .color3 {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
 }/*# sourceMappingURL=todo-app.css.map */

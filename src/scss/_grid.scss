@@ -14,6 +14,7 @@
     grid-area: left1;
     grid-template-areas:
     "header1" 
+    "srchbar"
     "todos"
     "listfooter";
 }
@@ -67,7 +68,7 @@ p.todo-text.cat {
     grid-area: editbtn;
 }
 
-#right {
+#right1 {
     margin: auto;
     grid-area: right1;
     grid-template-areas:
@@ -88,8 +89,7 @@ p.todo-text.cat {
     grid-template-columns: 1fr;
     grid-template-areas:
     "tasks"
-    "btns"
-    "srchbar";
+    "btns";
 }
 
 #filters {
@@ -131,6 +131,11 @@ p.todo-text.cat {
 }
 
 #addbar {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 2vw;
     padding: .5vh;
     grid-area: addbar;
     grid-template-areas:
@@ -156,20 +161,4 @@ p.todo-text.cat {
     background: $medblue;
     border: .5vw solid $yellow;
     border-radius: 4px;
-}
-
-
-@media screen and (min-width: 768px) {    
-
-    .listitem {
-        grid-template-columns: 6% 70% 14% 10%;
-    }
-
-  .navbar-collapse {
-      justify-content: center;
-  }
-
-  .color3 {
-      grid-template-columns: 1fr 1fr 1fr;
-  }
 }

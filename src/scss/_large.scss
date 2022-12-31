@@ -1,12 +1,3 @@
-@media screen and (min-width: 451px) {
-
-    // h1.title, li.cert-text { font-size: 4vw; }
-    // h2.title, .sources { font-size: 3.5vw; }
-    // h3.title { font-size: 3.25vw; }
-    // p.normal-text, li a, #autofooter, .source, li.normal-text { font-size: 3vw; }
-
-}
-
 @media screen and (min-width: 700px) {
 
     #gridcontainer {
@@ -21,6 +12,24 @@
     //   font-size: $font2;
     // }
 }
+
+@media screen and (min-width: 768px) {    
+
+    .listitem {
+        grid-template-columns: 6% 70% 14% 10%;
+    }
+
+  .navbar-collapse {
+      justify-content: center;
+  }
+
+  .color3 {
+      grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+
+
 
 @media screen and (min-width: 992px) {
 
