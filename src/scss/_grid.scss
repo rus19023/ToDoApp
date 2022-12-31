@@ -43,7 +43,7 @@
 .listitem {
     grid-area: listitem;
     display: grid;
-    grid-template-columns: 6% 70% 14% 10%;
+    grid-template-columns: 6% 46% 22% 16%;
     grid-template-areas: "markbtn task delbtn editbtn";
 }
 
@@ -158,7 +158,11 @@ p.todo-text.cat {
 }
 
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {    
+
+    .listitem {
+        grid-template-columns: 6% 70% 14% 10%;
+    }
 
   .navbar-collapse {
       justify-content: center;
