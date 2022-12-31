@@ -125,8 +125,8 @@ input[type=checkbox].markbtnX {
 .listitem {
   grid-area: listitem;
   display: grid;
-  grid-template-columns: 6% 46% 22% 16%;
-  grid-template-areas: "markbtn task delbtn editbtn";
+  grid-template-columns: 8% 72% 15% 5%;
+  grid-template-areas: "markbtn task editbtn delbtn";
 }
 
 .markbtn {
@@ -163,11 +163,11 @@ p.todo-text.cat {
 #listfooter {
   display: grid;
   grid-area: listfooter;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "tasks btns" "srchbar srchbar";
+  grid-template-columns: 1fr;
+  grid-template-areas: "tasks" "btns" "srchbar";
 }
 
-#btncontainer {
+#filters {
   grid-area: btns;
   display: flex;
   flex-direction: row;
@@ -456,6 +456,11 @@ footer#autofooter {
   background: black;
 }
 
+.itembtns {
+  margin: auto;
+  font-size: small;
+}
+
 .italic {
   font-style: italic;
 }
@@ -477,8 +482,7 @@ footer#autofooter {
 
 .btns {
   max-height: 1.5rem;
-  padding: auto;
-  margin: 0 0.1rem;
+  margin: auto;
   border: 2px solid white;
   border-radius: 10px;
 }
@@ -557,7 +561,7 @@ footer#autofooter {
 #todocontainer #todos li.listitem .delbtn, #todocontainer #dtodos li.listitem .delbtn {
   color: #b70500;
   border: 1px solid #b70500;
-  width: 1.5rem;
+  width: 0.25rem;
   margin: 0;
   font-size: 0.5rem;
   font-weight: bold;
@@ -571,13 +575,13 @@ footer#autofooter {
   font-weight: bold;
 }
 #todocontainer #listfooter {
-  max-height: 28vh;
+  max-height: 10rem;
   text-align: left;
   margin: 2vw;
   justify-content: left;
   color: #ffcc00;
 }
-#todocontainer #listfooter #btncontainer {
+#todocontainer #listfooter #filters {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -625,7 +629,7 @@ footer#autofooter {
   background: #ffcc00;
   width: 100%;
 }
-#todocontainer h3 {
+#todocontainer {
   padding: 1vh;
   text-align: center;
   font-weight: bolder;

@@ -30,7 +30,7 @@ export default class Todolist {
         this.listname = listkey;
         this.todoList = [];
         this.todo_error = 'text set in constructor';
-        this.sort = this.sortItems();
+        //this.sort = this.sortItems();
         this.sortval = 'time';
         this.filter = 'all';
         this.searchTerm = qs('#srchinput');
@@ -58,8 +58,8 @@ export default class Todolist {
         console.log('end of listAll()');
     }
 
-    async getList(listname, filter, sort) {
-        this.todoList = await getTodos(this.listname);        
+    async getList(listname) {
+        this.todoList = await getTodos(listname);        
     }
 
     async listPending() {
@@ -81,7 +81,7 @@ export default class Todolist {
     }
 
     async listFiltered() {
-        this.todoList = await getTodos(this.todoList);
+        this.todolist = await this.getList(this.listname, this.filter, this.sortval);
         this.searchTerm = qs("#srchinput").value;
         let newlist = [];
         this.todoList.forEach((field) => {
@@ -90,28 +90,29 @@ export default class Todolist {
             }
         });
         // Save filtered list to property
-        this.todoList = filteredlist;
+        this.todoList = newlist;
         // Sort the list
-        sortedlist = sortList(filteredlist);
+        let sortedlist = this.sortList(newlist);
+        console.log(sortedlist);
         // Display filtered and sorted list
         this.renderTodoList(sortedlist, 'todos');
         // Show item stats for filtered list
         this.itemsLeft(this.searchTerm);
     }
 
-    sortItems() {
-        // Get list of sort terms
-        this.sort = Array.from(document.querySelectorAll('input[name="sort"]'));
-        console.log(this.sort);
-        this.sort.forEach(el => {
-            el.addEventListener('change', () => {
-                if (el.checked) {
-                    this.sortval = el.value;
-                    this.listPending();
-                }
-            });
-        });
-    }
+    // sortItems() {
+    //     // Get list of sort terms
+    //     this.sort = Array.from(document.querySelectorAll('input[name="sort"]'));
+    //     console.log(this.sort);
+    //     this.sort.forEach(el => {
+    //         el.addEventListener('change', () => {
+    //             if (el.checked) {
+    //                 this.sortval = el.value;
+    //                 this.listPending();
+    //             }
+    //         });
+    //     });
+    // }
 
     // function to show how many items are in the current todo list
     itemsLeft(filter) {
@@ -229,7 +230,7 @@ export default class Todolist {
         console.log(`category: ${category}`);
         console.log(`task.value: ${task.value}`);
         //console.log(`this.listname: ${this.listname}`);
-            saveTodo(category, task.value, this.listname, this.sortval);  // TODO: fix 'save the category' functionality 
+            saveTodo(category, task.value); 
             qs("#addinput").value = '';
         }
         this.listAll();
@@ -240,15 +241,16 @@ export default class Todolist {
         // build new display
         const parentEl = qs(`#${parentElName}`);
         parentEl.innerText = '';
+        console.log(renderlist);
         renderlist.forEach((field) => {
             // create new list item
             //                   createLMNT(LMNT, LMNTtype, LMNTid, LMNTtext, LMNTclass)
             let item = createLMNT('div', '', field.id, '', 'listitem nodots');            
             let itemtext = createLMNT("p", "", "", `${field.category}: ${field.task}`, "todo-text task");
             //let markbox = createLMNT('label', `lbl${field.id}`, '', '', 'bordered markbtn');
-            let markbtn = createLMNT("input", "checkbox", `mark${field.id}`, "", "markbtn chkbtn"); //  "✕"
-            let delbtn = createLMNT("button", "button", `del${field.id}`, "Delete", "btns delbtn chkbtn");
-            let editbtn = createLMNT("button", "button", `edit${field.id}`, "Edit", "btns editbtn chkbtn");
+            let markbtn = createLMNT("input", "checkbox", `mark${field.id}`, "", "itembtns markbtn chkbtn"); //  "✕"
+            let delbtn = createLMNT("button", "button", `del${field.id}`, "✕", "btns itembtns delbtn chkbtn");
+            let editbtn = createLMNT("button", "button", `edit${field.id}`, "Edit", "btns itembtns editbtn chkbtn");
             //let editicon = createLMNT("img", "", "", "", "editicon");
             //editicon.setAttribute('src', '../img/icons8-edit-30.png');
 
@@ -308,26 +310,29 @@ export default class Todolist {
         });
     }
 
-    sortList(list) {        
-        if (sort === "alpha") {
+    sortList(list) { 
+        console.log(this.sortval);       
+        if (this.sortval === "alpha") {
             list.sort(function(a, b) {
                 if (a.task < b.task) { return -1; }
                 if (a.task > b.task) { return 1; }
                 return 0;
             });
-        } else if (sort === "time") {
+        } 
+        else if (this.sortval === "time") {
             list.sort(function(a, b) {
                 if (a.id < b.id) { return -1; }
                 if (a.id > b.id) { return 1; }
                 return 0;
             });
-        } else if (sort === "cat") {
-            list.sort(function(a, b) {
-                if (a.cat < b.cat) { return -1; }
-                if (a.cat > b.cat) { return 1; }
-                return 0;
-            });
-        }
+        } 
+        // else if (this.sortval === "cat") {
+        //     list.sort(function(a, b) {
+        //         if (a.cat < b.cat) { return -1; }
+        //         if (a.cat > b.cat) { return 1; }
+        //         return 0;
+        //     });
+        // }
     }
 }
 
@@ -349,6 +354,7 @@ function saveTodo(cat, todo) {
     writeToLS(listkey, JSON.stringify(todoList));
 }
 
+// TODO: Categories as field in db, create way to edit category also
 function editTodo(id) {
     let todoList = getTodos(listkey);
     let item = todoList.find(el => el.id === id);

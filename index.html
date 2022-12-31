@@ -81,17 +81,16 @@
                             <input id="addinput" type="text" name="addinput" placeholder="Add a To Do task" value="" class="inputs" autofocus tabindex="1">
                             <button id="addbtn">Add</button>
                         </form>
+                        
                         <div id="listfooter" class="todo-bordered todo-text foot-row">
-                        </div>
-                        <div id="listfooter" class="todo-bordered todo-text foot-row">
-                            <p id="tasks">_ tasks done.</p>
+                            <div id="tasks">_ tasks done.</div>
                             <div id="sortitems">
-                                <h3 class="">Sort by:</h3>
+                                <p class="">Sort by:</p>
                                 <label for="alpha"><input type="radio" name="sort" id="alpha" value="alpha">Alphabetical order</label>
                                 <label for="time"><input type="radio" name="sort" id="time" value="time" checked>Time entered</label>
                                 <label for="cat"><input type="radio" name="sort" id="cat" value="cat">By Category</label>
                             </div>
-                            <div id="btncontainer">
+                            <div id="filters">
                                 <button class="btns todobtn" id="allbtn"> All</button>
                                 <button class="btns todobtn" id="pendbtn"> Pending</button>
                                 <button class="btns todobtn" id="donebtn"> Done</button>

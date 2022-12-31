@@ -43,8 +43,8 @@
 .listitem {
     grid-area: listitem;
     display: grid;
-    grid-template-columns: 6% 46% 22% 16%;
-    grid-template-areas: "markbtn task delbtn editbtn";
+    grid-template-columns: 8% 72% 15% 5%;
+    grid-template-areas: "markbtn task editbtn delbtn";
 }
 
 .markbtn {
@@ -85,13 +85,14 @@ p.todo-text.cat {
 #listfooter {
     display: grid;
     grid-area: listfooter;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-areas:
-    "tasks btns"
-    "srchbar srchbar";
+    "tasks"
+    "btns"
+    "srchbar";
 }
 
-#btncontainer {
+#filters {
     grid-area: btns;
     display: flex;
     flex-direction: row;

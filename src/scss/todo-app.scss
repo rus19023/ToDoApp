@@ -194,6 +194,11 @@ footer#autofooter {
     background: black;
 }
 
+.itembtns {
+    margin: auto;
+    font-size: small;
+}
+
 .italic {
     font-style: italic;
 }
@@ -215,8 +220,7 @@ footer#autofooter {
 
 .btns {
     max-height: 1.5rem;
-    padding: auto;
-    margin: 0 .1rem;
+    margin: auto;
     border: $todoborder;
     border-radius: $radius;
 }
@@ -292,7 +296,7 @@ footer#autofooter {
             & .delbtn {
                 color: $redorange;
                 border: 1px solid $redorange;
-                width: 1.5rem;
+                width: .25rem;
                 margin: 0;
                 font-size: $font1;
                 font-weight: bold;
@@ -308,12 +312,12 @@ footer#autofooter {
         }
     }
     & #listfooter {
-        max-height: 28vh;
+        max-height: 10rem;
         text-align: left;
         margin: 2vw;
         justify-content: left;
         color: $yellow;
-        & #btncontainer {
+        & #filters {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
@@ -321,7 +325,6 @@ footer#autofooter {
         & p#tasks {
             font-size: $font3;
             text-align: center;
-
             margin: 1vw auto;
             max-height: 6vh;
             width: 100%;
@@ -365,7 +368,7 @@ footer#autofooter {
             width: 100%;
         }
     }
-    & h3 {
+    &  {
         padding: 1vh;
         text-align: center;
         font-weight: bolder;
