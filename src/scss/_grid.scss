@@ -1,22 +1,147 @@
 #gridcontainer {
     grid-area: gridcontainer;
-    display: grid;
     grid-template-areas:
-        "left"
-        "right";
-    & #right {
-          grid-area: right;
-          grid-template-areas:
-          "todocontainer";
-        & #todocontainer {
-              display: grid;
-              grid-template-areas:
-              "header"
-              "todos"
-              "footer"
-              "addbar";
-        }
-    }
+    "left1"
+    "right1";
+}
+
+#right, #left {
+    padding: .5rem;    
+    background: black;
+}
+
+#left {
+    grid-area: left1;
+    grid-template-areas:
+    "header1" 
+    "todos"
+    "listfooter";
+}
+
+#header1 {
+    grid-area: header1;
+}
+
+#todos, #dtodos {
+    grid-area: todos;
+    grid-template-areas:
+    "listitem";
+} 
+
+.listitem {
+    grid-area: listitem;
+    display: grid;
+    grid-template-columns: 1fr 4fr 9fr 3fr 2fr;
+}
+
+.markbtn {
+    grid-area: markbtn;
+}
+
+p.todo-text.cat {
+    grid-area: cat;
+}
+
+.task {
+    grid-area: task;
+}
+
+.delbtn {
+    grid-area: delbtn;
+}
+
+.editbtn {
+    grid-area: editbtn;
+}
+
+#right {
+    margin: auto;
+    grid-area: right1;
+    grid-template-areas:
+    "todocontainer";
+}
+
+#todocontainer {
+    grid-area: todocontainer;
+    grid-template-areas:
+    "header"
+    "footer"
+    "addbar";
+}
+
+#listfooter {
+    display: grid;
+    grid-area: listfooter;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "tasks btns"
+    "srchbar srchbar";
+}
+
+#btncontainer {
+    grid-area: btns;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#tasks {
+    grid-area: tasks;
+}
+
+#allbtn {
+    grid-area: allbtn;
+}
+
+#actbtn {
+    grid-area: actbtn;
+}
+
+#donebtn {
+    grid-area: donebtn;
+}
+
+#srchbar {
+    display: grid;
+    grid-area: srchbar;
+    grid-template-areas:
+    "srchinput srchbtn";
+}
+
+#srchbtn {
+    grid-area: srchbtn;
+}
+
+#srchinput {
+    grid-area: srchinput;
+}
+
+#addbar {
+    padding: .5rem;
+    grid-area: addbar;
+    grid-template-areas:
+    "catinput addinput addbtn";
+    grid-template-columns: 5fr 9fr 1fr;
+}
+
+#addinput {
+    grid-area: addinput;
+}
+
+#catinput {
+    grid-area: catinput;
+}
+
+#addbtn {
+    grid-area: addbtn;
+    height: 7vw;
+    margin: 0 auto;
+    color: $yellow;
+    background: $medblue;
+    border: .5vw solid $yellow;
+    border-radius: 4px;
+    font-size: $font2;
+    padding: 0 1rem;
 }
 
 

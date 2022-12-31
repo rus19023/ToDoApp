@@ -4,20 +4,15 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-        <link  type="text/css"rel="stylesheet" href="css/todo.css">
+      
+        <link rel="stylesheet" href="./src/css/todo-app.css">
+        <!-- <link rel="stylesheet" href="./src/css/main.css"> -->
+        
         <!-- <link rel="stylesheet" href="../dist/css/tailwind.css">
         <link type="text/css" rel="stylesheet" href="https://rus19023.github.io/myportfolio/css/styles.css"/> -->
 
         <link rel="icon" type="image/x-icon" href="/src/img/favicon.ico">
-        
-        <!-- <link type="text/css" rel="stylesheet" href="/css/todo.css" /> -->
-        <!--
-            <link rel="stylesheet" href="/css/todo-app.css">
-
-            
-            <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
-
-             -->
+        <!--<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">-->
 
         <!-- For Sharing buttons -->
         <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
@@ -25,7 +20,7 @@
         <meta property="og:title" content="A To Do List WebApp, built by Doris Rush-Lopez"/>
         <meta property="og:description" content="Add list items, sort alphabetically or by timestamp, search, edit, delete and mark them done."/>
         <meta property="og:site_name" content="To Do App"/>
-        <meta property=”og:image" content="src/img/og/todolist.jpg"/>
+        <meta property=”og:image" content="./src/img/og/todolist.jpg"/>
 
         <title id="wdd330todoapptitle" class="title">To Do App</title>
     </head>
@@ -53,20 +48,20 @@
                             data-sharer="facebook"
                             data-url="https://rus19023.github.io/ToDoApp/"
                             data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho">
-                            <img class="centered icons" src="src/img/icons/icons8-facebook-96.png" alt="share on Facebook">
+                            <img class="centered icons" width="40px" height="40px" src="./src/img/icons/icons8-facebook-96.png" alt="share on Facebook">
                         </button>
                         <button class="sharer"
                             data-sharer="linkedin"
                             data-url="https://rus19023.github.io/ToDoApp/"
                             data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho"
                             >
-                            <img class="centered icons" src="src/img/icons/icons8-linkedin-96.png" alt="">
+                            <img class="centered icons" width="40px" height="40px" src="./src/img/icons/icons8-linkedin-96.png" alt="">
                         </button>
                         <button class="sharer"
                             data-sharer="whatsapp"
                             data-title="Checkout my To Do App! "
                             data-url="https://rus19023.github.io/ToDoApp/">
-                            <img class="centered icons" src="src/img/icons/icons8-whatsapp-96.png" alt="">
+                            <img class="centered icons" width="40px" height="40px" src="./src/img/icons/icons8-whatsapp-96.png" alt="">
                         </button>
                 </section>
             </header>
@@ -82,9 +77,9 @@
                 <div id="right" class="">
                         <br><br>
                         <form id="addbar" class="">
-                            <input id="catinput" type="text" name="catinput" placeholder="Task Category" class="inputs" autofocus tabindex="0" value="430-06">
+                            <input id="catinput" type="text" name="catinput" placeholder="Task Category" class="inputs" autofocus tabindex="0" value="430-07">
                             <input id="addinput" type="text" name="addinput" placeholder="Add a To Do task" value="" class="inputs" autofocus tabindex="1">
-                            <button id="addbtn">+</button>
+                            <button id="addbtn">Add</button>
                         </form>
                         <div id="listfooter" class="todo-bordered todo-text foot-row">
                         </div>

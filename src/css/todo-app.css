@@ -1,42 +1,5 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Handlee&family=Hubballi");
-#gridcontainer {
-  grid-area: gridcontainer;
-  display: grid;
-  grid-template-areas: "left" "right";
-}
-#gridcontainer #right {
-  grid-area: right;
-  grid-template-areas: "todocontainer";
-}
-#gridcontainer #right #todocontainer {
-  display: grid;
-  grid-template-areas: "header" "todos" "footer" "addbar";
-}
-
-@media screen and (min-width: 768px) {
-  .navbar-collapse {
-    justify-content: center;
-  }
-  .color3 {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-@media screen and (min-width: 700px) {
-  #gridcontainer {
-    max-width: 80%;
-  }
-}
-@media screen and (min-width: 992px) {
-  .color3 {
-    grid-template-columns: repeat(6, 1fr);
-  }
-  #gridcontainer {
-    margin: 0 auto;
-    gap: 2vw;
-    grid-template-areas: "left right";
-  }
-}
 .color3 {
   display: grid;
   grid-template-columns: 1fr;
@@ -53,7 +16,7 @@
 
 .yellow {
   background: black;
-  color: #ffd700;
+  color: #ffcc00;
   margin: 0;
 }
 
@@ -123,6 +86,161 @@ input[type=checkbox].markbtnX {
   font-size: 3rem;
 }
 
+#gridcontainer {
+  grid-area: gridcontainer;
+  grid-template-areas: "left1" "right1";
+}
+
+#right, #left {
+  padding: 0.5rem;
+  background: black;
+}
+
+#left {
+  grid-area: left1;
+  grid-template-areas: "header1" "todos" "listfooter";
+}
+
+#header1 {
+  grid-area: header1;
+}
+
+#todos, #dtodos {
+  grid-area: todos;
+  grid-template-areas: "listitem";
+}
+
+.listitem {
+  grid-area: listitem;
+  display: grid;
+  grid-template-columns: 1fr 4fr 9fr 3fr 2fr;
+}
+
+.markbtn {
+  grid-area: markbtn;
+}
+
+p.todo-text.cat {
+  grid-area: cat;
+}
+
+.task {
+  grid-area: task;
+}
+
+.delbtn {
+  grid-area: delbtn;
+}
+
+.editbtn {
+  grid-area: editbtn;
+}
+
+#right {
+  margin: auto;
+  grid-area: right1;
+  grid-template-areas: "todocontainer";
+}
+
+#todocontainer {
+  grid-area: todocontainer;
+  grid-template-areas: "header" "footer" "addbar";
+}
+
+#listfooter {
+  display: grid;
+  grid-area: listfooter;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "tasks btns" "srchbar srchbar";
+}
+
+#btncontainer {
+  grid-area: btns;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#tasks {
+  grid-area: tasks;
+}
+
+#allbtn {
+  grid-area: allbtn;
+}
+
+#actbtn {
+  grid-area: actbtn;
+}
+
+#donebtn {
+  grid-area: donebtn;
+}
+
+#srchbar {
+  display: grid;
+  grid-area: srchbar;
+  grid-template-areas: "srchinput srchbtn";
+}
+
+#srchbtn {
+  grid-area: srchbtn;
+}
+
+#srchinput {
+  grid-area: srchinput;
+}
+
+#addbar {
+  padding: 0.5rem;
+  grid-area: addbar;
+  grid-template-areas: "catinput addinput addbtn";
+  grid-template-columns: 5fr 9fr 1fr;
+}
+
+#addinput {
+  grid-area: addinput;
+}
+
+#catinput {
+  grid-area: catinput;
+}
+
+#addbtn {
+  grid-area: addbtn;
+  height: 7vw;
+  margin: 0 auto;
+  color: #ffcc00;
+  background: #0057b7;
+  border: 0.5vw solid #ffcc00;
+  border-radius: 4px;
+  font-size: 1rem;
+  padding: 0 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-collapse {
+    justify-content: center;
+  }
+  .color3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (min-width: 700px) {
+  #gridcontainer {
+    max-width: 90%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .color3 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  #gridcontainer {
+    margin: 0 auto;
+    gap: 2vw;
+    grid-template-areas: "left1 right1";
+  }
+}
 body {
   color: white;
   font-size: 16px;
@@ -148,13 +266,17 @@ body {
   border-radius: 10px;
 }
 
+.sharer {
+  background: black;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  color: #ffd700;
+  color: #ffcc00;
   font-family: "Hubballi", sans-serif;
 }
 
@@ -196,7 +318,7 @@ h6 {
 }
 
 figcaption {
-  color: #ffd700;
+  color: #ffcc00;
 }
 
 div,
@@ -240,57 +362,6 @@ section {
   max-width: 100%;
 }
 
-.orange {
-  color: #b76000;
-}
-
-.yellow {
-  color: #ffd700;
-}
-
-.chartreuse {
-  color: #57b700;
-}
-
-.limegreen {
-  color: #00b705;
-}
-
-.seafoam {
-  color: #00b760;
-}
-
-.skyblue {
-  color: #00b3b7;
-}
-
-.medblue {
-  background: #bbbbbb;
-  color: #0057b7;
-}
-
-.royalblue {
-  background: #bbbbbb;
-  color: #0500b7;
-}
-
-.purple {
-  background: #bbbbbb;
-  color: #6000b7;
-}
-
-.hotpink {
-  color: #b700b3;
-}
-
-.dksalmon {
-  color: #b70057;
-}
-
-.redorange {
-  color: #b70500;
-}
-
 .color3 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -303,7 +374,7 @@ section {
 
 .title {
   background: black;
-  color: #ffd700;
+  color: #ffcc00;
   margin: 0 auto;
   padding: 1vw;
 }
@@ -340,18 +411,23 @@ a:hover {
 
 .inputs {
   max-width: 90%;
+  color: #0057b7;
+  background: #ffcc00;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 0.5rem;
 }
 
 ::-moz-placeholder {
-  color: black;
+  color: grey;
 }
 
 :-ms-input-placeholder {
-  color: black;
+  color: grey;
 }
 
 ::placeholder {
-  color: black;
+  color: grey;
 }
 
 footer#autofooter {
@@ -404,6 +480,10 @@ pre {
   word-wrap: break-word;
 }
 
+.icons {
+  background: black;
+}
+
 .italic {
   font-style: italic;
 }
@@ -426,7 +506,7 @@ pre {
 .todo-buttons {
   max-height: 8vw;
   padding: 1vw;
-  color: #ffd700;
+  color: #ffcc00;
   background: #0057b7;
   border: 2px solid white;
   border-radius: 10px;
@@ -469,15 +549,6 @@ pre {
   padding: 1vw;
 }
 
-.markbtn {
-  border: 2px solid white;
-  border-radius: 10px;
-  margin: 0.5vh;
-  padding: 0.5vh;
-  width: 6vh;
-  height: 6vh;
-}
-
 .row {
   display: flex;
   flex-direction: row;
@@ -486,74 +557,51 @@ pre {
 }
 
 #todocontainer {
-  display: grid;
-  grid-area: todocontainer;
   background: black;
   text-align: center;
   max-width: 90%;
   margin: 1vw auto;
-  grid-template-columns: 1fr;
-  grid-template-areas: "header1" "todos" "addbar" "listfooter";
 }
 #todocontainer #header1 {
-  grid-area: header1;
   margin-bottom: 0;
 }
 #todocontainer #todos, #todocontainer #dtodos {
-  grid-area: todos;
   padding: 1vw;
-  grid-template-areas: "listitem";
-}
-#todocontainer #todos li.listitem, #todocontainer #dtodos li.listitem {
-  grid-area: listitem;
-  display: grid;
-  grid-template-columns: 1fr 2fr 7fr 1fr;
-  margin: 0;
-  max-height: 25vw;
-  max-width: 100%;
-  grid-template-areas: "markbtn cattext itemtext delbtn";
 }
 #todocontainer #todos li.listitem .markbtn, #todocontainer #dtodos li.listitem .markbtn {
-  grid-area: markbtn;
   width: 4vh;
   height: 4vh;
   padding: 1vw;
   margin: auto;
 }
-#todocontainer #todos li.listitem #itemtext, #todocontainer #todos li.listitem #cattext, #todocontainer #dtodos li.listitem #itemtext, #todocontainer #dtodos li.listitem #cattext {
-  grid-area: itemtext;
+#todocontainer #todos li.listitem .cat, #todocontainer #todos li.listitem .task, #todocontainer #dtodos li.listitem .cat, #todocontainer #dtodos li.listitem .task {
   height: 4vh;
   margin: 2vh;
+  padding: 1vw;
 }
 #todocontainer #todos li.listitem .delbtn, #todocontainer #dtodos li.listitem .delbtn {
-  grid-area: delbtn;
-  color: #b70057;
-  background: transparent;
+  color: #b70500;
   margin: auto;
-  border: 1px solid #b70057;
+  border: 1px solid #b70500;
   max-width: 8vw;
   height: 8vh;
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: 0.5rem;
+  font-weight: bold;
 }
 #todocontainer #todos li.listitem .editbtn, #todocontainer #dtodos li.listitem .editbtn {
-  grid-area: edittbn;
   border: 1px solid #00b3b7;
   color: #00b3b7;
+  font-size: 0.5rem;
+  font-weight: bold;
 }
 #todocontainer #listfooter {
-  display: grid;
   max-height: 28vh;
-  grid-area: listfooter;
   text-align: left;
   margin: 2vw;
-  grid-template-columns: 1fr 1fr;
   justify-content: left;
-  color: #ffd700;
-  grid-template-areas: "tasks btns" "srchbar srchbar";
+  color: #ffcc00;
 }
 #todocontainer #listfooter #btncontainer {
-  grid-area: btns;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -561,21 +609,11 @@ pre {
   padding: 0;
 }
 #todocontainer #listfooter p#tasks {
-  grid-area: tasks;
   font-size: 2rem;
   text-align: center;
   margin: 1vw auto;
   max-height: 6vh;
   width: 100%;
-}
-#todocontainer #listfooter #allbtn {
-  grid-area: allbtn;
-}
-#todocontainer #listfooter #actbtn {
-  grid-area: actbtn;
-}
-#todocontainer #listfooter #donebtn {
-  grid-area: donebtn;
 }
 #todocontainer #listfooter #allbtn, #todocontainer #listfooter #actbtn, #todocontainer #listfooter #donebtn {
   border: 2px dotted white;
@@ -583,50 +621,32 @@ pre {
   margin: 0 2vw;
 }
 #todocontainer #listfooter #srchbar {
-  display: grid;
-  grid-area: srchbar;
   max-width: 100%;
-  grid-template-areas: "srchinput srchbtn";
 }
 #todocontainer #listfooter #srchbar #srchbtn {
-  grid-area: srchbtn;
   background: #00b705;
   padding: 0.5vw;
   margin-left: 1vw;
-  color: #ffd700;
+  color: #ffcc00;
   max-width: 100%;
 }
 #todocontainer #listfooter #srchbar #srchinput {
-  grid-area: srchinput;
   width: 46vw;
   height: 4vh;
   margin: auto;
   padding: 1vw;
   font-weight: bold;
   background: #00b705;
-  color: #ffd700;
+  color: #ffcc00;
 }
 #todocontainer #addbar {
-  grid-area: addbar;
   margin: 2vw;
-  grid-template-areas: "addinput addbtn";
   cursor: pointer;
   height: 8vw;
   padding: 0;
-  display: grid;
-  grid-template-columns: 9fr 1fr;
 }
-#todocontainer #addbar #addinput {
-  background: #ffd700;
-}
-#todocontainer #addbar #addbtn {
-  width: 8vw;
-  height: 8vw;
-  margin: 1vw auto;
-  padding: 0.25vw;
-  color: #0057b7;
-  background: #ffd700;
-  font-size: 2rem;
+#todocontainer #addbar #addinput, #todocontainer #addbar #catinput {
+  background: #ffcc00;
 }
 #todocontainer h3 {
   padding: 1vh;

@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Handlee&family=Hubballi');
 
 @import "variables";
-@import "grid";
-@import "large";
 @import "colors";
 @import "checkbox";
+@import "grid";
+@import "large";
 
 body {
     color: white;
@@ -29,6 +29,10 @@ body {
 .showborder {
     border: $todoborder;
     border-radius: $radius;
+}
+
+.sharer {
+    background: black;
 }
 
 
@@ -120,19 +124,6 @@ section {
     max-width: 100%;
 }
 
-.orange { color: $orange; }
-.yellow { color: $yellow; }
-.chartreuse { color: $chartreuse; }
-.limegreen { color: $limegreen; }
-.seafoam { color: $seafoam; }
-.skyblue { color: $skyblue; }
-.medblue { background: #bbbbbb; color: $medblue; }
-.royalblue { background: #bbbbbb; color: $royalblue; }
-.purple { background: #bbbbbb; color: $purple; }
-.hotpink { color: $hotpink; }
-.dksalmon { color: $dksalmon; }
-.redorange { color: $redorange; }
-
 .color3 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -182,10 +173,15 @@ a:hover {
 
 .inputs {
     max-width: 90%;
+    color: $medblue;
+    background: $yellow;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: .5rem;
 }
 
 ::placeholder {
-    color: black;
+    color: grey;
 }
 
 footer#autofooter {
@@ -236,6 +232,10 @@ pre {
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
+}
+
+.icons {
+    background: black;
 }
 
 .italic {
@@ -303,15 +303,6 @@ pre {
     padding: 1vw;
 }
 
-.markbtn {
-    border: $todoborder;
-    border-radius: 10px;
-    margin: .5vh;
-    padding: .5vh;
-    width: 6vh;
-    height: 6vh;
-}
-
 .row {
     display: flex;
     flex-direction: row;
@@ -320,80 +311,51 @@ pre {
 }
 
 #todocontainer {
-    display: grid;
-    grid-area: todocontainer;
     background: black;
     text-align: center;
     max-width: 90%;
     margin: 1vw auto;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-    "header1"
-    "todos"
-    "addbar"
-    "listfooter";
     & #header1 {
-        grid-area: header1;
         margin-bottom: 0;
     }
     & #todos, #dtodos {
-        grid-area: todos;
         padding: 1vw;
-        grid-template-areas:
-        "listitem";
         & li.listitem {
-            grid-area: listitem;
-            display: grid;
-            grid-template-columns: 1fr 2fr 7fr 1fr;
-            margin: 0;
-            max-height: 25vw;
-            max-width: 100%;
-            grid-template-areas:
-            "markbtn cattext itemtext delbtn";
             & .markbtn {
-                grid-area: markbtn;
                 width: 4vh;
                 height: 4vh;
                 padding: 1vw;
                 margin: auto;
             }
-            & #itemtext, #cattext {
-                grid-area: itemtext;
+            & .cat, .task {
                 height: 4vh;
                 margin: 2vh;
+                padding: 1vw;
             }
             & .delbtn {
-                grid-area: delbtn;
-                color: $dksalmon;
-                background: transparent;
+                color: $redorange;
                 margin: auto;
-                border: 1px solid $dksalmon;
+                border: 1px solid $redorange;
                 max-width: 8vw;
                 height: 8vh;
-                font-size: $font4;
-                font-weight: 500;
+                font-size: $font1;
+                font-weight: bold;
             }
             & .editbtn {
-                grid-area: editbtn;
                 border: 1px solid $skyblue;
                 color: $skyblue;
+                font-size: $font1;
+                font-weight: bold;
             }
         }
     }
     & #listfooter {
-        display: grid;
         max-height: 28vh;
-        grid-area: listfooter;
         text-align: left;
         margin: 2vw;
-        grid-template-columns: 1fr 1fr;
         justify-content: left;
         color: $yellow;
-        grid-template-areas:
-        "tasks btns"
-        "srchbar srchbar";
         & #btncontainer {
-            grid-area: btns;
             display: flex;
             flex-direction: row;
             justify-content: space-around;
@@ -401,21 +363,11 @@ pre {
             padding: 0;
         }
         & p#tasks {
-            grid-area: tasks;
             font-size: $font4;
             text-align: center;
             margin: 1vw auto;
             max-height: 6vh;
             width: 100%;
-        }
-        & #allbtn {
-            grid-area: allbtn;
-        }
-        & #actbtn {
-            grid-area: actbtn;
-        }
-        & #donebtn {
-            grid-area: donebtn;
         }
         & #allbtn, #actbtn, #donebtn {
             border: $dotborder;
@@ -423,13 +375,8 @@ pre {
             margin: 0 2vw;
         }
         & #srchbar {
-            display: grid;
-            grid-area: srchbar;
             max-width: 100%;
-            grid-template-areas:
-            "srchinput srchbtn";
             & #srchbtn {
-                grid-area: srchbtn;
                 background: $limegreen;
                 padding: .5vw;
                 margin-left: 1vw;
@@ -437,7 +384,6 @@ pre {
                 max-width: 100%;
             }
             & #srchinput {
-                grid-area: srchinput;
                 width: 46vw;
                 height: 4vh;
                 margin: auto;
@@ -449,26 +395,12 @@ pre {
         }
     }
     & #addbar {
-        grid-area: addbar;
         margin: 2vw;
-        grid-template-areas:
-            "addinput addbtn";
         cursor: pointer;
         height: 8vw;
         padding: 0;
-        display: grid;
-        grid-template-columns: 9fr 1fr;
-        & #addinput {
+        & #addinput, #catinput {
             background: $yellow;
-        }
-        & #addbtn {
-            width: 8vw;
-            height: 8vw;
-            margin: 1vw auto;
-            padding: .25vw;
-            color: $medblue;
-            background: $yellow;
-            font-size: $font4;
         }
     }
     & h3 {

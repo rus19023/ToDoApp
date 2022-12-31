@@ -57,7 +57,7 @@
 }
 #todocontainer #todos li.listitem {
   grid-area: listitem;
-  grid-template-columns: 1fr 2fr 7fr 2fr 2fr;
+  grid-template-columns: 1fr 5fr 7fr 2fr 2fr;
   list-style-type: none;
   max-width: 100%;
   border: 2px solid white;
@@ -74,6 +74,8 @@
 }
 #todocontainer #todos li.listitem .cat {
   grid-area: cat;
+  color: chartreuse;
+  font-size: 7vh;
   width: 2vh;
   height: 2vh;
 }

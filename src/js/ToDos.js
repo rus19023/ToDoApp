@@ -242,8 +242,8 @@ export default class Todolist {
             let itemtext = createLMNT("p", "", "", field.task, "todo-text task");
             //let markbox = createLMNT('label', `lbl${field.id}`, '', '', 'bordered markbtn');
             let markbtn = createLMNT("input", "checkbox", `mark${field.id}`, "", "markbtn chkbtn"); //  "✕"
-            let delbtn = createLMNT("button", "button", `del${field.id}`, "Delete", "delbtn chkbtn");
-            let editbtn = createLMNT("button", "button", `edit${field.id}`, "Edit", "editbtn chkbtn");
+            let delbtn = createLMNT("button", "button", `del${field.id}`, "Delete", "todo-btn delbtn chkbtn");
+            let editbtn = createLMNT("button", "button", `edit${field.id}`, "Edit", "todo-btn editbtn chkbtn");
             //let editicon = createLMNT("img", "", "", "", "editicon");
             //editicon.setAttribute('src', '../img/icons8-edit-30.png');
 
@@ -375,36 +375,3 @@ function deleteTodo(id) {
     writeToLS(listkey, JSON.stringify(filtered));
     location.reload();
 }
-
-const scrollOffset = 100;
- 
-const scrollElement = document.querySelector(".js-scroll");
- 
-const elementInView = (el, offset = 0) => {
-  const elementTop = el.getBoundingClientRect().top;
- 
-  return (
-    elementTop <= 
-    ((window.innerHeight || document.documentElement.clientHeight) - offset)
-  );
-};
- 
-const displayScrollElement = () => {
-  scrollElement.classList.add('scrolled');
-}
- 
-const hideScrollElement = () => {
-  scrollElement.classList.remove('scrolled');
-}
- 
-const handleScrollAnimation = () => {
-  if (elementInView(scrollElement, scrollOffset)) {
-      displayScrollElement();
-  } else {
-    hideScrollElement();
-  }
-}
- 
-window.addEventListener('scroll', () => {
-  handleScrollAnimation();
-})

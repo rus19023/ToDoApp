@@ -39,3 +39,9 @@ body {
     color: purple;
     font: bold;
 }
+
+.editbtn {
+    padding: 1.5vh;
+    color: #b70500 !important;
+    border: 1px solid #b70500 !important;
+  }

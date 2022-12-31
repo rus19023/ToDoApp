@@ -10,7 +10,7 @@
 @media screen and (min-width: 700px) {
 
     #gridcontainer {
-        max-width: 80%;
+        max-width: 90%;
     }
 
     // #addinput, #searchinput {
@@ -45,8 +45,8 @@
         margin: 0 auto;
         gap: 2vw;
         grid-template-areas:
-        "left right";
-        }
+        "left1 right1";
+    }
 }
 
 
