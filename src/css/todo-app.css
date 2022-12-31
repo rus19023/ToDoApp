@@ -410,7 +410,7 @@ a:hover {
 }
 
 .inputs {
-  max-width: 90%;
+  max-width: 95%;
   color: #0057b7;
   background: #ffcc00;
   border: 1px solid white;
@@ -506,6 +506,7 @@ pre {
 .todo-buttons {
   max-height: 8vw;
   padding: 1vw;
+  margin: 0.5vw;
   color: #ffcc00;
   background: #0057b7;
   border: 2px solid white;
@@ -566,6 +567,7 @@ pre {
   margin-bottom: 0;
 }
 #todocontainer #todos, #todocontainer #dtodos {
+  color: white;
   padding: 1vw;
 }
 #todocontainer #todos li.listitem .markbtn, #todocontainer #dtodos li.listitem .markbtn {
@@ -609,7 +611,7 @@ pre {
   padding: 0;
 }
 #todocontainer #listfooter p#tasks {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   margin: 1vw auto;
   max-height: 6vh;
@@ -617,8 +619,6 @@ pre {
 }
 #todocontainer #listfooter #allbtn, #todocontainer #listfooter #actbtn, #todocontainer #listfooter #donebtn {
   border: 2px dotted white;
-  padding: 1vw;
-  margin: 0 2vw;
 }
 #todocontainer #listfooter #srchbar {
   max-width: 100%;
@@ -640,6 +640,10 @@ pre {
   color: #ffcc00;
 }
 #todocontainer #addbar {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-around;
   margin: 2vw;
   cursor: pointer;
   height: 8vw;
@@ -647,6 +651,7 @@ pre {
 }
 #todocontainer #addbar #addinput, #todocontainer #addbar #catinput {
   background: #ffcc00;
+  width: 100%;
 }
 #todocontainer h3 {
   padding: 1vh;

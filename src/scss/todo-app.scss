@@ -172,7 +172,7 @@ a:hover {
 }
 
 .inputs {
-    max-width: 90%;
+    max-width: 95%;
     color: $medblue;
     background: $yellow;
     border: 1px solid white;
@@ -260,6 +260,7 @@ pre {
 .todo-buttons {
     max-height: 8vw;
     padding: 1vw;
+    margin: .5vw;
     color: $yellow;
     background: $contrast;
     border: $todoborder;
@@ -319,6 +320,7 @@ pre {
         margin-bottom: 0;
     }
     & #todos, #dtodos {
+        color: white;
         padding: 1vw;
         & li.listitem {
             & .markbtn {
@@ -363,16 +365,16 @@ pre {
             padding: 0;
         }
         & p#tasks {
-            font-size: $font4;
+            font-size: $font3;
             text-align: center;
+
             margin: 1vw auto;
             max-height: 6vh;
             width: 100%;
         }
         & #allbtn, #actbtn, #donebtn {
             border: $dotborder;
-            padding: 1vw;
-            margin: 0 2vw;
+            
         }
         & #srchbar {
             max-width: 100%;
@@ -395,12 +397,18 @@ pre {
         }
     }
     & #addbar {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-around;
+
         margin: 2vw;
         cursor: pointer;
         height: 8vw;
         padding: 0;
         & #addinput, #catinput {
             background: $yellow;
+            width: 100%;
         }
     }
     & h3 {
