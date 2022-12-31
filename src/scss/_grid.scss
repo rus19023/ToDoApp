@@ -6,7 +6,7 @@
 }
 
 #right, #left {
-    padding: .5rem;    
+    padding: .5vh;    
     background: black;
 }
 
@@ -31,7 +31,8 @@
 .listitem {
     grid-area: listitem;
     display: grid;
-    grid-template-columns: 1fr 4fr 9fr 3fr 2fr;
+    grid-template-areas: 
+        "markbtn task delbtn editbtn";
 }
 
 .markbtn {
@@ -117,7 +118,7 @@ p.todo-text.cat {
 }
 
 #addbar {
-    padding: .5rem;
+    padding: .5vh;
     grid-area: addbar;
     grid-template-areas:
     "catinput addinput addbtn";
@@ -132,16 +133,19 @@ p.todo-text.cat {
     grid-area: catinput;
 }
 
+#catinput, #addinput, #addbtn, #srchbtn, #srchinput, .sharer {
+    height: 4vh;
+    padding: 0 1vh;
+}
+
 #addbtn {
     grid-area: addbtn;
-    height: 7vw;
     margin: 0 auto;
     color: $yellow;
     background: $medblue;
     border: .5vw solid $yellow;
     border-radius: 4px;
     font-size: $font2;
-    padding: 0 1rem;
 }
 
 

@@ -92,7 +92,7 @@ input[type=checkbox].markbtnX {
 }
 
 #right, #left {
-  padding: 0.5rem;
+  padding: 0.5vh;
   background: black;
 }
 
@@ -113,7 +113,7 @@ input[type=checkbox].markbtnX {
 .listitem {
   grid-area: listitem;
   display: grid;
-  grid-template-columns: 1fr 4fr 9fr 3fr 2fr;
+  grid-template-areas: "markbtn task delbtn editbtn";
 }
 
 .markbtn {
@@ -192,7 +192,7 @@ p.todo-text.cat {
 }
 
 #addbar {
-  padding: 0.5rem;
+  padding: 0.5vh;
   grid-area: addbar;
   grid-template-areas: "catinput addinput addbtn";
   grid-template-columns: 5fr 9fr 1fr;
@@ -206,16 +206,19 @@ p.todo-text.cat {
   grid-area: catinput;
 }
 
+#catinput, #addinput, #addbtn, #srchbtn, #srchinput, .sharer {
+  height: 4vh;
+  padding: 0 1vh;
+}
+
 #addbtn {
   grid-area: addbtn;
-  height: 7vw;
   margin: 0 auto;
   color: #ffcc00;
   background: #0057b7;
   border: 0.5vw solid #ffcc00;
   border-radius: 4px;
   font-size: 1rem;
-  padding: 0 1rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -268,6 +271,11 @@ body {
 
 .sharer {
   background: black;
+  border: none;
+}
+.sharer img {
+  height: 3vh;
+  width: 3vh;
 }
 
 h1,
@@ -503,21 +511,24 @@ pre {
   color: #00b705;
 }
 
-.todo-buttons {
+.btns {
   max-height: 8vw;
-  padding: 1vw;
+  padding: 0.5vw;
   margin: 0.5vw;
-  color: #ffcc00;
-  background: #0057b7;
   border: 2px solid white;
   border-radius: 10px;
 }
-.todo-buttons a {
+
+.todobtn {
+  color: #ffcc00;
+  background: #0057b7;
+}
+.todobtn a {
   text-decoration: none;
   color: #0500b7;
   text-align: center;
 }
-.todo-buttons a :hover {
+.todobtn a :hover {
   border: 2px solid #00b3b7;
 }
 
@@ -557,6 +568,10 @@ pre {
   margin: 0 auto;
 }
 
+.todo-text {
+  color: white;
+}
+
 #todocontainer {
   background: black;
   text-align: center;
@@ -568,30 +583,37 @@ pre {
 }
 #todocontainer #todos, #todocontainer #dtodos {
   color: white;
-  padding: 1vw;
+}
+#todocontainer #todos li.listitem, #todocontainer #dtodos li.listitem {
+  max-height: 10rem;
+  margin: 0;
 }
 #todocontainer #todos li.listitem .markbtn, #todocontainer #dtodos li.listitem .markbtn {
-  width: 4vh;
-  height: 4vh;
-  padding: 1vw;
-  margin: auto;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: auto;
+  margin: auto 0.25rem;
+  border-radius: 10px;
 }
-#todocontainer #todos li.listitem .cat, #todocontainer #todos li.listitem .task, #todocontainer #dtodos li.listitem .cat, #todocontainer #dtodos li.listitem .task {
-  height: 4vh;
-  margin: 2vh;
-  padding: 1vw;
+#todocontainer #todos li.listitem .task, #todocontainer #dtodos li.listitem .task {
+  text-align: left;
+  width: 10rem;
+  margin: 0.25rem;
 }
 #todocontainer #todos li.listitem .delbtn, #todocontainer #dtodos li.listitem .delbtn {
   color: #b70500;
-  margin: auto;
   border: 1px solid #b70500;
-  max-width: 8vw;
-  height: 8vh;
+  height: 1.5rem;
+  width: 3rem;
+  margin: auto 0;
   font-size: 0.5rem;
   font-weight: bold;
 }
 #todocontainer #todos li.listitem .editbtn, #todocontainer #dtodos li.listitem .editbtn {
   border: 1px solid #00b3b7;
+  width: 2rem;
+  height: 1.5rem;
+  margin: auto 0;
   color: #00b3b7;
   font-size: 0.5rem;
   font-weight: bold;
@@ -685,7 +707,7 @@ pre {
 
 /* Smartphone Portrait and Landscape */
 h1.title, li.cert-text {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 h2.title, .sources {

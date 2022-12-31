@@ -33,6 +33,11 @@ body {
 
 .sharer {
     background: black;
+    border: none;
+    & img {
+        height: 3vh;
+        width: 3vh;
+    }
 }
 
 
@@ -257,14 +262,17 @@ pre {
     color: $limegreen;
 }
 
-.todo-buttons {
+.btns {
     max-height: 8vw;
-    padding: 1vw;
+    padding: .5vw;
     margin: .5vw;
-    color: $yellow;
-    background: $contrast;
     border: $todoborder;
     border-radius: $radius;
+}
+
+.todobtn {
+    color: $yellow;
+    background: $contrast;
     & a {
       text-decoration: none;
       color: $royalblue;
@@ -311,6 +319,10 @@ pre {
     margin: 0 auto;
 }
 
+.todo-text {
+    color: white;
+}
+
 #todocontainer {
     background: black;
     text-align: center;
@@ -321,30 +333,35 @@ pre {
     }
     & #todos, #dtodos {
         color: white;
-        padding: 1vw;
         & li.listitem {
+            max-height: 10rem;
+            margin: 0;
             & .markbtn {
-                width: 4vh;
-                height: 4vh;
-                padding: 1vw;
-                margin: auto;
+                width: 1.5rem;
+                height: 1.5rem;
+                padding: auto;
+                margin: auto .25rem;
+                border-radius: 10px;
             }
-            & .cat, .task {
-                height: 4vh;
-                margin: 2vh;
-                padding: 1vw;
+            & .task {
+                text-align: left;
+                width: 10rem;
+                margin: .25rem;
             }
             & .delbtn {
                 color: $redorange;
-                margin: auto;
                 border: 1px solid $redorange;
-                max-width: 8vw;
-                height: 8vh;
+                height: 1.5rem;
+                width: 3rem;
+                margin: auto 0;
                 font-size: $font1;
                 font-weight: bold;
             }
             & .editbtn {
                 border: 1px solid $skyblue;
+                width: 2rem;
+                height: 1.5rem;
+                margin: auto 0;
                 color: $skyblue;
                 font-size: $font1;
                 font-weight: bold;
@@ -448,7 +465,7 @@ pre {
 
 /* Smartphone Portrait and Landscape */
 
-h1.title, li.cert-text { font-size: $font5; }
+h1.title, li.cert-text { font-size: $font4; }
 h2.title, .sources { font-size: $font3; }
 h3.title { font-size: $font2; }
 h4.title { font-size: $font1; }

@@ -32,8 +32,8 @@ export default class Todolist {
         this.todo_error = 'text set in constructor';
         this.sort = this.sortItems();
         this.sortval = 'time';
-        this.filter = '';
-        this.searchWord = qs('#srchinput');
+        this.filter = 'all';
+        this.searchTerm = qs('#srchinput');
         this.srchbtn = qs('#srchbtn');
         this.allbtn = qs('#allbtn');
         this.actbtn = qs('#actbtn');
@@ -77,10 +77,10 @@ export default class Todolist {
 
     async listFiltered() {
         this.todoList = await getTodos(this.todoList);
-        this.searchWord = qs("#srchinput").value;
+        this.searchTerm = qs("#srchinput").value;
         let newlist = [];
         this.todoList.forEach((field) => {
-            if (field.task.includes(this.searchWord)) {
+            if (field.task.includes(this.searchTerm)) {
                 newlist.push(field);
             }
         });
@@ -90,7 +90,7 @@ export default class Todolist {
         // Display filtered list
         this.renderTodoList(sortedlist, 'todos');
         // Show item stats for filtered list
-        this.itemsLeft(this.searchWord);
+        this.itemsLeft(this.searchTerm);
     }
 
     sortItems() {
@@ -237,16 +237,18 @@ export default class Todolist {
         renderlist.forEach((field) => {
             // create new list item
             //                   createLMNT(LMNT, LMNTtype, LMNTid, LMNTtext, LMNTclass)
-            let item = createLMNT('li', '', '', '', 'listitem todo-bordered nodots');
-            let cattext = createLMNT("p", "", "", field.category, "todo-text cat");
-            let itemtext = createLMNT("p", "", "", field.task, "todo-text task");
+            let item = createLMNT('li', '', field.id, '', 'listitem todo-bordered nodots');
+            //let task = createLMNT("div", "", "", "", "", "");
+            //let cattext = createLMNT("p", "", "", `${field.category}: ${field.task}`, "todo-text");
+            let itemtext = createLMNT("p", "", "", `${field.category}: ${field.task}`, "todo-text task");
             //let markbox = createLMNT('label', `lbl${field.id}`, '', '', 'bordered markbtn');
             let markbtn = createLMNT("input", "checkbox", `mark${field.id}`, "", "markbtn chkbtn"); //  "✕"
-            let delbtn = createLMNT("button", "button", `del${field.id}`, "Delete", "todo-btn delbtn chkbtn");
-            let editbtn = createLMNT("button", "button", `edit${field.id}`, "Edit", "todo-btn editbtn chkbtn");
+            let delbtn = createLMNT("button", "button", `del${field.id}`, "Delete", "btns delbtn chkbtn");
+            let editbtn = createLMNT("button", "button", `edit${field.id}`, "Edit", "btns editbtn chkbtn");
             //let editicon = createLMNT("img", "", "", "", "editicon");
             //editicon.setAttribute('src', '../img/icons8-edit-30.png');
 
+            // Done tasks show as "scratched out or lined out"
             if (field.done === true) {
                 itemtext.classList.add("todo-scratch");
                 markbtn.classList.add('markbtnX');
@@ -258,8 +260,10 @@ export default class Todolist {
             }
             //editbtn.appendChild(editicon);
             //markbox.appendChild(markbtn);
+            //task.appendChild(cattext);
+            //task.appendChild(itemtext);
+
             item.appendChild(markbtn);
-            item.appendChild(cattext);
             item.appendChild(itemtext);
             item.appendChild(delbtn);
             item.appendChild(editbtn);

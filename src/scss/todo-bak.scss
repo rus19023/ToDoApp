@@ -114,6 +114,11 @@ body {
     grid-template-columns: 1fr 8fr 1fr;
 }
 
+.todo-text {
+    color: white;
+    font-size: medium;
+}
+
 #gridcontainer {
     background: black;
     & #todocontainer {
@@ -129,6 +134,7 @@ body {
         }
         & #todos {
             grid-area: todos;
+            color: white;
             padding: 0;
             margin: 0 auto;
             max-width: 100%;
