@@ -5,12 +5,12 @@
     "right1";
 }
 
-#right, #left {
+#right1, #left1 {
     padding: .5vh;    
     background: black;
 }
 
-#left {
+#left1 {
     grid-area: left1;
     grid-template-areas:
     "header1" 
@@ -26,13 +26,25 @@
     grid-area: todos;
     grid-template-areas:
     "listitem";
+}
+
+.padit {
+    padding: 4vw;
+    margin: 1vh auto;
 } 
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto;
+}
 
 .listitem {
     grid-area: listitem;
     display: grid;
-    grid-template-areas: 
-        "markbtn task delbtn editbtn";
+    grid-template-columns: 6% 70% 14% 10%;
+    grid-template-areas: "markbtn task delbtn editbtn";
 }
 
 .markbtn {
@@ -122,7 +134,6 @@ p.todo-text.cat {
     grid-area: addbar;
     grid-template-areas:
     "catinput addinput addbtn";
-    grid-template-columns: 5fr 9fr 1fr;
 }
 
 #addinput {
@@ -134,18 +145,16 @@ p.todo-text.cat {
 }
 
 #catinput, #addinput, #addbtn, #srchbtn, #srchinput, .sharer {
-    height: 4vh;
+    height: 1.5rem;
     padding: 0 1vh;
 }
 
 #addbtn {
     grid-area: addbtn;
-    margin: 0 auto;
     color: $yellow;
     background: $medblue;
     border: .5vw solid $yellow;
     border-radius: 4px;
-    font-size: $font2;
 }
 
 

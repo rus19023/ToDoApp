@@ -91,12 +91,12 @@ input[type=checkbox].markbtnX {
   grid-template-areas: "left1" "right1";
 }
 
-#right, #left {
+#right1, #left1 {
   padding: 0.5vh;
   background: black;
 }
 
-#left {
+#left1 {
   grid-area: left1;
   grid-template-areas: "header1" "todos" "listfooter";
 }
@@ -110,9 +110,22 @@ input[type=checkbox].markbtnX {
   grid-template-areas: "listitem";
 }
 
+.padit {
+  padding: 4vw;
+  margin: 1vh auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
 .listitem {
   grid-area: listitem;
   display: grid;
+  grid-template-columns: 6% 70% 14% 10%;
   grid-template-areas: "markbtn task delbtn editbtn";
 }
 
@@ -195,7 +208,6 @@ p.todo-text.cat {
   padding: 0.5vh;
   grid-area: addbar;
   grid-template-areas: "catinput addinput addbtn";
-  grid-template-columns: 5fr 9fr 1fr;
 }
 
 #addinput {
@@ -207,18 +219,16 @@ p.todo-text.cat {
 }
 
 #catinput, #addinput, #addbtn, #srchbtn, #srchinput, .sharer {
-  height: 4vh;
+  height: 1.5rem;
   padding: 0 1vh;
 }
 
 #addbtn {
   grid-area: addbtn;
-  margin: 0 auto;
   color: #ffcc00;
   background: #0057b7;
   border: 0.5vw solid #ffcc00;
   border-radius: 4px;
-  font-size: 1rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -245,6 +255,9 @@ p.todo-text.cat {
   }
 }
 body {
+  max-width: 95vw;
+  max-height: 95vh;
+  margin: 1vh auto;
   color: white;
   font-size: 16px;
   font-family: "Hubballi", sans-serif;
@@ -317,14 +330,6 @@ h6 {
   background: #0500b7;
 }
 
-.padleft {
-  padding-left: 4vw;
-}
-
-.padleft8 {
-  padding-left: 8vw;
-}
-
 figcaption {
   color: #ffcc00;
 }
@@ -332,7 +337,6 @@ figcaption {
 div,
 form,
 footer,
-ul,
 p,
 header,
 section {
@@ -360,14 +364,6 @@ section {
 
 .f2 {
   font-family: "Hubballi", sans-serif;
-}
-
-.gridparts {
-  border: 5px solid white;
-  border-radius: 15px;
-  margin: 0 auto;
-  padding: 2vw;
-  max-width: 100%;
 }
 
 .color3 {
@@ -403,11 +399,6 @@ a:hover {
   color: #6000b7;
 }
 
-.padit {
-  padding: 4vw;
-  margin: 1vw auto;
-}
-
 #siteTitle2 {
   color: #57b700;
   font-family: "Hubballi", sans-serif;
@@ -418,12 +409,10 @@ a:hover {
 }
 
 .inputs {
-  max-width: 95%;
   color: #0057b7;
   background: #ffcc00;
   border: 1px solid white;
   border-radius: 4px;
-  padding: 0.5rem;
 }
 
 ::-moz-placeholder {
@@ -460,34 +449,6 @@ footer#autofooter {
   color: #00b760;
 }
 
-.code {
-  background: #b76000;
-  color: black;
-  border-radius: 10px;
-  padding: 1.5vw;
-  font-family: "Hubballi", sans-serif;
-  font-weight: bold;
-  width: 90%;
-  margin: 2vw auto;
-  text-decoration: none;
-  list-style: none;
-}
-
-.col2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2vw;
-}
-
-pre {
-  overflow-x: auto;
-  white-space: pre-wrap;
-  white-space: -moz-pre-wrap;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;
-  word-wrap: break-word;
-}
-
 .icons {
   background: black;
 }
@@ -512,9 +473,9 @@ pre {
 }
 
 .btns {
-  max-height: 8vw;
-  padding: 0.5vw;
-  margin: 0.5vw;
+  max-height: 1.5rem;
+  padding: auto;
+  margin: 0 0.1rem;
   border: 2px solid white;
   border-radius: 10px;
 }
@@ -557,15 +518,6 @@ pre {
   color: white;
   text-align: left;
   font-weight: bold;
-  margin: 1vw;
-  padding: 1vw;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 0 auto;
 }
 
 .todo-text {
@@ -583,37 +535,34 @@ pre {
 }
 #todocontainer #todos, #todocontainer #dtodos {
   color: white;
+  margin: auto;
 }
 #todocontainer #todos li.listitem, #todocontainer #dtodos li.listitem {
   max-height: 10rem;
-  margin: 0;
+  margin: auto;
 }
 #todocontainer #todos li.listitem .markbtn, #todocontainer #dtodos li.listitem .markbtn {
   width: 1.5rem;
   height: 1.5rem;
-  padding: auto;
-  margin: auto 0.25rem;
+  margin: 0.1rem;
   border-radius: 10px;
 }
 #todocontainer #todos li.listitem .task, #todocontainer #dtodos li.listitem .task {
   text-align: left;
-  width: 10rem;
-  margin: 0.25rem;
+  min-width: 10rem;
 }
 #todocontainer #todos li.listitem .delbtn, #todocontainer #dtodos li.listitem .delbtn {
   color: #b70500;
   border: 1px solid #b70500;
-  height: 1.5rem;
-  width: 3rem;
-  margin: auto 0;
+  width: 1.5rem;
+  margin: 0;
   font-size: 0.5rem;
   font-weight: bold;
 }
 #todocontainer #todos li.listitem .editbtn, #todocontainer #dtodos li.listitem .editbtn {
   border: 1px solid #00b3b7;
-  width: 2rem;
-  height: 1.5rem;
-  margin: auto 0;
+  width: 1.5rem;
+  margin: 0;
   color: #00b3b7;
   font-size: 0.5rem;
   font-weight: bold;
@@ -629,8 +578,6 @@ pre {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin: 0;
-  padding: 0;
 }
 #todocontainer #listfooter p#tasks {
   font-size: 1.5rem;
