@@ -135,11 +135,13 @@ p.todo-text.cat {
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-around;
-    margin: 2vw;
+    margin: auto;
     padding: .5vh;
     grid-area: addbar;
     grid-template-areas:
-    "catinput addinput addbtn";
+    "catinput" 
+    "addinput"
+    "addbtn";
 }
 
 #addinput {

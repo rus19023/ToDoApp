@@ -10,79 +10,79 @@
 
 .orange {
   background: black;
-  color: #b76000;
+  color: #ff4d00;
   margin: 0;
 }
 
 .yellow {
   background: black;
-  color: #ffcc00;
+  color: hsl(48deg, 100%, 50%);
   margin: 0;
 }
 
 .chartreuse {
   background: black;
-  color: #57b700;
+  color: #b3ff00;
   margin: 0;
 }
 
 .limegreen {
   background: black;
-  color: #00b705;
+  color: #33ff00;
   margin: 0;
 }
 
 .seafoam {
   background: black;
-  color: #00b760;
+  color: #00ff4d;
   margin: 0;
 }
 
 .skyblue {
   background: black;
-  color: #00b3b7;
+  color: #00b3ff;
   margin: 0;
 }
 
 .medblue {
   background: black;
-  color: #0057b7;
+  color: hsl(210deg, 100%, 40%);
   margin: 0;
 }
 
 .royalblue {
   background: black;
-  color: #0500b7;
+  color: #0000cc;
   margin: 0;
 }
 
 .purple {
   background: black;
-  color: #6000b7;
+  color: #6600cc;
   margin: 0;
 }
 
 .hotpink {
   background: black;
-  color: #b700b3;
+  color: #cc00cc;
   margin: 0;
 }
 
 .dksalmon {
   background: black;
-  color: #b70057;
+  color: #cc0066;
   margin: 0;
 }
 
 .redorange {
   background: black;
-  color: #b70500;
+  color: #cc0000;
   margin: 0;
 }
 
 input[type=checkbox].markbtnX {
   content: "✕";
-  color: #b70500;
+  color: #cc0000;
   font-size: 3rem;
 }
 
@@ -209,10 +209,10 @@ p.todo-text.cat {
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: space-around;
-  margin: 2vw;
+  margin: auto;
   padding: 0.5vh;
   grid-area: addbar;
-  grid-template-areas: "catinput addinput addbtn";
+  grid-template-areas: "catinput" "addinput" "addbtn";
 }
 
 #addinput {
@@ -230,13 +230,16 @@ p.todo-text.cat {
 
 #addbtn {
   grid-area: addbtn;
-  color: #ffcc00;
-  background: #0057b7;
-  border: 0.5vw solid #ffcc00;
+  color: hsl(48deg, 100%, 50%);
+  background: hsl(210deg, 100%, 40%);
+  border: 0.5vw solid hsl(48deg, 100%, 50%);
   border-radius: 4px;
 }
 
 @media screen and (min-width: 700px) {
+  body {
+    font-size: 16px;
+  }
   #gridcontainer {
     max-width: 90%;
   }
@@ -267,12 +270,93 @@ body {
   max-height: 95vh;
   margin: 1vh auto;
   color: white;
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Hubballi", sans-serif;
-  background: linear-gradient(180deg, hsl(211deg, 100%, 36%) 40%, hsl(69deg, 9%, 60%) 50%, hsl(51deg, 100%, 50%) 60%);
+  background: linear-gradient(180deg, hsl(210deg, 100%, 40%) 40%, hsl(69deg, 9%, 60%) 50%, hsl(48deg, 100%, 50%) 60%);
   height: 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+div {
+  margin: 0.5rem auto;
+}
+
+.div-width {
+  width: 10rem;
+  padding: 1rem;
+  margin: 1rem;
+  font-weight: bold;
+  font-size: large;
+  color: white;
+}
+
+.bublue {
+  background: hsl(210deg, 100%, 40%) !important;
+}
+
+.bmedblue {
+  background: hsl(210deg, 100%, 40%) !important;
+}
+
+.buyellow {
+  background: hsl(48deg, 100%, 50%) !important;
+}
+
+.byellow {
+  background: hsl(48deg, 100%, 50%) !important;
+}
+
+.buorange {
+  background: #b76000 !important;
+}
+
+.borange {
+  background: #ff4d00 !important;
+}
+
+.bredorange {
+  background: #cc0000;
+}
+
+.bdksalmon {
+  background: #cc0066;
+}
+
+.broyalblue {
+  background: #0000cc;
+}
+
+.bhotpink {
+  background: #cc00cc;
+}
+
+.bpurple {
+  background: #6600cc;
+}
+
+.bchartreuse {
+  background: #b3ff00;
+}
+
+.blimegreen {
+  background: #33ff00;
+}
+
+.bseafoam {
+  background: #00ff4d;
+}
+
+.baqua {
+  background: #00ffcc;
+}
+
+.bskyblue {
+  background: #00b3ff;
+}
+
+.bnewblue {
+  background: #0033ff;
 }
 
 .bold {
@@ -287,7 +371,7 @@ body {
 
 .showborder {
   border: 2px solid white;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .sharer {
@@ -305,7 +389,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #ffcc00;
+  color: hsl(48deg, 100%, 50%);
   font-family: "Hubballi", sans-serif;
 }
 
@@ -328,18 +412,18 @@ h4 {
 h5 {
   font-size: 1rem;
   font-weight: bold;
-  background: #0500b7;
+  background: hsl(210deg, 100%, 40%);
 }
 
 h6 {
   font-size: 1.5rem;
   font-weight: bold;
   font-family: "Hubballi", sans-serif;
-  background: #0500b7;
+  background: hsl(210deg, 100%, 40%);
 }
 
 figcaption {
-  color: #ffcc00;
+  color: hsl(48deg, 100%, 50%);
 }
 
 div,
@@ -349,7 +433,7 @@ p,
 header,
 section {
   font-family: "Hubballi", sans-serif;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .morespc {
@@ -379,36 +463,36 @@ section {
   grid-template-columns: 1fr 1fr;
   gap: 4vw;
   padding: 2vw;
-  border-radius: 10px;
+  border-radius: 20px;
   margin: 4vw;
   font-weight: bold;
 }
 
 .title {
   background: black;
-  color: #ffcc00;
+  color: hsl(48deg, 100%, 50%);
   margin: 0 auto;
   padding: 1vw;
 }
 
 a {
-  color: #0500b7;
+  color: #0000cc;
   text-decoration: none;
 }
 a a:hover {
-  color: #b70057;
+  color: #cc0066;
 }
 
 a:visited {
-  color: #00b705;
+  color: #ff9466;
 }
 
 a:hover {
-  color: #6000b7;
+  color: #6600cc;
 }
 
 #siteTitle2 {
-  color: #57b700;
+  color: #b3ff00;
   font-family: "Hubballi", sans-serif;
   font-weight: bold;
   text-align: center;
@@ -417,45 +501,51 @@ a:hover {
 }
 
 .inputs {
-  color: #0057b7;
-  background: #ffcc00;
+  color: hsl(210deg, 100%, 40%);
+  background: hsl(48deg, 100%, 50%);
+  padding: 0.5rem;
+  height: 1.5rem;
   border: 1px solid white;
-  border-radius: 4px;
+  border-radius: 20px;
 }
 
 ::-moz-placeholder {
-  color: grey;
+  color: aliceblue;
+  font-size: smaller;
 }
 
 :-ms-input-placeholder {
-  color: grey;
+  color: aliceblue;
+  font-size: smaller;
 }
 
 ::placeholder {
-  color: grey;
+  color: aliceblue;
+  font-size: smaller;
 }
 
-footer#autofooter {
+footer#autofooter a {
   font-weight: bold;
   text-align: center;
   margin-bottom: 6vh;
-  background: #0057b7;
+  color: black;
+  background: black !important;
 }
 
 .source {
   text-align: center;
-  color: #b700b3;
+  color: #cc00cc;
 }
 
 .sources {
   text-align: left;
-  color: #00b760;
+  color: #00ff4d;
   font-weight: bold;
   margin: 2vh auto;
 }
 .sources a {
   text-decoration: none;
-  color: #00b760;
+  color: #00ff4d;
 }
 
 .icons {
@@ -473,46 +563,46 @@ footer#autofooter {
 
 #todo-error {
   font-weight: bold;
-  color: #b70500;
+  color: #cc0000;
 }
 
 #root a {
-  color: #57b700;
+  color: #b3ff00;
   text-decoration: none;
   font-weight: bold;
 }
 
 #root a:visited {
-  color: #00b705;
+  color: #33ff00;
 }
 
 .btns {
   max-height: 1.5rem;
   margin: auto;
   border: 2px solid white;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .todobtn {
-  color: #ffcc00;
-  background: #0057b7;
+  color: hsl(48deg, 100%, 50%);
+  background: hsl(210deg, 100%, 40%);
 }
 .todobtn a {
   text-decoration: none;
-  color: #0500b7;
+  color: #0000cc;
   text-align: center;
 }
 .todobtn a :hover {
-  border: 2px solid #00b3b7;
+  border: 2px solid #00b3ff;
 }
 
 .todo-bordered {
   border: 2px solid white;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
 .white {
@@ -541,15 +631,13 @@ footer#autofooter {
   width: 12rem;
   height: 1.5rem;
   margin: auto;
-  padding: 0.25rem;
   font-weight: bold;
-  background: #00b705;
-  color: white;
+  background: #33ff00;
+  color: black;
 }
 #srchbar #srchbtn {
-  background: #00b705;
-  padding: 0.25rem;
-  color: white;
+  background: #33ff00;
+  color: black;
 }
 
 #todocontainer {
@@ -573,25 +661,25 @@ footer#autofooter {
   width: 1.5rem;
   height: 1.5rem;
   margin: 0.1rem;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 #todocontainer #todos li.listitem .task, #todocontainer #dtodos li.listitem .task {
   text-align: left;
   min-width: 10rem;
 }
 #todocontainer #todos li.listitem .delbtn, #todocontainer #dtodos li.listitem .delbtn {
-  color: #b70500;
-  border: 1px solid #b70500;
+  color: #cc0000;
+  border: 1px solid #cc0000;
   width: 0.25rem;
   margin: 0;
   font-size: 0.5rem;
   font-weight: bold;
 }
 #todocontainer #todos li.listitem .editbtn, #todocontainer #dtodos li.listitem .editbtn {
-  border: 1px solid #00b3b7;
+  border: 1px solid #00b3ff;
   width: 1.5rem;
   margin: 0;
-  color: #00b3b7;
+  color: #00b3ff;
   font-size: 0.5rem;
   font-weight: bold;
 }
@@ -600,7 +688,7 @@ footer#autofooter {
   text-align: left;
   margin: 2vw;
   justify-content: left;
-  color: #ffcc00;
+  color: hsl(48deg, 100%, 50%);
 }
 #todocontainer #listfooter #filters {
   display: flex;
@@ -623,7 +711,7 @@ footer#autofooter {
   padding: 0;
 }
 #todocontainer #addbar #addinput, #todocontainer #addbar #catinput {
-  background: #ffcc00;
+  background: hsl(48deg, 100%, 50%);
   width: 100%;
 }
 #todocontainer {

@@ -1,19 +1,35 @@
 // Colors
-$orange: #b76000;
-$yellow: #ffcc00;
-$uyellow: #ffcc00;
-$ublue: #0066cc;
-$yellowFromSet: adjust-hue($orange,   30deg);
-$chartreuse:    adjust-hue($orange,   60deg);
-$limegreen:     adjust-hue($orange,   90deg);
-$seafoam:       adjust-hue($orange,  120deg);
-$skyblue:       adjust-hue($orange,  150deg);
-$medblue:       adjust-hue($orange,  180deg);
-$royalblue:     adjust-hue($orange, -150deg);
-$purple:        adjust-hue($orange, -120deg);
-$hotpink:       adjust-hue($orange,  -90deg);
-$dksalmon:      adjust-hue($orange,  -60deg);
-$redorange:     adjust-hue($orange,  -30deg);
+$uOrange: #b76000;
+
+
+$uYellow: hsl(48, 100%, 50%);
+$uBlue: hsl(210, 100%, 40%);
+$medblue: $uBlue;
+$royalblue:     adjust-hue($uBlue, 30deg);
+$purple:        adjust-hue($uBlue, 60deg);
+$hotpink:       adjust-hue($uBlue, 90deg);
+$dksalmon:      adjust-hue($uBlue, 120deg);
+$redorange:     adjust-hue($uBlue, 150deg);
+$orange:        adjust-hue($uYellow, -30deg); 
+$yellow: $uYellow;
+$chartreuse:    adjust-hue($uYellow, 30deg);
+$limegreen:     adjust-hue($uYellow, 60deg);
+$seafoam:       adjust-hue($uYellow, 90deg);
+$aqua:          adjust-hue($uYellow, 120deg);
+$skyblue:       adjust-hue($uYellow, 150deg);
+$newblue:       adjust-hue($uYellow, 180deg);
+
+//$yellowFromSet: adjust-hue($orange,   30deg);
+// $chartreuse:    adjust-hue($orange,   60deg);
+// $limegreen:     adjust-hue($orange,   90deg);
+// $seafoam:       adjust-hue($orange,  120deg);
+// $skyblue:       adjust-hue($orange,  150deg);
+// $medblue:       adjust-hue($orange,  180deg);
+//$royalblue:     adjust-hue($orange, -150deg);
+// $purple:        adjust-hue($orange, -120deg);
+// $hotpink:       adjust-hue($orange,  -90deg);
+// $dksalmon:      adjust-hue($orange,  -60deg);
+// $redorange:     adjust-hue($orange,  -30deg);
 
 $todoborder: 2px solid white;
 $dotborder: 2px dotted white;
@@ -23,22 +39,23 @@ $accent: $chartreuse;
 $headings: $yellow;
 $contrast: $medblue;
 $orangeborder: darken($orange, 20%);
-$warning: darken($redorange, 50%);
-$nav: $dksalmon;
+//$warning: darken($redorange, 50%);
+$warning: $redorange;
+
 $valid: $limegreen;
 
 
-$bgmoz: -moz-linear-gradient(180deg, rgb(0, 89, 184) 0%, rgba(255, 215, 0, 1) 67%);
-$bgweb: -webkit-linear-gradient(180deg, rgb(0, 89, 184) 0%, rgba(255, 215, 0, 1) 67%);
+$bgmoz: -moz-linear-gradient(180deg, rgb(0, 102, 204) 0%, rgba(255, 204, 0, 1) 67%);
+$bgweb: -webkit-linear-gradient(180deg, rgb(0, 102, 204) 0%, rgba(255, 204, 0, 1) 67%);
 $bgfilter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0059b8",endColorstr="#ffd700",GradientType=1);
 $lgradient: linear-gradient(180deg, lighten($orange, 20%), lighten($contrast, 10%));
-$hgradient: linear-gradient(180deg, rgb(0, 89, 184), rgba(255, 215, 0, 1));
-$vgradient: linear-gradient(90deg, rgb(0, 89, 184), rgba(255, 215, 0, 1));
+$hgradient: linear-gradient(180deg, rgb(0, 102, 204), rgba(255, 204, 0, 1));
+$vgradient: linear-gradient(90deg, rgb(0, 102, 204), rgba(255, 204, 0, 1));
 $newhgradient: linear-gradient(
     180deg,
-    hsl(211, 100%, 36%) 40%,
+    hsl(210, 100%, 40%) 40%,
     hsl(69deg 9% 60%) 50%,
-    hsl(51, 100%, 50%) 60%
+    hsl(48, 100%, 50%) 60%
 );
 $newvgradient: linear-gradient(
       90deg,
@@ -58,7 +75,7 @@ $oldwarning: #bd0000;
 
 $formshadow: 0 0 10px $orange;
 $greyshadow: 0 0 20px $mdgrey;
-$radius: 10px;
+$radius: 20px;
 $border: 2px solid $orange;
 $borderb: 4px solid $orange;
 $borderwarn: 4px solid $warning;
@@ -70,6 +87,11 @@ $legendborder: 4px solid $mdgrey;
 // Fonts
 $fontfirst: 'Handlee', cursive;
 $fontsecond: 'Hubballi', sans-serif;
+
+$headerfont: "Yanone Kaffeesatz", sans-serif;
+$textfont: "Nunito", sans-serif;
+$headingfont: "Dosis", sans-serif;
+
 $fontinput: max(4vw);
 $font1: .5rem;
 $font2: 1rem;
@@ -87,10 +109,6 @@ $htlg: max(7vw);
 $htdesc: max(18vh);
 $cht: max(60vh);
 $height: max(35vh);
-
-$headerfont: "Yanone Kaffeesatz", sans-serif;
-$textfont: "Nunito", sans-serif;
-$headingfont: "Dosis", sans-serif;
 
 // Font Awesome Icons
 $fa-font-path:         "../webfonts" !default;

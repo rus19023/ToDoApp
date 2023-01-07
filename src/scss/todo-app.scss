@@ -11,12 +11,93 @@ body {
     max-height: 95vh;
     margin: 1vh auto;
     color: white;
-    font-size: 16px;
+    font-size: 20px;
     font-family: $fontsecond;
     background: $background;
     height: 100vh;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+div {
+    margin: .5rem auto;
+}
+
+.div-width {
+    width: 10rem;
+    padding: 1rem;
+    margin: 1rem;
+    font-weight: bold;
+    font-size: large;
+    color: white;
+}
+
+.bublue {
+    background: $uBlue !important;
+}
+
+.bmedblue {
+    background: $medblue !important;
+}
+
+.buyellow {
+    background: $uYellow !important;
+}
+
+.byellow {
+    background: $yellow !important;
+}
+
+.buorange {
+    background: $uOrange !important;
+}
+
+.borange {
+    background: $orange !important;
+}
+
+.bredorange {
+    background: $redorange;
+}
+
+.bdksalmon {
+    background: $dksalmon;
+}
+
+.broyalblue {
+    background: $royalblue;
+}
+
+.bhotpink {
+    background: $hotpink;
+}
+
+.bpurple {
+    background: $purple;
+}
+
+.bchartreuse {
+    background: $chartreuse;
+}
+
+.blimegreen {
+    background: $limegreen;
+}
+
+.bseafoam {
+    background: $seafoam;
+}
+
+.baqua {
+    background: $aqua;
+}
+
+.bskyblue {
+    background: $skyblue;
+}
+
+.bnewblue {
+    background: $newblue;
 }
 
 .bold {
@@ -43,14 +124,13 @@ body {
     }
 }
 
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    color: $yellow;
+    color: $uYellow;
     font-family: $fontsecond;
 }
 
@@ -73,17 +153,17 @@ h4 {
 h5 {
     font-size: $font2;
     font-weight: bold;
-    background: $royalblue;
+    background: $uBlue;
 }
 
 h6 {
     font-size: $font3;
     font-weight: bold;
     font-family: $fontsecond;
-    background: $royalblue;
+    background: $uBlue;
 }
 
-figcaption { color: $yellow; }
+figcaption { color: $uYellow; }
 
 div,
 form,
@@ -141,7 +221,7 @@ a {
 }
 
 a:visited {
-    color: $limegreen;
+    color: lighten($orange, 20%);
 }
 
 a:hover {
@@ -160,19 +240,23 @@ a:hover {
 .inputs {
     color: $medblue;
     background: $yellow;
+    padding: .5rem;
+    height: 1.5rem;
     border: 1px solid white;
-    border-radius: 4px;
+    border-radius: $radius;
 }
 
 ::placeholder {
-    color: grey;
+    color: aliceblue;
+    font-size: smaller;
 }
 
-footer#autofooter {
+footer#autofooter a {
     font-weight: bold;
     text-align: center;
     margin-bottom: 6vh;
-    background: $medblue;
+    color: black;
+    background: black !important;
 }
 
 .source {
@@ -276,15 +360,13 @@ footer#autofooter {
         width: 12rem;
         height: 1.5rem;
         margin: auto;
-        padding: .25rem;
         font-weight: bold;
         background: $limegreen;
-        color: white;
+        color: black;
     }
     & #srchbtn {
         background: $limegreen;
-        padding: .25rem;
-        color: white;
+        color: black;
     }
 }
 
@@ -306,7 +388,7 @@ footer#autofooter {
                 width: 1.5rem;
                 height: 1.5rem;
                 margin: .1rem;
-                border-radius: 10px;
+                border-radius: $radius;
             }
             & .task {
                 text-align: left;
