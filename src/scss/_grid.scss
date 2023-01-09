@@ -16,7 +16,32 @@
     "header1" 
     "srchbar"
     "todos"
+    "addbar"
     "listfooter";
+}
+
+#right1 {
+    margin: auto;
+    grid-area: right1;
+    grid-template-areas:
+    "todocontainer";
+}
+
+#todocontainer {
+    grid-area: todocontainer;
+    grid-template-areas:
+    "header"
+    "todos"
+    "listfooter";
+}
+
+#listfooter {
+    display: grid;
+    grid-area: listfooter;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "tasks"
+    "btns";
 }
 
 #header1 {
@@ -26,7 +51,8 @@
 #todos, #dtodos {
     grid-area: todos;
     grid-template-areas:
-    "listitem";
+    "listitem"
+    ;
 }
 
 .padit {
@@ -66,30 +92,6 @@ p.todo-text.cat {
 
 .editbtn {
     grid-area: editbtn;
-}
-
-#right1 {
-    margin: auto;
-    grid-area: right1;
-    grid-template-areas:
-    "todocontainer";
-}
-
-#todocontainer {
-    grid-area: todocontainer;
-    grid-template-areas:
-    "header"
-    "footer"
-    "addbar";
-}
-
-#listfooter {
-    display: grid;
-    grid-area: listfooter;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-    "tasks"
-    "btns";
 }
 
 #filters {

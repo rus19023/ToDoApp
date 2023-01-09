@@ -35,7 +35,7 @@
             </section>
             <section>
                 <p class=" marg centered todo-text ">
-                    In solidarity with the Ukraine, the color scheme is based on
+                    In solidarity with the Ukraine, the color scheme for this app is based on
                     <a href="https://en.wikipedia.org/wiki/Flag_of_Ukraine#Design">
                         their flag colors.
                     </a>
@@ -62,35 +62,43 @@
                         data-url="https://rus19023.github.io/ToDoApp/">
                         <img class="centered icons" width="40px" height="40px" src="./src/img/icons/icons8-whatsapp-96.png" alt="">
                     </button>
-                    <div id="srchbar" class="todo-text">
-                        <input id="srchinput" type="text" name="srchinput" placeholder="Search in tasks (case sensitive)" value="" class="inputs" tabindex="1">
-                        <button id="srchbtn" class="btns todobtn">Search</button>
-                    </div>
             </section>
+            <div id="srchbar" class="todo-text">
+                <input id="srchinput" type="text" name="srchinput" placeholder="Search in tasks" value="" class="inputs" tabindex="1">
+                <button id="srchbtn" class="btns todobtn">Search Tasks</button>
+            </div>
         </header>
-        <br>
         <main id="gridcontainer">
             <div id="left1" class="">
                 <h2 id="header1" class="centered title">To Do List</h2>
                 <div id="todocontainer">
                     <div id="todos"></div>
+                    <form id="addbar" class="">
+                        <input id="catinput" type="text" name="catinput" placeholder="Task Category" class="inputs" autofocus tabindex="0" value="">
+                        <input id="addinput" type="text" name="addinput" placeholder="Enter To Do task" value="" class="inputs" autofocus tabindex="1">
+                        <button id="addbtn" class="btns">Add Task</button>
+                    </form>
                 </div>
                 <div id="todo-error"></div>
             </div>
             <div id="right1" class="">
-                    <form id="addbar" class="">
-                        <input id="catinput" type="text" name="catinput" placeholder="Task Category" class="inputs" autofocus tabindex="0" value="">
-                        <input id="addinput" type="text" name="addinput" placeholder="Enter To Do task" value="" class="inputs" autofocus tabindex="1">
-                        <button id="addbtn">Add Task</button>
-                    </form>
 
-                    <div id="listfooter" class="todo-bordered todo-text foot-row">
+                    <div id="listfooter" class="todo-text foot-row">
                         <div id="tasks">_ tasks done.</div>
                         <div id="sortitems">
                             <p class="">Sort by:</p>
-                            <label for="alpha"><input type="radio" name="sort" id="alpha" value="alpha">Alphabetical</label>
-                            <label for="time"><input type="radio" name="sort" id="time" value="time" checked>Timestamp</label>
-                            <!-- <label for="cat"><input type="radio" name="sort" id="cat" value="cat">Category</label> -->
+                            <label for="alpha">
+                                <input type="radio" name="sort" id="alpha" value="alpha">
+                                Alphabetical
+                            </label>
+                            <label for="time">
+                                <input type="radio" name="sort" id="time" value="time" checked>
+                                Timestamp
+                            </label>
+                            <label for="cat">
+                                <input type="radio" name="sort" id="cat" value="cat">
+                                Category
+                            </label>
                         </div>
                         <div id="filters">
                             <button class="btns todobtn" id="allbtn"> All</button>
@@ -103,8 +111,11 @@
         </main>
         <br>
         <footer>
+            <div class="normal-text centered">
+                All icons from 
+                <a href="https://icons8.com">icons8.com</a>
+            </div>
             <div id="autofooter" class="footer footer-center "></div>
-            <div class="normal-text centered">All icons from <a href="https://icons8.com">icons8.com</a></div>
         </footer>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

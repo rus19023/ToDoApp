@@ -30,7 +30,6 @@ export default class Todolist {
         this.listname = listkey;
         this.todoList = [];
         this.todo_error = 'text set in constructor';
-        //this.sort = this.sortItems();
         this.sortval = 'time';
         this.filter = 'all';
         this.searchTerm = qs('#srchinput');
@@ -40,6 +39,7 @@ export default class Todolist {
         this.donebtn = qs('#donebtn');
         this.addbtn = qs('#addbtn');
         this.srchbtn2 = qs('#srchbtn2');
+        this.sortbtn = qs('.sortbtn');
         //this.srchbtn = onTouch(this.srchbtn, () => this.listFiltered());
         this.srchbtn.addEventListener('click', () => { this.listFiltered(); }, false);
         this.srchbtn2.addEventListener('click', () => { this.listFiltered(); }, false);
@@ -52,9 +52,9 @@ export default class Todolist {
 
     // TODO:  add functionality to choose from listnames or just filter on category?
     async listAll() {
+        this.filter = 'all';
         this.todolist = await this.getList(this.listname, 'all', this.sortval);
         this.renderTodoList(this.todoList, 'todos');
-        this.filter = 'all';
         console.log('end of listAll()');
     }
 
@@ -63,29 +63,30 @@ export default class Todolist {
     }
 
     async listPending() {
+        this.filter = 'pending';
         this.todolist = await this.getList(this.listname, 'pending', this.sortval);
         console.log(this.todoList);
         this.todoList = this.todoList.filter(el => !el.done);
         console.log(this.todoList);
         this.renderTodoList(this.todoList, 'todos');
-        this.filter = 'pending';
         console.log('end of listPending()');
     }
 
     async listDone() {
-        this.todolist = await this.getList(this.listname, 'done', this.sortval);
+        this.filter = 'done';
+        this.todolist = await this.getList(this.listname);
         this.todoList = this.todoList.filter(el => el.done);
         this.renderTodoList(this.todoList, 'todos');
-        this.filter = 'done';
         console.log('end of listDone()');
     }
 
     async listFiltered() {
-        this.todolist = await this.getList(this.listname, this.filter, this.sortval);
+        this.todolist = await this.getList(this.listname);
         this.searchTerm = qs("#srchinput").value;
         let newlist = [];
         this.todoList.forEach((field) => {
-            if (field.task.includes(this.searchTerm)) {
+            //console.log(field.task);
+            if ((field.task.toLowerCase().includes(this.searchTerm.toLowerCase())) || (field.category.toLowerCase().includes(this.searchTerm.toLowerCase()))) {
                 newlist.push(field);
             }
         });
@@ -327,13 +328,13 @@ export default class Todolist {
                 return 0;
             });
         } 
-        // else if (this.sortval === "cat") {
-        //     list.sort(function(a, b) {
-        //         if (a.cat < b.cat) { return -1; }
-        //         if (a.cat > b.cat) { return 1; }
-        //         return 0;
-        //     });
-        // }
+        else if (this.sortval === "cat") {
+            list.sort(function(a, b) {
+                if (a.category < b.catgory) { return -1; }
+                if (a.category > b.category) { return 1; }
+                return 0;
+            });
+        }
     }
 }
 
@@ -355,15 +356,14 @@ function saveTodo(cat, todo) {
     writeToLS(listkey, JSON.stringify(todoList));
 }
 
-// TODO: Categories as field in db, create way to edit category also
 function editTodo(id) {
     let todoList = getTodos(listkey);
     let item = todoList.find(el => el.id === id);
-    let newtask = prompt("Edit task", item.task);
-    if (newtask !== null) {
-        item.task = newtask;
-        writeToLS(listkey, JSON.stringify(todoList));
-    }
+    let newTask = prompt("Edit task", item.task);
+    let newCat = prompt("Edit category", item.category);
+    item.task = newTask;
+    item.category = newCat;
+    writeToLS(listkey, JSON.stringify(todoList));
     location.reload();
 }
 

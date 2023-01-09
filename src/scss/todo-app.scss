@@ -23,6 +23,10 @@ div {
     margin: .5rem auto;
 }
 
+footer {
+    background: black;
+}
+
 .div-width {
     width: 10rem;
     padding: 1rem;
@@ -206,7 +210,6 @@ section {
 }
 
 .title {
-  background: black;
   color: $yellow;
   margin: 0 auto;
   padding: 1vw;
@@ -216,7 +219,7 @@ a {
     color: $royalblue;
     text-decoration: none;
     & a:hover {
-        color: $dksalmon;
+        color: lighten($purple, 20%);
     }
 }
 
@@ -237,8 +240,15 @@ a:hover {
     max-width: 100%;
 }
 
+#social-share {
+    background: black;
+    border-radius: $radius;
+    padding: .5rem;
+    margin: .5rem;
+}
+
 .inputs {
-    color: $medblue;
+    color: lighten($royalblue, 20%);
     background: $yellow;
     padding: .5rem;
     height: 1.5rem;
@@ -247,8 +257,8 @@ a:hover {
 }
 
 ::placeholder {
-    color: aliceblue;
-    font-size: smaller;
+    color: lighten(black, 50%);
+    font-size: small;
 }
 
 #autofooter {
@@ -364,10 +374,6 @@ a:hover {
         background: $limegreen;
         color: black;
     }
-    & #srchbtn {
-        background: $limegreen;
-        color: black;
-    }
 }
 
 #todocontainer {
@@ -412,6 +418,15 @@ a:hover {
             }
         }
     }
+    & #addbar {
+        cursor: pointer;
+        height: 8vw;
+        padding: 0;
+        & #addinput, #catinput {
+            background: $yellow;
+            width: 100%;
+        }
+    }
     & #listfooter {
         max-height: 10rem;
         margin: 2vw;
@@ -432,15 +447,6 @@ a:hover {
         & #allbtn, #actbtn, #donebtn {
             border: $dotborder;
             
-        }
-    }
-    & #addbar {
-        cursor: pointer;
-        height: 8vw;
-        padding: 0;
-        & #addinput, #catinput {
-            background: $yellow;
-            width: 100%;
         }
     }
     &  {

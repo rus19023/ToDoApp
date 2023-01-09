@@ -98,7 +98,25 @@ input[type=checkbox].markbtnX {
 
 #left1 {
   grid-area: left1;
-  grid-template-areas: "header1" "srchbar" "todos" "listfooter";
+  grid-template-areas: "header1" "srchbar" "todos" "addbar" "listfooter";
+}
+
+#right1 {
+  margin: auto;
+  grid-area: right1;
+  grid-template-areas: "todocontainer";
+}
+
+#todocontainer {
+  grid-area: todocontainer;
+  grid-template-areas: "header" "todos" "listfooter";
+}
+
+#listfooter {
+  display: grid;
+  grid-area: listfooter;
+  grid-template-columns: 1fr;
+  grid-template-areas: "tasks" "btns";
 }
 
 #header1 {
@@ -147,24 +165,6 @@ p.todo-text.cat {
 
 .editbtn {
   grid-area: editbtn;
-}
-
-#right1 {
-  margin: auto;
-  grid-area: right1;
-  grid-template-areas: "todocontainer";
-}
-
-#todocontainer {
-  grid-area: todocontainer;
-  grid-template-areas: "header" "footer" "addbar";
-}
-
-#listfooter {
-  display: grid;
-  grid-area: listfooter;
-  grid-template-columns: 1fr;
-  grid-template-areas: "tasks" "btns";
 }
 
 #filters {
@@ -280,6 +280,10 @@ body {
 
 div {
   margin: 0.5rem auto;
+}
+
+footer {
+  background: black;
 }
 
 .div-width {
@@ -469,7 +473,6 @@ section {
 }
 
 .title {
-  background: black;
   color: hsl(48deg, 100%, 50%);
   margin: 0 auto;
   padding: 1vw;
@@ -480,7 +483,7 @@ a {
   text-decoration: none;
 }
 a a:hover {
-  color: #cc0066;
+  color: #9933ff;
 }
 
 a:visited {
@@ -500,8 +503,15 @@ a:hover {
   max-width: 100%;
 }
 
+#social-share {
+  background: black;
+  border-radius: 20px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
 .inputs {
-  color: hsl(210deg, 100%, 40%);
+  color: #3333ff;
   background: hsl(48deg, 100%, 50%);
   padding: 0.5rem;
   height: 1.5rem;
@@ -510,18 +520,18 @@ a:hover {
 }
 
 ::-moz-placeholder {
-  color: aliceblue;
-  font-size: smaller;
+  color: gray;
+  font-size: small;
 }
 
 :-ms-input-placeholder {
-  color: aliceblue;
-  font-size: smaller;
+  color: gray;
+  font-size: small;
 }
 
 ::placeholder {
-  color: aliceblue;
-  font-size: smaller;
+  color: gray;
+  font-size: small;
 }
 
 #autofooter {
@@ -635,10 +645,6 @@ a:hover {
   background: #33ff00;
   color: black;
 }
-#srchbar #srchbtn {
-  background: #33ff00;
-  color: black;
-}
 
 #todocontainer {
   background: black;
@@ -683,6 +689,15 @@ a:hover {
   font-size: 0.5rem;
   font-weight: bold;
 }
+#todocontainer #addbar {
+  cursor: pointer;
+  height: 8vw;
+  padding: 0;
+}
+#todocontainer #addbar #addinput, #todocontainer #addbar #catinput {
+  background: hsl(48deg, 100%, 50%);
+  width: 100%;
+}
 #todocontainer #listfooter {
   max-height: 10rem;
   margin: 2vw;
@@ -702,15 +717,6 @@ co #todocontainer #listfooter #filters {
 }
 #todocontainer #listfooter #allbtn, #todocontainer #listfooter #actbtn, #todocontainer #listfooter #donebtn {
   border: 2px dotted white;
-}
-#todocontainer #addbar {
-  cursor: pointer;
-  height: 8vw;
-  padding: 0;
-}
-#todocontainer #addbar #addinput, #todocontainer #addbar #catinput {
-  background: hsl(48deg, 100%, 50%);
-  width: 100%;
 }
 #todocontainer {
   padding: 1vh;
