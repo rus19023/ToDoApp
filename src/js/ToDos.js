@@ -54,7 +54,7 @@ export default class Todolist {
     async listAll() {
         this.todolist = await this.getList(this.listname, 'all', this.sortval);
         this.renderTodoList(this.todoList, 'todos');
-        this.itemsLeft('all');
+        this.filter = 'all';
         console.log('end of listAll()');
     }
 
@@ -68,7 +68,7 @@ export default class Todolist {
         this.todoList = this.todoList.filter(el => !el.done);
         console.log(this.todoList);
         this.renderTodoList(this.todoList, 'todos');
-        this.itemsLeft('pending');
+        this.filter = 'pending';
         console.log('end of listPending()');
     }
 
@@ -76,7 +76,7 @@ export default class Todolist {
         this.todolist = await this.getList(this.listname, 'done', this.sortval);
         this.todoList = this.todoList.filter(el => el.done);
         this.renderTodoList(this.todoList, 'todos');
-        this.itemsLeft('done');
+        this.filter = 'done';
         console.log('end of listDone()');
     }
 
@@ -124,9 +124,8 @@ export default class Todolist {
         } else if ((itemcount > 1) || (itemcount === 0)) {
           t = ' list items ';
         }
-        filter = this.filter;
         //console.log(`inside itemsLeft, line 81, this.filter: ${this.filter}`);
-        let tasktext = filter;
+        let tasktext = '';
         let done = this.todoList.filter(item => item.done === true).length;
         let pending = (itemcount - done);
         switch (filter) {
@@ -275,7 +274,8 @@ export default class Todolist {
             item.appendChild(delbtn);
             item.appendChild(editbtn);
             parentEl.appendChild(item);
-        });
+        });        
+        this.itemsLeft(this.filter);
         this.checkBtn();
     }
 
