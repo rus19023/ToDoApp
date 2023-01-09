@@ -251,11 +251,11 @@ a:hover {
     font-size: smaller;
 }
 
-footer#autofooter a {
+#autofooter {
     font-weight: bold;
     text-align: center;
+    padding: 1rem;
     margin-bottom: 6vh;
-    color: black;
     background: black !important;
 }
 
@@ -307,7 +307,7 @@ footer#autofooter a {
     max-height: 1.5rem;
     margin: auto;
     border: $todoborder;
-    border-radius: $radius;
+    border-radius: $radius                    
 }
 
 .todobtn {
@@ -414,10 +414,9 @@ footer#autofooter a {
     }
     & #listfooter {
         max-height: 10rem;
-        text-align: left;
         margin: 2vw;
         justify-content: left;
-        color: $yellow;
+        co
         & #filters {
             display: flex;
             flex-direction: row;
@@ -481,9 +480,9 @@ footer#autofooter a {
 
 /* Smartphone Portrait and Landscape */
 
-h1.title, li.cert-text { font-size: $font4; }
-h2.title, .sources { font-size: $font3; }
-h3.title { font-size: $font2; }
-h4.title { font-size: $font1; }
-h6.title { font-size: .5rem; }
-p.normal-text, li a, #autofooter, .source, li.title, h5.title { font-size: $font1; }
+h1.title, li.cert-text { font-size: $font5; }
+h2.title, .sources { font-size: $font4; }
+h3.title { font-size: $font3; }
+h4.title { font-size: $font2; }
+h6.title { font-size: $font2; }
+p.normal-text, li a, #autofooter a, .source, li.title, h5.title { font-size: $font2; }

@@ -232,7 +232,7 @@ p.todo-text.cat {
   grid-area: addbtn;
   color: hsl(48deg, 100%, 50%);
   background: hsl(210deg, 100%, 40%);
-  border: 0.5vw solid hsl(48deg, 100%, 50%);
+  border: 1px solid hsl(48deg, 100%, 50%);
   border-radius: 4px;
 }
 
@@ -524,11 +524,11 @@ a:hover {
   font-size: smaller;
 }
 
-footer#autofooter a {
+#autofooter {
   font-weight: bold;
   text-align: center;
+  padding: 1rem;
   margin-bottom: 6vh;
-  color: black;
   background: black !important;
 }
 
@@ -685,12 +685,10 @@ footer#autofooter a {
 }
 #todocontainer #listfooter {
   max-height: 10rem;
-  text-align: left;
   margin: 2vw;
   justify-content: left;
-  color: hsl(48deg, 100%, 50%);
 }
-#todocontainer #listfooter #filters {
+co #todocontainer #listfooter #filters {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -746,25 +744,25 @@ footer#autofooter a {
 
 /* Smartphone Portrait and Landscape */
 h1.title, li.cert-text {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 h2.title, .sources {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 h3.title {
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 h4.title {
-  font-size: 0.5rem;
+  font-size: 1rem;
 }
 
 h6.title {
-  font-size: 0.5rem;
+  font-size: 1rem;
 }
 
-p.normal-text, li a, #autofooter, .source, li.title, h5.title {
-  font-size: 0.5rem;
+p.normal-text, li a, #autofooter a, .source, li.title, h5.title {
+  font-size: 1rem;
 }/*# sourceMappingURL=todo-app.css.map */
