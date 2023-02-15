@@ -246,8 +246,8 @@ export default class Todolist {
         renderlist.forEach((field) => {
             // create new list item
             //                   createLMNT(LMNT, LMNTtype, LMNTid, LMNTtext, LMNTclass)
-            let item = createLMNT('div', '', field.id, '', 'listitem nodots');            
-            let itemtext = createLMNT("p", "", "", `${field.category}: ${field.task}`, "todo-text task");
+            let item = createLMNT('div', '', field.id, '', ' todobordered listitem nodots');            
+            let itemtext = createLMNT("p", "", "", `${field.category}: ${field.task}`, "todo-text task ");
             //let markbox = createLMNT('label', `lbl${field.id}`, '', '', 'bordered markbtn');
             let markbtn = createLMNT("input", "checkbox", `mark${field.id}`, "", "itembtns markbtn chkbtn"); //  "✕"
             let delbtn = createLMNT("button", "button", `del${field.id}`, "✕", "btns itembtns delbtn chkbtn");

@@ -36,41 +36,41 @@
             <section>
                 <p class=" marg centered todo-text ">
                     In solidarity with the Ukraine, the color scheme for this app is based on
-                    <a href="https://en.wikipedia.org/wiki/Flag_of_Ukraine#Design">
+                    <a class="lighthover" href="https://en.wikipedia.org/wiki/Flag_of_Ukraine#Design">
                         their flag colors.
                     </a>
                 </p>
             </section>
             <section id="social-share">
                 <h3 class="title">Share: </h3>
-                    <button class="sharer"
-                        data-sharer="facebook"
-                        data-url="https://rus19023.github.io/ToDoApp/"
-                        data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho">
-                        <img class="centered icons" width="40px" height="40px" src="./src/img/icons/icons8-facebook-96.png" alt="share on Facebook">
-                    </button>
-                    <button class="sharer"
-                        data-sharer="linkedin"
-                        data-url="https://rus19023.github.io/ToDoApp/"
-                        data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho"
-                        >
-                        <img class="centered icons" width="40px" height="40px" src="./src/img/icons/icons8-linkedin-96.png" alt="">
-                    </button>
-                    <button class="sharer"
-                        data-sharer="whatsapp"
-                        data-title="Checkout my To Do App! "
-                        data-url="https://rus19023.github.io/ToDoApp/">
-                        <img class="centered icons" width="40px" height="40px" src="./src/img/icons/icons8-whatsapp-96.png" alt="">
-                    </button>
+                <button class="sharer"
+                    data-sharer="facebook"
+                    data-url="https://rus19023.github.io/ToDoApp/"
+                    data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho">
+                    <img class="centered icons" width="40px" height="40px" src="./src/img/icons/icons8-facebook-96.png" alt="share on Facebook">
+                </button>
+                <button class="sharer"
+                    data-sharer="linkedin"
+                    data-url="https://rus19023.github.io/ToDoApp/"
+                    data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho"
+                    >
+                    <img class="centered icons" width="40px" height="40px" src="./src/img/icons/icons8-linkedin-96.png" alt="">
+                </button>
+                <button class="sharer"
+                    data-sharer="whatsapp"
+                    data-title="Checkout my To Do App! "
+                    data-url="https://rus19023.github.io/ToDoApp/">
+                    <img class="centered icons" width="40px" height="40px" src="./src/img/icons/icons8-whatsapp-96.png" alt="">
+                </button>
+                <div id="srchbar" class="todo-text">
+                    <input id="srchinput" type="text" name="srchinput" placeholder="Search in tasks" value="" class="inputs" tabindex="1">
+                    <button id="srchbtn" class="btns todobtn">Search Tasks</button>
+                </div>
             </section>
-            <div id="srchbar" class="todo-text">
-                <input id="srchinput" type="text" name="srchinput" placeholder="Search in tasks" value="" class="inputs" tabindex="1">
-                <button id="srchbtn" class="btns todobtn">Search Tasks</button>
-            </div>
         </header>
         <main id="gridcontainer">
+            <h2 id="header1" class="centered title">To Do List</h2>
             <div id="left1" class="">
-                <h2 id="header1" class="centered title">To Do List</h2>
                 <div id="todocontainer">
                     <div id="todos"></div>
                     <form id="addbar" class="">
@@ -82,31 +82,31 @@
                 <div id="todo-error"></div>
             </div>
             <div id="right1" class="">
-
-                    <div id="listfooter" class="todo-text foot-row">
-                        <div id="tasks">_ tasks done.</div>
-                        <div id="sortitems">
-                            <p class="">Sort by:</p>
-                            <label for="alpha">
-                                <input type="radio" name="sort" id="alpha" value="alpha">
-                                Alphabetical
-                            </label>
-                            <label for="time">
-                                <input type="radio" name="sort" id="time" value="time" checked>
-                                Timestamp
-                            </label>
-                            <label for="cat">
-                                <input type="radio" name="sort" id="cat" value="cat">
-                                Category
-                            </label>
-                        </div>
-                        <div id="filters">
-                            <button class="btns todobtn" id="allbtn"> All</button>
-                            <button class="btns todobtn" id="pendbtn"> Pending</button>
-                            <button class="btns todobtn" id="donebtn"> Done</button>
-                            <button class="btns todobtn" id="srchbtn2"> Search Again</button>
-                        </div>
+                <div id="listfooter sticky" class="todo-text foot-row">
+                    <div id="tasks">_ tasks done.</div>
+                    <div id="sortitems">
+                        Sort by:
+                        <label for="alpha">
+                            <input type="radio" name="sort" id="alpha" value="alpha">
+                            Alphabetical
+                        </label>
+                        <label for="time">
+                            <input type="radio" name="sort" id="time" value="time" checked>
+                            Timestamp
+                        </label>
+                        <label for="cat">
+                            <input type="radio" name="sort" id="cat" value="cat">
+                            Category
+                        </label>
                     </div>
+                    <div id="filters">
+                        Show:
+                        <button class="btns todobtn" id="allbtn"> All</button>
+                        <button class="btns todobtn" id="pendbtn"> Pending</button>
+                        <button class="btns todobtn" id="donebtn"> Done</button>
+                        <button class="btns todobtn" id="srchbtn2"> Search Again</button>
+                    </div>
+                </div>
             </div>
         </main>
         <br>

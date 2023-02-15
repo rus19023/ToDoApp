@@ -88,35 +88,29 @@ input[type=checkbox].markbtnX {
 
 #gridcontainer {
   grid-area: gridcontainer;
-  grid-template-areas: "left1" "right1";
-}
-
-#right1, #left1 {
-  padding: 0.5vh;
-  background: black;
+  grid-template-areas: "right1" "left1";
 }
 
 #left1 {
   grid-area: left1;
-  grid-template-areas: "header1" "srchbar" "todos" "addbar" "listfooter";
+  grid-template-areas: "header1" "srchbar" "addbar";
 }
 
 #right1 {
-  margin: auto;
   grid-area: right1;
-  grid-template-areas: "todocontainer";
+  grid-template-areas: "header" "listfooter" "todocontainer";
 }
 
 #todocontainer {
   grid-area: todocontainer;
-  grid-template-areas: "header" "todos" "listfooter";
+  grid-template-areas: "todos";
 }
 
 #listfooter {
   display: grid;
   grid-area: listfooter;
   grid-template-columns: 1fr;
-  grid-template-areas: "tasks" "btns";
+  grid-template-areas: "tasks" "sortitems" "filters";
 }
 
 #header1 {
@@ -168,7 +162,7 @@ p.todo-text.cat {
 }
 
 #filters {
-  grid-area: btns;
+  grid-area: filters;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -232,16 +226,15 @@ p.todo-text.cat {
   grid-area: addbtn;
   color: hsl(48deg, 100%, 50%);
   background: hsl(210deg, 100%, 40%);
-  border: 1px solid hsl(48deg, 100%, 50%);
-  border-radius: 4px;
+  border: 1px solid white;
+  border-radius: 25px;
+  width: 25%;
+  margin: 0.25rem;
 }
 
 @media screen and (min-width: 700px) {
   body {
     font-size: 16px;
-  }
-  #gridcontainer {
-    max-width: 90%;
   }
 }
 @media screen and (min-width: 768px) {
@@ -282,8 +275,15 @@ div {
   margin: 0.5rem auto;
 }
 
+div.sticky { /* Safari */
+  position: sticky;
+  top: 0;
+}
+
 footer {
   background: black;
+  width: 92%;
+  margin: 0 auto;
 }
 
 .div-width {
@@ -379,6 +379,7 @@ footer {
 }
 
 .sharer {
+  margin: 0.5rem auto;
   background: black;
   border: none;
 }
@@ -472,6 +473,10 @@ section {
   font-weight: bold;
 }
 
+.lighthover {
+  color: fuchsia;
+}
+
 .title {
   color: hsl(48deg, 100%, 50%);
   margin: 0 auto;
@@ -479,11 +484,11 @@ section {
 }
 
 a {
-  color: #0000cc;
+  color: #8000ff;
   text-decoration: none;
 }
 a a:hover {
-  color: #9933ff;
+  color: #ff33ff;
 }
 
 a:visited {
@@ -491,7 +496,7 @@ a:visited {
 }
 
 a:hover {
-  color: #6600cc;
+  color: #ff33ff;
 }
 
 #siteTitle2 {
@@ -503,11 +508,15 @@ a:hover {
   max-width: 100%;
 }
 
-#social-share {
+#social-share, #left1, #right1 {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  text-align: left;
   background: black;
   border-radius: 20px;
   padding: 0.5rem;
-  margin: 0.5rem;
+  margin: 0.5rem auto;
 }
 
 .inputs {
@@ -520,11 +529,6 @@ a:hover {
 }
 
 ::-moz-placeholder {
-  color: gray;
-  font-size: small;
-}
-
-:-ms-input-placeholder {
   color: gray;
   font-size: small;
 }
@@ -596,6 +600,7 @@ a:hover {
 .todobtn {
   color: hsl(48deg, 100%, 50%);
   background: hsl(210deg, 100%, 40%);
+  margin: 0 0.5rem;
 }
 .todobtn a {
   text-decoration: none;
@@ -603,7 +608,12 @@ a:hover {
   text-align: center;
 }
 .todobtn a :hover {
-  border: 2px solid #00b3ff;
+  border: 5px solid #cc00cc;
+}
+
+#right1, #left1 {
+  padding: 0.5vh;
+  background: black;
 }
 
 .todo-bordered {
@@ -637,19 +647,27 @@ a:hover {
   color: white;
 }
 
+#srchbar {
+  display: flex;
+  flex-direction: row;
+}
 #srchbar #srchinput {
   width: 12rem;
   height: 1.5rem;
-  margin: auto;
+  margin: 0 0.5rem 0;
   font-weight: bold;
   background: #33ff00;
   color: black;
 }
 
+p {
+  padding: 0;
+  margin: 4px;
+}
+
 #todocontainer {
   background: black;
   text-align: center;
-  max-width: 90%;
   margin: 1vw auto;
 }
 #todocontainer #header1 {
@@ -661,7 +679,9 @@ a:hover {
 }
 #todocontainer #todos li.listitem, #todocontainer #dtodos li.listitem {
   max-height: 10rem;
-  margin: auto;
+  margin: 0 auto;
+  padding: 0;
+  border: 2px solid white;
 }
 #todocontainer #todos li.listitem .markbtn, #todocontainer #dtodos li.listitem .markbtn {
   width: 1.5rem;
@@ -672,6 +692,8 @@ a:hover {
 #todocontainer #todos li.listitem .task, #todocontainer #dtodos li.listitem .task {
   text-align: left;
   min-width: 10rem;
+  padding: 0;
+  margin: 0;
 }
 #todocontainer #todos li.listitem .delbtn, #todocontainer #dtodos li.listitem .delbtn {
   color: #cc0000;
@@ -684,7 +706,7 @@ a:hover {
 #todocontainer #todos li.listitem .editbtn, #todocontainer #dtodos li.listitem .editbtn {
   border: 1px solid #00b3ff;
   width: 1.5rem;
-  margin: 0;
+  padding: 1rem;
   color: #00b3ff;
   font-size: 0.5rem;
   font-weight: bold;
@@ -696,7 +718,8 @@ a:hover {
 }
 #todocontainer #addbar #addinput, #todocontainer #addbar #catinput {
   background: hsl(48deg, 100%, 50%);
-  width: 100%;
+  width: 90%;
+  margin: 0 0.5rem;
 }
 #todocontainer #listfooter {
   max-height: 10rem;
@@ -704,6 +727,8 @@ a:hover {
   justify-content: left;
 }
 co #todocontainer #listfooter #filters {
+  width: 90%;
+  margin: 0 0.25rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

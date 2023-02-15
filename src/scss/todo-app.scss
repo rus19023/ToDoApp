@@ -23,8 +23,16 @@ div {
     margin: .5rem auto;
 }
 
+div.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+  }
+
 footer {
     background: black;
+    width: 92%;
+    margin: 0 auto;
 }
 
 .div-width {
@@ -120,6 +128,7 @@ footer {
 }
 
 .sharer {
+    margin: .5rem auto;
     background: black;
     border: none;
     & img {
@@ -209,6 +218,8 @@ section {
     font-weight: bold;
 }
 
+.lighthover { color: lighten($hotpink, 10%) }
+
 .title {
   color: $yellow;
   margin: 0 auto;
@@ -216,10 +227,10 @@ section {
 }
 
 a {
-    color: $royalblue;
+    color: lighten($purple, 10%);
     text-decoration: none;
     & a:hover {
-        color: lighten($purple, 20%);
+        color: lighten($hotpink, 20%);
     }
 }
 
@@ -228,7 +239,7 @@ a:visited {
 }
 
 a:hover {
-    color: $purple;
+    color: lighten($hotpink, 20%);
 }
 
 #siteTitle2 {
@@ -240,11 +251,15 @@ a:hover {
     max-width: 100%;
 }
 
-#social-share {
+#social-share, #left1, #right1 {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    text-align: left;
     background: black;
     border-radius: $radius;
     padding: .5rem;
-    margin: .5rem;
+    margin: .5rem auto;
 }
 
 .inputs {
@@ -323,14 +338,20 @@ a:hover {
 .todobtn {
     color: $yellow;
     background: $contrast;
+    margin: 0 .5rem;
     & a {
       text-decoration: none;
       color: $royalblue;
       text-align: center;
       & :hover {
-          border: 2px solid $skyblue;
+          border: 5px solid $hotpink;
       }
     }
+}
+
+#right1, #left1 {
+    padding: .5vh;    
+    background: black;
 }
 
 .todo-bordered {
@@ -366,20 +387,23 @@ a:hover {
 
 
 #srchbar {
+    display: flex;
+    flex-direction: row;
     & #srchinput {
         width: 12rem;
         height: 1.5rem;
-        margin: auto;
+        margin: 0 .5rem 0;
         font-weight: bold;
         background: $limegreen;
         color: black;
     }
 }
 
+p { padding: 0;  margin: 4px; }
+
 #todocontainer {
     background: black;
     text-align: center;
-    max-width: 90%;
     margin: 1vw auto;
     & #header1 {
         margin-bottom: 0;
@@ -389,7 +413,9 @@ a:hover {
         margin: auto;
         & li.listitem {
             max-height: 10rem;
-            margin: auto;
+            margin: 0 auto;
+            padding: 0;
+            border: $todoborder;
             & .markbtn {
                 width: 1.5rem;
                 height: 1.5rem;
@@ -399,6 +425,8 @@ a:hover {
             & .task {
                 text-align: left;
                 min-width: 10rem;
+                padding: 0;
+                margin: 0;
             }
             & .delbtn {
                 color: $redorange;
@@ -411,7 +439,7 @@ a:hover {
             & .editbtn {
                 border: 1px solid $skyblue;
                 width: 1.5rem;
-                margin: 0;
+                padding: 1rem;
                 color: $skyblue;
                 font-size: $font1;
                 font-weight: bold;
@@ -424,7 +452,8 @@ a:hover {
         padding: 0;
         & #addinput, #catinput {
             background: $yellow;
-            width: 100%;
+            width: 90%;
+            margin: 0 .5rem ;
         }
     }
     & #listfooter {
@@ -433,6 +462,8 @@ a:hover {
         justify-content: left;
         co
         & #filters {
+            width: 90%;
+            margin: 0 .25rem;
             display: flex;
             flex-direction: row;
             justify-content: space-around;
