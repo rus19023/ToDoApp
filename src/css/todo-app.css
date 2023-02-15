@@ -228,7 +228,7 @@ p.todo-text.cat {
   background: hsl(210deg, 100%, 40%);
   border: 1px solid white;
   border-radius: 25px;
-  width: 25%;
+  width: 35%;
   margin: 0.25rem;
 }
 
@@ -259,7 +259,6 @@ p.todo-text.cat {
   }
 }
 body {
-  max-width: 95vw;
   max-height: 95vh;
   margin: 1vh auto;
   color: white;
@@ -282,7 +281,6 @@ div.sticky { /* Safari */
 
 footer {
   background: black;
-  width: 92%;
   margin: 0 auto;
 }
 
@@ -660,6 +658,11 @@ a:hover {
   color: black;
 }
 
+#todocontainer {
+  width: 100%;
+  margin: 0 auto;
+}
+
 p {
   padding: 0;
   margin: 4px;
@@ -668,7 +671,7 @@ p {
 #todocontainer {
   background: black;
   text-align: center;
-  margin: 1vw auto;
+  margin: 0 auto;
 }
 #todocontainer #header1 {
   margin-bottom: 0;
@@ -715,6 +718,9 @@ p {
   cursor: pointer;
   height: 8vw;
   padding: 0;
+  width: 60%;
+  margin: 0 auto;
+  height: 2rem;
 }
 #todocontainer #addbar #addinput, #todocontainer #addbar #catinput {
   background: hsl(48deg, 100%, 50%);

@@ -7,7 +7,6 @@
 @import "large";
 
 body {
-    max-width: 95vw;
     max-height: 95vh;
     margin: 1vh auto;
     color: white;
@@ -31,7 +30,6 @@ div.sticky {
 
 footer {
     background: black;
-    width: 92%;
     margin: 0 auto;
 }
 
@@ -399,12 +397,14 @@ a:hover {
     }
 }
 
+#todocontainer { width: 100%; margin: 0 auto; }
+
 p { padding: 0;  margin: 4px; }
 
 #todocontainer {
     background: black;
     text-align: center;
-    margin: 1vw auto;
+    margin: 0 auto;
     & #header1 {
         margin-bottom: 0;
     }
@@ -450,6 +450,9 @@ p { padding: 0;  margin: 4px; }
         cursor: pointer;
         height: 8vw;
         padding: 0;
+        width: 60%;
+        margin: 0 auto;
+        height: 2rem;
         & #addinput, #catinput {
             background: $yellow;
             width: 90%;
