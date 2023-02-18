@@ -409,7 +409,7 @@ div#tasks, div#sortitems, div#filters { padding: 0 .5rem; }
     }
 }
 
-#todocontainer { width: 90%; margin: 0 auto; }
+#todocontainer { margin: 0 auto; }
 
 p { padding: 0;  margin: 4px; }
 
@@ -467,13 +467,12 @@ p { padding: 0;  margin: 4px; }
         height: 2rem;
         & #addinput, #catinput {
             background: $yellow;
-            width: 90%;
+            width: 100%;
             margin: 0 .5rem ;
         }
     }
     & #listfooter {
         max-height: 10rem;
-        max-width: 96%;
         padding: .25rem;
         margin: 2vw;
         justify-content: center;

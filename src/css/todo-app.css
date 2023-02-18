@@ -676,7 +676,6 @@ div#tasks, div#sortitems, div#filters {
 }
 
 #todocontainer {
-  width: 90%;
   margin: 0 auto;
 }
 
@@ -741,12 +740,11 @@ p {
 }
 #todocontainer #addbar #addinput, #todocontainer #addbar #catinput {
   background: hsl(48deg, 100%, 50%);
-  width: 90%;
+  width: 100%;
   margin: 0 0.5rem;
 }
 #todocontainer #listfooter {
   max-height: 10rem;
-  max-width: 96%;
   padding: 0.25rem;
   margin: 2vw;
   justify-content: center;
