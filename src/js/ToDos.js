@@ -240,7 +240,7 @@ export default class Todolist {
             console.log('datee',datee);
             // let datee2 = Date.parse(new Date(datee));
             // console.log('datee2',datee2);
-            let itemdate = new Date(datee).toLocaleString();
+            let itemdate = new Date(datee).toLocaleDateString();
             console.log('itemdate', itemdate);
             console.log('');
 

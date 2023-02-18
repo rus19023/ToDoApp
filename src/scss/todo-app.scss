@@ -35,13 +35,12 @@ div.sticky {
 footer {
     background: black;
     margin: 0 auto;
-    width: 94%;
 }
 
 .div-width {
     width: 10rem;
     padding: 1rem;
-    margin: 1rem;
+    margin: 1rem auto;
     font-weight: bold;
     font-size: large;
     color: white;
@@ -131,7 +130,7 @@ footer {
 }
 
 .sharer {
-    margin: .5rem auto;
+    margin: 0 auto;
     background: black;
     border: none;
     & img {
@@ -188,7 +187,6 @@ p,
 header,
 section {
     font-family: $fontsecond;
-    border-radius: $radius;
 }
 
 .morespc { line-height: 1.5; }
@@ -257,12 +255,10 @@ a:hover {
 .bgblack { background: black; border: none; }
 
 #social-share, #left1, #right1 {
-    width: 90%;
     text-align: left;
     background: black;
-    border-radius: $radius;
     padding: .5rem;
-    margin: .5rem auto;
+    margin: 0;
 }
 
 .inputs {
@@ -275,7 +271,7 @@ a:hover {
 }
 
 ::placeholder {
-    color: lighten(black, 50%);
+    color: lighten(black, 45%);
     font-size: small;
 }
 
@@ -462,12 +458,10 @@ p { padding: 0;  margin: 4px; }
         cursor: pointer;
         height: 8vw;
         padding: 0;
-        width: 100%;
         margin: 0 auto;
         height: 2rem;
         & #addinput, #catinput {
             background: $yellow;
-            width: 100%;
             margin: 0 .5rem ;
         }
     }
@@ -475,18 +469,16 @@ p { padding: 0;  margin: 4px; }
         max-height: 10rem;
         padding: .25rem;
         margin: 2vw;
-        justify-content: center;
-        co
+        justify-content: space-around;
+        
         & #filters {
-            width: 90%;
-            margin: 0 .25rem;
-            display: flex;
+            margin: 0;
+            display: flex; 
             flex-direction: row;
-            justify-content: space-around;
         }
         & p#tasks {
             font-size: $font2;
-            text-align: center;
+            text-align: left;
             margin: 1vw auto;
             max-height: 6vh;
             width: 100%;
