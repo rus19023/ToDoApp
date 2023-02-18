@@ -41,30 +41,34 @@
                     </a>
                 </p>
             </section>
-            <section id="social-share">
-                <h3 class="title">Share: </h3>
-                <button class="sharer"
-                    data-sharer="facebook"
-                    data-url="https://rus19023.github.io/ToDoApp/"
-                    data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho">
-                    <img class="centered icons" width="40px" height="40px" src="./src/img/icons/icons8-facebook-96.png" alt="share on Facebook">
-                </button>
-                <button class="sharer"
-                    data-sharer="linkedin"
-                    data-url="https://rus19023.github.io/ToDoApp/"
-                    data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho"
-                    >
-                    <img class="centered icons" width="40px" height="40px" src="./src/img/icons/icons8-linkedin-96.png" alt="">
-                </button>
-                <button class="sharer"
-                    data-sharer="whatsapp"
-                    data-title="Checkout my To Do App! "
-                    data-url="https://rus19023.github.io/ToDoApp/">
-                    <img class="centered icons" width="40px" height="40px" src="./src/img/icons/icons8-whatsapp-96.png" alt="">
-                </button>
-                <div id="srchbar" class="todo-text">
-                    <input id="srchinput" type="text" name="srchinput" placeholder="Search in tasks" value="" class="inputs" tabindex="1">
-                    <button id="srchbtn" class="btns todobtn">Search Tasks</button>
+            <section class="col-span-1">
+                <div id="social-share">
+                    <div class="col-span-4">
+                        <button class="title bgblack">Share: </button>
+                        <button class="sharer"
+                            data-sharer="facebook"
+                            data-url="https://rus19023.github.io/ToDoApp/"
+                            data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho">
+                            <img class="centered icons socialicons" src="./src/img/icons/icons8-facebook-96.png" alt="share on Facebook">
+                        </button>
+                        <button class="sharer"
+                            data-sharer="linkedin"
+                            data-url="https://rus19023.github.io/ToDoApp/"
+                            data-hashtags="#ToDoApp #BonnieSitesDotSolutions #DorisRushLopez #BYU-Idaho"
+                            >
+                            <img class="centered icons socialicons" src="./src/img/icons/icons8-linkedin-96.png" alt="">
+                        </button>
+                        <button class="sharer"
+                            data-sharer="whatsapp"
+                            data-title="Checkout my To Do App! "
+                            data-url="https://rus19023.github.io/ToDoApp/">
+                            <img class="centered icons" src="./src/img/icons/icons8-whatsapp-96.png" alt="">
+                        </button>
+                    </div>
+                    <div id="srchbar" class="todo-text">
+                        <input id="srchinput" type="text" name="srchinput" placeholder="Search in tasks" value="" class="inputs" tabindex="1">
+                        <button id="srchbtn" class="btns todobtn">Search</button>
+                    </div>
                 </div>
             </section>
         </header>
@@ -76,7 +80,7 @@
                     <form id="addbar" class="">
                         <input id="catinput" type="text" name="catinput" placeholder="Task Category" class="inputs" autofocus tabindex="0" value="">
                         <input id="addinput" type="text" name="addinput" placeholder="Enter To Do task" value="" class="inputs" autofocus tabindex="1">
-                        <button id="addbtn" class="btns">Add Task</button>
+                        <button id="addbtn" class="btns">Add</button>
                     </form>
                 </div>
                 <div id="todo-error"></div>
@@ -85,7 +89,7 @@
                 <div id="listfooter sticky" class="todo-text foot-row">
                     <div id="tasks">_ tasks done.</div>
                     <div id="sortitems">
-                        Sort by:
+                         Sort:
                         <label for="alpha">
                             <input class="sortitems" type="radio" name="sort" id="alpha" value="alpha">
                             Alphabetical
@@ -114,8 +118,8 @@
             <div class="normal-text centered">
                 All icons from 
                 <a href="https://icons8.com">icons8.com</a>
+                <div id="autofooter" class="footer footer-center "></div>
             </div>
-            <div id="autofooter" class="footer footer-center "></div>
         </footer>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

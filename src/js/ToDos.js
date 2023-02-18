@@ -84,9 +84,9 @@ export default class Todolist {
         this.todolist = await this.getList(this.listname);
         this.searchTerm = qs("#srchinput").value;
         let newlist = [];
-        this.todoList.forEach((field) => {
-            if ((field.task.toLowerCase().includes(this.searchTerm.toLowerCase())) || (field.category.toLowerCase().includes(this.searchTerm.toLowerCase()))) {
-                newlist.push(field);
+        this.todoList.forEach((task) => {
+            if ((task.task.toLowerCase().includes(this.searchTerm.toLowerCase())) || (task.category.toLowerCase().includes(this.searchTerm.toLowerCase()))) {
+                newlist.push(task);
             }
         });
         // Save filtered list to property
@@ -180,13 +180,16 @@ export default class Todolist {
         this.todo_error = '';
         // Get current error message
         qs("#todo-error").innerText = this.todo_error;
-        // grab todo from input field
+        // grab task input from add task form
         const task = qs("#addinput");
+        // grab category input from add task form
         let category = qs("#catinput").value;
-        console.log(`category: ${category}`);
+        // check if category input is blank
         if (category.length == 0) {
+            // if it's blank, set it to 'General'
             category = 'General';
         } else {
+            // not blank, add a task number
             this.taskCount++;
             if (this.taskCount < 9) {
                 category;//  += '-0' + this.taskCount.toString();
@@ -194,44 +197,68 @@ export default class Todolist {
                 category;//  += '-'+ this.taskCount.toString();          
             }
         }
+        // check for task input not blank
         if (task.length == 0) { task.push('Custom to do list item'); }
         if (!task.value.length > 0) {
+            // it's blank, ask user to enter something
             this.todo_error = 'Item cannot be blank, please enter your todo.';
             qs("#todo-error").innerText = this.todo_error;
         } 
+        // check for entry too short
         else if (!task.value.length > 5) {
+            // entry too short, ask user to make it longer
             this.todo_error = 'Item must be longer than 5 characters, please enter your todo.';
             qs("#todo-error").innerText = this.todo_error;
         } 
         else {
-        console.log("inside addTodo, just before saveTodo");
-        console.log(`category: ${category}`);
-        console.log(`task.value: ${task.value}`);
+            // task is ok, add to list for storage with others
+            console.log("inside addTodo, just before saveTodo");
+            console.log(`category: ${category}`);
+            console.log(`task.value: ${task.value}`);
             saveTodo(category, task.value); 
             qs("#addinput").value = '';
         }
+        // display the list on screen
+        console.log('this.todoList'. this.todoList);
         this.renderTodoList(this.todoList, 'todos');
     }
 
     renderTodoList(renderlist, parentElName) {
+        // sort list of tasks
         this.sortList(renderlist);
         // build new display
         const parentEl = qs(`#${parentElName}`);
         parentEl.innerText = '';
-        renderlist.forEach((field) => {
+        renderlist.forEach((task) => {
             // create new list item
-            //                   createLMNT(LMNT, LMNTtype, LMNTid, LMNTtext, LMNTclass)
-            let item = createLMNT('div', '', field.id, '', ' todobordered listitem nodots');            
-            let itemtext = createLMNT("p", "", "", `${field.category}: ${field.task}`, "todo-text task ");
-            //let markbox = createLMNT('label', `lbl${field.id}`, '', '', 'bordered markbtn');
-            let markbtn = createLMNT("input", "checkbox", `mark${field.id}`, "", "itembtns markbtn chkbtn"); //  "✕"
-            let delbtn = createLMNT("button", "button", `del${field.id}`, "✕", "btns itembtns delbtn chkbtn");
-            let editbtn = createLMNT("button", "button", `edit${field.id}`, "Edit", "btns itembtns editbtn chkbtn");
+            // createLMNT(LMNT, type, id, text, class)
+            let item = createLMNT('div', '', task.id, '', ' todobordered listitem nodots');
+            // get date from task.id
+            
+            //console.log('Date.now()',Date.now());
+            let datee = +task.id;
+            console.log('datee',datee);
+            // let datee2 = Date.parse(new Date(datee));
+            // console.log('datee2',datee2);
+            let itemdate = new Date(datee).toLocaleString();
+            console.log('itemdate', itemdate);
+            console.log('');
+
+            // let taskid = +task.id;            
+            // let dateitem = Date.parse(new Date(taskid));
+            // console.log('dateitem',dateitem);
+            // let itemdate = dateitem.toLocaleString();
+            // console.log('itemdate', itemdate);           
+            let itemtext = createLMNT("p", "", "", `${itemdate} ${task.category}: ${task.task}`, "todo-text task ");
+            //let markbox = createLMNT('label', `lbl${task.id}`, '', '', 'bordered markbtn');
+            let markbtn = createLMNT("input", "checkbox", `mark${task.id}`, "", "itembtns markbtn chkbtn"); //  "✕"
+            let delbtn = createLMNT("button", "button", `del${task.id}`, "✕", "btns itembtns delbtn chkbtn");
+            let editbtn = createLMNT("button", "button", `edit${task.id}`, "Edit", "btns itembtns editbtn chkbtn");
             //let editicon = createLMNT("img", "", "", "", "editicon");
             //editicon.setAttribute('src', '../img/icons8-edit-30.png');
 
             // Done tasks show as "scratched out or lined out"
-            if (field.done === true) {
+            if (task.done === true) {
                 itemtext.classList.add("todo-scratch");
                 markbtn.classList.add('markbtnX');
                 markbtn.checked = true;

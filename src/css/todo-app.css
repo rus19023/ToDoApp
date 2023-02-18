@@ -270,6 +270,10 @@ body {
   background-attachment: fixed;
 }
 
+label {
+  font-size: medium;
+}
+
 div {
   margin: 0.5rem auto;
 }
@@ -282,6 +286,7 @@ div.sticky { /* Safari */
 footer {
   background: black;
   margin: 0 auto;
+  width: 94%;
 }
 
 .div-width {
@@ -482,7 +487,7 @@ section {
 }
 
 a {
-  color: #8000ff;
+  color: #ff0080;
   text-decoration: none;
 }
 a a:hover {
@@ -506,9 +511,12 @@ a:hover {
   max-width: 100%;
 }
 
+.bgblack {
+  background: black;
+  border: none;
+}
+
 #social-share, #left1, #right1 {
-  display: flex;
-  flex-direction: row;
   width: 90%;
   text-align: left;
   background: black;
@@ -564,6 +572,11 @@ a:hover {
   background: black;
 }
 
+.socialicons {
+  width: 1rem;
+  height: 1rem;
+}
+
 .itembtns {
   margin: auto;
   font-size: small;
@@ -610,8 +623,7 @@ a:hover {
 }
 
 #right1, #left1 {
-  padding: 0.5vh;
-  background: black;
+  padding: 0.5%;
 }
 
 .todo-bordered {
@@ -639,6 +651,11 @@ a:hover {
   color: white;
   text-align: left;
   font-weight: bold;
+  font-size: medium;
+}
+
+div#tasks, div#sortitems, div#filters {
+  padding: 0 0.5rem;
 }
 
 .todo-text {
@@ -659,7 +676,7 @@ a:hover {
 }
 
 #todocontainer {
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -718,7 +735,7 @@ p {
   cursor: pointer;
   height: 8vw;
   padding: 0;
-  width: 60%;
+  width: 100%;
   margin: 0 auto;
   height: 2rem;
 }
@@ -729,8 +746,10 @@ p {
 }
 #todocontainer #listfooter {
   max-height: 10rem;
+  max-width: 96%;
+  padding: 0.25rem;
   margin: 2vw;
-  justify-content: left;
+  justify-content: center;
 }
 co #todocontainer #listfooter #filters {
   width: 90%;
@@ -740,7 +759,7 @@ co #todocontainer #listfooter #filters {
   justify-content: space-around;
 }
 #todocontainer #listfooter p#tasks {
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-align: center;
   margin: 1vw auto;
   max-height: 6vh;
