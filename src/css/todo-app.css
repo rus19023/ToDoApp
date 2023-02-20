@@ -137,7 +137,7 @@ input[type=checkbox].markbtnX {
 .listitem {
   grid-area: listitem;
   display: grid;
-  grid-template-columns: 8% 72% 15% 5%;
+  grid-template-columns: 6% 72% 15% 5%;
   grid-template-areas: "markbtn task editbtn delbtn";
 }
 
@@ -695,6 +695,7 @@ p {
   max-height: 10rem;
   margin: 0 auto;
   padding: 0;
+  max-width: 90%;
   border: 2px solid white;
 }
 #todocontainer #todos li.listitem .markbtn, #todocontainer #dtodos li.listitem .markbtn {

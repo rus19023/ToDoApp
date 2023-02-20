@@ -63,7 +63,7 @@
 .listitem {
     grid-area: listitem;
     display: grid;
-    grid-template-columns: 8% 72% 15% 5%;
+    grid-template-columns: 6% 72% 15% 5%;
     grid-template-areas: "markbtn task editbtn delbtn";
 }
 
