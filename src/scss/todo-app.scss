@@ -366,6 +366,16 @@ a:hover {
     -o-border-radius: $radius;
 }
 
+#addbtn {
+    color: $yellow;
+    background: $medblue;
+    border: 1px solid white;
+    border-radius: 25px;
+    width: 35%;
+    margin: .25rem;
+    max-width: 3rem;
+}
+
 .white {
     color: white;
 }

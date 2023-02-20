@@ -9,32 +9,25 @@
     grid-area: left1;
     grid-template-areas:
     "header1" 
-    "srchbar"
-    "addbar";
+    "utilities";
 }
 
 #right1 {
     grid-area: right1;
-    grid-template-areas:
-    "header"
-    "listfooter"
-    "todocontainer";
-}
-
-#todocontainer {
-    grid-area: todocontainer;
     grid-template-areas:
     "todos";
 }
 
 #listfooter {
     display: grid;
-    grid-area: listfooter;
+    grid-area: utilities;
     grid-template-columns: 1fr;
     grid-template-areas:
     "tasks"
     "sortitems"
-    "filters";
+    "filters"
+    "srchbar"
+    "addbar";
 }
 
 #header1 {
@@ -151,12 +144,10 @@ p.todo-text.cat {
     padding: 0 1vh;
 }
 
+#addinput, #catinput {
+    width: 100%;
+}
+
 #addbtn {
     grid-area: addbtn;
-    color: $yellow;
-    background: $medblue;
-    border: 1px solid white;
-    border-radius: 25px;
-    width: 35%;
-    margin: .25rem;
 }
