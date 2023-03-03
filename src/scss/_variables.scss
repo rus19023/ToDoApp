@@ -31,7 +31,7 @@ $newblue:       adjust-hue($uYellow, 180deg);
 // $dksalmon:      adjust-hue($orange,  -60deg);
 // $redorange:     adjust-hue($orange,  -30deg);
 
-$todoborder: 2px solid white;
+$goalborder: 2px solid white;
 $dotborder: 2px dotted white;
 
 $accent2: lighten($orange, 10%);
@@ -75,7 +75,7 @@ $oldwarning: #bd0000;
 
 $formshadow: 0 0 10px $orange;
 $greyshadow: 0 0 20px $mdgrey;
-$radius: 20px;
+$radius: 4px;
 $border: 2px solid $orange;
 $borderb: 4px solid $orange;
 $borderwarn: 4px solid $warning;

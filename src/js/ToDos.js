@@ -16,20 +16,20 @@ import { qs, createLMNT, setFooter, onTouch } from "./utilities.js";
 // }
 // ocean.appendChild(docFrag);
 
-let todoList = [];
+let goalList = [];
 const listkey = 'items';
 var customtasks = [
     "Push changes to github more often, whenever something is working, commit and push it. You never know when something might go wrong...it's better to be safe with a backup than sorry."
 ];
 
-export default class Todolist {
+export default class goallist {
     // a class needs a constructor
     constructor(parentId) {
         this.taskCount = 0;
         this.parentId = parentId;
         this.listname = listkey;
-        this.todoList = [];
-        this.todo_error = 'text set in constructor';
+        this.goalList = [];
+        this.goal_error = '';
         this.sortval = 'time';
         this.filter = 'all';
         this.searchTerm = qs('#srchinput');
@@ -38,15 +38,15 @@ export default class Todolist {
         this.pendbtn = qs('#pendbtn');
         this.donebtn = qs('#donebtn');
         this.addbtn = qs('#addbtn');
-        this.srchbtn2 = qs('#srchbtn2');
+        //this.srchbtn2 = qs('#srchbtn2');
         this.alphabtn = qs('#alpha');
         this.catbtn = qs('#cat');
         this.timebtn = qs('#time');
-        //this.srchbtn = onTouch(this.srchbtn, () => this.listFiltered());
-        this.srchbtn.addEventListener('click', () => { this.listFiltered(); }, false);
-        this.srchbtn2.addEventListener('click', () => { this.listFiltered(); }, false);
-        //this.addbtn.onTouch(), this.addTodo();
-        this.addbtn.addEventListener('click', () => { this.addTodo(); }, false);
+        //this.srchbtn = onTouch(this.srchbtn, () => this.listSearchFiltered());
+        this.srchbtn.addEventListener('click', () => { this.listSearchFiltered(); }, false);
+        //this.srchbtn2.addEventListener('click', () => { this.listSearchFiltered(); }, false);
+        //this.addbtn.onTouch(), this.addGoal();
+        this.addbtn.addEventListener('click', () => { this.addGoal(); }, false);
         this.allbtn.addEventListener('click', () => { this.listAll(); }, false);
         this.pendbtn.addEventListener('click', () => { this.listPending(); }, false);
         this.donebtn.addEventListener('click', () => { this.listDone(); }, false);
@@ -57,92 +57,98 @@ export default class Todolist {
 
     // TODO:  add functionality to choose from listnames or just filter on category?
     async listAll() {
-        this.filter = 'all';
-        this.todolist = await this.getList(this.listname);
-        this.renderTodoList(this.todoList, 'todos');
+        this.filter = 'All';
+        this.goallist = await this.getList(this.listname);
+        this.renderList(this.goalList, 'goals');
     }
 
     async getList(listname) {
-        this.todoList = await getTodos(listname);
+        this.goalList = await getGoals(listname);
     }
 
     async listPending() {
-        this.filter = 'pending';
-        this.todolist = await this.getList(this.listname);
-        this.todoList = this.todoList.filter(el => !el.done);
-        this.renderTodoList(this.todoList, 'todos');
+        this.filter = 'Working on it';
+        this.goallist = await this.getList(this.listname);
+        this.goalList = this.goalList.filter(el => !el.done);
+        this.renderList(this.goalList, 'goals');
     }
 
     async listDone() {
-        this.filter = 'done';
-        this.todolist = await this.getList(this.listname);
-        this.todoList = this.todoList.filter(el => el.done);
-        this.renderTodoList(this.todoList, 'todos');
+        this.filter = 'Achieved';
+        this.goallist = await this.getList(this.listname);
+        this.goalList = this.goalList.filter(el => el.done);
+        this.renderList(this.goalList, 'goals');
     }
 
-    async listFiltered() {
-        this.todolist = await this.getList(this.listname);
+    async listSearchFiltered() {
+        this.goallist = await this.getList(this.listname);
         this.searchTerm = qs("#srchinput").value;
         let newlist = [];
-        this.todoList.forEach((task) => {
-            if ((task.task.toLowerCase().includes(this.searchTerm.toLowerCase())) || (task.category.toLowerCase().includes(this.searchTerm.toLowerCase()))) {
-                newlist.push(task);
+        // Check for missing search term entry
+        while (this.searchTerm === "" || this.searchTerm.length < 3) {
+            this.searchTerm = qs("#srchinput").value;
+            let searchError = qs("#searcherror");
+            searchError.innerText = 'Search term is too short, please enter more characters';
+        }
+        this.goalList.forEach((goal) => {
+            if ((goal.task.toLowerCase().includes(this.searchTerm.toLowerCase())) || (goal.category.toLowerCase().includes(this.searchTerm.toLowerCase()))) {
+                newlist.push(goal);
             }
         });
         // Save filtered list to property
-        this.todoList = newlist;
+        this.goalList = newlist;
         // Display filtered and sorted list
-        this.renderTodoList(this.todoList, 'todos');
+        this.renderList(this.goalList, 'goals');
         // Show item stats for filtered list
         this.itemsLeft(this.searchTerm);
     }
 
-    // function to show how many items are in the current todo list
+    // function to show how many items are in the current list
     itemsLeft(filter) {
-        const itemcount = this.todoList.length;
+        const itemcount = this.goalList.length;
         let t;
         if (itemcount === 1) {
-          t = ' list item ';
+          t = ' goal ';
         } else if ((itemcount > 1) || (itemcount === 0)) {
-          t = ' list items ';
+          t = ' goals ';
         }
-        let tasktext = '';
-        let done = this.todoList.filter(item => item.done === true).length;
+        let goaltext = '';
+        let done = this.goalList.filter(item => item.done === true).length;
         let pending = (itemcount - done);
         switch (filter) {
-            case ('all'):
-                tasktext = 'Pending: ' + pending +  t + ', Done: ' + done + t;
-                this.allbtn.classList.add('todobordered');
-                this.srchbtn.classList.remove('todobordered');
-                this.pendbtn.classList.remove('todobordered');
-                this.donebtn.classList.remove('todobordered');
+            case ('All'):
+                goaltext = 'Working on it: ' + pending + t + ', Achieved: ' + done + t;
+                this.allbtn.classList.add('goalbordered');
+                this.srchbtn.classList.remove('goalbordered');
+                this.pendbtn.classList.remove('goalbordered');
+                this.donebtn.classList.remove('goalbordered');
                 break;
 
-            case ('pending'):
-                tasktext = `Pending: ${pending} ${t}`;
-                this.pendbtn.classList.add('todobordered');
-                this.allbtn.classList.remove('todobordered');
-                this.pendbtn.classList.remove('todobordered');
-                this.donebtn.classList.remove('todobordered');
+            case ("Working on it"):
+                goaltext = `Working on it: ${pending} ${t}`;
+                this.pendbtn.classList.add('goalbordered');
+                this.allbtn.classList.remove('goalbordered');
+                this.pendbtn.classList.remove('goalbordered');
+                this.donebtn.classList.remove('goalbordered');
                 break;
 
-            case ('done'):
-                tasktext = `Done: ${done} ${t}`;
-                this.donebtn.classList.add('todobordered');
-                this.allbtn.classList.remove('todobordered');
-                this.pendbtn.classList.remove('todobordered');
-                this.srchbtn.classList.remove('todobordered');
+            case ('Achieved'):
+                goaltext = `Achieved: ${done} ${t}`;
+                this.donebtn.classList.add('goalbordered');
+                this.allbtn.classList.remove('goalbordered');
+                this.pendbtn.classList.remove('goalbordered');
+                this.srchbtn.classList.remove('goalbordered');
                 break;
 
             default:
-                tasktext = `Search: ${itemcount} ${t} found for "${filter}"`;
-                this.srchbtn.classList.add('todobordered');
-                this.allbtn.classList.remove('todobordered');
-                this.pendbtn.classList.remove('todobordered');
-                this.donebtn.classList.remove('todobordered');
+                goaltext = `Search: ${itemcount} ${t} found for "${filter}"`;
+                this.srchbtn.classList.add('goalbordered');
+                this.allbtn.classList.remove('goalbordered');
+                this.pendbtn.classList.remove('goalbordered');
+                this.donebtn.classList.remove('goalbordered');
                 break;
         }
-        qs("#tasks").innerHTML = tasktext;
+        qs("#tasks").innerHTML = goaltext;
         setFooter();
     }
 
@@ -150,7 +156,7 @@ export default class Todolist {
         // function to add Custom todos to the todo list from an array of objects
         // TODO: get from JSON file or API or firebase/mongodb
         let runlist = false;
-        let mytasks = getTodos(this.listname);
+        let mytasks = getGoals(this.listname);
         if (mytasks.length == 0) { runlist = true; }
         if (runlist) {
             customtasks.forEach(citem => {
@@ -158,14 +164,14 @@ export default class Todolist {
                 // be sure item is not null/blank, if so, give user a message to enter some text
                 if (!citem.length > 0) {
                     let cat = 'From custom todos'
-                    this.todo_error = 'Item cannot be blank, there is an error in the input file.';
-                    qs("#todo-error").innerText = this.todo_error;
+                    this.goal_error = 'Item cannot be blank, there is an error in the input file.';
+                    qs("#todo-error").innerText = this.goal_error;
                 } else {
                     // check if task is not already in the list
                     let match = customtasks.filter((citem) => (citem.task === citem));
                     // add new item if "citem" is not already in the storage "items"
                     if (match = [] || match == null) {
-                        saveTodo(cat, citem, this.listname, this.sortval);
+                        saveGoal(cat, citem);
                         customtasks = customtasks.filter((citem) => (!citem.task === citem));
                     }
                     this.listAll();
@@ -175,17 +181,36 @@ export default class Todolist {
         }
     }
 
-    addTodo() {
-        // Clear error message
-        this.todo_error = '';
-        // Get current error message
-        qs("#todo-error").innerText = this.todo_error;
-        // grab task input from add task form
-        const task = qs("#addinput");
+    chkLength(input) {
+        // grab input from form
+        var getInput = qs(input);
+        var inputValue = getInput.value;
+        if (inputValue.length < 3) {
+            this.showError('Input too short, please enter longer text.');
+            return '';
+        } else {
+            return inputValue;
+        }
+    }
+
+    showError(errorText) {
+        console.log("errorText", errorText);
+        inputValue.innerText = errorText;
+    }
+
+    getListHeading(sort, filter) {
+        let title = `My Goals\n ${sort} and ${filter}`;
+        let titleEl = qs('#header1');
+        titleEl.innerText = title;
+    }
+
+    addGoal() {
+        console.log('addGoal() invoked')
+        const task = this.chkLength('#addinput', '');
         // grab category input from add task form
-        let category = qs("#catinput").value;
+        const category = qs("#catinput").value;
         // check if category input is blank
-        if (category.length == 0) {
+        if (category.length === 0) {
             // if it's blank, set it to 'General'
             category = 'General';
         } else {
@@ -198,74 +223,61 @@ export default class Todolist {
             }
         }
         // check for task input not blank
-        if (task.length == 0) { task.push('Custom to do list item'); }
-        if (!task.value.length > 0) {
-            // it's blank, ask user to enter something
-            this.todo_error = 'Item cannot be blank, please enter your todo.';
-            qs("#todo-error").innerText = this.todo_error;
-        } 
-        // check for entry too short
-        else if (!task.value.length > 5) {
-            // entry too short, ask user to make it longer
-            this.todo_error = 'Item must be longer than 5 characters, please enter your todo.';
-            qs("#todo-error").innerText = this.todo_error;
-        } 
-        else {
+        //if (task.length == 0) { task.push('Custom goal'); }
+            chkLength(task.value);
             // task is ok, add to list for storage with others
-            console.log("inside addTodo, just before saveTodo");
-            console.log(`category: ${category}`);
+            console.log("inside addGoal, just before saveGoal");
+            console.log(`task.category: ${task.category}`);
             console.log(`task.value: ${task.value}`);
-            saveTodo(category, task.value); 
+            saveGoal(category, task.value); 
             qs("#addinput").value = '';
-        }
         // display the list on screen
-        console.log('this.todoList'. this.todoList);
-        this.renderTodoList(this.todoList, 'todos');
+        console.log('this.goalList'. this.goalList);
+        this.renderList(this.goalList, 'goals');
     }
 
-    renderTodoList(renderlist, parentElName) {
+    getDate(id) {
+        return new Date(+id).toLocaleDateString();
+    }
+
+    renderList(renderlist, parentElName) {
+        //console.log('renderList() invoked');
         // sort list of tasks
         this.sortList(renderlist);
         // build new display
         const parentEl = qs(`#${parentElName}`);
         parentEl.innerText = '';
-        renderlist.forEach((task) => {
-            // create new list item
+        renderlist.forEach((goal) => {
+            // create new goal
             // createLMNT(LMNT, type, id, text, class)
-            let item = createLMNT('div', '', task.id, '', ' todobordered listitem nodots');
-            // get date from task.id
-            
-            //console.log('Date.now()',Date.now());
-            let datee = +task.id;
-            console.log('datee',datee);
-            // let datee2 = Date.parse(new Date(datee));
-            // console.log('datee2',datee2);
-            let itemdate = new Date(datee).toLocaleDateString();
-            console.log('itemdate', itemdate);
-            console.log('');
+            const item = createLMNT('div', '', goal.id, '', 'goalbordered listitem nodots');
+            // get date from goal.id
+            const itemtext = createLMNT("p", "", "", `${this.getDate(goal.id)}\n ${goal.category}: ${goal.task}`, "todo-text task");
+            // const markbtn = createLMNT("input", "checkbox", `mark${goal.id}`, "", "itembtns markbtn chkbtn"); //  "✕"
 
-            // let taskid = +task.id;            
-            // let dateitem = Date.parse(new Date(taskid));
-            // console.log('dateitem',dateitem);
-            // let itemdate = dateitem.toLocaleString();
-            // console.log('itemdate', itemdate);           
-            let itemtext = createLMNT("p", "", "", `${itemdate} ${task.category}: ${task.task}`, "todo-text task ");
-            //let markbox = createLMNT('label', `lbl${task.id}`, '', '', 'bordered markbtn');
-            let markbtn = createLMNT("input", "checkbox", `mark${task.id}`, "", "itembtns markbtn chkbtn"); //  "✕"
-            let delbtn = createLMNT("button", "button", `del${task.id}`, "✕", "btns itembtns delbtn chkbtn");
-            let editbtn = createLMNT("button", "button", `edit${task.id}`, "Edit", "btns itembtns editbtn chkbtn");
-            //let editicon = createLMNT("img", "", "", "", "editicon");
-            //editicon.setAttribute('src', '../img/icons8-edit-30.png');
+            const markbtn = createLMNT("button", "button", `mark${goal.id}`, "Done", "itembtns markbtn chkbtn");
+            const editbtn = createLMNT("button", "button", `edit${goal.id}`, "Edit", "itembtns editbtn chkbtn");
+            const delbtn = createLMNT("button", "button", `del${goal.id}`, "✕", "itembtns delbtn chkbtn");
 
             // Done tasks show as "scratched out or lined out"
-            if (task.done === true) {
-                itemtext.classList.add("todo-scratch");
-                markbtn.classList.add('markbtnX');
-                markbtn.checked = true;
-            } else {
-                markbtn.checked = false;
-                markbtn.classList.remove('markbtnX');
-                itemtext.classList.remove("todo-scratch");
+            if (goal.done === true) {
+                // Mark the goal text as scratched-out                
+                itemtext.classList.add("todo-scratch");                
+                // Change button text                
+                markbtn.innerText = 'Undo';                
+                // Change color of text and border                
+                markbtn.classList.add('markbtnX');                
+                markbtn.classList.remove('undone');                
+                //markbtn.checked = true;                
+            } else {                
+                // Change button text                
+                markbtn.innerText = 'Done';                
+                // Remove scratched-out style                
+                itemtext.classList.remove("todo-scratch");                
+                // Change color of text and border                
+                markbtn.classList.remove('markbtnX');                
+                markbtn.classList.add('undone');                
+                //markbtn.checked = false;                
             }
             item.appendChild(markbtn);
             item.appendChild(itemtext);
@@ -274,6 +286,7 @@ export default class Todolist {
             parentEl.appendChild(item);
         });        
         this.itemsLeft(this.filter);
+        this.getListHeading(this.sortval, this.filter);
         this.checkBtn();
     }
 
@@ -283,23 +296,25 @@ export default class Todolist {
             item.addEventListener('click', function(e) {
                 const btnid = e.target.getAttribute('id');
                 // check if the event is a checkbox
-                if (e.target.type === 'checkbox') {
-                    // get id from button id value and toggle the state
-                    markDone(btnid);
-                    this.renderTodoList(this.todoList, 'todos');
+                if (e.target.classList.contains('markbtn')) {
+                    // get id from button id value and delete it
+                    console.log(btnid);
+                    let markbtnID = btnid.substring(4);
+                    markDone(markbtnID);
+                    //this.renderList(this.goalList, 'goals');
                 }
                 // check if that is a delete-button
                 if (e.target.classList.contains('delbtn')) {
                     // get id from button id value and delete it
-                    let btnidsub = btnid.substring(3, btnid.length);
-                    deleteTodo(btnidsub);
-                    this.renderTodoList(this.todoList, 'todos');
+                    let delbtnID = btnid.substring(3);
+                    deleteGoal(delbtnID);
+                    //this.renderList(this.goalList, 'goals');
                 }
                 if (e.target.classList.contains('editbtn')) {
                     // get id from button id value and use it to find the item to edit
-                    let btnidsub = btnid.substring(4, btnid.length);
-                    editTodo(btnidsub);
-                    this.renderTodoList(this.todoList, 'todos');
+                    let editbtnID = btnid.substring(4);
+                    editGoal(editbtnID);
+                    //this.renderList(this.goalList, 'goals');
                 }
             });
         });
@@ -313,7 +328,7 @@ export default class Todolist {
                 console.log(`this.sortval: ${this.sortval}`);               
             }
         }
-        this.renderTodoList(this.todoList, 'todos');
+        this.renderList(this.goalList, 'goals');
     }
 
     sortList(list) {      
@@ -344,52 +359,61 @@ export default class Todolist {
 
 /*  END OF CLASS  */
 
-function getTodos(listkey) {
+function getGoals(listkey) {
     return JSON.parse(readFromLS(listkey)) || [];
 }
 
-function saveTodo(cat, todo) {
-    // read current todo list from local storage
+function saveGoal(cat, goal) {
+    console.log('saveGoal() invoked');
+    // read current goal list from local storage
     console.log(`listkey: ${listkey}`)
-    let todoList = getTodos(listkey);
-    // build todo object
-    const newItem = { id: `${Date.now()}`, task: todo, done: false, category: cat };  // prequel for task: todo.length + " " +
-    // add obj to todoList
-    todoList.push(newItem);
+    let goalList = getGoals(listkey);
+    // build goal object
+    const newItem = { 
+        id: `${Date.now()}`, 
+        task: goal, 
+        done: false, 
+        category: cat
+    };  // prequel for task: goal.length + " " +
+    // add obj to goalList
+    goalList.push(newItem);
     // save JSON.stringified list to ls
-    writeToLS(listkey, JSON.stringify(todoList));
+    writeToLS(listkey, JSON.stringify(goalList));
+    //location.reload();
 }
 
-function editTodo(id) {
-    let todoList = getTodos(listkey);
-    let item = todoList.find(el => el.id === id);
+function editGoal(id) {
+    let goalList = getGoals(listkey);
+    let item = goalList.find(el => el.id === id);
     let newCat = prompt("Edit category", item.category);
     let newTask = prompt("Edit task", item.task);
     item.task = newTask;
     item.category = newCat;
-    writeToLS(listkey, JSON.stringify(todoList));
+    writeToLS(listkey, JSON.stringify(goalList));
     location.reload();
 }
 
 function markDone(id) {
-    todoList = getTodos(listkey);
-    todoList.forEach(function(item) {
+    console.log('markDone() invoked');
+    console.log('id: ', id);
+    let goalList = getGoals(listkey);
+    goalList.forEach(function(item) {
         // use == (not ===) because here types are different. One is number and other is string
-        if (`mark${item.id}` == id) {
+        if (`${item.id}` == id) {
           // toggle the value
           item.done = !item.done;
         }
     });
     // save modified JSON.stringified list to ls
-    writeToLS(listkey, JSON.stringify(todoList));
+    writeToLS(listkey, JSON.stringify(goalList));
     location.reload();
 }
 
-function deleteTodo(id) {
+function deleteGoal(id) {
     // console.log(`id: ${id}`)
     // console.log(`listkey: ${listkey}`)
-    todoList = getTodos(listkey);
-    const filtered = todoList.filter(item => item.id != id);
+    let goalList = getGoals(listkey);
+    const filtered = goalList.filter(item => item.id != id);
     // save JSON.stringified list to ls
     writeToLS(listkey, JSON.stringify(filtered));
     location.reload();

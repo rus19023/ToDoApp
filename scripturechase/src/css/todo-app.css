@@ -16,7 +16,7 @@
 
 .yellow {
   background: black;
-  color: hsl(48, 100%, 50%);
+  color: hsl(48deg, 100%, 50%);
   margin: 0;
 }
 
@@ -46,7 +46,7 @@
 
 .medblue {
   background: black;
-  color: hsl(210, 100%, 40%);
+  color: hsl(210deg, 100%, 40%);
   margin: 0;
 }
 
@@ -108,7 +108,7 @@ input[type=checkbox].markbtnX {
   grid-template-areas: "tasks" "sortitems" "filters" "srchbar" "addbar";
 }
 
-z #header1 {
+#header1 {
   grid-area: header1;
 }
 
@@ -132,6 +132,7 @@ z #header1 {
 .listitem {
   grid-area: listitem;
   display: grid;
+  grid-template-columns: 5% 10% 5% 80%;
   grid-template-areas: "markbtn editbtn delbtn task";
 }
 
@@ -223,20 +224,15 @@ p.todo-text.cat {
   grid-area: addbtn;
 }
 
-@media screen and (min-width: 300px) {
-  .listitem {
-    grid-template-columns: 14% 14% 7% 60%;
-  }
-}
 @media screen and (min-width: 700px) {
   body {
     font-size: 16px;
   }
-  .listitem {
-    grid-template-columns: 4% 8% 5% 86%;
-  }
 }
 @media screen and (min-width: 768px) {
+  .listitem {
+    grid-template-columns: 6% 14% 10% 70%;
+  }
   .navbar-collapse {
     justify-content: center;
   }
@@ -261,7 +257,7 @@ body {
   color: white;
   font-size: 20px;
   font-family: "Hubballi", sans-serif;
-  background: linear-gradient(180deg, hsl(210, 100%, 40%) 40%, hsl(69, 9%, 60%) 50%, hsl(48, 100%, 50%) 60%);
+  background: linear-gradient(180deg, hsl(210deg, 100%, 40%) 40%, hsl(69deg, 9%, 60%) 50%, hsl(48deg, 100%, 50%) 60%);
   height: 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -295,19 +291,19 @@ footer {
 }
 
 .bublue {
-  background: hsl(210, 100%, 40%) !important;
+  background: hsl(210deg, 100%, 40%) !important;
 }
 
 .bmedblue {
-  background: hsl(210, 100%, 40%) !important;
+  background: hsl(210deg, 100%, 40%) !important;
 }
 
 .buyellow {
-  background: hsl(48, 100%, 50%) !important;
+  background: hsl(48deg, 100%, 50%) !important;
 }
 
 .byellow {
-  background: hsl(48, 100%, 50%) !important;
+  background: hsl(48deg, 100%, 50%) !important;
 }
 
 .buorange {
@@ -374,7 +370,7 @@ footer {
 
 .showborder {
   border: 2px solid white;
-  border-radius: 4px;
+  border-radius: 20px;
 }
 
 .sharer {
@@ -393,7 +389,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: hsl(48, 100%, 50%);
+  color: hsl(48deg, 100%, 50%);
   font-family: "Hubballi", sans-serif;
 }
 
@@ -416,18 +412,18 @@ h4 {
 h5 {
   font-size: 1rem;
   font-weight: bold;
-  background: hsl(210, 100%, 40%);
+  background: hsl(210deg, 100%, 40%);
 }
 
 h6 {
   font-size: 1.5rem;
   font-weight: bold;
   font-family: "Hubballi", sans-serif;
-  background: hsl(210, 100%, 40%);
+  background: hsl(210deg, 100%, 40%);
 }
 
 figcaption {
-  color: hsl(48, 100%, 50%);
+  color: hsl(48deg, 100%, 50%);
 }
 
 div,
@@ -466,7 +462,7 @@ section {
   grid-template-columns: 1fr 1fr;
   gap: 4vw;
   padding: 2vw;
-  border-radius: 4px;
+  border-radius: 20px;
   margin: 4vw;
   font-weight: bold;
 }
@@ -476,7 +472,7 @@ section {
 }
 
 .title {
-  color: hsl(48, 100%, 50%);
+  color: hsl(48deg, 100%, 50%);
   margin: 0 auto;
   padding: 1vw;
 }
@@ -520,11 +516,11 @@ a:hover {
 
 .inputs {
   color: #3333ff;
-  background: hsl(48, 100%, 50%);
+  background: hsl(48deg, 100%, 50%);
   padding: 0.5rem;
   height: 1.5rem;
   border: 1px solid white;
-  border-radius: 4px;
+  border-radius: 20px;
 }
 
 ::-moz-placeholder {
@@ -571,8 +567,8 @@ a:hover {
 }
 
 .itembtns {
-  border: 2px;
-  border-radius: 15px;
+  margin: auto;
+  font-size: small;
 }
 
 .italic {
@@ -596,15 +592,15 @@ a:hover {
 
 .btns {
   max-height: 1.5rem;
+  margin: auto;
   border: 2px solid white;
-  border-radius: 4px;
+  border-radius: 20px;
 }
 
 .todobtn {
-  color: hsl(48, 100%, 50%);
-  background: hsl(210, 100%, 40%);
+  color: hsl(48deg, 100%, 50%);
+  background: hsl(210deg, 100%, 40%);
   margin: 0 0.5rem;
-  font-size: 1rem;
 }
 .todobtn a {
   text-decoration: none;
@@ -621,19 +617,19 @@ a:hover {
 
 .todo-bordered {
   border: 2px solid white;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
 #addbtn {
-  color: hsl(48, 100%, 50%);
-  background: hsl(210, 100%, 40%);
-  font-size: 1rem;
+  color: hsl(48deg, 100%, 50%);
+  background: hsl(210deg, 100%, 40%);
+  border: 1px solid white;
+  border-radius: 25px;
   width: 35%;
-  margin: 0.25rem;
   margin: 0.25rem;
   max-width: 3rem;
 }
@@ -651,16 +647,10 @@ a:hover {
 }
 
 .todo-text, p.todo-text {
-  width: 100;
-  padding: 0 0.5rem;
   color: white;
   text-align: left;
   font-weight: bold;
   font-size: medium;
-}
-
-.todo-bordered {
-  border: 2px solid hsl(48, 100%, 50%);
 }
 
 div#tasks, div#sortitems, div#filters {
@@ -669,38 +659,6 @@ div#tasks, div#sortitems, div#filters {
 
 .todo-text {
   color: white;
-}
-
-.delbtn {
-  background: black;
-  color: #cc0000;
-  border: none;
-  padding: 0 4vw 0 1vw;
-  font-size: 2rem;
-  font-weight: bolder;
-}
-
-.editbtn, .markbtn {
-  background: black;
-  font-weight: bold;
-  margin: 2px;
-  width: 3rem;
-  border-radius: 4px;
-}
-
-.editbtn {
-  color: #00b3ff;
-  border: 1px solid #00b3ff;
-}
-
-.markbtn {
-  color: #cc00cc;
-  border: 1px solid #cc00cc;
-}
-
-.undone {
-  color: hsl(48, 100%, 50%);
-  border: 1px solid hsl(48, 100%, 50%);
 }
 
 #srchbar {
@@ -741,15 +699,36 @@ p {
   max-height: 10rem;
   margin: 0 auto;
   padding: 0;
-  max-width: 100%;
+  max-width: 90%;
   border: 2px solid white;
 }
+#todocontainer #todos li.listitem .markbtn, #todocontainer #dtodos li.listitem .markbtn {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0.1rem;
+  border-radius: 20px;
+}
 #todocontainer #todos li.listitem .task, #todocontainer #dtodos li.listitem .task {
-  height: 3vh;
   text-align: left;
-  max-width: 100%;
-  padding: 0.5vw;
+  min-width: 10rem;
+  padding: 0;
   margin: 0;
+}
+#todocontainer #todos li.listitem .delbtn, #todocontainer #dtodos li.listitem .delbtn {
+  color: #cc0000;
+  border: 1px solid #cc0000;
+  width: 0.25rem;
+  margin: 0;
+  font-size: 0.5rem;
+  font-weight: bold;
+}
+#todocontainer #todos li.listitem .editbtn, #todocontainer #dtodos li.listitem .editbtn {
+  border: 1px solid #00b3ff;
+  width: 1.5rem;
+  padding: 1rem;
+  color: #00b3ff;
+  font-size: 0.5rem;
+  font-weight: bold;
 }
 #todocontainer #addbar {
   cursor: pointer;
@@ -759,7 +738,7 @@ p {
   height: 2rem;
 }
 #todocontainer #addbar #addinput, #todocontainer #addbar #catinput {
-  background: hsl(48, 100%, 50%);
+  background: hsl(48deg, 100%, 50%);
   margin: 0 0.5rem;
 }
 #todocontainer #listfooter {

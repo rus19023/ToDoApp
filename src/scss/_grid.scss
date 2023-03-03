@@ -29,6 +29,7 @@
     "srchbar"
     "addbar";
 }
+z
 
 #header1 {
     grid-area: header1;
@@ -56,8 +57,7 @@
 .listitem {
     grid-area: listitem;
     display: grid;
-    grid-template-columns: 6% 72% 15% 5%;
-    grid-template-areas: "markbtn task editbtn delbtn";
+    grid-template-areas: "markbtn editbtn delbtn task";
 }
 
 .markbtn {
@@ -150,4 +150,11 @@ p.todo-text.cat {
 
 #addbtn {
     grid-area: addbtn;
+}
+
+@media screen and (min-width: 300px) {   
+
+    .listitem {
+        grid-template-columns: 14% 14% 7% 60%;
+    }
 }

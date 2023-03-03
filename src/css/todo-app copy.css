@@ -123,6 +123,10 @@ input[type=checkbox].markbtnX {
   font-size: 3rem;
 }
 
+.changeMark{
+
+}
+
 body {
   color: white;
   font-size: 16px;

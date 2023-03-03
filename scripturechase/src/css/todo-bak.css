@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(180deg, hsl(241, 100%, 40%) 0%, hsl(69, 9%, 60%) 52%, hsl(61, 100%, 45%) 100%);
+  background: linear-gradient(180deg, hsl(241deg, 100%, 40%) 0%, hsl(69deg, 9%, 60%) 52%, hsl(61deg, 100%, 45%) 100%);
 }
 
 .row {
