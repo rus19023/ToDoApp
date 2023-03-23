@@ -29,7 +29,6 @@
     "srchbar"
     "addbar";
 }
-z
 
 #header1 {
     grid-area: header1;
@@ -38,8 +37,7 @@ z
 #todos, #dtodos {
     grid-area: todos;
     grid-template-areas:
-    "listitem"
-    ;
+    "listitem";
 }
 
 .padit {
@@ -127,24 +125,24 @@ p.todo-text.cat {
     grid-area: addbar;
     grid-template-areas:
     "catinput" 
-    "addinput"
+    "goalinput"
     "addbtn";
 }
 
-#addinput {
-    grid-area: addinput;
+#goalinput {
+    grid-area: goalinput;
 }
 
 #catinput {
     grid-area: catinput;
 }
 
-#catinput, #addinput, #addbtn, #srchbtn, #srchinput, .sharer {
+#catinput, #goalinput, #addbtn, #srchbtn, #srchinput, .sharer {
     height: 1.5rem;
     padding: 0 1vh;
 }
 
-#addinput, #catinput {
+#goalinput, #catinput {
     width: 100%;
 }
 
@@ -152,9 +150,17 @@ p.todo-text.cat {
     grid-area: addbtn;
 }
 
-@media screen and (min-width: 300px) {   
+@media screen and (min-width: 300px) { 
+    
+    .listitem {
+        padding: .5rem;
+        grid-template-columns: 2fr 2fr 1fr 9fr;
+    }
+}
+
+@media screen and (min-width: 600px) { 
 
     .listitem {
-        grid-template-columns: 14% 14% 7% 60%;
+        padding: .5rem;
     }
 }

@@ -1,20 +1,20 @@
 import { readFromLS, writeToLS } from "./ls.js";
-import { qs, createLMNT, setFooter, onTouch } from "./utilities.js";
+import { qs, createLMNT, setFooter, gd, se } from "./utilities.js";
 
 // // make some waves.
-// var ocean = document.getElementById("ocean"),
-//     waveWidth = 10,
-//     waveCount = Math.floor(window.innerWidth/waveWidth),
-//     docFrag = document.createDocumentFragment();
+ var ocean = document.getElementById("ocean"),
+     waveWidth = 10,
+     waveCount = Math.floor(window.innerWidth/waveWidth),
+     docFrag = document.createDocumentFragment();
 
-// for(var i = 0; i < waveCount; i++){
-//   var wave = document.createElement("div");
-//   wave.className += " wave";
-//   docFrag.appendChild(wave);
-//   wave.style.left = i * waveWidth + "px";
-//   wave.style.AnimationDelay = (i/100) + "s";
-// }
-// ocean.appendChild(docFrag);
+ for(var i = 0; i < waveCount; i++){
+   var wave = document.createElement("div");
+   wave.className += " wave";
+   docFrag.appendChild(wave);
+   wave.style.left = i * waveWidth + "px";
+   wave.style.AnimationDelay = (i/100) + "s";
+ }
+ ocean.appendChild(docFrag);
 
 let goalList = [];
 const listkey = 'items';
@@ -22,7 +22,7 @@ var customtasks = [
     "Push changes to github more often, whenever something is working, commit and push it. You never know when something might go wrong...it's better to be safe with a backup than sorry."
 ];
 
-export default class goallist {
+export default class GoalList {
     // a class needs a constructor
     constructor(parentId) {
         this.taskCount = 0;
@@ -42,9 +42,7 @@ export default class goallist {
         this.alphabtn = qs('#alpha');
         this.catbtn = qs('#cat');
         this.timebtn = qs('#time');
-        //this.srchbtn = onTouch(this.srchbtn, () => this.listSearchFiltered());
         this.srchbtn.addEventListener('click', () => { this.listSearchFiltered(); }, false);
-        //this.srchbtn2.addEventListener('click', () => { this.listSearchFiltered(); }, false);
         //this.addbtn.onTouch(), this.addGoal();
         this.addbtn.addEventListener('click', () => { this.addGoal(); }, false);
         this.allbtn.addEventListener('click', () => { this.listAll(); }, false);
@@ -88,7 +86,7 @@ export default class goallist {
         while (this.searchTerm === "" || this.searchTerm.length < 3) {
             this.searchTerm = qs("#srchinput").value;
             let searchError = qs("#searcherror");
-            searchError.innerText = 'Search term is too short, please enter more characters';
+            se('Search term is too short, please enter more characters', searchError);
         }
         this.goalList.forEach((goal) => {
             if ((goal.task.toLowerCase().includes(this.searchTerm.toLowerCase())) || (goal.category.toLowerCase().includes(this.searchTerm.toLowerCase()))) {
@@ -108,16 +106,16 @@ export default class goallist {
         const itemcount = this.goalList.length;
         let t;
         if (itemcount === 1) {
-          t = ' goal ';
+          t = ' GOAL ';
         } else if ((itemcount > 1) || (itemcount === 0)) {
-          t = ' goals ';
+          t = ' GOALS ';
         }
         let goaltext = '';
         let done = this.goalList.filter(item => item.done === true).length;
         let pending = (itemcount - done);
         switch (filter) {
             case ('All'):
-                goaltext = 'Working on it: ' + pending + t + ', Achieved: ' + done + t;
+                goaltext = `${pending} ${t} TO WORK ON, ${done} ${t} ACHIEVED!`;
                 this.allbtn.classList.add('goalbordered');
                 this.srchbtn.classList.remove('goalbordered');
                 this.pendbtn.classList.remove('goalbordered');
@@ -125,7 +123,7 @@ export default class goallist {
                 break;
 
             case ("Working on it"):
-                goaltext = `Working on it: ${pending} ${t}`;
+                goaltext = `${pending} ${t} TO WORK ON`;
                 this.pendbtn.classList.add('goalbordered');
                 this.allbtn.classList.remove('goalbordered');
                 this.pendbtn.classList.remove('goalbordered');
@@ -133,7 +131,7 @@ export default class goallist {
                 break;
 
             case ('Achieved'):
-                goaltext = `Achieved: ${done} ${t}`;
+                goaltext = `${done} ${t} ACHIEVED!`;
                 this.donebtn.classList.add('goalbordered');
                 this.allbtn.classList.remove('goalbordered');
                 this.pendbtn.classList.remove('goalbordered');
@@ -165,7 +163,7 @@ export default class goallist {
                 if (!citem.length > 0) {
                     let cat = 'From custom todos'
                     this.goal_error = 'Item cannot be blank, there is an error in the input file.';
-                    qs("#todo-error").innerText = this.goal_error;
+                    qs("#goal-error").innerText = this.goal_error;
                 } else {
                     // check if task is not already in the list
                     let match = customtasks.filter((citem) => (citem.task === citem));
@@ -181,83 +179,83 @@ export default class goallist {
         }
     }
 
-    chkLength(input) {
-        // grab input from form
-        var getInput = qs(input);
-        var inputValue = getInput.value;
-        if (inputValue.length < 3) {
-            this.showError('Input too short, please enter longer text.');
-            return '';
-        } else {
-            return inputValue;
-        }
-    }
-
-    showError(errorText) {
-        console.log("errorText", errorText);
-        inputValue.innerText = errorText;
-    }
+    // // Gets input from the given element and checks for length of text entered (must be at least 3 characters)
+    // chkLength = (input) => {
+    //     //debugger;
+    //     // grab input from form
+    //     let getInput = qs(input);
+    //     console.log("getInput: ", getInput);
+    //     if (getInput.length > 0) { 
+    //         getInput = getInput.value; 
+    //         console.log("getInput: ", getInput);
+    //     }
+    //     //console.log("getInput: ", getInput);
+    //     // get input name from params minus the '#' to display in error for user
+    //     let inputName = input.substring(1, input.length);
+    //     console.log("inputName: ", inputName);
+    //     if (getInput.length < 3) {
+    //         let errorEl = qs('#goal-error');
+    //         errorEl.innerText = `${inputName} too short, please enter longer text for ${inputName}.`;
+    //         return '';
+    //     } else {
+    //         return getInput;
+    //     }
+    // }
 
     getListHeading(sort, filter) {
-        let title = `My Goals\n ${sort} and ${filter}`;
+        let title = `My Goals\n ${filter} sorted by ${sort}`;
         let titleEl = qs('#header1');
         titleEl.innerText = title;
     }
 
     addGoal() {
-        console.log('addGoal() invoked')
-        const task = this.chkLength('#addinput', '');
-        // grab category input from add task form
-        const category = qs("#catinput").value;
+        // grab category input from add goal form
+        const catText = qs('#catinput');
         // check if category input is blank
-        if (category.length === 0) {
+        if (catText.value.length === 0) {
             // if it's blank, set it to 'General'
-            category = 'General';
-        } else {
-            // not blank, add a task number
-            this.taskCount++;
-            if (this.taskCount < 9) {
-                category;//  += '-0' + this.taskCount.toString();
-            } else {
-                category;//  += '-'+ this.taskCount.toString();          
-            }
-        }
-        // check for task input not blank
-        //if (task.length == 0) { task.push('Custom goal'); }
-            chkLength(task.value);
-            // task is ok, add to list for storage with others
-            console.log("inside addGoal, just before saveGoal");
-            console.log(`task.category: ${task.category}`);
-            console.log(`task.value: ${task.value}`);
-            saveGoal(category, task.value); 
-            qs("#addinput").value = '';
+            catText.value = 'General';
+        } 
+        // else 
+        // {
+        //     // not blank, add a goal number, my preference only
+        //     this.goalCount++;
+        //     if (this.goalCount < 9) {
+        //         catText;//  += '-0' + this.goalCount.toString();
+        //     } else {
+        //         catText;//  += '-'+ this.goalCount.toString();          
+        //     }
+        // }
+    
+        // check for goal input not blank
+        const goal = qs('#goalinput');
+        //if (goal.length == 0) { goal.push('Custom goal'); }
+            // goal is ok, add to list for storage with others
+            saveGoal(catText.value.toUpperCase(), goal.value);
         // display the list on screen
-        console.log('this.goalList'. this.goalList);
+        console.log(`this.goalList: ${this.goalList}`);
         this.renderList(this.goalList, 'goals');
     }
 
-    getDate(id) {
-        return new Date(+id).toLocaleDateString();
-    }
-
     renderList(renderlist, parentElName) {
-        //console.log('renderList() invoked');
+        console.log('renderList() invoked');
         // sort list of tasks
         this.sortList(renderlist);
         // build new display
         const parentEl = qs(`#${parentElName}`);
         parentEl.innerText = '';
         renderlist.forEach((goal) => {
-            // create new goal
+            // create new item line
             // createLMNT(LMNT, type, id, text, class)
-            const item = createLMNT('div', '', goal.id, '', 'goalbordered listitem nodots');
+            const item = createLMNT('div', '', goal.id, '', 'listitem nodots');
             // get date from goal.id
-            const itemtext = createLMNT("p", "", "", `${this.getDate(goal.id)}\n ${goal.category}: ${goal.task}`, "todo-text task");
+            const itemtext = createLMNT("p", "", "", `${gd(goal.id)}\n ${goal.category.toUpperCase()}: ${goal.task}`, "todo-text task");
             // const markbtn = createLMNT("input", "checkbox", `mark${goal.id}`, "", "itembtns markbtn chkbtn"); //  "✕"
 
             const markbtn = createLMNT("button", "button", `mark${goal.id}`, "Done", "itembtns markbtn chkbtn");
             const editbtn = createLMNT("button", "button", `edit${goal.id}`, "Edit", "itembtns editbtn chkbtn");
-            const delbtn = createLMNT("button", "button", `del${goal.id}`, "✕", "itembtns delbtn chkbtn");
+            const delbtn = createLMNT("button", "button", `del${goal.id}`, "✕", "itembtns delbtn chkbtn"); 
+            //"✕"
 
             // Done tasks show as "scratched out or lined out"
             if (goal.done === true) {
@@ -288,6 +286,7 @@ export default class goallist {
         this.itemsLeft(this.filter);
         this.getListHeading(this.sortval, this.filter);
         this.checkBtn();
+        console.log('renderList() end');
     }
 
     checkBtn() {
@@ -301,20 +300,17 @@ export default class goallist {
                     console.log(btnid);
                     let markbtnID = btnid.substring(4);
                     markDone(markbtnID);
-                    //this.renderList(this.goalList, 'goals');
                 }
                 // check if that is a delete-button
                 if (e.target.classList.contains('delbtn')) {
                     // get id from button id value and delete it
                     let delbtnID = btnid.substring(3);
                     deleteGoal(delbtnID);
-                    //this.renderList(this.goalList, 'goals');
                 }
                 if (e.target.classList.contains('editbtn')) {
                     // get id from button id value and use it to find the item to edit
                     let editbtnID = btnid.substring(4);
                     editGoal(editbtnID);
-                    //this.renderList(this.goalList, 'goals');
                 }
             });
         });
@@ -332,22 +328,25 @@ export default class goallist {
     }
 
     sortList(list) {      
-        if (this.sortval === "alpha") {
+        if (this.sortval === "Goal") {               
+            console.log('sortval === alpha invoked');
             list.sort(function(a, b) {
                 if (a.task < b.task) { return -1; }
                 if (a.task > b.task) { return 1; }
                 return 0;
             });
         } 
-        else if (this.sortval === "time") {
+        else if (this.sortval === "Date") {               
+            console.log('sortval === time invoked');
             list.sort(function(a, b) {
                 if (a.id < b.id) { return -1; }
                 if (a.id > b.id) { return 1; }
                 return 0;
             });
         } 
-        else if (this.sortval === "cat") {
-            list.sort(function(a, b) {
+        else if (this.sortval === "Category") {
+            list.sort(function(a, b) {                
+                console.log('sortval === cat invoked');
                 console.log('a.category: ', a.category);
                 if (a.category + a.task < b.category + b.task) { return -1; }
                 if (a.category + a.task > b.category + b.task) { return 1; }
@@ -364,10 +363,12 @@ function getGoals(listkey) {
 }
 
 function saveGoal(cat, goal) {
+
     console.log('saveGoal() invoked');
     // read current goal list from local storage
-    console.log(`listkey: ${listkey}`)
+    console.log(`listkey: ${listkey}`);
     let goalList = getGoals(listkey);
+    console.log(`goalList: ${goalList}`);
     // build goal object
     const newItem = { 
         id: `${Date.now()}`, 
@@ -376,7 +377,13 @@ function saveGoal(cat, goal) {
         category: cat
     };  // prequel for task: goal.length + " " +
     // add obj to goalList
+    console.log(`newItem: ${newItem}`);
+    let goalListLen = goalList.length;
+    console.log(`goalListLen: ${goalListLen}`);
     goalList.push(newItem);
+    goalListLen = goalList.length;
+    console.log(`goalListLen: ${goalListLen}`);
+    console.log(`goalList: ${goalList}`);
     // save JSON.stringified list to ls
     writeToLS(listkey, JSON.stringify(goalList));
     //location.reload();

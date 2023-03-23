@@ -1,8 +1,8 @@
-import TodosController from "./todosController.js";
+import GoalsController from "./GoalsController.js";
 
-const myTodosController = new TodosController("todos");
+const myGoalsController = new GoalsController("goals");
 window.addEventListener("load", () => {
-  myTodosController.showAll();
+  myGoalsController.showAll();
 });
 
 let itemsArray = {

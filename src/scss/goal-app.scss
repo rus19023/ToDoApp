@@ -23,12 +23,9 @@ body {
     border: 2px solid $uYellow;
 }
 
+
 label {
     font-size: medium;
-}
-
-div {
-    margin: .5rem auto;
 }
 
 div.sticky {
@@ -49,6 +46,12 @@ footer {
     font-weight: bold;
     font-size: large;
     color: white;
+}
+
+.hotpink {
+    color: lighten($hotpink, 25%);
+    font-weight: bolder;
+    font-size: larger;
 }
 
 .bublue {
@@ -313,10 +316,6 @@ a:hover {
     height: 1rem;
 }
 
-.itembtns {
-    border: 2px;
-    border-radius: 15px;
-}
 
 .italic {
     font-style: italic;
@@ -339,7 +338,7 @@ a:hover {
 
 .btns {
     max-height: 1.5rem;
-    border: $todoborder;
+    border: $goalborder;
     border-radius: $radius                    
 }
 
@@ -363,7 +362,7 @@ a:hover {
 }
 
 .todo-bordered {
-    border: $todoborder;
+    border: $goalborder;
     border-radius: $radius;
     -webkit-border-radius: $radius;
     -moz-border-radius: $radius;
@@ -376,9 +375,18 @@ a:hover {
     background: $medblue;
     font-size: $font2;
     width: 35%;
-    margin: .25rem;
-    margin: .25rem;
+    margin: 0 .25rem ;
     max-width: 3rem;
+}
+
+#goalinput, #catinput {
+    background: $yellow;
+    margin: 0 .25rem ;
+}
+
+.warning {
+    color: $warning;
+    padding: .5rem;
 }
 
 .white {
@@ -394,8 +402,7 @@ a:hover {
 }
 
 .todo-text, p.todo-text {
-    width: 100;
-    padding: 0 .5rem;
+    width: 100%;
     color: white;
     text-align: left;
     font-weight: bold;
@@ -406,26 +413,21 @@ a:hover {
     border: 2px solid $uYellow;
 }
 
-div#tasks, div#sortitems, div#filters { padding: 0 .5rem; } 
+div#tasks, div#sortitems, div#filters { padding: .5rem; } 
 
 .todo-text {
     color: white;
 }
 
-.delbtn {
-    background: black;
-    color: $redorange;
-    border: none;
-    padding: 0 4vw 0 1vw;
-    font-size: $font4;
-    font-weight: bolder;
-}
-
-.editbtn, .markbtn {
+.itembtns {
+    max-height: 30px;
+    max-width: 15vw;
     background: black;
     font-weight: bold;
-    margin: 2px;
-    width: 3rem;
+    margin: 0 .25rem;
+}
+
+.editbtn, .markbtn, .delbtn {
     border-radius: $radius;
 }
 
@@ -437,6 +439,12 @@ div#tasks, div#sortitems, div#filters { padding: 0 .5rem; }
 .markbtn {    
     color: $hotpink;
     border: 1px solid $hotpink;
+}
+
+.delbtn {  
+    color: $redorange;
+    border: 1px solid $redorange;
+    width: 8vw;
 }
 
 .undone {   
@@ -475,9 +483,9 @@ p { padding: 0;  margin: 4px; }
         & li.listitem {
             max-height: 10rem;
             margin: 0 auto;
-            padding: 0;
+            padding: .25rem;
             max-width: 100%;
-            border: $todoborder;
+            border: $goalborder;
             & .task {
                 height: 3vh;
                 text-align: left;
@@ -493,10 +501,6 @@ p { padding: 0;  margin: 4px; }
         padding: 0;
         margin: 0 auto;
         height: 2rem;
-        & #addinput, #catinput {
-            background: $yellow;
-            margin: 0 .5rem ;
-        }
     }
     & #listfooter {
         max-height: 10rem;

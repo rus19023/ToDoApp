@@ -108,7 +108,7 @@ input[type=checkbox].markbtnX {
   grid-template-areas: "tasks" "sortitems" "filters" "srchbar" "addbar";
 }
 
-z #header1 {
+#header1 {
   grid-area: header1;
 }
 
@@ -199,23 +199,23 @@ p.todo-text.cat {
   margin: auto;
   padding: 0.5vh;
   grid-area: addbar;
-  grid-template-areas: "catinput" "addinput" "addbtn";
+  grid-template-areas: "catinput" "goalinput" "addbtn";
 }
 
-#addinput {
-  grid-area: addinput;
+#goalinput {
+  grid-area: goalinput;
 }
 
 #catinput {
   grid-area: catinput;
 }
 
-#catinput, #addinput, #addbtn, #srchbtn, #srchinput, .sharer {
+#catinput, #goalinput, #addbtn, #srchbtn, #srchinput, .sharer {
   height: 1.5rem;
   padding: 0 1vh;
 }
 
-#addinput, #catinput {
+#goalinput, #catinput {
   width: 100%;
 }
 
@@ -226,7 +226,7 @@ p.todo-text.cat {
 @media screen and (min-width: 300px) {
   .listitem {
     padding: 0.5rem;
-    grid-template-columns: 1fr 1fr 1fr 7fr;
+    grid-template-columns: 2fr 2fr 1fr 9fr;
   }
 }
 @media screen and (min-width: 600px) {
@@ -234,9 +234,19 @@ p.todo-text.cat {
     padding: 0.5rem;
   }
 }
+@media screen and (min-width: 500px) {
+  .itembtns {
+    max-width: 5vw;
+    margin: 0 0.02vw;
+  }
+}
 @media screen and (min-width: 700px) {
   body {
     font-size: 16px;
+  }
+  .itembtns {
+    max-width: 2.5vw;
+    margin: 0 0.2vw;
   }
 }
 @media screen and (min-width: 768px) {
@@ -245,6 +255,10 @@ p.todo-text.cat {
   }
   .color3 {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .itembtns {
+    max-width: 1.25vw;
+    margin: 0 0.1vw;
   }
 }
 @media screen and (min-width: 992px) {
@@ -278,10 +292,6 @@ label {
   font-size: medium;
 }
 
-div {
-  margin: 0.5rem auto;
-}
-
 div.sticky { /* Safari */
   position: sticky;
   top: 0;
@@ -299,6 +309,12 @@ footer {
   font-weight: bold;
   font-size: large;
   color: white;
+}
+
+.hotpink {
+  color: #ff4dff;
+  font-weight: bolder;
+  font-size: larger;
 }
 
 .bublue {
@@ -635,9 +651,18 @@ a:hover {
   background: hsl(210, 100%, 40%);
   font-size: 1rem;
   width: 35%;
-  margin: 0.25rem;
-  margin: 0.25rem;
+  margin: 0 0.25rem;
   max-width: 3rem;
+}
+
+#goalinput, #catinput {
+  background: hsl(48, 100%, 50%);
+  margin: 0 0.25rem;
+}
+
+.warning {
+  color: #ff4d4d;
+  padding: 0.5rem;
 }
 
 .white {
@@ -665,7 +690,7 @@ a:hover {
 }
 
 div#tasks, div#sortitems, div#filters {
-  padding: 0 0.5rem;
+  padding: 0.5rem;
 }
 
 .todo-text {
@@ -673,14 +698,14 @@ div#tasks, div#sortitems, div#filters {
 }
 
 .itembtns {
-  width: 3rem;
-  height: 2rem;
+  max-height: 30px;
+  max-width: 15vw;
   background: black;
   font-weight: bold;
   margin: 0 0.25rem;
 }
 
-.editbtn, .markbtn {
+.editbtn, .markbtn, .delbtn {
   border-radius: 4px;
 }
 
@@ -696,9 +721,8 @@ div#tasks, div#sortitems, div#filters {
 
 .delbtn {
   color: #cc0000;
-  border: none;
-  font-size: 2rem;
-  font-weight: bolder;
+  border: 1px solid #cc0000;
+  width: 8vw;
 }
 
 .undone {
@@ -743,7 +767,7 @@ p {
 #todocontainer #todos li.listitem, #todocontainer #dtodos li.listitem {
   max-height: 10rem;
   margin: 0 auto;
-  padding: 0.5rem;
+  padding: 0.25rem;
   max-width: 100%;
   border: 2px solid white;
 }
@@ -760,10 +784,6 @@ p {
   padding: 0;
   margin: 0 auto;
   height: 2rem;
-}
-#todocontainer #addbar #addinput, #todocontainer #addbar #catinput {
-  background: hsl(48, 100%, 50%);
-  margin: 0 0.5rem;
 }
 #todocontainer #listfooter {
   max-height: 10rem;

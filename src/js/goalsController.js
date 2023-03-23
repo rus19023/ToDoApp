@@ -1,4 +1,4 @@
-import TodosModel from "./todosModel.js";
+import TodosModel from "./goalsModel.js";
 import TodosView from "./todosView.js";
 
 export default class TodosController {

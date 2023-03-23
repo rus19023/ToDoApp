@@ -40,7 +40,7 @@ $headings: $yellow;
 $contrast: $medblue;
 $orangeborder: darken($orange, 20%);
 //$warning: darken($redorange, 50%);
-$warning: $redorange;
+$warning: lighten($redorange, 25%);
 
 $valid: $limegreen;
 
